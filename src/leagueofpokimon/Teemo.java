@@ -36,4 +36,14 @@ public class Teemo extends Starter {
     public int getDanoMaximo() {
         return DANO_MAXIMO;
     }
+
+    @Override
+    public void ataquePrincipal() { //Aranazo
+        pikachu.setVida(pikachu.getVida() - Personajes.starter.getDano());
+    }
+
+    @Override
+    public void ataqueSecundario() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

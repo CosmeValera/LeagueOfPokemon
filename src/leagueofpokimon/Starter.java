@@ -41,4 +41,7 @@ public abstract class Starter implements IValoresMaximos{
     public void setCantidadOro(int cantidadOro) {
         this.cantidadOro = cantidadOro;
     }
+    
+    public abstract void ataquePrincipal(Enemigo enemigo) ;
+    public abstract void ataqueSecundario(Enemigo enemigo) ;
 }
