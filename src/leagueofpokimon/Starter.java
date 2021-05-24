@@ -1,6 +1,6 @@
 package leagueofpokimon;
 
-public abstract class Starter implements IValoresMaximos{
+public abstract class Starter implements IValoresMaximos {
 
     protected int dano;
     protected double vida;
@@ -41,7 +41,16 @@ public abstract class Starter implements IValoresMaximos{
     public void setCantidadOro(int cantidadOro) {
         this.cantidadOro = cantidadOro;
     }
+
+    public abstract void ataquePrincipal(Enemigo enemigo);
+
+    public abstract void ataqueSecundario(Enemigo enemigo);
+
+    public abstract boolean isAtacaDosVeces();
+
+    public abstract boolean isFallaElAtaque();
     
-    public abstract void ataquePrincipal(Enemigo enemigo) ;
-    public abstract void ataqueSecundario(Enemigo enemigo) ;
+    public abstract boolean isPuedeEsquivar();
+    
+    public abstract boolean isPonerseEscudo();
 }

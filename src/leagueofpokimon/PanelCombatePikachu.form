@@ -37,9 +37,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="butHuir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="butAtaque1" min="-2" max="-2" attributes="0"/>
+                      <Component id="butAtaquePrincipal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="butAtaque2" min="-2" max="-2" attributes="0"/>
+                      <Component id="butAtaqueSecundario" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -137,8 +137,8 @@
               </Group>
               <EmptySpace pref="67" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="butAtaque2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butAtaque1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butAtaqueSecundario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butAtaquePrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="butHuir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -275,7 +275,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butHuirActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butAtaque1">
+    <Component class="javax.swing.JButton" name="butAtaquePrincipal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
@@ -283,10 +283,10 @@
         <Property name="text" type="java.lang.String" value="Ara&#xf1;azo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAtaque1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAtaquePrincipalActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butAtaque2">
+    <Component class="javax.swing.JButton" name="butAtaqueSecundario">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
@@ -294,7 +294,7 @@
         <Property name="text" type="java.lang.String" value="Dardo venenoso"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAtaque2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAtaqueSecundarioActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

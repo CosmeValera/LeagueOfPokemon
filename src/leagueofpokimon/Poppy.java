@@ -48,4 +48,39 @@ public class Poppy extends Starter {
         return DANO_MAXIMO;
     }
 
+    @Override
+    public void ataquePrincipal(Enemigo enemigo) { //placaje
+        enemigo.setVida(enemigo.getVida() - dano);
+    }
+
+    @Override
+    public void ataqueSecundario(Enemigo enemigo) { //martillazo
+        enemigo.setVida(enemigo.getVida() - dano/2);
+        
+        int num = (int) (Math.random() * 3 + 1);
+        if (num == 1) {
+            enemigo.setConfundido(true);
+        }
+    }
+
+    @Override
+    public boolean isAtacaDosVeces() {
+        return false;
+    }
+
+    @Override
+    public boolean isFallaElAtaque() {
+        return false;
+    }
+
+    @Override
+    public boolean isPuedeEsquivar() {
+        return false;
+    }
+
+    @Override
+    public boolean isPonerseEscudo() {
+        int num = (int) (Math.random() * 2 + 1);
+        return num == 1;
+    }
 }

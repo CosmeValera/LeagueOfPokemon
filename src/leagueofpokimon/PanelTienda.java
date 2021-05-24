@@ -433,7 +433,7 @@ public class PanelTienda extends javax.swing.JPanel {
         } else if (Personajes.starter instanceof Gnar) {
             labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 2.2)));
         } else if (Personajes.starter instanceof Poppy) {
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 8)));
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 14)));
         }
     }
 

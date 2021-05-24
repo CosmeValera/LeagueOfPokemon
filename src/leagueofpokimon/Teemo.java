@@ -38,12 +38,44 @@ public class Teemo extends Starter {
     }
 
     @Override
-    public void ataquePrincipal() { //Aranazo
-        pikachu.setVida(pikachu.getVida() - Personajes.starter.getDano());
+    public void ataquePrincipal(Enemigo enemigo) { //Aranazo
+        enemigo.setVida(enemigo.getVida() - dano);
     }
 
     @Override
-    public void ataqueSecundario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void ataqueSecundario(Enemigo enemigo) { //Dardo venenoso
+        enemigo.setVida(enemigo.getVida() - dano / 2);
+
+        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Personajes.starter).getDanoVeneno();
+        if (num > 50 && num < 75) { //Envenenado
+            enemigo.setEnvenenado(true);
+            enemigo.setTurnosEnvenenado(3);
+        } else if (num >= 75 && num < 90) { //Cegado
+            enemigo.setCegado(true);
+        } else if (num >= 90) { //Envenenado y cegado
+            enemigo.setEnvenenado(true);
+            enemigo.setTurnosEnvenenado(3);
+            enemigo.setCegado(true);
+        }
+    }
+
+    @Override
+    public boolean isAtacaDosVeces() {
+        return false;
+    }
+
+    @Override
+    public boolean isFallaElAtaque() {
+        return false;
+    }
+
+    @Override
+    public boolean isPuedeEsquivar() {
+        return false;
+    }
+
+    @Override
+    public boolean isPonerseEscudo() {
+        return false;
     }
 }

@@ -1,6 +1,6 @@
 package leagueofpokimon;
 
-public class Enemigo {
+public abstract class Enemigo {
 
     protected double dano;
     protected double vida;
@@ -84,5 +84,9 @@ public class Enemigo {
 
     public void setTurnosEnvenenado(int turnosEnvenenado) {
         this.turnosEnvenenado = turnosEnvenenado;
+    }
+    
+    public String getNombreEnemigo() {
+        return "Enemigo sin nombre";
     }
 }
