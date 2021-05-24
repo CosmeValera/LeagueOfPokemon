@@ -116,6 +116,7 @@ public class GUI extends javax.swing.JFrame {
         this.add(panelSP);
         opcionPorDefecto();
         panelSP.mostrar();
+        System.out.println("Se acaba de abrir la ventana");
     }//GEN-LAST:event_formWindowOpened
 
     private void opcionPorDefecto() {

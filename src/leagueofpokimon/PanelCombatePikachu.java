@@ -37,7 +37,7 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
         } else if (Personajes.starter instanceof Poppy poppy) {
             labFijoValorVariable.setText("Escudo?:");
             labCantidadValorVariable.setText((poppy.isLlevaEscudo()) ? "Sí" : "No");
-            labFijoEfectoDebilitador.setText("Confundido?");
+            labFijoEfectoDebilitador.setText("Confundido?:");
             labEfectoDebilitador.setText("No");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Poppy.png")));
             butAtaque1.setText("Placaje con escudo");
