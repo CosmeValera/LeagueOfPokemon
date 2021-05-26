@@ -1,26 +1,24 @@
-package leagueofpokimon;
+package vista;
 
-import java.awt.HeadlessException;
+import modelo.*;
 import javax.swing.JOptionPane;
 
-public class PanelCombatePikachu extends javax.swing.JPanel {
+public class PanelCombateEnemigo extends javax.swing.JPanel {
 
     public Starter starter;
     public Enemigo enemigo;
 
-    public PanelCombatePikachu() {
+    public PanelCombateEnemigo() {
         initComponents();
     }
 
     public void mostrar() {
         this.starter = Personajes.starter;
-        definirPikachu();
-        labVidaPikachu.setText(String.valueOf((int) enemigo.getVida()));
-        labEfectoDebilitador.setText("No");
+        this.enemigo = Personajes.enemigo;
 
-        labVidaStarter.setText(String.valueOf((int) Personajes.starter.getVida()));
-        labCantidadDano.setText(String.valueOf((int) Personajes.starter.getDano()));
-        labCantidadOro.setText(String.valueOf(Personajes.starter.getCantidadOro()));
+        labVidaStarter.setText(String.valueOf((int) starter.getVida()));
+        labCantidadDano.setText(String.valueOf((int) starter.getDano()));
+        labCantidadOro.setText(String.valueOf(starter.getCantidadOro()));
 
         if (starter instanceof Teemo teemo) {
             labFijoValorVariable.setText("Daño Veneno:");
@@ -30,15 +28,15 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/teemoPequeno.png")));
             butAtaquePrincipal.setText("Arañazo");
             butAtaqueSecundario.setText("Dardo venenoso");
-        } else if (Personajes.starter instanceof Gnar gnar) {
+        } else if (starter instanceof Gnar gnar) {
             labFijoValorVariable.setText("Resistencia:");
             labCantidadValorVariable.setText(String.valueOf((int) gnar.getResistencia()));
             labFijoEfectoDebilitador.setText("");
-            labEfectoDebilitador.setText(""); //TO DO
+            labEfectoDebilitador.setText("");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gnarPeque.png")));
             butAtaquePrincipal.setText("Boomerang");
             butAtaqueSecundario.setText("Salto");
-        } else if (Personajes.starter instanceof Poppy poppy) {
+        } else if (starter instanceof Poppy poppy) {
             labFijoValorVariable.setText("Escudo:");
             labCantidadValorVariable.setText((poppy.isLlevaEscudo()) ? "Sí" : "No");
             labFijoEfectoDebilitador.setText("Confundido:");
@@ -48,49 +46,24 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
             butAtaqueSecundario.setText("Martillazo");
         }
 
+        if (enemigo instanceof Pikachu pikachu) {
+            labCabecera.setText("COMBATE VS PIKACHU");
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pikachu.png")));
+        } else if (enemigo instanceof Electrode electrode) {
+            labCabecera.setText("COMBATE VS ELECTRODE");
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/electrode.png")));
+        } else if (enemigo instanceof HitMonLee hitMonLee) {
+            labCabecera.setText("COMBATE VS HITMONLEE");
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Hitmonlee.png")));
+        } else if (enemigo instanceof Gyarados gyarados) {
+            labCabecera.setText("COMBATE VS GYARADOS");
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Gyarados.png")));
+        }
+
+        labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
+
         this.setVisible(true);
         this.requestFocusInWindow();
-    }
-
-    private void definirPikachu() {
-        int num = (int) (Math.random() * 5 + 1); //1,2,3
-        switch (num) {
-            case 1:
-                this.enemigo = new Pikachu();
-                enemigo.setDano(10);
-                enemigo.setVida(50);
-                enemigo.setRecompensa(100);
-                System.out.println("pikachu 1");
-                break;
-            case 2:
-                this.enemigo = new Pikachu();
-                enemigo.setDano(10);
-                enemigo.setVida(60);
-                enemigo.setRecompensa(120);
-                System.out.println("pikachu 2");
-                break;
-            case 3:
-                this.enemigo = new Pikachu();
-                enemigo.setDano(8);
-                enemigo.setVida(75);
-                enemigo.setRecompensa(110);
-                System.out.println("pikachu 3");
-                break;
-            case 4:
-                this.enemigo = new Pikachu();
-                enemigo.setDano(12);
-                enemigo.setVida(40);
-                enemigo.setRecompensa(115);
-                System.out.println("pikachu 4");
-                break;
-            case 5:
-                this.enemigo = new Pikachu();
-                enemigo.setDano(10);
-                enemigo.setVida(90);
-                enemigo.setRecompensa(160);
-                System.out.println("pikachu 5");
-                break;
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -107,10 +80,10 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
         labFijoEfectoDebilitador = new javax.swing.JLabel();
         labEfectoDebilitador = new javax.swing.JLabel();
         labStarter = new javax.swing.JLabel();
-        labPikachu = new javax.swing.JLabel();
+        labEnemigo = new javax.swing.JLabel();
         labVersus = new javax.swing.JLabel();
         labVidaStarter = new javax.swing.JLabel();
-        labVidaPikachu = new javax.swing.JLabel();
+        labVidaEnemigo = new javax.swing.JLabel();
         butHuir = new javax.swing.JButton();
         butAtaquePrincipal = new javax.swing.JButton();
         butAtaqueSecundario = new javax.swing.JButton();
@@ -150,7 +123,7 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
 
         labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/teemoPequeno.png"))); // NOI18N
 
-        labPikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pikachu.png"))); // NOI18N
+        labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pikachu.png"))); // NOI18N
 
         labVersus.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         labVersus.setForeground(new java.awt.Color(0, 0, 255));
@@ -161,9 +134,9 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
         labVidaStarter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labVidaStarter.setText("100");
 
-        labVidaPikachu.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
-        labVidaPikachu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labVidaPikachu.setText("100");
+        labVidaEnemigo.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        labVidaEnemigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labVidaEnemigo.setText("100");
 
         butHuir.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         butHuir.setText("Huir");
@@ -228,8 +201,8 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
                                 .addComponent(labVersus, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labVidaPikachu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labPikachu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(labVidaEnemigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labEnemigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(labFijoEfectoDebilitador)
@@ -261,17 +234,18 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
                                 .addComponent(labFijoDano)
                                 .addComponent(labCantidadDano)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labFijoValorVariable)
-                            .addComponent(labCantidadValorVariable))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labStarter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labPikachu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labFijoValorVariable)
+                                    .addComponent(labCantidadValorVariable))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labStarter))
+                            .addComponent(labEnemigo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labVidaStarter, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labVidaPikachu, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labVidaEnemigo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(butAtaqueSecundario)
@@ -291,7 +265,6 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
         this.getRootPane().getContentPane().remove(this);
     }//GEN-LAST:event_butHuirActionPerformed
 
-
     private void butAtaquePrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAtaquePrincipalActionPerformed
         starter.ataquePrincipal(enemigo);
         if (starter.isAtacaDosVeces()) {
@@ -300,20 +273,20 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
                     "Boomerang golpeó dos veces",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            Personajes.starter.ataquePrincipal(enemigo);
+            starter.ataquePrincipal(enemigo);
         }
         if (starter.isPonerseEscudo()) {
-            ((Poppy) Personajes.starter).setLlevaEscudo(true);
+            ((Poppy) starter).setLlevaEscudo(true);
             labCantidadValorVariable.setText("Sí");
             JOptionPane.showMessageDialog(
                     this,
                     "Poppy cogió un escudo tras golpear. +"
-                    + ((Poppy) Personajes.starter).getProteccionEscudo() + " escudo",
+                    + ((Poppy) starter).getProteccionEscudo() + " escudo",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
         }
 
-        labVidaPikachu.setText(String.valueOf((int) enemigo.getVida()));
+        labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
         turnoEnemigo();
     }//GEN-LAST:event_butAtaquePrincipalActionPerformed
 
@@ -321,7 +294,7 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
         if (starter.isFallaElAtaque()) {
             JOptionPane.showMessageDialog(
                     this,
-                    "MegaGnar falló la roca",
+                    starter.getNombre() + " falló la roca",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -329,33 +302,33 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
             if (starter instanceof Gnar gnar && gnar.isMonstruo()) {
                 JOptionPane.showMessageDialog(
                         this,
-                        "MegaGnar golpeó con la roca y aturdió a " + enemigo.getNombreEnemigo(),
+                        starter.getNombre() + " golpeó con la roca" + (enemigo.isInmuneACegado() ? " a " : " y aturdió a ") + enemigo.getNombreEnemigo(),
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
-                enemigo.setCegado(true);
+                enemigo.setCegadoSiPosible(true);
             }
         }
 
-        if (starter.isPuedeEsquivar()) {
+        if (starter.isPuedeEsquivar() && !enemigo.isInmuneACegado()) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Gnar esquivó el ataque de " + enemigo.getNombreEnemigo() + " con su salto",
+                    starter.getNombre() + " esquivó el ataque de " + enemigo.getNombreEnemigo() + " con su salto",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setCegado(true);
+            enemigo.setCegadoSiPosible(true);
         }
 
-        labVidaPikachu.setText(String.valueOf((int) enemigo.getVida()));
+        labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
         turnoEnemigo();
     }//GEN-LAST:event_butAtaqueSecundarioActionPerformed
 
     private void eliminarBufosTemporalesStarters() {
-        if (Personajes.starter instanceof Teemo teemo) {
+        if (starter instanceof Teemo teemo) {
             //Vacio
-        } else if (Personajes.starter instanceof Gnar gnar) {
+        } else if (starter instanceof Gnar gnar) {
             gnar.setEsMonstruo(false);
             gnar.setContadorMonstruo(0);
-        } else if (Personajes.starter instanceof Poppy poppy) {
+        } else if (starter instanceof Poppy poppy) {
             poppy.setLlevaEscudo(false);
         }
     }
@@ -383,17 +356,17 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
         isStarterMuerto();
     }
 
-    private void isStarterMuerto() throws HeadlessException {
-        if (Personajes.starter.getVida() <= 0) { //Al morir se pierde todo el oro
-            Personajes.starter.setCantidadOro(0);
-            Personajes.starter.setVida(Personajes.starter.getVidaMaxima() / 2);
-            if (Personajes.starter instanceof Gnar gnar) {
+    private void isStarterMuerto() {
+        if (starter.getVida() <= 0) { //Al morir se pierde todo el oro
+            starter.setCantidadOro(starter.getCantidadOro()/2);
+            starter.setVida(starter.getVidaMaxima() / 2);
+            if (starter instanceof Gnar gnar) {
                 gnar.setEsMonstruo(false);
                 gnar.setContadorMonstruo(0);
             }
             JOptionPane.showMessageDialog(
                     this,
-                    "Has muerto!! Perdiste tu oro",
+                    starter.getNombre() + " ha muerto. Perdió la mitad de oro",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
             this.setVisible(false);
@@ -401,37 +374,65 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
         }
     }
 
-    private void turnoEnemigoSinEfectos() throws HeadlessException {
+    private void turnoEnemigoSinEfectos() {
         double dano = obtenerDanoEnemigo();
-        dano = ajustarDanoAResistencias(dano);
+
+        if (enemigo.isPuedeAutodestruirse()) {
+            dano = starter.ajustarDanoAResistencias(dano) * 2.5;
+            JOptionPane.showMessageDialog(
+                    this,
+                    enemigo.getNombreEnemigo() + " se autodestruyó. Y la explosión causo "
+                    + ((double) (int) (dano * 100)) / 100 + " daño a " + starter.getNombre(),
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+            enemigo.setVida(0);
+            labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
+            starter.setVida(starter.getVida() - dano);
+            labVidaStarter.setText(String.valueOf((int) starter.getVida()));
+            estaEnemigoMuerto();
+            return;
+        }
+
+        if (enemigo.isAtacaDosVeces()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    enemigo.getNombreEnemigo() + " golpeó dos veces",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(dano);
+            dano = dano * 2;
+            System.out.println(dano);
+        }
+
+        dano = starter.ajustarDanoAResistencias(dano);
         JOptionPane.showMessageDialog(
                 this,
-                enemigo.getNombreEnemigo() + " inflingió: " + ((dano != 0) ? ((int) dano + 1) : 0) + " daño.",
+                enemigo.getNombreEnemigo() + " inflingió: " + (int) (dano + 0.9) + " daño.",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-        Personajes.starter.setVida(Personajes.starter.getVida() - dano);
-        labVidaStarter.setText(String.valueOf((int) Personajes.starter.getVida()));
+        starter.setVida(starter.getVida() - dano);
+        labVidaStarter.setText(String.valueOf((int) starter.getVida()));
 
-        gnarPierdeUnTurnoComoMega();
         posibleTransformacionGnar();
+        gnarPierdeUnTurnoComoMega();
         eliminarEscudoPoppy();
     }
 
-    private boolean turnoEnemigoConfundido() throws HeadlessException {
+    private boolean turnoEnemigoConfundido() {
         if (enemigo.isConfundido()) {
             labEfectoDebilitador.setText("Sí");
             double dano = obtenerDanoEnemigo();
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombreEnemigo() + "  esta confundido y se inflingió: " + ((int) dano + 1) + " daño.",
+                    enemigo.getNombreEnemigo() + " está confundido y se inflingió: " + ((int) dano + 1) + " daño.",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setVida(enemigo.getVida() - dano);
-            labVidaPikachu.setText(String.valueOf((int) enemigo.getVida()));
-            gnarPierdeUnTurnoComoMega();
+            labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
             posibleTransformacionGnar();
+            gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
-            enemigo.setConfundido(false);
+            enemigo.setConfundidoSiPosible(false);
             labEfectoDebilitador.setText("No");
             estaEnemigoMuerto();
             return true;
@@ -439,7 +440,7 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
         return false;
     }
 
-    private boolean turnoEnemigoCegado() throws HeadlessException {
+    private boolean turnoEnemigoCegado() {
         if (enemigo.isCegado()) {
             JOptionPane.showMessageDialog(
                     this,
@@ -448,19 +449,19 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
                             : ((starter instanceof Gnar) ? " no atacó." : "")),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setCegado(false);
+            enemigo.setCegadoSiPosible(false);
+            posibleTransformacionGnar();
+            gnarPierdeUnTurnoComoMega();
+            eliminarEscudoPoppy();
             return true;
         }
         return false;
     }
 
-    private boolean turnoEnemigoEnvenenado() throws HeadlessException {
+    private boolean turnoEnemigoEnvenenado() {
         if (enemigo.isEnvenenado()) {
             labEfectoDebilitador.setText("Sí");
             danoVenenoYReducirDuracion();
-            if (estaEnemigoMuerto()) {
-                return true;
-            }
             if (enemigo.getTurnosEnvenenado() == 2) {
                 JOptionPane.showMessageDialog(
                         this,
@@ -469,12 +470,13 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
                         JOptionPane.INFORMATION_MESSAGE);
             }
             turnoEnemigoSinEfectos();
+            isStarterMuerto();
             return true;
         }
         return false;
     }
 
-    private boolean turnoEnemigoCegadoYEnvenenado() throws HeadlessException {
+    private boolean turnoEnemigoCegadoYEnvenenado() {
         if (enemigo.isEnvenenado() && enemigo.isCegado()) {
             danoVenenoYReducirDuracion();
             labEfectoDebilitador.setText("Sí");
@@ -484,7 +486,10 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
                     enemigo.getNombreEnemigo() + " fue envenenado y cegado",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setCegado(false);
+            enemigo.setCegadoSiPosible(false);
+            posibleTransformacionGnar();
+            gnarPierdeUnTurnoComoMega();
+            eliminarEscudoPoppy();
             return true;
         }
         return false;
@@ -492,46 +497,23 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
 
     private void danoVenenoYReducirDuracion() {
         if (enemigo.isEnvenenado()) {
-            enemigo.setVida(enemigo.getVida() - ((Teemo) Personajes.starter).getDanoVeneno());
-            labVidaPikachu.setText(String.valueOf((int) enemigo.getVida()));
+            enemigo.setVida(enemigo.getVida() - ((Teemo) starter).getDanoVeneno());
+            labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
             enemigo.setTurnosEnvenenado(enemigo.getTurnosEnvenenado() - 1);
             if (enemigo.getTurnosEnvenenado() == 0) {
-                enemigo.setEnvenenado(false);
+                enemigo.setEnvenenadoSiPosible(false);
                 labEfectoDebilitador.setText("No");
             }
         }
     }
 
-    private double ajustarDanoAResistencias(double dano) {
-        if (Personajes.starter instanceof Teemo) {
-            return dano;
-        } else if (Personajes.starter instanceof Gnar gnar) {
-            if (!gnar.isMonstruo()) {
-                return dano - dano * gnar.getResistencia() / 100 / 2;
-            }
-            return dano - dano * gnar.getResistencia() / 100;
-        } else if (Personajes.starter instanceof Poppy poppy) {
-            if (!poppy.isLlevaEscudo()) {
-                return dano;
-            } else if (poppy.isLlevaEscudo()) {
-                if (dano <= poppy.getProteccionEscudo()) {
-                    System.out.println("El escudo bloquea todo");
-                    return 0; //El escudo bolquea todo el dano
-                } else {
-                    System.out.println(dano + "-" + poppy.getProteccionEscudo() + "=" + (dano - poppy.getProteccionEscudo()));
-                    return dano - poppy.getProteccionEscudo();
-                }
-            }
-        }
-        return 0;
-    }
-
     private void posibleTransformacionGnar() {
-        if (Personajes.starter instanceof Gnar gnar && !gnar.isMonstruo()) {
+        if (starter instanceof Gnar gnar && !gnar.isMonstruo()) {
             double num = (Math.random() * 100 + gnar.getResistencia() / 10); //23+3%(26) al principio 23+7%(30%) con la resistencia al max
+            System.out.println(num);
             if (num >= 77) {
                 gnar.setEsMonstruo(true);
-                gnar.setContadorMonstruo(3);
+                gnar.setContadorMonstruo(4);
 
                 JOptionPane.showMessageDialog(
                         this,
@@ -546,7 +528,7 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
     }
 
     private void gnarPierdeUnTurnoComoMega() {
-        if (Personajes.starter instanceof Gnar gnar && gnar.isMonstruo()) {
+        if (starter instanceof Gnar gnar && gnar.isMonstruo()) {
             gnar.setContadorMonstruo(gnar.getContadorMonstruo() - 1);
             if (gnar.getContadorMonstruo() <= 0) {
                 gnar.setEsMonstruo(false);
@@ -563,15 +545,15 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
     }
 
     private void eliminarEscudoPoppy() {
-        if (Personajes.starter instanceof Poppy poppy && poppy.isLlevaEscudo()) {
+        if (starter instanceof Poppy poppy && poppy.isLlevaEscudo()) {
             poppy.setLlevaEscudo(false);
             labCantidadValorVariable.setText("No");
         }
     }
 
-    private boolean estaEnemigoMuerto() throws HeadlessException {
+    private boolean estaEnemigoMuerto() {
         if (enemigo.getVida() <= 0) {
-            Personajes.starter.setCantidadOro(Personajes.starter.getCantidadOro() + (int) enemigo.getRecompensa());
+            starter.setCantidadOro(starter.getCantidadOro() + (int) enemigo.getRecompensa());
             eliminarBufosTemporalesStarters();
             JOptionPane.showMessageDialog(this,
                     "Has vencido a " + enemigo.getNombreEnemigo() + " y obtuviste: " + enemigo.getRecompensa(),
@@ -615,14 +597,14 @@ public class PanelCombatePikachu extends javax.swing.JPanel {
     private javax.swing.JLabel labCantidadOro;
     private javax.swing.JLabel labCantidadValorVariable;
     private javax.swing.JLabel labEfectoDebilitador;
+    private javax.swing.JLabel labEnemigo;
     private javax.swing.JLabel labFijoDano;
     private javax.swing.JLabel labFijoEfectoDebilitador;
     private javax.swing.JLabel labFijoOro;
     private javax.swing.JLabel labFijoValorVariable;
-    private javax.swing.JLabel labPikachu;
     private javax.swing.JLabel labStarter;
     private javax.swing.JLabel labVersus;
-    private javax.swing.JLabel labVidaPikachu;
+    private javax.swing.JLabel labVidaEnemigo;
     private javax.swing.JLabel labVidaStarter;
     // End of variables declaration//GEN-END:variables
 

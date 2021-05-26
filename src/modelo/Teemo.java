@@ -1,17 +1,20 @@
-package leagueofpokimon;
+package modelo;
 
 public class Teemo extends Starter {
 
     private int danoVeneno;
 
-    private final int VIDA_MAXIMA = 120;
+    private final int VIDA_MAXIMA = 150;
     private final int DANO_MAXIMO = 60;
-
+    private final int DANO_MINIMO = 10;
+    private final int DANOVENENO_MAXIMO = 20;
+    private final int DANOVENENO_MINIMO = 3;
+    
     public Teemo() {
-        dano = 10;
-        vida = 120;
-        cantidadOro = 0;
-        danoVeneno = 3;
+        dano = DANO_MINIMO;
+        vida = VIDA_MAXIMA;
+        cantidadOro = getCantidadInicialOro();
+        danoVeneno = DANOVENENO_MINIMO;
     }
 
     public Teemo(int dano, double vida, int cantidadOro, int danoVeneno) {
@@ -38,6 +41,23 @@ public class Teemo extends Starter {
     }
 
     @Override
+    public int getDanoMinimo() {
+        return DANO_MINIMO;
+    }
+
+    public int getDanoVenenoMaximo() {
+        return DANOVENENO_MAXIMO;
+    }
+
+    public int getDanoVenenoMinimo() {
+        return DANOVENENO_MINIMO;
+    }
+
+    @Override
+    public String getNombre(){
+        return "Teemo";
+    }
+    @Override
     public void ataquePrincipal(Enemigo enemigo) { //Aranazo
         enemigo.setVida(enemigo.getVida() - dano);
     }
@@ -47,15 +67,17 @@ public class Teemo extends Starter {
         enemigo.setVida(enemigo.getVida() - dano / 2);
 
         int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Personajes.starter).getDanoVeneno();
-        if (num > 50 && num < 75) { //Envenenado
-            enemigo.setEnvenenado(true);
-            enemigo.setTurnosEnvenenado(3);
-        } else if (num >= 75 && num < 90) { //Cegado
-            enemigo.setCegado(true);
+        if (num > 40 && num < 70) { //Envenenado
+            enemigo.setEnvenenadoSiPosible(true);
+        } else if (num >= 70 && num < 90) { //Cegado
+            if (!enemigo.isInmuneACegado()) {
+                enemigo.setCegadoSiPosible(true);
+            }
         } else if (num >= 90) { //Envenenado y cegado
-            enemigo.setEnvenenado(true);
-            enemigo.setTurnosEnvenenado(3);
-            enemigo.setCegado(true);
+            enemigo.setEnvenenadoSiPosible(true);
+            if (!enemigo.isInmuneACegado()) {
+                enemigo.setCegadoSiPosible(true);
+            }
         }
     }
 
@@ -77,5 +99,10 @@ public class Teemo extends Starter {
     @Override
     public boolean isPonerseEscudo() {
         return false;
+    }
+
+    @Override
+    public double ajustarDanoAResistencias(double dano) {
+        return dano;
     }
 }

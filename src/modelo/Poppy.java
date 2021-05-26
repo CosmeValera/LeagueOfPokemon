@@ -1,4 +1,4 @@
-package leagueofpokimon;
+package modelo;
 
 public class Poppy extends Starter {
 
@@ -7,13 +7,17 @@ public class Poppy extends Starter {
 
     private final int VIDA_MAXIMA = 200;
     private final int DANO_MAXIMO = 40;
+    private final int DANO_MINIMO = 6;
+    private final int PROTECCIONESCUDO_MAXIMA = 20;
+    private final int PROTECCIONESCUDO_MINIMA = 3;
+    private final boolean POPPY_VALORESCUDOPORDEFECTO = false;
 
     public Poppy() {
-        dano = 6;
-        vida = 200;
-        cantidadOro = 0;
-        llevaEscudo = false;
-        proteccionEscudo = 3;
+        dano = DANO_MINIMO;
+        vida = VIDA_MAXIMA;
+        cantidadOro = getCantidadInicialOro();
+        proteccionEscudo = PROTECCIONESCUDO_MINIMA;
+        llevaEscudo = POPPY_VALORESCUDOPORDEFECTO;
     }
 
     public Poppy(int dano, double vida, int cantidadOro, boolean llevaEscudo, int proteccionEscudo) {
@@ -49,17 +53,30 @@ public class Poppy extends Starter {
     }
 
     @Override
+    public int getDanoMinimo() {
+        return DANO_MINIMO;
+    }
+
+    public int getProteccionEscudoMaxima() {
+        return PROTECCIONESCUDO_MAXIMA;
+    }
+
+    @Override
+    public String getNombre(){
+        return "Poppy";
+    }
+    @Override
     public void ataquePrincipal(Enemigo enemigo) { //placaje
         enemigo.setVida(enemigo.getVida() - dano);
     }
 
     @Override
     public void ataqueSecundario(Enemigo enemigo) { //martillazo
-        enemigo.setVida(enemigo.getVida() - dano/2);
-        
-        int num = (int) (Math.random() * 3 + 1);
-        if (num == 1) {
-            enemigo.setConfundido(true);
+        enemigo.setVida(enemigo.getVida() - dano / 2);
+
+        int num = (int) (Math.random() * 100 + 1 + proteccionEscudo * 2);
+        if (num > 67) {
+            enemigo.setConfundidoSiPosible(true);
         }
     }
 
@@ -82,5 +99,19 @@ public class Poppy extends Starter {
     public boolean isPonerseEscudo() {
         int num = (int) (Math.random() * 2 + 1);
         return num == 1;
+    }
+
+    @Override
+    public double ajustarDanoAResistencias(double dano) {
+        if (isLlevaEscudo()) {
+            if (dano <= proteccionEscudo) {
+                System.out.println("El escudo bloquea todo");
+                return 0; //El escudo bolquea todo el dano
+            } else {
+                System.out.println(dano + "-" + proteccionEscudo + "=" + (dano - proteccionEscudo));
+                return dano - proteccionEscudo;
+            }
+        }
+        return dano;
     }
 }

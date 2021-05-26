@@ -1,7 +1,4 @@
-package leagueofpokimon;
-
-import java.awt.HeadlessException;
-import javax.swing.JOptionPane;
+package modelo;
 
 public class Gnar extends Starter {
 
@@ -9,16 +6,21 @@ public class Gnar extends Starter {
     private boolean esMonstruo;
     private int contadorMonstruo;
 
-    private final int VIDA_MAXIMA = 150;
+    private final int VIDA_MAXIMA = 170;
     private final int DANO_MAXIMO = 50;
+    private final int DANO_MINIMO = 6;
+    private final int RESISTENCIA_MAXIMA = 70;
+    private final int RESISTENCIA_MINIMA = 35;
+    private final boolean GNAR_ESMONSTRUOPORDEFECTO = false;
+    private final int GNAR_CONTADORMONSTRUOPORDEFECTO = 0;
 
     public Gnar() {
-        dano = 6;
-        vida = 150;
-        cantidadOro = 0;
-        esMonstruo = false;
-        resistencia = 35;
-        contadorMonstruo = 0;
+        dano = DANO_MINIMO;
+        vida = VIDA_MAXIMA;
+        cantidadOro = getCantidadInicialOro();
+        esMonstruo = GNAR_ESMONSTRUOPORDEFECTO;
+        resistencia = RESISTENCIA_MINIMA;
+        contadorMonstruo = GNAR_CONTADORMONSTRUOPORDEFECTO;
     }
 
     public Gnar(int dano, double vida, int cantidadOro, boolean esMonstruo, int resistencia) {
@@ -37,15 +39,10 @@ public class Gnar extends Starter {
     }
 
     private void boomerangMiniGnar(Enemigo enemigo) {
-        int num = (int) (Math.random() * 2 + 1);
-        if (num == 1) {
-            enemigo.setVida(enemigo.getVida() - dano);
-        } else {
-            enemigo.setVida(enemigo.getVida() - dano * 2);
-        }
+        enemigo.setVida(enemigo.getVida() - dano);
     }
 
-    private void golpeMegaGnar(Enemigo enemigo) throws HeadlessException {
+    private void golpeMegaGnar(Enemigo enemigo) {
         enemigo.setVida(enemigo.getVida() - dano * 2);
     }
 
@@ -61,10 +58,11 @@ public class Gnar extends Starter {
     private void salto(Enemigo enemigo) {
         enemigo.setVida(enemigo.getVida() - dano);
     }
+
     private void lanzarRoca(Enemigo enemigo) {
         enemigo.setVida(enemigo.getVida() - dano * 2);
     }
-    
+
     public boolean isMonstruo() {
         return esMonstruo;
     }
@@ -100,6 +98,23 @@ public class Gnar extends Starter {
     }
 
     @Override
+    public int getDanoMinimo() {
+        return DANO_MINIMO;
+    }
+
+    public int getResistenciaMaxima() {
+        return RESISTENCIA_MAXIMA;
+    }
+
+    @Override
+    public String getNombre() {
+        if (!esMonstruo) {
+            return "Gnar";
+        }
+        return "MegaGnar";
+    }
+
+    @Override
     public boolean isAtacaDosVeces() {
         if (!esMonstruo) {
             int num = (int) (Math.random() * 2 + 1);
@@ -116,9 +131,9 @@ public class Gnar extends Starter {
         }
         return false;
     }
-    
+
     @Override
-    public boolean isPuedeEsquivar(){
+    public boolean isPuedeEsquivar() {
         if (!esMonstruo) {
             int num = (int) (Math.random() * 2 + 1);
             return num == 1;
@@ -129,5 +144,13 @@ public class Gnar extends Starter {
     @Override
     public boolean isPonerseEscudo() {
         return false;
+    }
+
+    @Override
+    public double ajustarDanoAResistencias(double dano) {
+        if (!isMonstruo()) {
+            return dano - dano * resistencia / 100 / 2;
+        }
+        return dano - dano * resistencia / 100;
     }
 }
