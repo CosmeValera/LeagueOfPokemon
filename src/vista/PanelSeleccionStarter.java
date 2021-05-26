@@ -1,4 +1,6 @@
-package leagueofpokimon;
+package vista;
+
+import modelo.Personajes;
 
 public class PanelSeleccionStarter extends javax.swing.JPanel {
 
@@ -7,7 +9,6 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
     }
 
     void mostrar() {
-
         this.setVisible(true);
         this.requestFocusInWindow();
     }
@@ -158,35 +159,19 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butTeemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTeemoActionPerformed
-        Personajes.starter = new Teemo();
-        Personajes.starter.setVida(120);
-        Personajes.starter.setCantidadOro(300);
-        Personajes.starter.setDano(10);
-        ((Teemo) Personajes.starter).setDanoVeneno(3);
+        Personajes.starter = Personajes.teemo;
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
     }//GEN-LAST:event_butTeemoActionPerformed
 
     private void butGnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGnarActionPerformed
-        Personajes.starter = new Gnar();
-        System.out.println("gnar");
-        Personajes.starter.setVida(150);
-        Personajes.starter.setCantidadOro(300);
-        Personajes.starter.setDano(6);
-        ((Gnar) Personajes.starter).setEsMonstruo(false);
-        ((Gnar) Personajes.starter).setResistencia(35);
+        Personajes.starter = Personajes.gnar;
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
     }//GEN-LAST:event_butGnarActionPerformed
 
     private void butPoppyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPoppyActionPerformed
-        Personajes.starter = new Poppy();
-        System.out.println("poppy");
-        Personajes.starter.setVida(200);
-        Personajes.starter.setCantidadOro(300);
-        Personajes.starter.setDano(6);
-        ((Poppy) Personajes.starter).setLlevaEscudo(false);
-        ((Poppy) Personajes.starter).setProteccionEscudo(3);
+        Personajes.starter = Personajes.poppy;
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
     }//GEN-LAST:event_butPoppyActionPerformed

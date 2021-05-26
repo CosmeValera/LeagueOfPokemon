@@ -1,6 +1,6 @@
-package leagueofpokimon;
+package modelo;
 
-public class Enemigo {
+public abstract class Enemigo {
 
     protected double dano;
     protected double vida;
@@ -58,24 +58,33 @@ public class Enemigo {
         return cegado;
     }
 
-    public void setCegado(boolean cegado) {
-        this.cegado = cegado;
+    public void setCegadoSiPosible(boolean cegado) {
+        if (!isInmuneACegado()) {
+            this.cegado = cegado;
+        }
     }
 
     public boolean isConfundido() {
         return confundido;
     }
 
-    public void setConfundido(boolean confundido) {
-        this.confundido = confundido;
+    public void setConfundidoSiPosible(boolean confundido) {
+        if (!isInmuneAConfusion()) {
+            this.confundido = confundido;
+        }
     }
 
     public boolean isEnvenenado() {
         return envenenado;
     }
 
-    public void setEnvenenado(boolean envenenado) {
-        this.envenenado = envenenado;
+    public void setEnvenenadoSiPosible(boolean envenenado) {
+        if (!isInmuneAVeneno()) {
+            this.envenenado = envenenado;
+            if (envenenado) {
+                setTurnosEnvenenado(3);
+            }
+        }
     }
 
     public int getTurnosEnvenenado() {
@@ -85,4 +94,18 @@ public class Enemigo {
     public void setTurnosEnvenenado(int turnosEnvenenado) {
         this.turnosEnvenenado = turnosEnvenenado;
     }
+
+    public String getNombreEnemigo() {
+        return "Enemigo sin nombre";
+    }
+
+    public abstract boolean isAtacaDosVeces();
+
+    public abstract boolean isInmuneACegado();
+
+    public abstract boolean isInmuneAVeneno();
+
+    public abstract boolean isInmuneAConfusion();
+
+    public abstract boolean isPuedeAutodestruirse();
 }

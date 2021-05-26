@@ -1,4 +1,6 @@
-package leagueofpokimon;
+package vista;
+
+import modelo.*;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -12,11 +14,14 @@ public class GUI extends javax.swing.JFrame {
 
         barraMenu = new javax.swing.JMenuBar();
         menuCombate = new javax.swing.JMenu();
-        menuCombate_metapod = new javax.swing.JMenuItem();
         menuCombate_pikachu = new javax.swing.JMenuItem();
+        menuCombate_electrode = new javax.swing.JMenuItem();
+        menuCombate_hitMonLee = new javax.swing.JMenuItem();
         menuCombate_gyarados = new javax.swing.JMenuItem();
-        menuTienda = new javax.swing.JMenu();
+        menuGestion = new javax.swing.JMenu();
         menuTienda_Tienda = new javax.swing.JMenuItem();
+        menuTienda_Informacion = new javax.swing.JMenuItem();
+        menuTienda_Cambiar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -33,15 +38,6 @@ public class GUI extends javax.swing.JFrame {
         menuCombate.setText("Combate");
         menuCombate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        menuCombate_metapod.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        menuCombate_metapod.setText("Metapod");
-        menuCombate_metapod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuCombate_ActionPerformed(evt);
-            }
-        });
-        menuCombate.add(menuCombate_metapod);
-
         menuCombate_pikachu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCombate_pikachu.setText("Pikachu");
         menuCombate_pikachu.addActionListener(new java.awt.event.ActionListener() {
@@ -50,6 +46,24 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         menuCombate.add(menuCombate_pikachu);
+
+        menuCombate_electrode.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menuCombate_electrode.setText("Electrode");
+        menuCombate_electrode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCombate_ActionPerformed(evt);
+            }
+        });
+        menuCombate.add(menuCombate_electrode);
+
+        menuCombate_hitMonLee.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menuCombate_hitMonLee.setText("HitMonLee");
+        menuCombate_hitMonLee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCombate_ActionPerformed(evt);
+            }
+        });
+        menuCombate.add(menuCombate_hitMonLee);
 
         menuCombate_gyarados.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCombate_gyarados.setText("Gyarados");
@@ -62,8 +76,8 @@ public class GUI extends javax.swing.JFrame {
 
         barraMenu.add(menuCombate);
 
-        menuTienda.setText("Tienda");
-        menuTienda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menuGestion.setText("Gestión");
+        menuGestion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         menuTienda_Tienda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuTienda_Tienda.setText("Tienda");
@@ -72,9 +86,27 @@ public class GUI extends javax.swing.JFrame {
                 menuTienda_ActionPerformed(evt);
             }
         });
-        menuTienda.add(menuTienda_Tienda);
+        menuGestion.add(menuTienda_Tienda);
 
-        barraMenu.add(menuTienda);
+        menuTienda_Informacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menuTienda_Informacion.setText("Información");
+        menuTienda_Informacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTienda_ActionPerformed(evt);
+            }
+        });
+        menuGestion.add(menuTienda_Informacion);
+
+        menuTienda_Cambiar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menuTienda_Cambiar.setText("Cambiar");
+        menuTienda_Cambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTienda_ActionPerformed(evt);
+            }
+        });
+        menuGestion.add(menuTienda_Cambiar);
+
+        barraMenu.add(menuGestion);
 
         setJMenuBar(barraMenu);
 
@@ -95,45 +127,63 @@ public class GUI extends javax.swing.JFrame {
     private void menuCombate_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCombate_ActionPerformed
         this.getContentPane().removeAll();
 
-        if (evt.getSource() == menuCombate_metapod) {
-            System.out.println("metapod");
-        } else if (evt.getSource() == menuCombate_pikachu) {
-            PanelCombatePikachu panelCP = new PanelCombatePikachu();
-            panelCP.setSize(800, 560);
-            panelCP.setVisible(false);
-            this.add(panelCP);
-            panelCP.mostrar();
+        if (evt.getSource() == menuCombate_pikachu) {
+            Pikachu.definirPikachuEnemigo();
+        } else if (evt.getSource() == menuCombate_electrode) {
+            Electrode.definirElectrodeEnemigo();
+        } else if (evt.getSource() == menuCombate_hitMonLee) {
+            HitMonLee.definirHitMonLeeEnemigo();
         } else if (evt.getSource() == menuCombate_gyarados) {
-            System.out.println("gyrados");
+            Gyarados.definirGyaradosEnemigo();
         }
 
+        PanelCombateEnemigo panelCE = new PanelCombateEnemigo();
+        panelCE.setSize(800, 560);
+        panelCE.setVisible(false);
+        this.add(panelCE);
+        panelCE.mostrar();
     }//GEN-LAST:event_menuCombate_ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        inicializarStarters();
         PanelSeleccionStarter panelSP = new PanelSeleccionStarter();
         panelSP.setSize(800, 560);
         panelSP.setVisible(false);
         this.add(panelSP);
-        opcionPorDefecto();
         panelSP.mostrar();
         System.out.println("Se acaba de abrir la ventana");
     }//GEN-LAST:event_formWindowOpened
 
-    private void opcionPorDefecto() {
-        Personajes.starter = new Teemo();
-        Personajes.starter.setVida(120);
-        Personajes.starter.setCantidadOro(300);
-        Personajes.starter.setDano(10);
-        ((Teemo) Personajes.starter).setDanoVeneno(3);
+    private void inicializarStarters() {
+        Personajes.teemo = new Teemo();
+        Personajes.gnar = new Gnar();
+        Personajes.poppy = new Poppy();
+
+        Personajes.starter = Personajes.teemo; //Por defecto
     }
 
     private void menuTienda_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTienda_ActionPerformed
         this.getContentPane().removeAll();
-        PanelTienda panelT = new PanelTienda();
-        panelT.setSize(800, 560);
-        panelT.setVisible(false);
-        this.add(panelT);
-        panelT.mostrar();
+
+        if (evt.getSource() == menuTienda_Tienda) {
+            PanelTienda panelT = new PanelTienda();
+            panelT.setSize(800, 560);
+            panelT.setVisible(false);
+            this.add(panelT);
+            panelT.mostrar();
+        } else if (evt.getSource() == menuTienda_Informacion) {
+            PanelInformacion panelI = new PanelInformacion();
+            panelI.setSize(800, 560);
+            panelI.setVisible(false);
+            this.add(panelI);
+            panelI.mostrar();
+        } else if (evt.getSource() == menuTienda_Cambiar) {
+            PanelSeleccionStarter panelSS = new PanelSeleccionStarter();
+            panelSS.setSize(800, 560);
+            panelSS.setVisible(false);
+            this.add(panelSS);
+            panelSS.mostrar();
+        }
     }//GEN-LAST:event_menuTienda_ActionPerformed
 
     public static void main(String args[]) {
@@ -172,10 +222,13 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenu menuCombate;
+    private javax.swing.JMenuItem menuCombate_electrode;
     private javax.swing.JMenuItem menuCombate_gyarados;
-    private javax.swing.JMenuItem menuCombate_metapod;
+    private javax.swing.JMenuItem menuCombate_hitMonLee;
     private javax.swing.JMenuItem menuCombate_pikachu;
-    private javax.swing.JMenu menuTienda;
+    private javax.swing.JMenu menuGestion;
+    private javax.swing.JMenuItem menuTienda_Cambiar;
+    private javax.swing.JMenuItem menuTienda_Informacion;
     private javax.swing.JMenuItem menuTienda_Tienda;
     // End of variables declaration//GEN-END:variables
 }

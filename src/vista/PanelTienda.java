@@ -1,28 +1,32 @@
-package leagueofpokimon;
+package vista;
 
+import modelo.*;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 public class PanelTienda extends javax.swing.JPanel {
+
+    public Starter starter;
 
     public PanelTienda() {
         initComponents();
     }
 
     public void mostrar() {
+        starter = Personajes.starter;
         refrescarOro();
         refrescarDano();
         refrescarVida();
         refrescarValorVariable();
-        if (Personajes.starter instanceof Teemo) {
+        if (starter instanceof Teemo) {
             labFijoValorVariable.setText("Daño Veneno:");
             labAportacionItemVariable.setText("+1 Daño Veneno");
             butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posinos.png")));
-        } else if (Personajes.starter instanceof Gnar) {
+        } else if (starter instanceof Gnar) {
             labFijoValorVariable.setText("Resistencia:");
             labAportacionItemVariable.setText("+2 Resistencia");
             butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/armor.png")));
-        } else if (Personajes.starter instanceof Poppy) {
+        } else if (starter instanceof Poppy) {
             labFijoValorVariable.setText("Escudo:");
             labAportacionItemVariable.setText("+1 Dureza Escudo");
             butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shield.png")));
@@ -108,7 +112,7 @@ public class PanelTienda extends javax.swing.JPanel {
         labMonedaPocion.setText(" ");
 
         labVidaPocion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labVidaPocion.setText("+50 Vida");
+        labVidaPocion.setText("+75 Vida");
 
         butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posinos.png"))); // NOI18N
         butItemVariable.addActionListener(new java.awt.event.ActionListener() {
@@ -245,7 +249,7 @@ public class PanelTienda extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butPocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPocionActionPerformed
-        if (Personajes.starter.getCantidadOro() < Integer.parseInt(labPrecioPocion.getText())) {
+        if (starter.getCantidadOro() < Integer.parseInt(labPrecioPocion.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -253,7 +257,7 @@ public class PanelTienda extends javax.swing.JPanel {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (Personajes.starter.getVida() >= Personajes.starter.getVidaMaxima()) {
+        if (starter.getVida() >= starter.getVidaMaxima()) {
             JOptionPane.showMessageDialog(
                     this,
                     "Tienes la vida al maximo",
@@ -261,27 +265,27 @@ public class PanelTienda extends javax.swing.JPanel {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Personajes.starter.setCantidadOro(Personajes.starter.getCantidadOro() - Integer.parseInt(labPrecioPocion.getText()));
-        Personajes.starter.setVida(Personajes.starter.getVida() + 50);
-        if (Personajes.starter.getVida() > Personajes.starter.getVidaMaxima()) {
-            Personajes.starter.setVida(Personajes.starter.getVidaMaxima());
+        starter.setCantidadOro(starter.getCantidadOro() - Integer.parseInt(labPrecioPocion.getText()));
+        starter.setVida(starter.getVida() + 75);
+        if (starter.getVida() > starter.getVidaMaxima()) {
+            starter.setVida(starter.getVidaMaxima());
         }
         refrescarOro();
         refrescarVida();
         JOptionPane.showMessageDialog(
                 this,
-                "Compraste una pocion (+50 de vida)",
+                "Compraste una pocion (+75 de vida)",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_butPocionActionPerformed
 
     private void butItemVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butItemVariableActionPerformed
         //CASO TEEMO
-        if (Personajes.starter instanceof Teemo teemo) {
+        if (starter instanceof Teemo teemo) {
             butItemVariableTeemo(teemo);
-        } else if (Personajes.starter instanceof Gnar gnar) {
+        } else if (starter instanceof Gnar gnar) {
             butItemVariableGnar(gnar);
-        } else if (Personajes.starter instanceof Poppy poppy) {
+        } else if (starter instanceof Poppy poppy) {
             butItemVariablePoppy(poppy);
         }
     }//GEN-LAST:event_butItemVariableActionPerformed
@@ -295,10 +299,10 @@ public class PanelTienda extends javax.swing.JPanel {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        if (teemo.getDanoVeneno() >= 20) {
+        if (teemo.getDanoVeneno() >= teemo.getDanoVenenoMaximo()) {
             JOptionPane.showMessageDialog(
                     this,
-                    "20 es el maximo de daño por veneno",
+                    teemo.getDanoVenenoMaximo() + " es el maximo de daño por veneno",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
             return true;
@@ -325,10 +329,10 @@ public class PanelTienda extends javax.swing.JPanel {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        if (gnar.getResistencia() >= 70) {
+        if (gnar.getResistencia() >= gnar.getResistenciaMaxima()) {
             JOptionPane.showMessageDialog(
                     this,
-                    "70 es el maximo de resistencia",
+                    gnar.getResistenciaMaxima() + " es el maximo de resistencia",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
             return true;
@@ -355,10 +359,10 @@ public class PanelTienda extends javax.swing.JPanel {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        if (poppy.getProteccionEscudo() >= 20) {
+        if (poppy.getProteccionEscudo() >= poppy.getProteccionEscudoMaxima()) {
             JOptionPane.showMessageDialog(
                     this,
-                    "20 es el maximo de dureza de escudo",
+                    poppy.getProteccionEscudoMaxima() + " es el maximo de dureza de escudo",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
             return true;
@@ -377,7 +381,7 @@ public class PanelTienda extends javax.swing.JPanel {
     }
 
     private void butEspadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEspadaActionPerformed
-        if (Personajes.starter.getCantidadOro() < Integer.parseInt(labPrecioEspada.getText())) {
+        if (starter.getCantidadOro() < Integer.parseInt(labPrecioEspada.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -385,16 +389,16 @@ public class PanelTienda extends javax.swing.JPanel {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (Personajes.starter.getDano() >= Personajes.starter.getDanoMaximo()) {
+        if (starter.getDano() >= starter.getDanoMaximo()) {
             JOptionPane.showMessageDialog(
                     this,
-                    Personajes.starter.getDanoMaximo() + " es el maximo de daño por golpe",
+                    starter.getDanoMaximo() + " es el maximo de daño por golpe",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Personajes.starter.setCantidadOro(Personajes.starter.getCantidadOro() - Integer.parseInt(labPrecioEspada.getText()));
-        Personajes.starter.setDano(Personajes.starter.getDano() + 2);
+        starter.setCantidadOro(starter.getCantidadOro() - Integer.parseInt(labPrecioEspada.getText()));
+        starter.setDano(starter.getDano() + 2);
         refrescarOro();
         refrescarDano();
         JOptionPane.showMessageDialog(
@@ -406,34 +410,34 @@ public class PanelTienda extends javax.swing.JPanel {
     }//GEN-LAST:event_butEspadaActionPerformed
 
     private void refrescarVida() {
-        labCantidadVida.setText(String.valueOf(((double) ((int) Personajes.starter.getVida() * 10)) / 10));
+        labCantidadVida.setText(String.valueOf(((double) ((int) starter.getVida() * 10)) / 10));
     }
 
     private void refrescarValorVariable() {
-        if (Personajes.starter instanceof Teemo teemo) {
+        if (starter instanceof Teemo teemo) {
             labCantidadValorVariable.setText(String.valueOf(((double) (teemo.getDanoVeneno()) * 10) / 10));
-        } else if (Personajes.starter instanceof Gnar gnar) {
+        } else if (starter instanceof Gnar gnar) {
             labCantidadValorVariable.setText(String.valueOf(((double) (gnar.getResistencia()) * 10) / 10));
-        } else if (Personajes.starter instanceof Poppy poppy) {
+        } else if (starter instanceof Poppy poppy) {
             labCantidadValorVariable.setText(String.valueOf(((double) (poppy.getProteccionEscudo()) * 10) / 10));
         }
     }
 
     private void refrescarDano() {
-        labCantidadDano.setText(String.valueOf(((double) (Personajes.starter.getDano() * 10)) / 10));
+        labCantidadDano.setText(String.valueOf(((double) (starter.getDano() * 10)) / 10));
     }
 
     private void refrescarOro() {
-        labCantidadOro.setText(String.valueOf(Personajes.starter.getCantidadOro()));
+        labCantidadOro.setText(String.valueOf(starter.getCantidadOro()));
     }
 
     private void refrescarPrecioValorVariable() throws NumberFormatException {
-        if (Personajes.starter instanceof Teemo) {
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 30)));
-        } else if (Personajes.starter instanceof Gnar) {
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 2.2)));
-        } else if (Personajes.starter instanceof Poppy) {
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 8)));
+        if (starter instanceof Teemo) {
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 25)));
+        } else if (starter instanceof Gnar) {
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 3.5)));
+        } else if (starter instanceof Poppy) {
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 25)));
         }
     }
 
