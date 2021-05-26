@@ -188,6 +188,9 @@
           <Image iconType="3" name="/icons/info/infoPikachu.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEnemigo_ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butElectrode">
       <Properties>
@@ -195,6 +198,9 @@
           <Image iconType="3" name="/icons/info/infoElectrode.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEnemigo_ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butHitMonLee">
       <Properties>
@@ -202,6 +208,9 @@
           <Image iconType="3" name="/icons/info/infoHitmonlee.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEnemigo_ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butGyarados">
       <Properties>
@@ -209,6 +218,9 @@
           <Image iconType="3" name="/icons/info/infoGyarados.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEnemigo_ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labItem">
       <Properties>

@@ -2,99 +2,111 @@ package vista;
 
 import javax.swing.JPanel;
 
-public class PanelInfoEspecifica extends JPanel {
+public class PanelInfoEspecificaStarters extends JPanel {
 
     JPanel panelCaller;
 
-    public PanelInfoEspecifica() {
+    public PanelInfoEspecificaStarters() {
         initComponents();
     }
 
     void mostrar(JPanel panelInformacion, String nombreStarter) {
         panelCaller = panelInformacion;
 
-        if (nombreStarter.equals("teemo")) { //TEEMO
-            labCabecera.setText("Teemo");
-            labAtaquePrincipal.setText("Arañazo");
-            txtAtaquePrincipal.setText("Inflinge 150% daño de ataque de Teemo.\n"
-                    + "Tiene una ligera probabilidad de que Teemo\n"
-                    + "se camufle, esta probabilidad escala por\n"
-                    + "daño veneno.");
-            labAtaqueSecundario.setText("Dardo Venenoso");
-            txtAtaqueSecundario.setText("Inflinge 100% daño de ataque de Teemo.\n"
-                    + "Tiene probabilidad de cegar, envenenar o\n"
-                    + "de provocar ambas, la probabilidad de hacer\n"
-                    + "ambas escala por daño veneno.");
-            labItem.setText("Veneno ->");
-            butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoPoison.png"))); // NOI18N
-            labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/teemoEspecifico.png"))); // NOI18N
-            txtDescripcion.setText("Sin inmutarse siquiera por los obstá-\n"
-                    + "culos más amenazantes, Teemo\n"
-                    + "explora el mundo con su cerbatana.");
-
-        } else if (nombreStarter.equals("poppy")) { //POPPY
-            labCabecera.setText("Poppy");
-            labAtaquePrincipal.setText("Placaje con escudo");
-            txtAtaquePrincipal.setText("Inflinge 100% daño de ataque de Poppy.\n"
-                    + "Hay un 50% de probabilidad de que Poppy\n"
-                    + "se ponga un escudo, este le garantiza una\n"
-                    + "protección extra durante un turno.");
-            labAtaqueSecundario.setText("Martillazo");
-            txtAtaqueSecundario.setText("Inflinge 50% daño de ataque de Poppy.\n"
-                    + "Otorga además la probabilidad de confundir\n"
-                    + "al enemigo, este probabilidad es de 33% al\n"
-                    + "principio y escala en función de la dureza\n"
-                    + "de escudo.");
-            labItem.setText("Escudo ->");
-            butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoShield.png"))); // NOI18N
-            labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/poppyEspecifico.png"))); // NOI18N
-            txtDescripcion.setText("Esta yordle tan obstinada porta el\n"
-                    + "legendario martillo de Orlon, que la\n"
-                    + "dobla en tamaño, y con el que hace\n"
-                    + "retroceder a los enemigos del reino\n"
-                    + "con cada golpe giratorio.");
-
-        } else if (nombreStarter.equals("gnarMini")) { //MINIGNAR
-            labCabecera.setText("Gnar");
-            labAtaquePrincipal.setText("Boomerang");
-            txtAtaquePrincipal.setText("Inflinge 100% de daño de ataque de Gnar.\n"
-                    + "Existe la posibilidad de que el boomerang\n"
-                    + "golpeé otra vez a la vuelta.");
-            labAtaqueSecundario.setText("Salto");
-            txtAtaqueSecundario.setText("Inflinge 100% de daño de ataque de Gnar.\n"
-                    + "Existe la posibilidad de esquivar con un salto\n"
-                    + "el ataque del enemigo.");
-            labItem.setText("Resistencia ->");
-            butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoArmor.png"))); // NOI18N
-            labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/gnarMiniEspecifico.png"))); // NOI18N
-            txtDescripcion.setText("Gnar es un yordle primitivo cuyas\n"
-                    + "payasadas lúdicas pueden estallar\n"
-                    + "en la ira de un niño pequeño en un\n"
-                    + "instante, transformándolo en una\n"
-                    + "bestia enorme de destrucción.");
-
-        } else if (nombreStarter.equals("gnarMega")) { //MEGAGNAR
-            labCabecera.setText("MegaGnar");
-            labAtaquePrincipal.setText("Golpe");
-            txtAtaquePrincipal.setText("Inflinge 200% daño de ataque de MegaGnar.");
-            labAtaqueSecundario.setText("Lanzar Roca");
-            txtAtaqueSecundario.setText("La roca puede ser fallada.\n"
-                    + "Si no falla inflinge 200% daño de ataque\n"
-                    + "de MegaGnar y aturdé al enemigo.");
-            labItem.setText("Resistencia ->");
-            butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoArmor.png"))); // NOI18N
-            labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/gnarMegaEspecifico.png"))); // NOI18N
-            txtDescripcion.setText("Encantado con el peligro, con su\n"
-                    + "forma de MegaGnar arroja todo lo\n"
-                    + "que puede a sus enemigos, ya sea\n"
-                    + "una enorme roca o un edificio\n"
-                    + "cercano.");
-
-        }
+        infoEspecificaStarters(nombreStarter);
 
         this.setVisible(true);
         this.requestFocusInWindow();
     }
+
+    private void infoEspecificaStarters(String nombreStarter) {
+        switch (nombreStarter) {
+            case "teemo":
+                //TEEMO
+                labCabecera.setText("Teemo");
+                labAtaquePrincipal.setText("Arañazo");
+                txtAtaquePrincipal.setText("Inflinge 150% daño de ataque de Teemo.\n"
+                        + "Tiene una ligera probabilidad de que Teemo\n"
+                        + "se camufle, esta probabilidad escala por\n"
+                        + "daño veneno.");
+                labAtaqueSecundario.setText("Dardo Venenoso");
+                txtAtaqueSecundario.setText("Inflinge 100% daño de ataque de Teemo.\n"
+                        + "Tiene probabilidad de cegar, envenenar o\n"
+                        + "de provocar ambas, la probabilidad de hacer\n"
+                        + "ambas escala por daño veneno.");
+                labItem.setText("Veneno ->");
+                butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoPoison.png"))); // NOI18N
+                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/teemoEspecifico.png"))); // NOI18N
+                txtDescripcion.setText("Sin inmutarse siquiera por los obstá-\n"
+                        + "culos más amenazantes, Teemo\n"
+                        + "explora el mundo con su cerbatana.");
+                break;
+            case "poppy":
+                //POPPY
+                labCabecera.setText("Poppy");
+                labAtaquePrincipal.setText("Placaje con escudo");
+                txtAtaquePrincipal.setText("Inflinge 100% daño de ataque de Poppy.\n"
+                        + "Hay un 50% de probabilidad de que Poppy\n"
+                        + "se ponga un escudo, este le garantiza una\n"
+                        + "protección extra durante un turno.");
+                labAtaqueSecundario.setText("Martillazo");
+                txtAtaqueSecundario.setText("Inflinge 50% daño de ataque de Poppy.\n"
+                        + "Otorga además la probabilidad de confundir\n"
+                        + "al enemigo, este probabilidad es de 33% al\n"
+                        + "principio y escala en función de la dureza\n"
+                        + "de escudo.");
+                labItem.setText("Escudo ->");
+                butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoShield.png"))); // NOI18N
+                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/poppyEspecifico.png"))); // NOI18N
+                txtDescripcion.setText("Esta yordle tan obstinada porta el\n"
+                        + "legendario martillo de Orlon, que la\n"
+                        + "dobla en tamaño, y con el que hace\n"
+                        + "retroceder a los enemigos del reino\n"
+                        + "con cada golpe giratorio.");
+                break;
+            case "gnarMini":
+                //MINIGNAR
+                labCabecera.setText("Gnar");
+                labAtaquePrincipal.setText("Boomerang");
+                txtAtaquePrincipal.setText("Inflinge 100% de daño de ataque de Gnar.\n"
+                        + "Existe la posibilidad de que el boomerang\n"
+                        + "golpeé otra vez a la vuelta.");
+                labAtaqueSecundario.setText("Salto");
+                txtAtaqueSecundario.setText("Inflinge 100% de daño de ataque de Gnar.\n"
+                        + "Existe la posibilidad de esquivar con un salto\n"
+                        + "el ataque del enemigo.");
+                labItem.setText("Resistencia ->");
+                butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoArmor.png"))); // NOI18N
+                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/gnarMiniEspecifico.png"))); // NOI18N
+                txtDescripcion.setText("Gnar es un yordle primitivo cuyas\n"
+                        + "payasadas lúdicas pueden estallar\n"
+                        + "en la ira de un niño pequeño en un\n"
+                        + "instante, transformándolo en una\n"
+                        + "bestia enorme de destrucción.");
+                break;
+            case "gnarMega":
+                //MEGAGNAR
+                labCabecera.setText("MegaGnar");
+                labAtaquePrincipal.setText("Golpe");
+                txtAtaquePrincipal.setText("Inflinge 200% daño de ataque de MegaGnar.");
+                labAtaqueSecundario.setText("Lanzar Roca");
+                txtAtaqueSecundario.setText("La roca puede ser fallada.\n"
+                        + "Si no falla inflinge 200% daño de ataque\n"
+                        + "de MegaGnar y aturdé al enemigo.");
+                labItem.setText("Resistencia ->");
+                butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoArmor.png"))); // NOI18N
+                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/gnarMegaEspecifico.png"))); // NOI18N
+                txtDescripcion.setText("Encantado con el peligro, con su\n"
+                        + "forma de MegaGnar arroja todo lo\n"
+                        + "que puede a sus enemigos, ya sea\n"
+                        + "una enorme roca o un edificio\n"
+                        + "cercano.");
+                break;
+            default:
+                break;
+        }
+    }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -217,9 +229,7 @@ public class PanelInfoEspecifica extends JPanel {
                                 .addComponent(butVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labItem)
-                                        .addGap(48, 48, 48))
+                                    .addComponent(labItem)
                                     .addComponent(butItem, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()

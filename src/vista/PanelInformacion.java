@@ -81,12 +81,32 @@ public class PanelInformacion extends javax.swing.JPanel {
         labEnemigos.setText("Enemigos");
 
         butPikachu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoPikachu.png"))); // NOI18N
+        butPikachu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butEnemigo_ActionPerformed(evt);
+            }
+        });
 
         butElectrode.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoElectrode.png"))); // NOI18N
+        butElectrode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butEnemigo_ActionPerformed(evt);
+            }
+        });
 
         butHitMonLee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoHitmonlee.png"))); // NOI18N
+        butHitMonLee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butEnemigo_ActionPerformed(evt);
+            }
+        });
 
         butGyarados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoGyarados.png"))); // NOI18N
+        butGyarados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butEnemigo_ActionPerformed(evt);
+            }
+        });
 
         labItem.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -181,22 +201,41 @@ public class PanelInformacion extends javax.swing.JPanel {
     private void butStarter_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarter_ActionPerformed
 
         this.setVisible(false);
-        PanelInfoEspecifica panelIE = new PanelInfoEspecifica();
-        panelIE.setSize(800, 560);
-        panelIE.setVisible(false);
-        this.getRootPane().getContentPane().add(panelIE);
+        PanelInfoEspecificaStarters panelIES = new PanelInfoEspecificaStarters();
+        panelIES.setSize(800, 560);
+        panelIES.setVisible(false);
+        this.getRootPane().getContentPane().add(panelIES);
 
         if (evt.getSource() == butTeemo) {
-            panelIE.mostrar(this, "teemo");
+            panelIES.mostrar(this, "teemo");
         } else if (evt.getSource() == butPoppy) {
-            panelIE.mostrar(this, "poppy");
+            panelIES.mostrar(this, "poppy");
         } else if (evt.getSource() == butGnarMini) {
-            panelIE.mostrar(this, "gnarMini");
+            panelIES.mostrar(this, "gnarMini");
         } else if (evt.getSource() == butGnarMega) {
-            panelIE.mostrar(this, "gnarMega");
+            panelIES.mostrar(this, "gnarMega");
         }
 
     }//GEN-LAST:event_butStarter_ActionPerformed
+
+    private void butEnemigo_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEnemigo_ActionPerformed
+        
+        this.setVisible(false);
+        PanelInfoEspecificaEnemigos panelIEE = new PanelInfoEspecificaEnemigos();
+        panelIEE.setSize(800, 560);
+        panelIEE.setVisible(false);
+        this.getRootPane().getContentPane().add(panelIEE);
+
+        if (evt.getSource() == butPikachu) {
+            panelIEE.mostrar(this, "pikachu");
+        } else if (evt.getSource() == butElectrode) {
+            panelIEE.mostrar(this, "electrode");
+        } else if (evt.getSource() == butHitMonLee) {
+            panelIEE.mostrar(this, "hitMonLee");
+        } else if (evt.getSource() == butGyarados) {
+            panelIEE.mostrar(this, "gyarados");
+        }
+    }//GEN-LAST:event_butEnemigo_ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
