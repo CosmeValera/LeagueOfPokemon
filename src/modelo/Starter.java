@@ -6,8 +6,7 @@ public abstract class Starter {
     protected double vida;
     protected int cantidadOro;
 
-//    private final int cantidadInicialOro = 300;
-    private final int cantidadInicialOro = 100000;
+    private final int cantidadInicialOro = 300;
 
     public Starter() {
         dano = 0;
