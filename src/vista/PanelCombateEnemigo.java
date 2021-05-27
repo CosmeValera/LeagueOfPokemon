@@ -341,7 +341,13 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         if (turnoEnemigoCegadoYEnvenenado()) {
             return;
         }
+        if (turnoEnemigoVisionTorpeYEnvenenado()) {
+            return;
+        }
         if (turnoEnemigoCegado()) {
+            return;
+        }
+        if (turnoEnemigoVisionTorpe()) {
             return;
         }
         if (turnoEnemigoConfundido()) {
@@ -352,13 +358,11 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         }
 
         turnoEnemigoSinEfectos();
-
-        isStarterMuerto();
     }
 
     private void isStarterMuerto() {
         if (starter.getVida() <= 0) { //Al morir se pierde todo el oro
-            starter.setCantidadOro(starter.getCantidadOro()/2);
+            starter.setCantidadOro(starter.getCantidadOro() / 2);
             starter.setVida(starter.getVidaMaxima() / 2);
             if (starter instanceof Gnar gnar) {
                 gnar.setEsMonstruo(false);
@@ -390,6 +394,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             starter.setVida(starter.getVida() - dano);
             labVidaStarter.setText(String.valueOf((int) starter.getVida()));
             estaEnemigoMuerto();
+            isStarterMuerto();
             return;
         }
 
@@ -416,6 +421,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         posibleTransformacionGnar();
         gnarPierdeUnTurnoComoMega();
         eliminarEscudoPoppy();
+        isStarterMuerto();
     }
 
     private boolean turnoEnemigoConfundido() {
@@ -458,6 +464,22 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         return false;
     }
 
+    private boolean turnoEnemigoVisionTorpe() {
+        if (enemigo.isVisionTorpe()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    starter.getNombre() + " se camufló y " + enemigo.getNombreEnemigo() + " no le encontró",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+            enemigo.setVisionTorpeSiPosible(false);
+            posibleTransformacionGnar();
+            gnarPierdeUnTurnoComoMega();
+            eliminarEscudoPoppy();
+            return true;
+        }
+        return false;
+    }
+
     private boolean turnoEnemigoEnvenenado() {
         if (enemigo.isEnvenenado()) {
             labEfectoDebilitador.setText("Sí");
@@ -469,7 +491,9 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
             }
-            turnoEnemigoSinEfectos();
+            if (!estaEnemigoMuerto()) {
+                turnoEnemigoSinEfectos();
+            }
             isStarterMuerto();
             return true;
         }
@@ -478,15 +502,36 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
 
     private boolean turnoEnemigoCegadoYEnvenenado() {
         if (enemigo.isEnvenenado() && enemigo.isCegado()) {
-            danoVenenoYReducirDuracion();
             labEfectoDebilitador.setText("Sí");
-            estaEnemigoMuerto();
+            danoVenenoYReducirDuracion();
             JOptionPane.showMessageDialog(
                     this,
                     enemigo.getNombreEnemigo() + " fue envenenado y cegado",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setCegadoSiPosible(false);
+            estaEnemigoMuerto();
+            posibleTransformacionGnar();
+            gnarPierdeUnTurnoComoMega();
+            eliminarEscudoPoppy();
+            return true;
+        }
+        return false;
+    }
+
+    private boolean turnoEnemigoVisionTorpeYEnvenenado() {
+        if (enemigo.isEnvenenado() && enemigo.isVisionTorpe()) {
+            labEfectoDebilitador.setText("Sí");
+            danoVenenoYReducirDuracion();
+            JOptionPane.showMessageDialog(
+                    this,
+                    enemigo.getNombreEnemigo()
+                    + ((enemigo.getTurnosEnvenenado() == 2) ? " fue envenenado " : "") + "y no ve a "
+                    + starter.getNombre() + " porque se camufló",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+            enemigo.setVisionTorpeSiPosible(false);
+            estaEnemigoMuerto();
             posibleTransformacionGnar();
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
@@ -500,7 +545,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             enemigo.setVida(enemigo.getVida() - ((Teemo) starter).getDanoVeneno());
             labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
             enemigo.setTurnosEnvenenado(enemigo.getTurnosEnvenenado() - 1);
-            if (enemigo.getTurnosEnvenenado() == 0) {
+            if (enemigo.getTurnosEnvenenado() <= 0) {
                 enemigo.setEnvenenadoSiPosible(false);
                 labEfectoDebilitador.setText("No");
             }

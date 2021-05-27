@@ -4,12 +4,12 @@ public class Teemo extends Starter {
 
     private int danoVeneno;
 
-    private final int VIDA_MAXIMA = 150;
+    private final int VIDA_MAXIMA = 120;
     private final int DANO_MAXIMO = 60;
     private final int DANO_MINIMO = 10;
     private final int DANOVENENO_MAXIMO = 20;
     private final int DANOVENENO_MINIMO = 3;
-    
+
     public Teemo() {
         dano = DANO_MINIMO;
         vida = VIDA_MAXIMA;
@@ -54,30 +54,32 @@ public class Teemo extends Starter {
     }
 
     @Override
-    public String getNombre(){
+    public String getNombre() {
         return "Teemo";
     }
+
     @Override
     public void ataquePrincipal(Enemigo enemigo) { //Aranazo
-        enemigo.setVida(enemigo.getVida() - dano);
+        enemigo.setVida(enemigo.getVida() - dano * 1.5);
+        
+        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Personajes.starter).getDanoVeneno();
+        if (num > 70) { //Camuflarse
+            enemigo.setVisionTorpeSiPosible(true);
+        }
     }
 
     @Override
     public void ataqueSecundario(Enemigo enemigo) { //Dardo venenoso
-        enemigo.setVida(enemigo.getVida() - dano / 2);
+        enemigo.setVida(enemigo.getVida() - dano);
 
         int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Personajes.starter).getDanoVeneno();
         if (num > 40 && num < 70) { //Envenenado
             enemigo.setEnvenenadoSiPosible(true);
         } else if (num >= 70 && num < 90) { //Cegado
-            if (!enemigo.isInmuneACegado()) {
-                enemigo.setCegadoSiPosible(true);
-            }
+            enemigo.setCegadoSiPosible(true);
         } else if (num >= 90) { //Envenenado y cegado
             enemigo.setEnvenenadoSiPosible(true);
-            if (!enemigo.isInmuneACegado()) {
-                enemigo.setCegadoSiPosible(true);
-            }
+            enemigo.setCegadoSiPosible(true);
         }
     }
 

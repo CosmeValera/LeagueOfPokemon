@@ -6,6 +6,7 @@ public abstract class Enemigo {
     protected double vida;
     protected double recompensa;
     protected boolean cegado; //Un turno sin poder golpear
+    protected boolean visionTorpe; //Un turno sin poder golpear
     protected boolean confundido; //Un turno que se golpea a si mismo
     protected boolean envenenado; //Dano cada turno
     protected int turnosEnvenenado;
@@ -64,6 +65,16 @@ public abstract class Enemigo {
         }
     }
 
+    public boolean isVisionTorpe() {
+        return visionTorpe;
+    }
+
+    public void setVisionTorpeSiPosible(boolean visionTorpe) {
+        if (!isInmuneAVisionTorpe()) {
+            this.visionTorpe = visionTorpe;
+        }
+    }
+
     public boolean isConfundido() {
         return confundido;
     }
@@ -102,6 +113,8 @@ public abstract class Enemigo {
     public abstract boolean isAtacaDosVeces();
 
     public abstract boolean isInmuneACegado();
+    
+    public abstract boolean isInmuneAVisionTorpe();
 
     public abstract boolean isInmuneAVeneno();
 

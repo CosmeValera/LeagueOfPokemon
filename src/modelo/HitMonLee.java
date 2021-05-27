@@ -65,6 +65,12 @@ public class HitMonLee extends Enemigo {
     }
 
     @Override
+    public boolean isInmuneAVisionTorpe() {
+        return false;
+    }
+
+
+    @Override
     public boolean isInmuneAVeneno() {
         return false;
     }

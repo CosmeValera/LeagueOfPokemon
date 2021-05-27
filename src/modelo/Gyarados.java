@@ -64,12 +64,17 @@ public class Gyarados extends Enemigo {
     }
 
     @Override
+    public boolean isInmuneAVisionTorpe() {
+        return true;
+    }
+
+    @Override
     public boolean isInmuneAVeneno() {
         return false;
     }
 
     @Override
     public boolean isInmuneAConfusion() {
-        return false;
+        return true;
     }
 }

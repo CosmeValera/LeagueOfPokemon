@@ -1,6 +1,7 @@
 package vista;
 
 import javax.swing.JPanel;
+import modelo.Personajes;
 
 public class PanelInfoEspecificaEnemigos extends JPanel {
 
@@ -29,9 +30,11 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
                         + "color marrón que cubren su espalda y en una\n"
                         + "pequeña parte de su cola.");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/pikachuEspecifico.png"))); // NOI18N
-                labHabilidad.setVisible(false);
-                scrollHabilidad.setVisible(false);
-                txtHabilidad.setText("");
+                txtHabilidad.setText("Pikachu destaca en su capacidad de controlar\n"
+                        + "su mente para enfocarse en la pelea y dar\n"
+                        + "todo de si para intentar ganar el combate,\n"
+                        + "gracias a esto es inmune a todo tipo de\n"
+                        + "venenos.");
                 break;
             case "electrode": //electroede
                 labCabecera.setText("Electrode");
@@ -66,11 +69,13 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
                         + "volador, uno de los más temibles y pode-\n"
                         + "rosos, ya qu es capaz de crear cascadas\n"
                         + "de la nada así como retumbar la tierra con\n"
-                        + "terremotos");
+                        + "terremotos.");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/gyaradosEspecifico.png"))); // NOI18N
-                labHabilidad.setVisible(false);
-                scrollHabilidad.setVisible(false);
-                txtHabilidad.setText("");
+                txtHabilidad.setText("Gyarados además de controlar el mar y la\n"
+                        + "tierra, fue dotado por el dios Arceus con\n"
+                        + "una visión absoluta que le permite ver a\n"
+                        + "cualquiera por mucho que se camufle, además\n"
+                        + "también es inmune a la confusión.");
                 break;
         }
     }

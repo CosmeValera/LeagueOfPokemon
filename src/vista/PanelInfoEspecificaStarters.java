@@ -1,10 +1,12 @@
 package vista;
 
 import javax.swing.JPanel;
+import modelo.Personajes;
 
 public class PanelInfoEspecificaStarters extends JPanel {
 
-    ICallBack panelCaller;
+    JPanel panelCaller;
+    ICallBack IPanelCaller;
     String nombreStarter;
 
     public PanelInfoEspecificaStarters() {
@@ -12,8 +14,9 @@ public class PanelInfoEspecificaStarters extends JPanel {
     }
 
     void mostrar(ICallBack panelInformacion, String nombreStarter) {
-        panelCaller = panelInformacion;
+        IPanelCaller = panelInformacion;
         this.nombreStarter = nombreStarter;
+        panelCaller = Personajes.panelCaller;
 
         infoEspecificaStarters(nombreStarter);
 
@@ -250,20 +253,22 @@ public class PanelInfoEspecificaStarters extends JPanel {
     private void butVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butVolverActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        panelCaller.hacerVisible(true);
+        panelCaller = Personajes.panelCaller;
+        IPanelCaller.hacerVisible(true);
+        panelCaller.setVisible(true);
     }//GEN-LAST:event_butVolverActionPerformed
 
     private void butItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butItemActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
         if (nombreStarter.equals("teemo")) {
-            panelCaller.clickPoison();
+            IPanelCaller.clickPoison();
         } else if (nombreStarter.equals("poppy")) {
-            panelCaller.clickShield();
+            IPanelCaller.clickShield();
         } else if (nombreStarter.equals("gnarMini")) {
-            panelCaller.clickArmor();
+            IPanelCaller.clickArmor();
         } else if (nombreStarter.equals("gnarMega")) {
-            panelCaller.clickArmor();
+            IPanelCaller.clickArmor();
         }
     }//GEN-LAST:event_butItemActionPerformed
 

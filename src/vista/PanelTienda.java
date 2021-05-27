@@ -454,6 +454,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         PanelInformacion panelI = new PanelInformacion();
         this.add(panelI);
         panelI.clickPotion();
+        Personajes.panelCaller = this;
         this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
     }//GEN-LAST:event_butInfoPocionActionPerformed
 
@@ -467,6 +468,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         } else if (starter instanceof Gnar) {
             panelI.clickArmor();
         }
+        Personajes.panelCaller = this;
         this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
     }//GEN-LAST:event_butInfoItemVariableActionPerformed
 
@@ -474,6 +476,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         PanelInformacion panelI = new PanelInformacion();
         this.add(panelI);
         panelI.clickSword();
+        Personajes.panelCaller = this;
         this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
     }//GEN-LAST:event_butInfoEspadaActionPerformed
 

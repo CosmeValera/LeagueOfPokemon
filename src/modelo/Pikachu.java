@@ -64,8 +64,13 @@ public class Pikachu extends Enemigo {
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isInmuneAVisionTorpe() {
         return false;
+    }
+
+    @Override
+    public boolean isInmuneAVeneno() {
+        return true;
     }
 
     @Override

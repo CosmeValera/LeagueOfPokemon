@@ -1,10 +1,12 @@
 package vista;
 
 import javax.swing.JPanel;
+import modelo.Personajes;
 
 public class PanelInfoEspecificaItems extends JPanel {
 
-    ICallBack panelCaller;
+    JPanel panelCaller;
+    ICallBack IPanelCaller;
     String nombreItem;
 
     public PanelInfoEspecificaItems() {
@@ -12,16 +14,17 @@ public class PanelInfoEspecificaItems extends JPanel {
     }
 
     void mostrar(ICallBack panelInformacion, String nombreItem) {
-        panelCaller = panelInformacion;
         this.nombreItem = nombreItem;
+        IPanelCaller = panelInformacion;
+        panelCaller = Personajes.panelCaller;
 
-        infoEspecificaEnemigos(nombreItem);
+        infoEspecificaItems(nombreItem);
 
         this.setVisible(true);
         this.requestFocusInWindow();
     }
 
-    private void infoEspecificaEnemigos(String nombreItem) {
+    private void infoEspecificaItems(String nombreItem) {
         switch (nombreItem) {
             case "potion": //Potion
                 labCabecera.setText("Poción");
@@ -193,18 +196,20 @@ public class PanelInfoEspecificaItems extends JPanel {
     private void butVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butVolverActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        panelCaller.hacerVisible(true);
+        panelCaller = Personajes.panelCaller;
+        IPanelCaller.hacerVisible(true);
+        panelCaller.setVisible(true);
     }//GEN-LAST:event_butVolverActionPerformed
 
     private void butStarterUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarterUnoActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
         if (nombreItem.equals("poison")) {
-            panelCaller.clickTeemo();
+            IPanelCaller.clickTeemo();
         } else if (nombreItem.equals("shield")) {
-            panelCaller.clickPoppy();
+            IPanelCaller.clickPoppy();
         } else if (nombreItem.equals("armor")) {
-            panelCaller.clickGnarMini();
+            IPanelCaller.clickGnarMini();
         }
     }//GEN-LAST:event_butStarterUnoActionPerformed
 
@@ -212,7 +217,7 @@ public class PanelInfoEspecificaItems extends JPanel {
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
         if (nombreItem.equals("armor")) {
-            panelCaller.clickGnarMega();
+            IPanelCaller.clickGnarMega();
         }
     }//GEN-LAST:event_butStarterDosActionPerformed
 
