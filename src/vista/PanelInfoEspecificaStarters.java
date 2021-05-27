@@ -4,14 +4,16 @@ import javax.swing.JPanel;
 
 public class PanelInfoEspecificaStarters extends JPanel {
 
-    JPanel panelCaller;
+    ICallBack panelCaller;
+    String nombreStarter;
 
     public PanelInfoEspecificaStarters() {
         initComponents();
     }
 
-    void mostrar(JPanel panelInformacion, String nombreStarter) {
+    void mostrar(ICallBack panelInformacion, String nombreStarter) {
         panelCaller = panelInformacion;
+        this.nombreStarter = nombreStarter;
 
         infoEspecificaStarters(nombreStarter);
 
@@ -107,7 +109,6 @@ public class PanelInfoEspecificaStarters extends JPanel {
         }
     }
 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -162,6 +163,11 @@ public class PanelInfoEspecificaStarters extends JPanel {
         labItem.setText("Item ->");
 
         butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoPoison.png"))); // NOI18N
+        butItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butItemActionPerformed(evt);
+            }
+        });
 
         labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/teemoEspecifico.png"))); // NOI18N
 
@@ -244,8 +250,22 @@ public class PanelInfoEspecificaStarters extends JPanel {
     private void butVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butVolverActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        panelCaller.setVisible(true);
+        panelCaller.hacerVisible(true);
     }//GEN-LAST:event_butVolverActionPerformed
+
+    private void butItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butItemActionPerformed
+        this.setVisible(false);
+        this.getRootPane().getContentPane().remove(this);
+        if (nombreStarter.equals("teemo")) {
+            panelCaller.clickPoison();
+        } else if (nombreStarter.equals("poppy")) {
+            panelCaller.clickShield();
+        } else if (nombreStarter.equals("gnarMini")) {
+            panelCaller.clickArmor();
+        } else if (nombreStarter.equals("gnarMega")) {
+            panelCaller.clickArmor();
+        }
+    }//GEN-LAST:event_butItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -23,47 +23,54 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
         switch (nombreStarter) {
             case "pikachu": //PIKACHU
                 labCabecera.setText("Pikachu");
-                txtDescripcion.setText("Inflinge 150% daño de ataque de Teemo.\n"
-                        + "Tiene una ligera probabilidad de que Teemo\n"
-                        + "se camufle, esta probabilidad escala por\n"
-                        + "daño veneno.");
+                txtDescripcion.setText("Pikachu es uno de los pokémon que tiene la\n"
+                        + "apariencia de un pequeño ratón, su pelaje es\n"
+                        + "de un color amarillo, tiene dos marcas de\n"
+                        + "color marrón que cubren su espalda y en una\n"
+                        + "pequeña parte de su cola.");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/pikachuEspecifico.png"))); // NOI18N
-                txtDescripcion.setText("Sin inmutarse siquiera por los obstá-\n"
-                        + "culos más amenazantes, Teemo\n"
-                        + "explora el mundo con su cerbatana.");
+                labHabilidad.setVisible(false);
+                scrollHabilidad.setVisible(false);
+                txtHabilidad.setText("");
                 break;
             case "electrode": //electroede
                 labCabecera.setText("Electrode");
-                txtDescripcion.setText("Inflinge 150% daño de ataque de Teemo.\n"
-                        + "Tiene una ligera probabilidad de que Teemo\n"
-                        + "se camufle, esta probabilidad escala por\n"
-                        + "daño veneno.");
+                txtDescripcion.setText("Electrode es un Pokémon de tipo eléctrico.\n"
+                        + "Es considerado un Pokémon muy peligroso,\n"
+                        + "además de ser rápido, es capaz de debilitar a\n"
+                        + "un Pokémon con \"Autodestrucción\".");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/electrodeEspecifico.png"))); // NOI18N
-                txtDescripcion.setText("Sin inmutarse siquiera por los obstá-\n"
-                        + "culos más amenazantes, Teemo\n"
-                        + "explora el mundo con su cerbatana.");
+                txtHabilidad.setText("Tiene la habilidad de \"Autodestrucción\" con\n"
+                        + "la cual puede debilitar fuertemente a su\n"
+                        + "contrincante de un solo golpe, aunque este\n"
+                        + "ataque le requiere tanto esfuerzo que le\n"
+                        + "cuesta la vida.");
                 break;
             case "hitMonLee": //hitMonLee
                 labCabecera.setText("HitMonLee");
-                txtDescripcion.setText("Inflinge 150% daño de ataque de Teemo.\n"
-                        + "Tiene una ligera probabilidad de que Teemo\n"
-                        + "se camufle, esta probabilidad escala por\n"
-                        + "daño veneno.");
+                txtDescripcion.setText("Hitmonlee es un Pokémon de tipo lucha.\n"
+                        + "Es un experto en usar sus pies como armas,\n"
+                        + "dando un numeroso tipo de patadas. Su\n"
+                        + "nombre occidental es una especie de\n"
+                        + "homenaje a Bruce Lee.");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/hitMonLeeEspecifico.png"))); // NOI18N
-                txtDescripcion.setText("Sin inmutarse siquiera por los obstá-\n"
-                        + "culos más amenazantes, Teemo\n"
-                        + "explora el mundo con su cerbatana.");
+                txtHabilidad.setText("Gracias a sus dotes en Muay Thai es capaz de\n"
+                        + "conectar dos golpes seguidos en el mismo\n"
+                        + "turno. Esta experencia en combate también le\n"
+                        + "ha dotado de resistencia contra cegados y\n"
+                        + "aturdimientos.");
                 break;
             case "gyarados": //gyarados
                 labCabecera.setText("Gyarados");
-                txtDescripcion.setText("Inflinge 150% daño de ataque de Teemo.\n"
-                        + "Tiene una ligera probabilidad de que Teemo\n"
-                        + "se camufle, esta probabilidad escala por\n"
-                        + "daño veneno.");
+                txtDescripcion.setText("Gyarados es un Pokémon de tipo agua y\n"
+                        + "volador, uno de los más temibles y pode-\n"
+                        + "rosos, ya qu es capaz de crear cascadas\n"
+                        + "de la nada así como retumbar la tierra con\n"
+                        + "terremotos");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/gyaradosEspecifico.png"))); // NOI18N
-                txtDescripcion.setText("Sin inmutarse siquiera por los obstá-\n"
-                        + "culos más amenazantes, Teemo\n"
-                        + "explora el mundo con su cerbatana.");
+                labHabilidad.setVisible(false);
+                scrollHabilidad.setVisible(false);
+                txtHabilidad.setText("");
                 break;
         }
     }

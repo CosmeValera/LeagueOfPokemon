@@ -58,7 +58,7 @@
                               <Component id="butGyarados" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="butPocion" min="-2" pref="106" max="-2" attributes="0"/>
+                              <Component id="butPotion" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="butSword" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
                   <Component id="butPoison" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="butShield" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="butArmor" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="butPocion" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="butPotion" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="76" max="32767" attributes="0"/>
           </Group>
@@ -205,7 +205,7 @@
     <Component class="javax.swing.JButton" name="butHitMonLee">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/info/infoHitmonlee.png"/>
+          <Image iconType="3" name="/icons/infoGeneral/infoHitmonlee.png"/>
         </Property>
       </Properties>
       <Events>
@@ -231,12 +231,15 @@
         <Property name="text" type="java.lang.String" value="Items"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butPocion">
+    <Component class="javax.swing.JButton" name="butPotion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/info/infoPocion.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butItem_ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butSword">
       <Properties>
@@ -244,6 +247,9 @@
           <Image iconType="3" name="/icons/info/infoSword.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butItem_ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butPoison">
       <Properties>
@@ -251,6 +257,9 @@
           <Image iconType="3" name="/icons/info/infoPoison.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butItem_ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butShield">
       <Properties>
@@ -258,6 +267,9 @@
           <Image iconType="3" name="/icons/info/infoShield.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butItem_ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butArmor">
       <Properties>
@@ -265,6 +277,9 @@
           <Image iconType="3" name="/icons/info/infoArmor.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butItem_ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

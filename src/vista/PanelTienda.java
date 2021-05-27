@@ -4,7 +4,7 @@ import modelo.*;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
-public class PanelTienda extends javax.swing.JPanel {
+public class PanelTienda extends javax.swing.JPanel implements ICallBack {
 
     public Starter starter;
 
@@ -35,7 +35,7 @@ public class PanelTienda extends javax.swing.JPanel {
         refrescarPrecioEspada();
         refrescarPrecioValorVariable();
         this.setVisible(true);
-        butPocion.requestFocusInWindow();
+        butPotion.requestFocusInWindow();
     }
 
     @SuppressWarnings("unchecked")
@@ -51,18 +51,21 @@ public class PanelTienda extends javax.swing.JPanel {
         labCantidadValorVariable = new javax.swing.JLabel();
         labFijoVida = new javax.swing.JLabel();
         labCantidadVida = new javax.swing.JLabel();
-        butPocion = new javax.swing.JButton();
-        labPrecioPocion = new javax.swing.JLabel();
+        butPotion = new javax.swing.JButton();
+        labPrecioPotion = new javax.swing.JLabel();
         labMonedaPocion = new javax.swing.JLabel();
-        labVidaPocion = new javax.swing.JLabel();
+        labVidaPotion = new javax.swing.JLabel();
+        butInfoPocion = new javax.swing.JButton();
         butItemVariable = new javax.swing.JButton();
         labPrecioItemVariable = new javax.swing.JLabel();
         labMonedaItemVariable = new javax.swing.JLabel();
         labAportacionItemVariable = new javax.swing.JLabel();
+        butInfoItemVariable = new javax.swing.JButton();
         butEspada = new javax.swing.JButton();
         labPrecioEspada = new javax.swing.JLabel();
         labMonedaEspada = new javax.swing.JLabel();
         labDanoEspada = new javax.swing.JLabel();
+        butInfoEspada = new javax.swing.JButton();
 
         setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         setMaximumSize(new java.awt.Dimension(800, 560));
@@ -97,22 +100,30 @@ public class PanelTienda extends javax.swing.JPanel {
         labCantidadVida.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labCantidadVida.setText(" ");
 
-        butPocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pocion.png"))); // NOI18N
-        butPocion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        butPocion.addActionListener(new java.awt.event.ActionListener() {
+        butPotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pocion.png"))); // NOI18N
+        butPotion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        butPotion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butPocionActionPerformed(evt);
+                butPotionActionPerformed(evt);
             }
         });
 
-        labPrecioPocion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labPrecioPocion.setText("30");
+        labPrecioPotion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labPrecioPotion.setText("30");
 
         labMonedaPocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/coin.png"))); // NOI18N
         labMonedaPocion.setText(" ");
 
-        labVidaPocion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labVidaPocion.setText("+75 Vida");
+        labVidaPotion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labVidaPotion.setText("+75 Vida");
+
+        butInfoPocion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butInfoPocion.setText("Info");
+        butInfoPocion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butInfoPocionActionPerformed(evt);
+            }
+        });
 
         butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posinos.png"))); // NOI18N
         butItemVariable.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +141,14 @@ public class PanelTienda extends javax.swing.JPanel {
         labAportacionItemVariable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labAportacionItemVariable.setText("+1 daño veneno");
 
+        butInfoItemVariable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butInfoItemVariable.setText("Info");
+        butInfoItemVariable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butInfoItemVariableActionPerformed(evt);
+            }
+        });
+
         butEspada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sword.png"))); // NOI18N
         butEspada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,34 +165,18 @@ public class PanelTienda extends javax.swing.JPanel {
         labDanoEspada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labDanoEspada.setText("+2 daño");
 
+        butInfoEspada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butInfoEspada.setText("Info");
+        butInfoEspada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butInfoEspadaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labPrecioItemVariable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labMonedaItemVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labAportacionItemVariable))
-                    .addComponent(butItemVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labPrecioEspada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labMonedaEspada, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labDanoEspada))
-                    .addComponent(butEspada, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(98, 98, 98))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -190,17 +193,49 @@ public class PanelTienda extends javax.swing.JPanel {
                 .addGap(133, 133, 133)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labPrecioPocion)
+                        .addComponent(labPrecioPotion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labMonedaPocion, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)
-                        .addComponent(labVidaPocion))
-                    .addComponent(butPocion))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(labVidaPotion))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(butPotion)
+                        .addGap(18, 18, 18)
+                        .addComponent(butInfoPocion)))
+                .addContainerGap(264, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labPrecioItemVariable)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labMonedaItemVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labAportacionItemVariable))
+                            .addComponent(butItemVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(butInfoItemVariable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labPrecioEspada)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labMonedaEspada, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labDanoEspada))
+                            .addComponent(butEspada, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(butInfoEspada))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -222,34 +257,40 @@ public class PanelTienda extends javax.swing.JPanel {
                             .addComponent(labCantidadVida)
                             .addComponent(labFijoVida)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(butPocion)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(butPotion)
+                            .addComponent(butInfoPocion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labPrecioPocion)
-                            .addComponent(labVidaPocion)
+                            .addComponent(labPrecioPotion)
+                            .addComponent(labVidaPotion)
                             .addComponent(labMonedaPocion))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(butEspada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labPrecioEspada)
-                            .addComponent(labDanoEspada)
-                            .addComponent(labMonedaEspada)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(butItemVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(butItemVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butInfoItemVariable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labPrecioItemVariable)
                             .addComponent(labAportacionItemVariable)
-                            .addComponent(labMonedaItemVariable))))
+                            .addComponent(labMonedaItemVariable)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(butEspada)
+                            .addComponent(butInfoEspada, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labPrecioEspada)
+                            .addComponent(labDanoEspada)
+                            .addComponent(labMonedaEspada))))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void butPocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPocionActionPerformed
-        if (starter.getCantidadOro() < Integer.parseInt(labPrecioPocion.getText())) {
+    private void butPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPotionActionPerformed
+        if (starter.getCantidadOro() < Integer.parseInt(labPrecioPotion.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -265,7 +306,7 @@ public class PanelTienda extends javax.swing.JPanel {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        starter.setCantidadOro(starter.getCantidadOro() - Integer.parseInt(labPrecioPocion.getText()));
+        starter.setCantidadOro(starter.getCantidadOro() - Integer.parseInt(labPrecioPotion.getText()));
         starter.setVida(starter.getVida() + 75);
         if (starter.getVida() > starter.getVidaMaxima()) {
             starter.setVida(starter.getVidaMaxima());
@@ -277,7 +318,7 @@ public class PanelTienda extends javax.swing.JPanel {
                 "Compraste una pocion (+75 de vida)",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_butPocionActionPerformed
+    }//GEN-LAST:event_butPotionActionPerformed
 
     private void butItemVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butItemVariableActionPerformed
         //CASO TEEMO
@@ -409,6 +450,33 @@ public class PanelTienda extends javax.swing.JPanel {
         refrescarPrecioEspada();
     }//GEN-LAST:event_butEspadaActionPerformed
 
+    private void butInfoPocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInfoPocionActionPerformed
+        PanelInformacion panelI = new PanelInformacion();
+        this.add(panelI);
+        panelI.clickPotion();
+        this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
+    }//GEN-LAST:event_butInfoPocionActionPerformed
+
+    private void butInfoItemVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInfoItemVariableActionPerformed
+        PanelInformacion panelI = new PanelInformacion();
+        this.add(panelI);
+        if (starter instanceof Teemo) {
+            panelI.clickPoison();
+        } else if (starter instanceof Poppy) {
+            panelI.clickShield();
+        } else if (starter instanceof Gnar) {
+            panelI.clickArmor();
+        }
+        this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
+    }//GEN-LAST:event_butInfoItemVariableActionPerformed
+
+    private void butInfoEspadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInfoEspadaActionPerformed
+        PanelInformacion panelI = new PanelInformacion();
+        this.add(panelI);
+        panelI.clickSword();
+        this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
+    }//GEN-LAST:event_butInfoEspadaActionPerformed
+
     private void refrescarVida() {
         labCantidadVida.setText(String.valueOf(((double) ((int) starter.getVida() * 10)) / 10));
     }
@@ -445,10 +513,18 @@ public class PanelTienda extends javax.swing.JPanel {
         labPrecioEspada.setText(String.valueOf((int) (Double.parseDouble(labCantidadDano.getText()) * 20 - 50)));
     }
 
+    @Override
+    public void hacerVisible(boolean bool) {
+        this.setVisible(bool);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butEspada;
+    private javax.swing.JButton butInfoEspada;
+    private javax.swing.JButton butInfoItemVariable;
+    private javax.swing.JButton butInfoPocion;
     private javax.swing.JButton butItemVariable;
-    private javax.swing.JButton butPocion;
+    private javax.swing.JButton butPotion;
     private javax.swing.JLabel labAportacionItemVariable;
     private javax.swing.JLabel labCabecera;
     private javax.swing.JLabel labCantidadDano;
@@ -465,7 +541,7 @@ public class PanelTienda extends javax.swing.JPanel {
     private javax.swing.JLabel labMonedaPocion;
     private javax.swing.JLabel labPrecioEspada;
     private javax.swing.JLabel labPrecioItemVariable;
-    private javax.swing.JLabel labPrecioPocion;
-    private javax.swing.JLabel labVidaPocion;
+    private javax.swing.JLabel labPrecioPotion;
+    private javax.swing.JLabel labVidaPotion;
     // End of variables declaration//GEN-END:variables
 }

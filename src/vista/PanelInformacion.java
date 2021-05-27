@@ -1,8 +1,6 @@
 package vista;
 
-import modelo.Teemo;
-
-public class PanelInformacion extends javax.swing.JPanel {
+public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
 
     public PanelInformacion() {
         initComponents();
@@ -29,7 +27,7 @@ public class PanelInformacion extends javax.swing.JPanel {
         butHitMonLee = new javax.swing.JButton();
         butGyarados = new javax.swing.JButton();
         labItem = new javax.swing.JLabel();
-        butPocion = new javax.swing.JButton();
+        butPotion = new javax.swing.JButton();
         butSword = new javax.swing.JButton();
         butPoison = new javax.swing.JButton();
         butShield = new javax.swing.JButton();
@@ -94,7 +92,7 @@ public class PanelInformacion extends javax.swing.JPanel {
             }
         });
 
-        butHitMonLee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoHitmonlee.png"))); // NOI18N
+        butHitMonLee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoHitmonlee.png"))); // NOI18N
         butHitMonLee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butEnemigo_ActionPerformed(evt);
@@ -112,15 +110,40 @@ public class PanelInformacion extends javax.swing.JPanel {
         labItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labItem.setText("Items");
 
-        butPocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoPocion.png"))); // NOI18N
+        butPotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoPocion.png"))); // NOI18N
+        butPotion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butItem_ActionPerformed(evt);
+            }
+        });
 
         butSword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoSword.png"))); // NOI18N
+        butSword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butItem_ActionPerformed(evt);
+            }
+        });
 
         butPoison.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoPoison.png"))); // NOI18N
+        butPoison.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butItem_ActionPerformed(evt);
+            }
+        });
 
         butShield.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoShield.png"))); // NOI18N
+        butShield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butItem_ActionPerformed(evt);
+            }
+        });
 
         butArmor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoArmor.png"))); // NOI18N
+        butArmor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butItem_ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -152,7 +175,7 @@ public class PanelInformacion extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(butGyarados, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(butPocion, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(butPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(butSword, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -193,13 +216,12 @@ public class PanelInformacion extends javax.swing.JPanel {
                     .addComponent(butPoison, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(butShield, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(butArmor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butPocion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(butPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void butStarter_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarter_ActionPerformed
-
         this.setVisible(false);
         PanelInfoEspecificaStarters panelIES = new PanelInfoEspecificaStarters();
         panelIES.setSize(800, 560);
@@ -219,7 +241,6 @@ public class PanelInformacion extends javax.swing.JPanel {
     }//GEN-LAST:event_butStarter_ActionPerformed
 
     private void butEnemigo_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEnemigo_ActionPerformed
-        
         this.setVisible(false);
         PanelInfoEspecificaEnemigos panelIEE = new PanelInfoEspecificaEnemigos();
         panelIEE.setSize(800, 560);
@@ -237,7 +258,73 @@ public class PanelInformacion extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_butEnemigo_ActionPerformed
 
+    private void butItem_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butItem_ActionPerformed
+        this.setVisible(false);
+        PanelInfoEspecificaItems panelIEI = new PanelInfoEspecificaItems();
+        panelIEI.setSize(800, 560);
+        panelIEI.setVisible(false);
+        this.getRootPane().getContentPane().add(panelIEI);
 
+        if (evt.getSource() == butPotion) {
+            panelIEI.mostrar(this, "potion");
+        } else if (evt.getSource() == butSword) {
+            panelIEI.mostrar(this, "sword");
+        } else if (evt.getSource() == butPoison) {
+            panelIEI.mostrar(this, "poison");
+        } else if (evt.getSource() == butShield) {
+            panelIEI.mostrar(this, "shield");
+        } else if (evt.getSource() == butArmor) {
+            panelIEI.mostrar(this, "armor");
+        }
+    }//GEN-LAST:event_butItem_ActionPerformed
+    @Override
+    public void clickPotion() {
+        butPotion.doClick();
+    }
+    @Override
+    public void clickSword() {
+        butSword.doClick();
+    }
+    @Override
+    public void clickPoison() {
+        butPoison.doClick();
+    }
+
+    @Override
+    public void clickShield() {
+        butShield.doClick();
+    }
+
+    @Override
+    public void clickArmor() {
+        butArmor.doClick();
+    }
+
+    @Override
+    public void hacerVisible(boolean bool) {
+        this.setVisible(bool);
+    }
+
+    @Override
+    public void clickTeemo() {
+        butTeemo.doClick();
+    }
+
+    @Override
+    public void clickPoppy() {
+        butPoppy.doClick();
+    }
+
+    @Override
+    public void clickGnarMini() {
+
+        butGnarMini.doClick();
+    }
+
+    @Override
+    public void clickGnarMega() {
+        butGnarMega.doClick();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butArmor;
     private javax.swing.JButton butElectrode;
@@ -246,9 +333,9 @@ public class PanelInformacion extends javax.swing.JPanel {
     private javax.swing.JButton butGyarados;
     private javax.swing.JButton butHitMonLee;
     private javax.swing.JButton butPikachu;
-    private javax.swing.JButton butPocion;
     private javax.swing.JButton butPoison;
     private javax.swing.JButton butPoppy;
+    private javax.swing.JButton butPotion;
     private javax.swing.JButton butShield;
     private javax.swing.JButton butSword;
     private javax.swing.JButton butTeemo;
