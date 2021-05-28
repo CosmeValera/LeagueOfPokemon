@@ -1,5 +1,7 @@
 package vista;
 
+import modelo.Starter;
+
 public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
 
     public PanelInformacion() {
@@ -9,6 +11,20 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
     public void mostrar() {
         this.setVisible(true);
         this.requestFocusInWindow();
+
+        if (!Starter.isTeemoDisponible()) {
+            butTeemo.setVisible(false);
+            butPoison.setVisible(false);
+        }
+        if (!Starter.isPoppyDisponible()) {
+            butPoppy.setVisible(false);
+            butShield.setVisible(false);
+        }
+        if (!Starter.isGnarDisponible()) {
+            butGnarMini.setVisible(false);
+            butGnarMega.setVisible(false);
+            butArmor.setVisible(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -281,10 +297,12 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
     public void clickPotion() {
         butPotion.doClick();
     }
+
     @Override
     public void clickSword() {
         butSword.doClick();
     }
+
     @Override
     public void clickPoison() {
         butPoison.doClick();

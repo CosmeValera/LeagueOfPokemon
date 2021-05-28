@@ -4,20 +4,30 @@ public abstract class Starter {
 
     protected int dano;
     protected double vida;
-    protected int cantidadOro;
+    protected static int cantidadOro;
 
     private final int cantidadInicialOro = 300;
+
+    protected static int enemigosVencidos;
+    private static final int VICTORIESFORFIRSTPRIZE = 25;
+    private static final int VICTORIESFORSECONDPRIZE = 50;
+    private static final int VICTORIESFORTHIRDPRIZE = 80;
+    private static boolean teemoDisponible = false;
+    private static boolean poppyDisponible = false;
+    private static boolean gnarDisponible = false;
 
     public Starter() {
         dano = 0;
         vida = 0;
-        cantidadOro = 0;
+        cantidadOro = cantidadInicialOro;
+        enemigosVencidos = 0;
     }
 
     public Starter(int dano, double vida, int cantidadOro) {
         this.dano = dano;
         this.vida = vida;
-        this.cantidadOro = cantidadOro;
+        Starter.enemigosVencidos = 0;
+        Starter.cantidadOro = cantidadOro;
     }
 
     public int getDano() {
@@ -48,12 +58,56 @@ public abstract class Starter {
         return cantidadInicialOro;
     }
 
+    public static int getEnemigosVencidos() {
+        return enemigosVencidos;
+    }
+
+    public void setEnemigosVencidos(int enemigosVencidos) {
+        this.enemigosVencidos = enemigosVencidos;
+    }
+
+    public static int getVictoriesForFirstPrize() {
+        return VICTORIESFORFIRSTPRIZE;
+    }
+
+    public static int getVictoriesForSecondPrize() {
+        return VICTORIESFORSECONDPRIZE;
+    }
+
+    public static int getVictoriesForThirdPrize() {
+        return VICTORIESFORTHIRDPRIZE;
+    }
+
+    public static boolean isTeemoDisponible() {
+        return teemoDisponible;
+    }
+
+    public static void setTeemoDisponible(boolean teemoDisponible) {
+        Starter.teemoDisponible = teemoDisponible;
+    }
+
+    public static boolean isPoppyDisponible() {
+        return poppyDisponible;
+    }
+
+    public static void setPoppyDisponible(boolean poppyDisponible) {
+        Starter.poppyDisponible = poppyDisponible;
+    }
+
+    public static boolean isGnarDisponible() {
+        return gnarDisponible;
+    }
+
+    public static void setGnarDisponible(boolean gnarDisponible) {
+        Starter.gnarDisponible = gnarDisponible;
+    }
+
     public abstract int getVidaMaxima();
 
     public abstract int getDanoMaximo();
 
     public abstract int getDanoMinimo();
-    
+
     public abstract String getNombre();
 
     public abstract void ataquePrincipal(Enemigo enemigo);

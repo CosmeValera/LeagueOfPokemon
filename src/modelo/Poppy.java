@@ -15,7 +15,6 @@ public class Poppy extends Starter {
     public Poppy() {
         dano = DANO_MINIMO;
         vida = VIDA_MAXIMA;
-        cantidadOro = getCantidadInicialOro();
         proteccionEscudo = PROTECCIONESCUDO_MINIMA;
         llevaEscudo = POPPY_VALORESCUDOPORDEFECTO;
     }
@@ -62,9 +61,10 @@ public class Poppy extends Starter {
     }
 
     @Override
-    public String getNombre(){
+    public String getNombre() {
         return "Poppy";
     }
+
     @Override
     public void ataquePrincipal(Enemigo enemigo) { //placaje
         enemigo.setVida(enemigo.getVida() - dano);
@@ -97,12 +97,16 @@ public class Poppy extends Starter {
 
     @Override
     public boolean isPonerseEscudo() {
-        int num = (int) (Math.random() * 2 + 1);
-        return num == 1;
+        int num = (int) (Math.random() * 100 + 1 + proteccionEscudo);
+        if (num > 50) {
+            return true;
+        }
+        return false;
     }
 
     @Override
     public double ajustarDanoAResistencias(double dano) {
+        dano = dano - dano * proteccionEscudo / 100;
         if (isLlevaEscudo()) {
             if (dano <= proteccionEscudo) {
                 System.out.println("El escudo bloquea todo");

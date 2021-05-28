@@ -17,7 +17,6 @@ public class Gnar extends Starter {
     public Gnar() {
         dano = DANO_MINIMO;
         vida = VIDA_MAXIMA;
-        cantidadOro = getCantidadInicialOro();
         esMonstruo = GNAR_ESMONSTRUOPORDEFECTO;
         resistencia = RESISTENCIA_MINIMA;
         contadorMonstruo = GNAR_CONTADORMONSTRUOPORDEFECTO;

@@ -58,7 +58,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
+                                  <Component id="labDescGnar2" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                                   <Component id="labDescGnar1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="butGnar" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                               </Group>
@@ -105,7 +105,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labDescTeemo2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labDescGnar2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="164" max="32767" attributes="0"/>
           </Group>
@@ -187,6 +187,15 @@
         <Property name="text" type="java.lang.String" value="No debes cabrear a este ser "/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="labDescGnar2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="aparentemente inofensivo"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JLabel" name="labPoppy">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -213,15 +222,6 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Los dioses temen su martillo."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="aparentemente inofensivo"/>
       </Properties>
     </Component>
   </SubComponents>

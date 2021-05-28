@@ -14,26 +14,9 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
 
     public void mostrar() {
         starter = Personajes.starter;
-        refrescarOro();
-        refrescarDano();
-        refrescarVida();
-        refrescarValorVariable();
-        if (starter instanceof Teemo) {
-            labFijoValorVariable.setText("Daño Veneno:");
-            labAportacionItemVariable.setText("+1 Daño Veneno");
-            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posinos.png")));
-        } else if (starter instanceof Gnar) {
-            labFijoValorVariable.setText("Resistencia:");
-            labAportacionItemVariable.setText("+2 Resistencia");
-            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/armor.png")));
-        } else if (starter instanceof Poppy) {
-            labFijoValorVariable.setText("Escudo:");
-            labAportacionItemVariable.setText("+1 Dureza Escudo");
-            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shield.png")));
-        }
+        refrescarInfoStarter();
+        refrescarInfoTienda();
 
-        refrescarPrecioEspada();
-        refrescarPrecioValorVariable();
         this.setVisible(true);
         butPotion.requestFocusInWindow();
     }
@@ -45,12 +28,15 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labCabecera = new javax.swing.JLabel();
         labFijoOro = new javax.swing.JLabel();
         labCantidadOro = new javax.swing.JLabel();
+        labMonedaPocion1 = new javax.swing.JLabel();
         labFijoDano = new javax.swing.JLabel();
         labCantidadDano = new javax.swing.JLabel();
         labFijoValorVariable = new javax.swing.JLabel();
         labCantidadValorVariable = new javax.swing.JLabel();
         labFijoVida = new javax.swing.JLabel();
         labCantidadVida = new javax.swing.JLabel();
+        labVictorias = new javax.swing.JLabel();
+        labCantidadVictorias = new javax.swing.JLabel();
         butPotion = new javax.swing.JButton();
         labPrecioPotion = new javax.swing.JLabel();
         labMonedaPocion = new javax.swing.JLabel();
@@ -82,6 +68,9 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labCantidadOro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labCantidadOro.setText(" ");
 
+        labMonedaPocion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/coin.png"))); // NOI18N
+        labMonedaPocion1.setText(" ");
+
         labFijoDano.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labFijoDano.setText("Daño: ");
 
@@ -99,6 +88,12 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
 
         labCantidadVida.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labCantidadVida.setText(" ");
+
+        labVictorias.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labVictorias.setText("Victorias:");
+
+        labCantidadVictorias.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labCantidadVictorias.setText(" ");
 
         butPotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pocion.png"))); // NOI18N
         butPotion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -183,14 +178,19 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     .addComponent(labFijoValorVariable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labFijoVida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labFijoDano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labFijoOro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labFijoOro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labVictorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labCantidadOro)
                     .addComponent(labCantidadDano)
                     .addComponent(labCantidadValorVariable)
-                    .addComponent(labCantidadVida))
-                .addGap(133, 133, 133)
+                    .addComponent(labCantidadVida)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labCantidadOro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labMonedaPocion1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labCantidadVictorias))
+                .addGap(81, 81, 81)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labPrecioPotion)
@@ -202,7 +202,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                         .addComponent(butPotion)
                         .addGap(18, 18, 18)
                         .addComponent(butInfoPocion)))
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(274, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -241,9 +241,39 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(butPotion)
+                            .addComponent(butInfoPocion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labPrecioPotion)
+                            .addComponent(labVidaPotion)
+                            .addComponent(labMonedaPocion))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(butItemVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(butInfoItemVariable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labPrecioItemVariable)
+                                    .addComponent(labAportacionItemVariable)
+                                    .addComponent(labMonedaItemVariable)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(butEspada)
+                                    .addComponent(butInfoEspada, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labPrecioEspada)
+                                    .addComponent(labDanoEspada)
+                                    .addComponent(labMonedaEspada)))))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labFijoOro)
-                            .addComponent(labCantidadOro))
+                            .addComponent(labCantidadOro)
+                            .addComponent(labMonedaPocion1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labCantidadDano)
@@ -255,39 +285,28 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labCantidadVida)
-                            .addComponent(labFijoVida)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(butPotion)
-                            .addComponent(butInfoPocion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                            .addComponent(labFijoVida))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labPrecioPotion)
-                            .addComponent(labVidaPotion)
-                            .addComponent(labMonedaPocion))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(butItemVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butInfoItemVariable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labPrecioItemVariable)
-                            .addComponent(labAportacionItemVariable)
-                            .addComponent(labMonedaItemVariable)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(butEspada)
-                            .addComponent(butInfoEspada, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labPrecioEspada)
-                            .addComponent(labDanoEspada)
-                            .addComponent(labMonedaEspada))))
+                            .addComponent(labVictorias)
+                            .addComponent(labCantidadVictorias))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void refrescarInfoStarter() {
+        refrescarOro();
+        refrescarDano();
+        refrescarVida();
+        refrescarVictorias();
+    }
+
+    private void refrescarInfoTienda() throws NumberFormatException {
+        refrescarValorVariable();
+        refrescarItemVariable();
+        refrescarPrecioEspada();
+    }
 
     private void butPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPotionActionPerformed
         if (starter.getCantidadOro() < Integer.parseInt(labPrecioPotion.getText())) {
@@ -357,8 +376,27 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                 "Compraste una pocion venenosa (+1 daño por veneno)",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-        refrescarPrecioValorVariable();
+        refrescarValorVariable();
         return false;
+    }
+
+    private void refrescarItemVariable() {
+        if (starter instanceof Teemo) {
+            labFijoValorVariable.setText("Daño Veneno:");
+            labAportacionItemVariable.setText("+1 Daño Veneno");
+            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posinos.png")));
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 25)));
+        } else if (starter instanceof Gnar) {
+            labFijoValorVariable.setText("Resistencia:");
+            labAportacionItemVariable.setText("+2 Resistencia");
+            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/armor.png")));
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 3.5)));
+        } else if (starter instanceof Poppy) {
+            labFijoValorVariable.setText("Escudo:");
+            labAportacionItemVariable.setText("+1 Dureza Escudo");
+            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shield.png")));
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 25)));
+        }
     }
 
     private boolean butItemVariableGnar(Gnar gnar) throws HeadlessException, NumberFormatException {
@@ -387,7 +425,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                 "Compraste una armadura (+2 resistencia)",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-        refrescarPrecioValorVariable();
+        refrescarValorVariable();
         return false;
     }
 
@@ -417,7 +455,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                 "Compraste un escudo (+1 dureza de escudo)",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-        refrescarPrecioValorVariable();
+        refrescarValorVariable();
         return false;
     }
 
@@ -484,6 +522,10 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labCantidadVida.setText(String.valueOf(((double) ((int) starter.getVida() * 10)) / 10));
     }
 
+    private void refrescarVictorias() {
+        labCantidadVictorias.setText(String.valueOf(((double) ((int) Starter.getEnemigosVencidos() * 10)) / 10));
+    }
+
     private void refrescarValorVariable() {
         if (starter instanceof Teemo teemo) {
             labCantidadValorVariable.setText(String.valueOf(((double) (teemo.getDanoVeneno()) * 10) / 10));
@@ -500,16 +542,6 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
 
     private void refrescarOro() {
         labCantidadOro.setText(String.valueOf(starter.getCantidadOro()));
-    }
-
-    private void refrescarPrecioValorVariable() throws NumberFormatException {
-        if (starter instanceof Teemo) {
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 25)));
-        } else if (starter instanceof Gnar) {
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 3.5)));
-        } else if (starter instanceof Poppy) {
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 25)));
-        }
     }
 
     private void refrescarPrecioEspada() throws NumberFormatException {
@@ -533,6 +565,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     private javax.swing.JLabel labCantidadDano;
     private javax.swing.JLabel labCantidadOro;
     private javax.swing.JLabel labCantidadValorVariable;
+    private javax.swing.JLabel labCantidadVictorias;
     private javax.swing.JLabel labCantidadVida;
     private javax.swing.JLabel labDanoEspada;
     private javax.swing.JLabel labFijoDano;
@@ -542,9 +575,11 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     private javax.swing.JLabel labMonedaEspada;
     private javax.swing.JLabel labMonedaItemVariable;
     private javax.swing.JLabel labMonedaPocion;
+    private javax.swing.JLabel labMonedaPocion1;
     private javax.swing.JLabel labPrecioEspada;
     private javax.swing.JLabel labPrecioItemVariable;
     private javax.swing.JLabel labPrecioPotion;
+    private javax.swing.JLabel labVictorias;
     private javax.swing.JLabel labVidaPotion;
     // End of variables declaration//GEN-END:variables
 }

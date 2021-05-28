@@ -13,7 +13,6 @@ public class Teemo extends Starter {
     public Teemo() {
         dano = DANO_MINIMO;
         vida = VIDA_MAXIMA;
-        cantidadOro = getCantidadInicialOro();
         danoVeneno = DANOVENENO_MINIMO;
     }
 
@@ -61,7 +60,7 @@ public class Teemo extends Starter {
     @Override
     public void ataquePrincipal(Enemigo enemigo) { //Aranazo
         enemigo.setVida(enemigo.getVida() - dano * 1.5);
-        
+
         int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Personajes.starter).getDanoVeneno();
         if (num > 70) { //Camuflarse
             enemigo.setVisionTorpeSiPosible(true);
@@ -105,6 +104,6 @@ public class Teemo extends Starter {
 
     @Override
     public double ajustarDanoAResistencias(double dano) {
-        return dano;
+        return dano - dano * this.danoVeneno / 100;
     }
 }

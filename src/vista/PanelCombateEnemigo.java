@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.HeadlessException;
 import modelo.*;
 import javax.swing.JOptionPane;
 
@@ -8,13 +9,16 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     public Starter starter;
     public Enemigo enemigo;
 
+    public GUI GUICallBack;
+
     public PanelCombateEnemigo() {
         initComponents();
     }
 
-    public void mostrar() {
+    public void mostrar(GUI gui) {
         this.starter = Personajes.starter;
         this.enemigo = Personajes.enemigo;
+        this.GUICallBack = gui;
 
         labVidaStarter.setText(String.valueOf((int) starter.getVida()));
         labCantidadDano.setText(String.valueOf((int) starter.getDano()));
@@ -25,7 +29,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             labCantidadValorVariable.setText(String.valueOf((int) teemo.getDanoVeneno()));
             labFijoEfectoDebilitador.setText("Envenenado?");
             labEfectoDebilitador.setText("No");
-            labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/teemoPequeno.png")));
+            labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png")));
             butAtaquePrincipal.setText("Arañazo");
             butAtaqueSecundario.setText("Dardo venenoso");
         } else if (starter instanceof Gnar gnar) {
@@ -33,7 +37,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             labCantidadValorVariable.setText(String.valueOf((int) gnar.getResistencia()));
             labFijoEfectoDebilitador.setText("");
             labEfectoDebilitador.setText("");
-            labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gnarPeque.png")));
+            labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMini.png")));
             butAtaquePrincipal.setText("Boomerang");
             butAtaqueSecundario.setText("Salto");
         } else if (starter instanceof Poppy poppy) {
@@ -41,29 +45,35 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             labCantidadValorVariable.setText((poppy.isLlevaEscudo()) ? "Sí" : "No");
             labFijoEfectoDebilitador.setText("Confundido:");
             labEfectoDebilitador.setText("No");
-            labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Poppy.png")));
+            labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/Poppy.png")));
             butAtaquePrincipal.setText("Placaje con escudo");
             butAtaqueSecundario.setText("Martillazo");
         }
 
         if (enemigo instanceof Pikachu pikachu) {
             labCabecera.setText("COMBATE VS PIKACHU");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pikachu.png")));
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/pikachu.png")));
         } else if (enemigo instanceof Electrode electrode) {
             labCabecera.setText("COMBATE VS ELECTRODE");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/electrode.png")));
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/electrode.png")));
         } else if (enemigo instanceof HitMonLee hitMonLee) {
             labCabecera.setText("COMBATE VS HITMONLEE");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Hitmonlee.png")));
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Hitmonlee.png")));
         } else if (enemigo instanceof Gyarados gyarados) {
             labCabecera.setText("COMBATE VS GYARADOS");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Gyarados.png")));
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Gyarados.png")));
+        } else if (enemigo instanceof Rayquaza rayquaza) {
+            labCabecera.setText("COMBATE VS RAYQUAZA");
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Rayquaza.png")));
+        } else if (enemigo instanceof Arceus arceus) {
+            labCabecera.setText("COMBATE VS ARCEUS");
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/arceus.png")));
         }
 
         labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
 
         this.setVisible(true);
-        this.requestFocusInWindow();
+        butAtaquePrincipal.requestFocusInWindow();
     }
 
     @SuppressWarnings("unchecked")
@@ -121,9 +131,9 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         labEfectoDebilitador.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labEfectoDebilitador.setText(" ");
 
-        labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/teemoPequeno.png"))); // NOI18N
+        labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png"))); // NOI18N
 
-        labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pikachu.png"))); // NOI18N
+        labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/pikachu.png"))); // NOI18N
 
         labVersus.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         labVersus.setForeground(new java.awt.Color(0, 0, 255));
@@ -526,7 +536,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(
                     this,
                     enemigo.getNombreEnemigo()
-                    + ((enemigo.getTurnosEnvenenado() == 2) ? " fue envenenado " : "") + "y no ve a "
+                    + ((enemigo.getTurnosEnvenenado() == 2) ? " fue envenenado y" : "") + " no ve a "
                     + starter.getNombre() + " porque se camufló",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
@@ -565,7 +575,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                         "Gnar se transformó en MegaGnar",
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
-                labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gnarGrande.png")));
+                labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMega.png")));
                 butAtaquePrincipal.setText("Golpe");
                 butAtaqueSecundario.setText("Lanzar Roca");
             }
@@ -582,7 +592,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                         "MegaGnar volvió a su forma de gnar",
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
-                labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gnarPeque.png")));
+                labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMini.png")));
                 butAtaquePrincipal.setText("Boomerang");
                 butAtaqueSecundario.setText("Salto");
             }
@@ -606,9 +616,56 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                     JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
             this.getRootPane().getContentPane().remove(this);
+            desbloquearRecompensas();
             return true;
         }
         return false;
+    }
+
+    private void desbloquearRecompensas() {
+        starter.setEnemigosVencidos(Starter.getEnemigosVencidos() + 1);
+
+        if (Starter.getEnemigosVencidos() == Starter.getVictoriesForFirstPrize()) {
+            desbloquearSegundoStarter();
+        } else if (Starter.getEnemigosVencidos() == Starter.getVictoriesForSecondPrize()) {
+            desbloquearTercerStarter();
+        } else if (Starter.getEnemigosVencidos() == Starter.getVictoriesForThirdPrize()) {
+            desbloquearArceus();
+        }
+
+    }
+
+    private void desbloquearArceus() throws HeadlessException {
+        JOptionPane.showMessageDialog(GUICallBack,
+                "Has avanzado tanto que ya te puedes"
+                + "\nenfrentar al dios Arceus. Enhorabuena!!"
+                + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
+                this.getName(),
+                JOptionPane.INFORMATION_MESSAGE);
+        GUICallBack.getJMenuBar().getMenu(0).getItem(5).setVisible(true); //Visible Arceus
+    }
+
+    private void desbloquearTercerStarter() throws HeadlessException {
+        GUICallBack.clickCambiarEspecial();
+        JOptionPane.showMessageDialog(GUICallBack,
+                "Has avanzado tanto que te mereces poder"
+                + "\ndisponer de otro campeón. Enhorabuena!!"
+                + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
+                this.getName(),
+                JOptionPane.INFORMATION_MESSAGE);
+        GUICallBack.getJMenuBar().getMenu(0).getItem(4).setVisible(true); //Visible RayQuaza
+    }
+
+    private void desbloquearSegundoStarter() throws HeadlessException {
+        GUICallBack.getJMenuBar().getMenu(1).getItem(2).setVisible(true); //Visible panelCambiar
+        GUICallBack.clickCambiarEspecial();
+        JOptionPane.showMessageDialog(GUICallBack,
+                "Has avanzado tanto que te mereces poder"
+                + "\ndisponer de otro campeón. Enhorabuena!!"
+                + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
+                this.getName(),
+                JOptionPane.INFORMATION_MESSAGE);
+        GUICallBack.getJMenuBar().getMenu(0).getItem(3).setVisible(true); //Visible Gyarados
     }
 
     private double obtenerDanoEnemigo() {

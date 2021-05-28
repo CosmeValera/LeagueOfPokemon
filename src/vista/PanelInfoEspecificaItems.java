@@ -197,8 +197,12 @@ public class PanelInfoEspecificaItems extends JPanel {
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
         panelCaller = Personajes.panelCaller;
-        IPanelCaller.hacerVisible(true);
-        panelCaller.setVisible(true);
+        if (IPanelCaller != null) {
+            IPanelCaller.hacerVisible(true);
+        }
+        if (panelCaller != null) {
+            panelCaller.setVisible(true);
+        }
     }//GEN-LAST:event_butVolverActionPerformed
 
     private void butStarterUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarterUnoActionPerformed

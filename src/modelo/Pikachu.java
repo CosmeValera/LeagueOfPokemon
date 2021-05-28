@@ -3,44 +3,50 @@ package modelo;
 public class Pikachu extends Enemigo {
 
     public static void definirPikachuEnemigo() {
-        int num = (int) (Math.random() * 5 + 1); //1,2,3
+        Personajes.enemigo = obtenerPikachuEnemigo();
+    }
+    
+    private static Pikachu obtenerPikachuEnemigo() {
+        Pikachu pikachu;
+        int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
-                Personajes.enemigo = new Pikachu();
-                Personajes.enemigo.setDano(10);
-                Personajes.enemigo.setVida(50);
-                Personajes.enemigo.setRecompensa(100);
+                pikachu = new Pikachu();
+                pikachu.setDano(10);
+                pikachu.setVida(50);
+                pikachu.setRecompensa(100);
                 System.out.println("pikachu 1");
                 break;
             case 2:
-                Personajes.enemigo = new Pikachu();
-                Personajes.enemigo.setDano(10);
-                Personajes.enemigo.setVida(60);
-                Personajes.enemigo.setRecompensa(120);
+                pikachu = new Pikachu();
+                pikachu.setDano(10);
+                pikachu.setVida(60);
+                pikachu.setRecompensa(120);
                 System.out.println("pikachu 2");
                 break;
             case 3:
-                Personajes.enemigo = new Pikachu();
-                Personajes.enemigo.setDano(8);
-                Personajes.enemigo.setVida(75);
-                Personajes.enemigo.setRecompensa(110);
+                pikachu = new Pikachu();
+                pikachu.setDano(8);
+                pikachu.setVida(75);
+                pikachu.setRecompensa(110);
                 System.out.println("pikachu 3");
                 break;
             case 4:
-                Personajes.enemigo = new Pikachu();
-                Personajes.enemigo.setDano(12);
-                Personajes.enemigo.setVida(40);
-                Personajes.enemigo.setRecompensa(115);
+                pikachu = new Pikachu();
+                pikachu.setDano(12);
+                pikachu.setVida(40);
+                pikachu.setRecompensa(115);
                 System.out.println("pikachu 4");
                 break;
-            case 5:
-                Personajes.enemigo = new Pikachu();
-                Personajes.enemigo.setDano(10);
-                Personajes.enemigo.setVida(90);
-                Personajes.enemigo.setRecompensa(160);
+            default:
+                pikachu = new Pikachu();
+                pikachu.setDano(10);
+                pikachu.setVida(90);
+                pikachu.setRecompensa(160);
                 System.out.println("pikachu 5");
                 break;
         }
+        return pikachu;
     }
 
     @Override
