@@ -198,11 +198,11 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void inicializarStarters() {
-        Personajes.teemo = new Teemo();
-        Personajes.gnar = new Gnar();
-        Personajes.poppy = new Poppy();
+        Global.teemo = new Teemo();
+        Global.gnar = new Gnar();
+        Global.poppy = new Poppy();
 
-        Personajes.starter = Personajes.teemo; //Por defecto
+        Global.starter = Global.teemo; //Por defecto
     }
 
     private void menuTienda_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTienda_ActionPerformed

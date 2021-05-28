@@ -3,7 +3,7 @@ package modelo;
 public class Gyarados extends Enemigo {
 
     public static void definirGyaradosEnemigo() {
-        Personajes.enemigo = obtenerGyaradosEnemigo();
+        Global.enemigo = obtenerGyaradosEnemigo();
     }
 
     private static Gyarados obtenerGyaradosEnemigo() {

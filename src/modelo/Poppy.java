@@ -8,7 +8,7 @@ public class Poppy extends Starter {
     private final int VIDA_MAXIMA = 200;
     private final int DANO_MAXIMO = 40;
     private final int DANO_MINIMO = 6;
-    private final int PROTECCIONESCUDO_MAXIMA = 20;
+    private final int PROTECCIONESCUDO_MAXIMA = 30;
     private final int PROTECCIONESCUDO_MINIMA = 3;
     private final boolean POPPY_VALORESCUDOPORDEFECTO = false;
 
@@ -74,8 +74,8 @@ public class Poppy extends Starter {
     public void ataqueSecundario(Enemigo enemigo) { //martillazo
         enemigo.setVida(enemigo.getVida() - dano / 2);
 
-        int num = (int) (Math.random() * 100 + 1 + proteccionEscudo * 2);
-        if (num > 67) {
+        int num = (int) (Math.random() * 100 + 1 + proteccionEscudo);
+        if (num > 62) {
             enemigo.setConfundidoSiPosible(true);
         }
     }
@@ -106,7 +106,7 @@ public class Poppy extends Starter {
 
     @Override
     public double ajustarDanoAResistencias(double dano) {
-        dano = dano - dano * proteccionEscudo / 100;
+        dano = dano - dano * proteccionEscudo / 100 * 3 / 2;
         if (isLlevaEscudo()) {
             if (dano <= proteccionEscudo) {
                 System.out.println("El escudo bloquea todo");

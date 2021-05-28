@@ -16,8 +16,8 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     public void mostrar(GUI gui) {
-        this.starter = Personajes.starter;
-        this.enemigo = Personajes.enemigo;
+        this.starter = Global.starter;
+        this.enemigo = Global.enemigo;
         this.GUICallBack = gui;
 
         labVidaStarter.setText(String.valueOf((int) starter.getVida()));
@@ -344,6 +344,8 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private void turnoEnemigo() {
+        labVidaStarter.setText(String.valueOf((int) starter.getVida()));
+
         if (estaEnemigoMuerto()) {
             return;
         }
@@ -379,7 +381,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                 gnar.setContadorMonstruo(0);
             }
             JOptionPane.showMessageDialog(
-                    this,
+                    GUICallBack,
                     starter.getNombre() + " ha muerto. Perdió la mitad de oro",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
@@ -513,12 +515,14 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     private boolean turnoEnemigoCegadoYEnvenenado() {
         if (enemigo.isEnvenenado() && enemigo.isCegado()) {
             labEfectoDebilitador.setText("Sí");
-            danoVenenoYReducirDuracion();
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombreEnemigo() + " fue envenenado y cegado",
+                    enemigo.getNombreEnemigo() + " fue "
+                    + ((enemigo.getTurnosEnvenenado() == 3)
+                    ? "envenenado y " : "") + "cegado",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
+            danoVenenoYReducirDuracion();
             enemigo.setCegadoSiPosible(false);
             estaEnemigoMuerto();
             posibleTransformacionGnar();
@@ -617,9 +621,23 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             this.setVisible(false);
             this.getRootPane().getContentPane().remove(this);
             desbloquearRecompensas();
+            mensajePorPasarseElJuego();
             return true;
         }
         return false;
+    }
+
+    private void mensajePorPasarseElJuego() throws HeadlessException {
+        if (enemigo instanceof Arceus) {
+            JOptionPane.showMessageDialog(GUICallBack,
+                    "Enhorabuena! Espero que hayas disfrutado del juego.\n"
+                    + "\n"
+                    + "Para ver otros proyectos que he hecho:\n"
+                    + "GitHub: https://github.com/CosmeValera",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE,
+                    new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/huggingFace.png")));
+        }
     }
 
     private void desbloquearRecompensas() {

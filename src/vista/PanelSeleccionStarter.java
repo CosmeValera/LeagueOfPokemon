@@ -1,6 +1,6 @@
 package vista;
 
-import modelo.Personajes;
+import modelo.Global;
 import modelo.Starter;
 
 public class PanelSeleccionStarter extends javax.swing.JPanel {
@@ -208,7 +208,7 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
 
     private void butTeemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTeemoActionPerformed
         GUICallBack.obtenerBarraMenu().setVisible(true);
-        Personajes.starter = Personajes.teemo;
+        Global.starter = Global.teemo;
         Starter.setTeemoDisponible(true);
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
@@ -216,7 +216,7 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
 
     private void butGnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGnarActionPerformed
         GUICallBack.obtenerBarraMenu().setVisible(true);
-        Personajes.starter = Personajes.gnar;
+        Global.starter = Global.gnar;
         Starter.setGnarDisponible(true);
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
@@ -224,7 +224,7 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
 
     private void butPoppyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPoppyActionPerformed
         GUICallBack.obtenerBarraMenu().setVisible(true);
-        Personajes.starter = Personajes.poppy;
+        Global.starter = Global.poppy;
         Starter.setPoppyDisponible(true);
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);

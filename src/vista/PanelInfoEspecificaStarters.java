@@ -1,7 +1,7 @@
 package vista;
 
 import javax.swing.JPanel;
-import modelo.Personajes;
+import modelo.Global;
 
 public class PanelInfoEspecificaStarters extends JPanel {
 
@@ -16,7 +16,7 @@ public class PanelInfoEspecificaStarters extends JPanel {
     void mostrar(ICallBack panelInformacion, String nombreStarter) {
         IPanelCaller = panelInformacion;
         this.nombreStarter = nombreStarter;
-        panelCaller = Personajes.panelCaller;
+        panelCaller = Global.panelCaller;
 
         infoEspecificaStarters(nombreStarter);
 
@@ -38,7 +38,8 @@ public class PanelInfoEspecificaStarters extends JPanel {
                 txtAtaqueSecundario.setText("Inflinge 100% daño de ataque de Teemo.\n"
                         + "Tiene probabilidad de cegar, envenenar o\n"
                         + "de provocar ambas, la probabilidad de hacer\n"
-                        + "ambas escala por daño veneno.");
+                        + "ambas escala por daño veneno. El daño vene-\n"
+                        + "no también aumenta el robo de vida pasivo.");
                 labItem.setText("Veneno ->");
                 butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoPoison.png"))); // NOI18N
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/teemoEspecifico.png"))); // NOI18N
@@ -51,9 +52,10 @@ public class PanelInfoEspecificaStarters extends JPanel {
                 labCabecera.setText("Poppy");
                 labAtaquePrincipal.setText("Placaje con escudo");
                 txtAtaquePrincipal.setText("Inflinge 100% daño de ataque de Poppy.\n"
-                        + "Hay un 50% de probabilidad de que Poppy\n"
-                        + "se ponga un escudo, este le garantiza una\n"
-                        + "protección extra durante un turno.");
+                        + "Hay una probabilidad de que Poppy se ponga\n"
+                        + "un escudo, este le garantiza una protección\n"
+                        + "extra durante un turno. Esta probabilidad\n"
+                        + "escala con la dureza de escudo.");
                 labAtaqueSecundario.setText("Martillazo");
                 txtAtaqueSecundario.setText("Inflinge 50% daño de ataque de Poppy.\n"
                         + "Otorga además la probabilidad de confundir\n"
@@ -253,9 +255,13 @@ public class PanelInfoEspecificaStarters extends JPanel {
     private void butVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butVolverActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        panelCaller = Personajes.panelCaller;
-        IPanelCaller.hacerVisible(true);
-        panelCaller.setVisible(true);
+        panelCaller = Global.panelCaller;
+        if (IPanelCaller != null) {         //Para volver al panelInfo
+            IPanelCaller.hacerVisible(true);
+        }
+        if (panelCaller != null) {         //Para volver al panelTienda
+            panelCaller.setVisible(true);
+        }
     }//GEN-LAST:event_butVolverActionPerformed
 
     private void butItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butItemActionPerformed

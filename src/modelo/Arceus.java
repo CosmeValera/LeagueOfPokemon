@@ -3,7 +3,7 @@ package modelo;
 public class Arceus extends Enemigo {
 
     public static void definirArceusEnemigo() {
-        Personajes.enemigo = obtenerArceusEnemigo();
+        Global.enemigo = obtenerArceusEnemigo();
     }
 
     private static Arceus obtenerArceusEnemigo() {

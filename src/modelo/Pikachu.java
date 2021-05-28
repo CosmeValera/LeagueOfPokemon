@@ -3,7 +3,7 @@ package modelo;
 public class Pikachu extends Enemigo {
 
     public static void definirPikachuEnemigo() {
-        Personajes.enemigo = obtenerPikachuEnemigo();
+        Global.enemigo = obtenerPikachuEnemigo();
     }
     
     private static Pikachu obtenerPikachuEnemigo() {

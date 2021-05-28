@@ -3,7 +3,7 @@ package modelo;
 public class HitMonLee extends Enemigo {
 
     public static void definirHitMonLeeEnemigo() {
-        Personajes.enemigo = obtenerHitMonLeeEnemigo();
+        Global.enemigo = obtenerHitMonLeeEnemigo();
     }
 
     private static HitMonLee obtenerHitMonLeeEnemigo() {
@@ -20,8 +20,8 @@ public class HitMonLee extends Enemigo {
             case 2:
                 hitMonLee = new HitMonLee();
                 hitMonLee.setDano(14);
-                hitMonLee.setVida(95);
-                hitMonLee.setRecompensa(230);
+                hitMonLee.setVida(105);
+                hitMonLee.setRecompensa(245);
                 System.out.println("hitMonLee 2");
                 break;
             case 3:

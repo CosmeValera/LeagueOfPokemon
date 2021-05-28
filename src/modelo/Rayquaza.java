@@ -3,7 +3,7 @@ package modelo;
 public class Rayquaza extends Enemigo {
     
     public static void definirRayquazaEnemigo() {
-        Personajes.enemigo = obtenerRayquazaEnemigo();
+        Global.enemigo = obtenerRayquazaEnemigo();
     }
     
     private static Rayquaza obtenerRayquazaEnemigo() {

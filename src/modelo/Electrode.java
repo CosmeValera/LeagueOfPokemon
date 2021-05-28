@@ -3,7 +3,7 @@ package modelo;
 public class Electrode extends Enemigo {
 
     public static void definirElectrodeEnemigo() {
-        Personajes.enemigo = obtenerElectrodeEnemigo();
+        Global.enemigo = obtenerElectrodeEnemigo();
     }
 
     private static Electrode obtenerElectrodeEnemigo() {
