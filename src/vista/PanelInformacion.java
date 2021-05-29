@@ -1,5 +1,7 @@
 package vista;
 
+import modelo.Starter;
+
 public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
 
     public PanelInformacion() {
@@ -9,6 +11,30 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
     public void mostrar() {
         this.setVisible(true);
         this.requestFocusInWindow();
+
+        if (!Starter.isTeemoDisponible()) {
+            butTeemo.setVisible(false);
+            butPoison.setVisible(false);
+        }
+        if (!Starter.isPoppyDisponible()) {
+            butPoppy.setVisible(false);
+            butShield.setVisible(false);
+        }
+        if (!Starter.isGnarDisponible()) {
+            butGnarMini.setVisible(false);
+            butGnarMega.setVisible(false);
+            butArmor.setVisible(false);
+        }
+
+        if (Starter.getEnemigosVencidos() < Starter.getVictoriesForFirstPrize()) {
+            butGyarados.setVisible(false);
+        }
+        if (Starter.getEnemigosVencidos() < Starter.getVictoriesForSecondPrize()) {
+            butRayquaza.setVisible(false);
+        }
+        if (Starter.getEnemigosVencidos() < Starter.getVictoriesForThirdPrize()) {
+            butArceus.setVisible(false);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -26,6 +52,8 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
         butElectrode = new javax.swing.JButton();
         butHitMonLee = new javax.swing.JButton();
         butGyarados = new javax.swing.JButton();
+        butRayquaza = new javax.swing.JButton();
+        butArceus = new javax.swing.JButton();
         labItem = new javax.swing.JLabel();
         butPotion = new javax.swing.JButton();
         butSword = new javax.swing.JButton();
@@ -106,6 +134,20 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
             }
         });
 
+        butRayquaza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoRayquaza.png"))); // NOI18N
+        butRayquaza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butEnemigo_ActionPerformed(evt);
+            }
+        });
+
+        butArceus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoArceus.png"))); // NOI18N
+        butArceus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butEnemigo_ActionPerformed(evt);
+            }
+        });
+
         labItem.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labItem.setText("Items");
@@ -167,14 +209,6 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
                                 .addGap(18, 18, 18)
                                 .addComponent(butGnarMega, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(butPikachu, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(butElectrode, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(butHitMonLee, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(butGyarados, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(butPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(butSword, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,7 +217,19 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
                                 .addGap(18, 18, 18)
                                 .addComponent(butShield, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(butArmor, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(butArmor, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(butPikachu, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(butElectrode, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(butHitMonLee, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(butGyarados, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(butRayquaza, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(butArceus, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -204,19 +250,23 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
                 .addComponent(labEnemigos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(butElectrode, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butPikachu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butHitMonLee, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butGyarados, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(labItem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(butSword, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butPoison, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butShield, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butArmor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(butElectrode, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butPikachu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butHitMonLee, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butGyarados, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butArceus, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(labItem)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(butSword, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butPoison, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butShield, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butArmor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(butRayquaza, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -255,6 +305,10 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
             panelIEE.mostrar(this, "hitMonLee");
         } else if (evt.getSource() == butGyarados) {
             panelIEE.mostrar(this, "gyarados");
+        } else if (evt.getSource() == butRayquaza) {
+            panelIEE.mostrar(this, "rayquaza");
+        } else if (evt.getSource() == butArceus) {
+            panelIEE.mostrar(this, "arceus");
         }
     }//GEN-LAST:event_butEnemigo_ActionPerformed
 
@@ -281,10 +335,12 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
     public void clickPotion() {
         butPotion.doClick();
     }
+
     @Override
     public void clickSword() {
         butSword.doClick();
     }
+
     @Override
     public void clickPoison() {
         butPoison.doClick();
@@ -326,6 +382,7 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
         butGnarMega.doClick();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton butArceus;
     private javax.swing.JButton butArmor;
     private javax.swing.JButton butElectrode;
     private javax.swing.JButton butGnarMega;
@@ -336,6 +393,7 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
     private javax.swing.JButton butPoison;
     private javax.swing.JButton butPoppy;
     private javax.swing.JButton butPotion;
+    private javax.swing.JButton butRayquaza;
     private javax.swing.JButton butShield;
     private javax.swing.JButton butSword;
     private javax.swing.JButton butTeemo;

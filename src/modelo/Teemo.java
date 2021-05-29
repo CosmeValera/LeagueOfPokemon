@@ -7,13 +7,12 @@ public class Teemo extends Starter {
     private final int VIDA_MAXIMA = 120;
     private final int DANO_MAXIMO = 60;
     private final int DANO_MINIMO = 10;
-    private final int DANOVENENO_MAXIMO = 20;
+    private final int DANOVENENO_MAXIMO = 30;
     private final int DANOVENENO_MINIMO = 3;
 
     public Teemo() {
         dano = DANO_MINIMO;
         vida = VIDA_MAXIMA;
-        cantidadOro = getCantidadInicialOro();
         danoVeneno = DANOVENENO_MINIMO;
     }
 
@@ -61,8 +60,10 @@ public class Teemo extends Starter {
     @Override
     public void ataquePrincipal(Enemigo enemigo) { //Aranazo
         enemigo.setVida(enemigo.getVida() - dano * 1.5);
-        
-        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Personajes.starter).getDanoVeneno();
+
+        lifeSteal(danoVeneno * 1.5);
+
+        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Global.starter).getDanoVeneno() / 2;
         if (num > 70) { //Camuflarse
             enemigo.setVisionTorpeSiPosible(true);
         }
@@ -72,14 +73,23 @@ public class Teemo extends Starter {
     public void ataqueSecundario(Enemigo enemigo) { //Dardo venenoso
         enemigo.setVida(enemigo.getVida() - dano);
 
-        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Personajes.starter).getDanoVeneno();
-        if (num > 40 && num < 70) { //Envenenado
+        lifeSteal(danoVeneno);
+
+        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Global.starter).getDanoVeneno();
+        if (num > 45 && num < 73) { //Envenenado
             enemigo.setEnvenenadoSiPosible(true);
-        } else if (num >= 70 && num < 90) { //Cegado
+        } else if (num >= 73 && num < 90) { //Cegado
             enemigo.setCegadoSiPosible(true);
         } else if (num >= 90) { //Envenenado y cegado
             enemigo.setEnvenenadoSiPosible(true);
             enemigo.setCegadoSiPosible(true);
+        }
+    }
+
+    private void lifeSteal(double danoVeneno) {
+        vida = vida + danoVeneno / 5;
+        if (vida > VIDA_MAXIMA) {
+            vida = VIDA_MAXIMA;
         }
     }
 
@@ -105,6 +115,6 @@ public class Teemo extends Starter {
 
     @Override
     public double ajustarDanoAResistencias(double dano) {
-        return dano;
+        return dano - dano * this.danoVeneno / 100;
     }
 }

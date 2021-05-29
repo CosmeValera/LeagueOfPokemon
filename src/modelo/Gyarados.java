@@ -3,44 +3,50 @@ package modelo;
 public class Gyarados extends Enemigo {
 
     public static void definirGyaradosEnemigo() {
+        Global.enemigo = obtenerGyaradosEnemigo();
+    }
+
+    private static Gyarados obtenerGyaradosEnemigo() {
+        Gyarados gyarados;
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
-                Personajes.enemigo = new Gyarados();
-                Personajes.enemigo.setDano(21);
-                Personajes.enemigo.setVida(290);
-                Personajes.enemigo.setRecompensa(540);
+                gyarados = new Gyarados();
+                gyarados.setDano(21);
+                gyarados.setVida(290);
+                gyarados.setRecompensa(540);
                 System.out.println("gyarados 1");
                 break;
             case 2:
-                Personajes.enemigo = new Gyarados();
-                Personajes.enemigo.setDano(22);
-                Personajes.enemigo.setVida(285);
-                Personajes.enemigo.setRecompensa(550);
+                gyarados = new Gyarados();
+                gyarados.setDano(22);
+                gyarados.setVida(285);
+                gyarados.setRecompensa(550);
                 System.out.println("gyarados 2");
                 break;
             case 3:
-                Personajes.enemigo = new Gyarados();
-                Personajes.enemigo.setDano(19);
-                Personajes.enemigo.setVida(305);
-                Personajes.enemigo.setRecompensa(555);
+                gyarados = new Gyarados();
+                gyarados.setDano(19);
+                gyarados.setVida(305);
+                gyarados.setRecompensa(555);
                 System.out.println("gyarados 3");
                 break;
             case 4:
-                Personajes.enemigo = new Gyarados();
-                Personajes.enemigo.setDano(20);
-                Personajes.enemigo.setVida(320);
-                Personajes.enemigo.setRecompensa(580);
+                gyarados = new Gyarados();
+                gyarados.setDano(20);
+                gyarados.setVida(320);
+                gyarados.setRecompensa(580);
                 System.out.println("gyarados 4");
                 break;
-            case 5:
-                Personajes.enemigo = new Gyarados();
-                Personajes.enemigo.setDano(22);
-                Personajes.enemigo.setVida(345);
-                Personajes.enemigo.setRecompensa(640);
+            default:
+                gyarados = new Gyarados();
+                gyarados.setDano(22);
+                gyarados.setVida(345);
+                gyarados.setRecompensa(640);
                 System.out.println("gyarados 5");
                 break;
         }
+        return gyarados;
     }
 
     @Override

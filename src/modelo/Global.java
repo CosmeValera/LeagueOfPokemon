@@ -2,7 +2,7 @@ package modelo;
 
 import javax.swing.JPanel;
 
-public class Personajes {
+public class Global {
 
     public static Starter starter;
     public static Teemo teemo;
@@ -12,5 +12,4 @@ public class Personajes {
     public static Enemigo enemigo;
     
     public static JPanel panelCaller;
-    
 }

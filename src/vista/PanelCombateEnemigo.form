@@ -225,14 +225,14 @@
     <Component class="javax.swing.JLabel" name="labStarter">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/teemoPequeno.png"/>
+          <Image iconType="3" name="/icons/starters/teemo.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labEnemigo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/pikachu.png"/>
+          <Image iconType="3" name="/icons/enemigosCombate/pikachu.png"/>
         </Property>
       </Properties>
     </Component>

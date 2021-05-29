@@ -49,15 +49,6 @@
                               <Component id="butGnarMega" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="butPikachu" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="butElectrode" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="butHitMonLee" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="butGyarados" min="-2" pref="106" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="butPotion" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="butSword" min="-2" pref="106" max="-2" attributes="0"/>
@@ -67,6 +58,19 @@
                               <Component id="butShield" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="butArmor" min="-2" pref="106" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="butPikachu" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butElectrode" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butHitMonLee" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butGyarados" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butRayquaza" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butArceus" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -94,20 +98,26 @@
               <Component id="labEnemigos" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="butElectrode" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="butPikachu" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="butHitMonLee" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="butGyarados" min="-2" pref="80" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="labItem" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="butSword" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="butPoison" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="butShield" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="butArmor" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="butPotion" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="butElectrode" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="butPikachu" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="butHitMonLee" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="butGyarados" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="butArceus" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="labItem" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="butSword" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="butPoison" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="butShield" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="butArmor" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="butPotion" min="-2" pref="80" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="butRayquaza" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="76" max="32767" attributes="0"/>
           </Group>
@@ -216,6 +226,26 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/info/infoGyarados.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEnemigo_ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="butRayquaza">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons/infoGeneral/infoRayquaza.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEnemigo_ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="butArceus">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons/infoGeneral/infoArceus.png"/>
         </Property>
       </Properties>
       <Events>

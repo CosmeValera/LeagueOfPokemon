@@ -1,7 +1,7 @@
 package vista;
 
 import javax.swing.JPanel;
-import modelo.Personajes;
+import modelo.Global;
 
 public class PanelInfoEspecificaEnemigos extends JPanel {
 
@@ -24,7 +24,7 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
         switch (nombreStarter) {
             case "pikachu": //PIKACHU
                 labCabecera.setText("Pikachu");
-                txtDescripcion.setText("Pikachu es uno de los pokémon que tiene la\n"
+                txtDescripcion.setText("Pikachu es uno de los Pokémon que tiene la\n"
                         + "apariencia de un pequeño ratón, su pelaje es\n"
                         + "de un color amarillo, tiene dos marcas de\n"
                         + "color marrón que cubren su espalda y en una\n"
@@ -67,15 +67,43 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
                 labCabecera.setText("Gyarados");
                 txtDescripcion.setText("Gyarados es un Pokémon de tipo agua y\n"
                         + "volador, uno de los más temibles y pode-\n"
-                        + "rosos, ya qu es capaz de crear cascadas\n"
+                        + "rosos, ya que es capaz de crear cascadas\n"
                         + "de la nada así como retumbar la tierra con\n"
                         + "terremotos.");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/gyaradosEspecifico.png"))); // NOI18N
                 txtHabilidad.setText("Gyarados además de controlar el mar y la\n"
                         + "tierra, fue dotado por el dios Arceus con\n"
-                        + "una visión absoluta que le permite ver a\n"
+                        + "una excelente visión que le permite ver a\n"
                         + "cualquiera por mucho que se camufle, además\n"
-                        + "también es inmune a la confusión.");
+                        + "no puede ser confundido.");
+                break;
+            case "rayquaza": //Rayquaza
+                labCabecera.setText("Rayquaza");
+                txtDescripcion.setText("Rayquaza es un Pokémon legendario de la\n"
+                        + "región de Hoenn que representa los cielos\n"
+                        + "y equilibra los poderes del mar y de la tierra.\n"
+                        + "Este dragón celestial de color verde es inmune\n"
+                        + "a casi todos los hechizos.");
+                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/rayquazaEspecifico.png"))); // NOI18N
+                txtHabilidad.setText("Rayquaza controla los cielos y se mueve tan\n"
+                        + "rápido que puede golpear dos veces en el\n"
+                        + "mismo turno, tiene una visión prodigiosa que\n"
+                        + "le permite ver a cualquier enemigo por muy\n"
+                        + "camuflado que este, es inmune al veneno, y\n"
+                        + "no puede ser confundido.");
+                break;
+            case "arceus": //arceus
+                labCabecera.setText("Arceus");
+                txtDescripcion.setText("Arceus es un Pokémon singular. De acuerdo\n"
+                        + "con las mitologías de las regiones del mundo\n"
+                        + "Pokémon y lo conocido hasta el momento se\n"
+                        + "cree que es el primer Pokémon existente,\n"
+                        + "creador del mundo Pokémon y por lo tanto,\n"
+                        + "el dios Pokémon");
+                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/arceusEspecifico.png"))); // NOI18N
+                txtHabilidad.setText("Arceus posee las habilidades de todos los\n"
+                        + "Pokémon ya que el fue quien los creo, por ello\n"
+                        + "es el rival más duro a batir.");
                 break;
         }
     }
@@ -183,6 +211,7 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
         panelCaller.setVisible(true);
+        panelCaller.requestFocusInWindow();
     }//GEN-LAST:event_butVolverActionPerformed
 
 

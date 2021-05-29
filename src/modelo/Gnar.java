@@ -9,15 +9,14 @@ public class Gnar extends Starter {
     private final int VIDA_MAXIMA = 170;
     private final int DANO_MAXIMO = 50;
     private final int DANO_MINIMO = 6;
-    private final int RESISTENCIA_MAXIMA = 70;
-    private final int RESISTENCIA_MINIMA = 35;
+    private final int RESISTENCIA_MAXIMA = 66;
+    private final int RESISTENCIA_MINIMA = 20;
     private final boolean GNAR_ESMONSTRUOPORDEFECTO = false;
     private final int GNAR_CONTADORMONSTRUOPORDEFECTO = 0;
 
     public Gnar() {
         dano = DANO_MINIMO;
         vida = VIDA_MAXIMA;
-        cantidadOro = getCantidadInicialOro();
         esMonstruo = GNAR_ESMONSTRUOPORDEFECTO;
         resistencia = RESISTENCIA_MINIMA;
         contadorMonstruo = GNAR_CONTADORMONSTRUOPORDEFECTO;
@@ -135,8 +134,8 @@ public class Gnar extends Starter {
     @Override
     public boolean isPuedeEsquivar() {
         if (!esMonstruo) {
-            int num = (int) (Math.random() * 2 + 1);
-            return num == 1;
+            double num = (Math.random() * 100 + 1 + resistencia / 5);
+            return num > 63; // resistencia 20-> 41% || resistencia 65-> 50%
         }
         return false;
     }

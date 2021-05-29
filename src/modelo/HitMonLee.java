@@ -3,44 +3,50 @@ package modelo;
 public class HitMonLee extends Enemigo {
 
     public static void definirHitMonLeeEnemigo() {
+        Global.enemigo = obtenerHitMonLeeEnemigo();
+    }
+
+    private static HitMonLee obtenerHitMonLeeEnemigo() {
+        HitMonLee hitMonLee;
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
-                Personajes.enemigo = new HitMonLee();
-                Personajes.enemigo.setDano(11);
-                Personajes.enemigo.setVida(122);
-                Personajes.enemigo.setRecompensa(195);
+                hitMonLee = new HitMonLee();
+                hitMonLee.setDano(11);
+                hitMonLee.setVida(122);
+                hitMonLee.setRecompensa(195);
                 System.out.println("hitMonLee 1");
                 break;
             case 2:
-                Personajes.enemigo = new HitMonLee();
-                Personajes.enemigo.setDano(14);
-                Personajes.enemigo.setVida(95);
-                Personajes.enemigo.setRecompensa(230);
+                hitMonLee = new HitMonLee();
+                hitMonLee.setDano(14);
+                hitMonLee.setVida(105);
+                hitMonLee.setRecompensa(245);
                 System.out.println("hitMonLee 2");
                 break;
             case 3:
-                Personajes.enemigo = new HitMonLee();
-                Personajes.enemigo.setDano(12);
-                Personajes.enemigo.setVida(170);
-                Personajes.enemigo.setRecompensa(270);
+                hitMonLee = new HitMonLee();
+                hitMonLee.setDano(12);
+                hitMonLee.setVida(170);
+                hitMonLee.setRecompensa(270);
                 System.out.println("hitMonLee 3");
                 break;
             case 4:
-                Personajes.enemigo = new HitMonLee();
-                Personajes.enemigo.setDano(14);
-                Personajes.enemigo.setVida(190);
-                Personajes.enemigo.setRecompensa(305);
+                hitMonLee = new HitMonLee();
+                hitMonLee.setDano(14);
+                hitMonLee.setVida(190);
+                hitMonLee.setRecompensa(305);
                 System.out.println("hitMonLee 4");
                 break;
-            case 5:
-                Personajes.enemigo = new HitMonLee();
-                Personajes.enemigo.setDano(13);
-                Personajes.enemigo.setVida(215);
-                Personajes.enemigo.setRecompensa(325);
+            default:
+                hitMonLee = new HitMonLee();
+                hitMonLee.setDano(13);
+                hitMonLee.setVida(215);
+                hitMonLee.setRecompensa(325);
                 System.out.println("hitMonLee 5");
                 break;
         }
+        return hitMonLee;
     }
 
     @Override

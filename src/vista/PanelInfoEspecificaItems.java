@@ -1,7 +1,7 @@
 package vista;
 
 import javax.swing.JPanel;
-import modelo.Personajes;
+import modelo.Global;
 
 public class PanelInfoEspecificaItems extends JPanel {
 
@@ -16,7 +16,7 @@ public class PanelInfoEspecificaItems extends JPanel {
     void mostrar(ICallBack panelInformacion, String nombreItem) {
         this.nombreItem = nombreItem;
         IPanelCaller = panelInformacion;
-        panelCaller = Personajes.panelCaller;
+        panelCaller = Global.panelCaller;
 
         infoEspecificaItems(nombreItem);
 
@@ -196,9 +196,13 @@ public class PanelInfoEspecificaItems extends JPanel {
     private void butVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butVolverActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        panelCaller = Personajes.panelCaller;
-        IPanelCaller.hacerVisible(true);
-        panelCaller.setVisible(true);
+        panelCaller = Global.panelCaller;
+        if (IPanelCaller != null) {         //Para volver al panelInfo
+            IPanelCaller.hacerVisible(true);
+        }
+        if (panelCaller != null) {         //Para volver al panelTienda
+            panelCaller.setVisible(true);
+        }
     }//GEN-LAST:event_butVolverActionPerformed
 
     private void butStarterUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarterUnoActionPerformed
