@@ -86,8 +86,8 @@ public class Teemo extends Starter {
         }
     }
 
-    private void lifeSteal(double dano) {
-        vida = vida + dano/5;
+    private void lifeSteal(double danoVeneno) {
+        vida = vida + danoVeneno / 5;
         if (vida > VIDA_MAXIMA) {
             vida = VIDA_MAXIMA;
         }

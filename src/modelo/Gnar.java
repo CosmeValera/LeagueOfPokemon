@@ -9,7 +9,7 @@ public class Gnar extends Starter {
     private final int VIDA_MAXIMA = 170;
     private final int DANO_MAXIMO = 50;
     private final int DANO_MINIMO = 6;
-    private final int RESISTENCIA_MAXIMA = 65;
+    private final int RESISTENCIA_MAXIMA = 66;
     private final int RESISTENCIA_MINIMA = 20;
     private final boolean GNAR_ESMONSTRUOPORDEFECTO = false;
     private final int GNAR_CONTADORMONSTRUOPORDEFECTO = 0;

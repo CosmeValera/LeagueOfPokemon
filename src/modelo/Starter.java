@@ -9,9 +9,9 @@ public abstract class Starter {
     private final int cantidadInicialOro = 300;
 
     protected static int enemigosVencidos;
-    private static final int VICTORIESFORFIRSTPRIZE = 25;
-    private static final int VICTORIESFORSECONDPRIZE = 50;
-    private static final int VICTORIESFORTHIRDPRIZE = 80;
+    private static final int VICTORIESFORFIRSTPRIZE = 15;
+    private static final int VICTORIESFORSECONDPRIZE = 40;
+    private static final int VICTORIESFORTHIRDPRIZE = 65;
     private static boolean teemoDisponible = false;
     private static boolean poppyDisponible = false;
     private static boolean gnarDisponible = false;

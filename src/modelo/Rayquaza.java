@@ -1,11 +1,11 @@
 package modelo;
 
 public class Rayquaza extends Enemigo {
-    
+
     public static void definirRayquazaEnemigo() {
         Global.enemigo = obtenerRayquazaEnemigo();
     }
-    
+
     private static Rayquaza obtenerRayquazaEnemigo() {
         Rayquaza rayquaza;
         int num = (int) (Math.random() * 5 + 1);

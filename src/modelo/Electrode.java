@@ -14,35 +14,35 @@ public class Electrode extends Enemigo {
                 electrode = new Electrode();
                 electrode.setDano(20);
                 electrode.setVida(45);
-                electrode.setRecompensa(145);
+                electrode.setRecompensa(116);
                 System.out.println("Electrode 1");
                 break;
             case 2:
                 electrode = new Electrode();
                 electrode.setDano(25);
                 electrode.setVida(50);
-                electrode.setRecompensa(180);
+                electrode.setRecompensa(144);
                 System.out.println("Electrode 2");
                 break;
             case 3:
                 electrode = new Electrode();
                 electrode.setDano(35);
                 electrode.setVida(46);
-                electrode.setRecompensa(235);
+                electrode.setRecompensa(188);
                 System.out.println("Electrode 3");
                 break;
             case 4:
                 electrode = new Electrode();
                 electrode.setDano(30);
                 electrode.setVida(65);
-                electrode.setRecompensa(270);
+                electrode.setRecompensa(216);
                 System.out.println("Electrode 4");
                 break;
             default:
                 electrode = new Electrode();
                 electrode.setDano(33);
                 electrode.setVida(70);
-                electrode.setRecompensa(285);
+                electrode.setRecompensa(228);
                 System.out.println("Electrode 5");
                 break;
         }
