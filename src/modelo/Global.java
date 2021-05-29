@@ -8,6 +8,7 @@ public class Global {
     public static Teemo teemo;
     public static Gnar gnar;
     public static Poppy poppy;
+    public static Yuumi yuumi;
 
     public static Enemigo enemigo;
     

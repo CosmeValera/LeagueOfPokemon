@@ -26,7 +26,7 @@ public class PanelInfoEspecificaItems extends JPanel {
 
     private void infoEspecificaItems(String nombreItem) {
         switch (nombreItem) {
-            case "potion": //Potion
+            case "healthPotion": //Potion
                 labCabecera.setText("Poción");
                 txtDescripcion.setText("Precio: 30.\n"
                         + "Restaura 75 de salud.");
@@ -72,6 +72,15 @@ public class PanelInfoEspecificaItems extends JPanel {
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/armorEspecifico.png"))); // NOI18N
                 butStarterUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoGnarMini.png"))); // NOI18N
                 butStarterDos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoGnarMega.png"))); // NOI18N
+                butStarterTres.setVisible(false);
+                break;
+            case "relievePotion": //relievePotion
+                labCabecera.setText("Poción Sanadora");
+                txtDescripcion.setText("Otorga 1 de curación extra en combate\n"
+                        + "por ataque que tenga regeneración.");
+                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/relievePotionEspecifico.png"))); // NOI18N
+                butStarterUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoYuumi.png"))); // NOI18N
+                butStarterDos.setVisible(false);
                 butStarterTres.setVisible(false);
                 break;
         }
@@ -214,6 +223,8 @@ public class PanelInfoEspecificaItems extends JPanel {
             IPanelCaller.clickPoppy();
         } else if (nombreItem.equals("armor")) {
             IPanelCaller.clickGnarMini();
+        } else if (nombreItem.equals("relievePotion")) {
+            IPanelCaller.clickYuumi();
         }
     }//GEN-LAST:event_butStarterUnoActionPerformed
 

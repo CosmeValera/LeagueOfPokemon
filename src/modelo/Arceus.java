@@ -2,6 +2,8 @@ package modelo;
 
 public class Arceus extends Enemigo {
 
+    private double resistenciaMagica = 40; //Debil contra magia
+
     public static void definirArceusEnemigo() {
         Global.enemigo = obtenerArceusEnemigo();
     }
@@ -24,6 +26,11 @@ public class Arceus extends Enemigo {
     @Override
     public String getNombreEnemigo() {
         return "Arceus";
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return resistenciaMagica;
     }
 
     @Override

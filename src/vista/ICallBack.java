@@ -5,7 +5,11 @@ public interface ICallBack {
     public default void hacerVisible(boolean bool) {
     }
 
-    public default void clickPotion() {
+    public default void clickHealthPotion() {
+    }
+
+    //TO DO hacer en el panel GUI y que haga lo mismo pinchando a ese boton del panelInformacion
+    public default void clickRelievePotion() {
     }
 
     public default void clickSword() {
@@ -30,5 +34,9 @@ public interface ICallBack {
     }
 
     public default void clickGnarMega() {
+    }
+    
+    //TO DO hacer en el panel GUI y que haga lo mismo pinchando a ese boton del panelInformacion
+    public default void clickYuumi() {
     }
 }

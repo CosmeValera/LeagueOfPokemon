@@ -34,20 +34,20 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
                         + "su mente para enfocarse en la pelea y dar\n"
                         + "todo de si para intentar ganar el combate,\n"
                         + "gracias a esto es inmune a todo tipo de\n"
-                        + "venenos.");
+                        + "venenos. Debil contra magia.");
                 break;
             case "electrode": //electroede
                 labCabecera.setText("Electrode");
                 txtDescripcion.setText("Electrode es un Pokémon de tipo eléctrico.\n"
                         + "Es considerado un Pokémon muy peligroso,\n"
-                        + "además de ser rápido, es capaz de debilitar a\n"
-                        + "un Pokémon con \"Autodestrucción\".");
+                        + "además de ser rápido, es capaz de debilitar\n"
+                        + "a un Pokémon con \"Autodestrucción\".");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/electrodeEspecifico.png"))); // NOI18N
                 txtHabilidad.setText("Tiene la habilidad de \"Autodestrucción\" con\n"
                         + "la cual puede debilitar fuertemente a su\n"
                         + "contrincante de un solo golpe, aunque este\n"
                         + "ataque le requiere tanto esfuerzo que le\n"
-                        + "cuesta la vida.");
+                        + "cuesta la vida. Fuerte contra magia.");
                 break;
             case "hitMonLee": //hitMonLee
                 labCabecera.setText("HitMonLee");
@@ -61,7 +61,8 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
                         + "conectar dos golpes seguidos en el mismo\n"
                         + "turno. Esta experencia en combate también le\n"
                         + "ha dotado de resistencia contra cegados y\n"
-                        + "aturdimientos.");
+                        + "aturdimientos. Ligeramente debil contra\n"
+                        + "magia.");
                 break;
             case "gyarados": //gyarados
                 labCabecera.setText("Gyarados");
@@ -75,7 +76,8 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
                         + "tierra, fue dotado por el dios Arceus con\n"
                         + "una excelente visión que le permite ver a\n"
                         + "cualquiera por mucho que se camufle, además\n"
-                        + "no puede ser confundido.");
+                        + "no puede ser confundido. Ligeramente fuerte\n"
+                        + "contra magia.");
                 break;
             case "rayquaza": //Rayquaza
                 labCabecera.setText("Rayquaza");
@@ -88,9 +90,9 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
                 txtHabilidad.setText("Rayquaza controla los cielos y se mueve tan\n"
                         + "rápido que puede golpear dos veces en el\n"
                         + "mismo turno, tiene una visión prodigiosa que\n"
-                        + "le permite ver a cualquier enemigo por muy\n"
-                        + "camuflado que este, es inmune al veneno, y\n"
-                        + "no puede ser confundido.");
+                        + "le permite ver a cualquier enemigo, es inmu-\n"
+                        + "ne al veneno, y  no puede ser confundido.\n"
+                        + "Fuerte contra magia.");
                 break;
             case "arceus": //arceus
                 labCabecera.setText("Arceus");
@@ -99,11 +101,12 @@ public class PanelInfoEspecificaEnemigos extends JPanel {
                         + "Pokémon y lo conocido hasta el momento se\n"
                         + "cree que es el primer Pokémon existente,\n"
                         + "creador del mundo Pokémon y por lo tanto,\n"
-                        + "el dios Pokémon");
+                        + "el dios Pokémon.");
                 labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/arceusEspecifico.png"))); // NOI18N
                 txtHabilidad.setText("Arceus posee las habilidades de todos los\n"
                         + "Pokémon ya que el fue quien los creo, por ello\n"
-                        + "es el rival más duro a batir.");
+                        + "es el rival más duro a batir. Debil contra\n"
+                        + "magia.");
                 break;
         }
     }

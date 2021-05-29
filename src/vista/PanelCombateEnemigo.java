@@ -48,6 +48,14 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/Poppy.png")));
             butAtaquePrincipal.setText("Placaje con escudo");
             butAtaqueSecundario.setText("Martillazo");
+        } else if (starter instanceof Yuumi yuumi) {
+            labFijoValorVariable.setText("Sanación:");
+            labCantidadValorVariable.setText(String.valueOf((int) yuumi.getCura()));
+            labFijoEfectoDebilitador.setText("");
+            labEfectoDebilitador.setText("");
+            labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/yuumi.png")));
+            butAtaquePrincipal.setText("Sanación");
+            butAtaqueSecundario.setText("Últimas páginas");
         }
 
         if (enemigo instanceof Pikachu pikachu) {
@@ -463,7 +471,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(
                     this,
                     enemigo.getNombreEnemigo()
-                    + ((starter instanceof Teemo) ? " fue cegado y no atacó."
+                    + ((starter instanceof Teemo || starter instanceof Yuumi) ? " fue cegado y no atacó."
                             : ((starter instanceof Gnar) ? " no atacó." : "")),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
@@ -648,15 +656,17 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         } else if (Starter.getEnemigosVencidos() == Starter.getVictoriesForSecondPrize()) {
             desbloquearTercerStarter();
         } else if (Starter.getEnemigosVencidos() == Starter.getVictoriesForThirdPrize()) {
-            desbloquearArceus();
+            desbloquearCuartoStarter();
         }
 
     }
 
-    private void desbloquearArceus() throws HeadlessException {
+    private void desbloquearCuartoStarter() throws HeadlessException {
+        GUICallBack.clickCambiarEspecial();
         JOptionPane.showMessageDialog(GUICallBack,
-                "Has avanzado tanto que ya te puedes"
-                + "\nenfrentar al dios Arceus. Enhorabuena!!"
+                "Has avanzado tanto que te mereces poder"
+                + "\ndisponer de otro campeón. Enhorabuena!!"
+                + "\nTambién puedes enfrentarte al dios Arceus."
                 + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);

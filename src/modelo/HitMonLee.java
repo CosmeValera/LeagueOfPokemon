@@ -2,6 +2,8 @@ package modelo;
 
 public class HitMonLee extends Enemigo {
 
+    private double resistenciaMagica = 45; //Ligeramtente debil contra magia
+
     public static void definirHitMonLeeEnemigo() {
         Global.enemigo = obtenerHitMonLeeEnemigo();
     }
@@ -52,6 +54,11 @@ public class HitMonLee extends Enemigo {
     @Override
     public String getNombreEnemigo() {
         return "HitMonLee";
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return resistenciaMagica;
     }
 
     @Override

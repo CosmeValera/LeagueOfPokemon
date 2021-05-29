@@ -184,13 +184,13 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_menuCombate_ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        ocultarItemsAvanzados();
+        ocultarMenuItemsAvanzados();
         inicializarStarters();
         clickCambiarEspecial();
         System.out.println("Se acaba de abrir la ventana");
     }//GEN-LAST:event_formWindowOpened
 
-    private void ocultarItemsAvanzados() {
+    private void ocultarMenuItemsAvanzados() {
         menuGestion_Cambiar.setVisible(false);
         menuCombate_gyarados.setVisible(false);
         menuCombate_rayquaza.setVisible(false);
@@ -201,6 +201,7 @@ public class GUI extends javax.swing.JFrame {
         Global.teemo = new Teemo();
         Global.gnar = new Gnar();
         Global.poppy = new Poppy();
+        Global.yuumi = new Yuumi();
 
         Global.starter = Global.teemo; //Por defecto
     }

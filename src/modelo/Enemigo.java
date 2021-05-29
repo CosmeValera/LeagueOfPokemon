@@ -106,9 +106,9 @@ public abstract class Enemigo {
         this.turnosEnvenenado = turnosEnvenenado;
     }
 
-    public String getNombreEnemigo() {
-        return "Enemigo sin nombre";
-    }
+    public abstract String getNombreEnemigo();
+
+    public abstract double getResistenciaMagica();
 
     public abstract boolean isAtacaDosVeces();
 

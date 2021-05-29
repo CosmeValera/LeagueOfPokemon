@@ -2,6 +2,8 @@ package modelo;
 
 public class Electrode extends Enemigo {
 
+    private double resistenciaMagica = 65; //Fuerte contra magia
+    
     public static void definirElectrodeEnemigo() {
         Global.enemigo = obtenerElectrodeEnemigo();
     }
@@ -52,6 +54,11 @@ public class Electrode extends Enemigo {
     @Override
     public String getNombreEnemigo() {
         return "Electrode";
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return resistenciaMagica;
     }
 
     @Override
