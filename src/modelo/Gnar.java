@@ -2,7 +2,7 @@ package modelo;
 
 public class Gnar extends Starter {
 
-    private int resistencia; //PARA FICHEROS
+    private int resistencia;
     private boolean esMonstruo;
     private int contadorMonstruo;
 

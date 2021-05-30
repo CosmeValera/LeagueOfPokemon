@@ -2,7 +2,7 @@ package modelo;
 
 public class Teemo extends Starter {
 
-    private int danoVeneno; //PARA FICHEROS
+    private int danoVeneno;
 
     private final int VIDA_MAXIMA = 120;
     private final int DANO_MAXIMO = 60;

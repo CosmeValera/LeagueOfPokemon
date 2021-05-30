@@ -3,7 +3,7 @@ package modelo;
 public class Poppy extends Starter {
 
     private boolean llevaEscudo;
-    private int proteccionEscudo; //PARA FICHEROS
+    private int proteccionEscudo;
 
     private final int VIDA_MAXIMA = 200;
     private final int DANO_MAXIMO = 40;
