@@ -1,5 +1,6 @@
 package vista;
 
+import modelo.ICallBack;
 import modelo.Starter;
 
 public class PanelInformacion extends javax.swing.JPanel implements ICallBack {

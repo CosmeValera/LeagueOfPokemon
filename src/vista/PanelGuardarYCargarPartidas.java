@@ -3,8 +3,6 @@ package vista;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Ficheros;
@@ -45,10 +43,10 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(
                     this,
                     "Error!!\n" + e.getMessage(),
-                    this.getName(), 
+                    this.getName(),
                     JOptionPane.ERROR_MESSAGE);
         }
-        
+
         this.setVisible(true);
         this.requestFocusInWindow();
     }
@@ -138,25 +136,103 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void butCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCargarActionPerformed
+        String nombreFichero;
         try {
-            Ficheros.cargarDataDatos("dos", GUICallBack);
+            nombreFichero = (String) tablePartidas.getValueAt(tablePartidas.getSelectedRow(), tablePartidas.getSelectedColumn());
+            Ficheros.cargarDataDatos(nombreFichero, GUICallBack);
+
+            decidirMenuItemsMostrar();
             System.out.println("Fichero cargado correctamente");
         } catch (Exception e) {
             System.out.println("Error en cargarFicheros\n" + e.getMessage());
         }
     }//GEN-LAST:event_butCargarActionPerformed
 
+    private void decidirMenuItemsMostrar() {
+        //Esconder todos los menus primero
+        GUICallBack.getJMenuBar().getMenu(1).getItem(2).setVisible(false);
+        GUICallBack.getJMenuBar().getMenu(0).getItem(3).setVisible(false);
+        GUICallBack.getJMenuBar().getMenu(0).getItem(4).setVisible(false);
+        GUICallBack.getJMenuBar().getMenu(0).getItem(5).setVisible(false);
+
+        //En funcion de los enemigosVencidos, mostrar unas cosas u otras
+        if (Global.starter.getEnemigosVencidos() >= Starter.getVictoriesForFirstPrize()) {
+            GUICallBack.getJMenuBar().getMenu(1).getItem(2).setVisible(true); //Visible panelCambiar
+            GUICallBack.getJMenuBar().getMenu(0).getItem(3).setVisible(true); //Visible Gyarados
+            if (Global.starter.getEnemigosVencidos() >= Starter.getVictoriesForSecondPrize()) {
+                GUICallBack.getJMenuBar().getMenu(0).getItem(4).setVisible(true); //Visible RayQuaza
+                if (Global.starter.getEnemigosVencidos() >= Starter.getVictoriesForThirdPrize()) {
+                    GUICallBack.getJMenuBar().getMenu(0).getItem(5).setVisible(true); //Visible Arceus
+                }
+            }
+            GUICallBack.getJMenuBar().getMenu(1).getItem(2).doClick(); //Mostrar panel si hay + de 1 starter
+        }
+    }
+
     private void butGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGuardarActionPerformed
+        String nombreFichero;
+        boolean ok = false;
+
+        try { //Sobreescribir
+            nombreFichero = (String) tablePartidas.getValueAt(tablePartidas.getSelectedRow(), tablePartidas.getSelectedColumn());
+            int respuesta = JOptionPane.showConfirmDialog(
+                    this,
+                    "Vas a sobreescribir el fichero " + nombreFichero,
+                    this.getName(),
+                    JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                ok = true;
+            }
+        } catch (ArrayIndexOutOfBoundsException e) { //Crear nuevo fichero
+            nombreFichero = JOptionPane.showInputDialog(
+                    this,
+                    "Introduce el nombre del fichero",
+                    this.getName(),
+                    JOptionPane.QUESTION_MESSAGE);
+            nombreFichero += ".txt";
+            if (!nombreFichero.equals(".txt") && !nombreFichero.equals("null.txt")) {
+                ok = true;
+            }
+        }
+
         try {
-            Ficheros.guardarDataDatos("dos");
-            System.out.println("Fichero guardado correctamente");
+            if (ok) {
+                Ficheros.guardarDataDatos(nombreFichero);
+                System.out.println("Fichero guardado correctamente");
+            }
         } catch (Exception e) {
             System.out.println("Error en guardarFicheros\n" + e.getMessage());
         }
+
+        this.setVisible(false);
+        this.getRootPane().getContentPane().remove(this);
+
+        GUICallBack.getJMenuBar().getMenu(2).getItem(0).doClick();
     }//GEN-LAST:event_butGuardarActionPerformed
 
     private void butBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butBorrarActionPerformed
-        // TODO add your handling code here:
+        String nombreFichero;
+        try {
+            nombreFichero = (String) tablePartidas.getValueAt(tablePartidas.getSelectedRow(), tablePartidas.getSelectedColumn());
+            int respuesta = JOptionPane.showConfirmDialog(
+                    this,
+                    "Vas a borrar el fichero " + nombreFichero + ". Estás seguro?",
+                    this.getName(),
+                    JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                Ficheros.borrarNombreFichero(nombreFichero);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Selecciona algún fichero para borrar",
+                    this.getName(),
+                    JOptionPane.QUESTION_MESSAGE);
+        } catch (Exception e) {
+            System.out.println("Error en butBorrarActionPerformed\n" + e.getMessage());
+        }
+
+        GUICallBack.getJMenuBar().getMenu(2).getItem(0).doClick();
     }//GEN-LAST:event_butBorrarActionPerformed
 
 

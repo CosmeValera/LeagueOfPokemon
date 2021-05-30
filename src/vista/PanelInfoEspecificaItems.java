@@ -1,5 +1,6 @@
 package vista;
 
+import modelo.ICallBack;
 import javax.swing.JPanel;
 import modelo.Global;
 

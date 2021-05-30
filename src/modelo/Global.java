@@ -13,4 +13,6 @@ public class Global{
     public static Enemigo enemigo;
     
     public static JPanel panelCaller;
+    
+    public static String ficheroGlobal;
 }

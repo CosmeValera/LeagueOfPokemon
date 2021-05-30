@@ -1,4 +1,4 @@
-package vista;
+package modelo;
 
 public interface ICallBack {
 
@@ -8,7 +8,6 @@ public interface ICallBack {
     public default void clickHealthPotion() {
     }
 
-    //TO DO hacer en el panel GUI y que haga lo mismo pinchando a ese boton del panelInformacion
     public default void clickRelievePotion() {
     }
 
@@ -36,7 +35,6 @@ public interface ICallBack {
     public default void clickGnarMega() {
     }
     
-    //TO DO hacer en el panel GUI y que haga lo mismo pinchando a ese boton del panelInformacion
     public default void clickYuumi() {
     }
 }

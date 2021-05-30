@@ -1,5 +1,6 @@
 package vista;
 
+import modelo.ICallBack;
 import modelo.*;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
@@ -529,7 +530,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         this.add(panelI);
         panelI.clickHealthPotion();
         Global.panelCaller = this;
-        this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
+        this.setVisible(false);
     }//GEN-LAST:event_butInfoPocionActionPerformed
 
     private void butInfoItemVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInfoItemVariableActionPerformed

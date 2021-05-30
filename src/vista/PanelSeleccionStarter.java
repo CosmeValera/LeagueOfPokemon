@@ -1,6 +1,5 @@
 package vista;
 
-import javax.swing.JOptionPane;
 import modelo.Global;
 import modelo.Starter;
 

@@ -202,7 +202,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         ocultarMenuItemsAvanzados();
-        inicializarStarters();
+        inicializarGlobales();
         clickCambiarEspecial();
     }//GEN-LAST:event_formWindowOpened
 
@@ -213,13 +213,14 @@ public class GUI extends javax.swing.JFrame {
         menuCombate_arceus.setVisible(false);
     }
 
-    private void inicializarStarters() {
+    private void inicializarGlobales() {
         Global.teemo = new Teemo();
         Global.gnar = new Gnar();
         Global.poppy = new Poppy();
         Global.yuumi = new Yuumi();
 
         Global.starter = Global.teemo; //Por defecto
+        Global.ficheroGlobal = "todosLosFicheros.txt";
     }
 
     private void menuTienda_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTienda_ActionPerformed
