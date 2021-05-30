@@ -25,6 +25,10 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
             butGnarMega.setVisible(false);
             butArmor.setVisible(false);
         }
+        if (!Starter.isYuumiDisponible()) {
+            butYuumi.setVisible(false);
+            butRelievePotion.setVisible(false);
+        }
 
         if (Starter.getEnemigosVencidos() < Starter.getVictoriesForFirstPrize()) {
             butGyarados.setVisible(false);
@@ -47,6 +51,7 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
         butPoppy = new javax.swing.JButton();
         butGnarMini = new javax.swing.JButton();
         butGnarMega = new javax.swing.JButton();
+        butYuumi = new javax.swing.JButton();
         labEnemigos = new javax.swing.JLabel();
         butPikachu = new javax.swing.JButton();
         butElectrode = new javax.swing.JButton();
@@ -55,11 +60,12 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
         butRayquaza = new javax.swing.JButton();
         butArceus = new javax.swing.JButton();
         labItem = new javax.swing.JLabel();
-        butPotion = new javax.swing.JButton();
+        butHealthPotion = new javax.swing.JButton();
         butSword = new javax.swing.JButton();
         butPoison = new javax.swing.JButton();
         butShield = new javax.swing.JButton();
         butArmor = new javax.swing.JButton();
+        butRelievePotion = new javax.swing.JButton();
 
         setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         setMaximumSize(new java.awt.Dimension(800, 560));
@@ -97,6 +103,13 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
 
         butGnarMega.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoGnarMega.png"))); // NOI18N
         butGnarMega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butStarter_ActionPerformed(evt);
+            }
+        });
+
+        butYuumi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoYuumi.png"))); // NOI18N
+        butYuumi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butStarter_ActionPerformed(evt);
             }
@@ -152,8 +165,8 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
         labItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labItem.setText("Items");
 
-        butPotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoPocion.png"))); // NOI18N
-        butPotion.addActionListener(new java.awt.event.ActionListener() {
+        butHealthPotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info/infoPocion.png"))); // NOI18N
+        butHealthPotion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butItem_ActionPerformed(evt);
             }
@@ -187,6 +200,13 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
             }
         });
 
+        butRelievePotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoRelievePotion.png"))); // NOI18N
+        butRelievePotion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butItem_ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,17 +225,21 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
                                 .addGap(18, 18, 18)
                                 .addComponent(butPoppy, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
+                                .addComponent(butYuumi, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(butGnarMini, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(butGnarMega, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(butPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(butHealthPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(butSword, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(butPoison, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(butShield, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(butRelievePotion, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(butArmor, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -245,7 +269,8 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
                     .addComponent(butPoppy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(butTeemo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(butGnarMini, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(butGnarMega, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(butGnarMega, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butYuumi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(labEnemigos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,15 +283,16 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
                             .addComponent(butGyarados, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(butArceus, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(labItem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(butSword, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butPoison, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butShield, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butArmor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labItem))
                     .addComponent(butRayquaza, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(butSword, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butPoison, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butShield, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butHealthPotion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butRelievePotion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butArmor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -286,6 +312,8 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
             panelIES.mostrar(this, "gnarMini");
         } else if (evt.getSource() == butGnarMega) {
             panelIES.mostrar(this, "gnarMega");
+        } else if (evt.getSource() == butYuumi) {
+            panelIES.mostrar(this, "yuumi");
         }
 
     }//GEN-LAST:event_butStarter_ActionPerformed
@@ -319,8 +347,8 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
         panelIEI.setVisible(false);
         this.getRootPane().getContentPane().add(panelIEI);
 
-        if (evt.getSource() == butPotion) {
-            panelIEI.mostrar(this, "potion");
+        if (evt.getSource() == butHealthPotion) {
+            panelIEI.mostrar(this, "healthPotion");
         } else if (evt.getSource() == butSword) {
             panelIEI.mostrar(this, "sword");
         } else if (evt.getSource() == butPoison) {
@@ -329,11 +357,13 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
             panelIEI.mostrar(this, "shield");
         } else if (evt.getSource() == butArmor) {
             panelIEI.mostrar(this, "armor");
+        } else if (evt.getSource() == butRelievePotion) {
+            panelIEI.mostrar(this, "relievePotion");
         }
     }//GEN-LAST:event_butItem_ActionPerformed
     @Override
-    public void clickPotion() {
-        butPotion.doClick();
+    public void clickHealthPotion() {
+        butHealthPotion.doClick();
     }
 
     @Override
@@ -354,6 +384,11 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
     @Override
     public void clickArmor() {
         butArmor.doClick();
+    }
+
+    @Override
+    public void clickRelievePotion() {
+        butRelievePotion.doClick();
     }
 
     @Override
@@ -381,6 +416,11 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
     public void clickGnarMega() {
         butGnarMega.doClick();
     }
+    
+    @Override
+    public void clickYuumi() {
+        butYuumi.doClick();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butArceus;
     private javax.swing.JButton butArmor;
@@ -388,15 +428,17 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
     private javax.swing.JButton butGnarMega;
     private javax.swing.JButton butGnarMini;
     private javax.swing.JButton butGyarados;
+    private javax.swing.JButton butHealthPotion;
     private javax.swing.JButton butHitMonLee;
     private javax.swing.JButton butPikachu;
     private javax.swing.JButton butPoison;
     private javax.swing.JButton butPoppy;
-    private javax.swing.JButton butPotion;
     private javax.swing.JButton butRayquaza;
+    private javax.swing.JButton butRelievePotion;
     private javax.swing.JButton butShield;
     private javax.swing.JButton butSword;
     private javax.swing.JButton butTeemo;
+    private javax.swing.JButton butYuumi;
     private javax.swing.JLabel labCabecera;
     private javax.swing.JLabel labEnemigos;
     private javax.swing.JLabel labItem;

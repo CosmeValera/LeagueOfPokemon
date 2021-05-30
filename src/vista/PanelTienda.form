@@ -288,7 +288,7 @@
     <Component class="javax.swing.JButton" name="butPotion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/pocion.png"/>
+          <Image iconType="3" name="/icons/tienda/healthPotion.png"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
@@ -334,7 +334,7 @@
     <Component class="javax.swing.JButton" name="butItemVariable">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/posinos.png"/>
+          <Image iconType="3" name="/icons/tienda/poison.png"/>
         </Property>
       </Properties>
       <Events>
@@ -379,7 +379,7 @@
     <Component class="javax.swing.JButton" name="butEspada">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/sword.png"/>
+          <Image iconType="3" name="/icons/tienda/sword.png"/>
         </Property>
       </Properties>
       <Events>

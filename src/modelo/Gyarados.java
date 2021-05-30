@@ -2,6 +2,8 @@ package modelo;
 
 public class Gyarados extends Enemigo {
 
+    private double resistenciaMagica = ResistenciaMagica.LIGERAMENTE_FUERTE;
+    
     public static void definirGyaradosEnemigo() {
         Global.enemigo = obtenerGyaradosEnemigo();
     }
@@ -52,6 +54,11 @@ public class Gyarados extends Enemigo {
     @Override
     public String getNombreEnemigo() {
         return "Gyarados";
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return resistenciaMagica;
     }
 
     @Override

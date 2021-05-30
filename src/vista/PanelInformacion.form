@@ -44,18 +44,22 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="butPoppy" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butYuumi" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="butGnarMini" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="butGnarMega" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="butPotion" min="-2" pref="106" max="-2" attributes="0"/>
+                              <Component id="butHealthPotion" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="butSword" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="butPoison" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="butShield" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butRelievePotion" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="butArmor" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
@@ -93,12 +97,13 @@
                   <Component id="butTeemo" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="butGnarMini" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="butGnarMega" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="butYuumi" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="labEnemigos" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="butElectrode" min="-2" pref="80" max="-2" attributes="0"/>
                           <Component id="butPikachu" min="-2" pref="80" max="-2" attributes="0"/>
@@ -108,16 +113,17 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="labItem" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="butSword" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="butPoison" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="butShield" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="butArmor" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="butPotion" min="-2" pref="80" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <Component id="butRayquaza" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="butRayquaza" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="butSword" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="butPoison" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="butShield" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="butHealthPotion" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="butRelievePotion" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="butArmor" min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="76" max="32767" attributes="0"/>
           </Group>
@@ -177,6 +183,16 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/infoGeneral/infoGnarMega.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butStarter_ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="butYuumi">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons/infoGeneral/infoYuumi.png"/>
         </Property>
       </Properties>
       <Events>
@@ -261,7 +277,7 @@
         <Property name="text" type="java.lang.String" value="Items"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butPotion">
+    <Component class="javax.swing.JButton" name="butHealthPotion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/info/infoPocion.png"/>
@@ -305,6 +321,16 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/info/infoArmor.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butItem_ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="butRelievePotion">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons/infoGeneral/infoRelievePotion.png"/>
         </Property>
       </Properties>
       <Events>

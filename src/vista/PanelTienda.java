@@ -95,7 +95,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labCantidadVictorias.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labCantidadVictorias.setText(" ");
 
-        butPotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pocion.png"))); // NOI18N
+        butPotion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/healthPotion.png"))); // NOI18N
         butPotion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         butPotion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +120,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
             }
         });
 
-        butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posinos.png"))); // NOI18N
+        butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/poison.png"))); // NOI18N
         butItemVariable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butItemVariableActionPerformed(evt);
@@ -144,7 +144,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
             }
         });
 
-        butEspada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sword.png"))); // NOI18N
+        butEspada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/sword.png"))); // NOI18N
         butEspada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butEspadaActionPerformed(evt);
@@ -300,10 +300,10 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         refrescarDano();
         refrescarVida();
         refrescarVictorias();
+        refrescarValorVariable();
     }
 
     private void refrescarInfoTienda() throws NumberFormatException {
-        refrescarValorVariable();
         refrescarItemVariable();
         refrescarPrecioEspada();
     }
@@ -340,13 +340,14 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }//GEN-LAST:event_butPotionActionPerformed
 
     private void butItemVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butItemVariableActionPerformed
-        //CASO TEEMO
         if (starter instanceof Teemo teemo) {
             butItemVariableTeemo(teemo);
         } else if (starter instanceof Gnar gnar) {
             butItemVariableGnar(gnar);
         } else if (starter instanceof Poppy poppy) {
             butItemVariablePoppy(poppy);
+        } else if (starter instanceof Yuumi yuumi) {
+            butItemVariableYuumi(yuumi);
         }
     }//GEN-LAST:event_butItemVariableActionPerformed
 
@@ -384,18 +385,23 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         if (starter instanceof Teemo) {
             labFijoValorVariable.setText("Daño Veneno:");
             labAportacionItemVariable.setText("+1 Daño Veneno");
-            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/posinos.png")));
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 25)));
+            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/poison.png")));
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 20)));
         } else if (starter instanceof Gnar) {
             labFijoValorVariable.setText("Resistencia:");
             labAportacionItemVariable.setText("+2 Resistencia");
-            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/armor.png")));
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 3.5)));
+            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/armor.png")));
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 7.5)));
         } else if (starter instanceof Poppy) {
             labFijoValorVariable.setText("Escudo:");
             labAportacionItemVariable.setText("+1 Dureza Escudo");
-            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/shield.png")));
-            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 25)));
+            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/shield.png")));
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 20)));
+        } else if (starter instanceof Yuumi) {
+            labFijoValorVariable.setText("Curación:");
+            labAportacionItemVariable.setText("+1 curación");
+            butItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/relievePotion.png")));
+            labPrecioItemVariable.setText(String.valueOf((int) (Double.parseDouble(labCantidadValorVariable.getText()) * 16)));
         }
     }
 
@@ -459,6 +465,36 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         return false;
     }
 
+    private boolean butItemVariableYuumi(Yuumi yuumi) throws HeadlessException, NumberFormatException {
+        if (yuumi.getCantidadOro() < Integer.parseInt(labPrecioItemVariable.getText())) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "No tienes dinero para comprar este objeto!",
+                    this.getName(),
+                    JOptionPane.WARNING_MESSAGE);
+            return true;
+        }
+        if (yuumi.getCura() >= yuumi.getCuraMaxima()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    yuumi.getCura() + " es el maximo de dureza de escudo",
+                    this.getName(),
+                    JOptionPane.WARNING_MESSAGE);
+            return true;
+        }
+        yuumi.setCantidadOro(yuumi.getCantidadOro() - Integer.parseInt(labPrecioItemVariable.getText()));
+        yuumi.setCura(yuumi.getCura() + 1);
+        refrescarOro();
+        refrescarValorVariable();
+        JOptionPane.showMessageDialog(
+                this,
+                "Compraste una poción sanadora (+1 curación durante la batalla)",
+                this.getName(),
+                JOptionPane.INFORMATION_MESSAGE);
+        refrescarItemVariable();
+        return false;
+    }
+
     private void butEspadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEspadaActionPerformed
         if (starter.getCantidadOro() < Integer.parseInt(labPrecioEspada.getText())) {
             JOptionPane.showMessageDialog(
@@ -491,7 +527,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     private void butInfoPocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInfoPocionActionPerformed
         PanelInformacion panelI = new PanelInformacion();
         this.add(panelI);
-        panelI.clickPotion();
+        panelI.clickHealthPotion();
         Global.panelCaller = this;
         this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
     }//GEN-LAST:event_butInfoPocionActionPerformed
@@ -505,9 +541,11 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
             panelI.clickShield();
         } else if (starter instanceof Gnar) {
             panelI.clickArmor();
+        } else if (starter instanceof Yuumi) {
+            panelI.clickRelievePotion();
         }
         Global.panelCaller = this;
-        this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
+        this.setVisible(false);
     }//GEN-LAST:event_butInfoItemVariableActionPerformed
 
     private void butInfoEspadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butInfoEspadaActionPerformed
@@ -515,8 +553,16 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         this.add(panelI);
         panelI.clickSword();
         Global.panelCaller = this;
-        this.setVisible(false); //TO DO: hacer callback en el volver que vuelva a la tienda
+        this.setVisible(false);
     }//GEN-LAST:event_butInfoEspadaActionPerformed
+
+    private void refrescarOro() {
+        labCantidadOro.setText(String.valueOf(starter.getCantidadOro()));
+    }
+
+    private void refrescarDano() {
+        labCantidadDano.setText(String.valueOf(((double) (starter.getDano() * 10)) / 10));
+    }
 
     private void refrescarVida() {
         labCantidadVida.setText(String.valueOf(((double) ((int) starter.getVida() * 10)) / 10));
@@ -533,19 +579,21 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
             labCantidadValorVariable.setText(String.valueOf(((double) (gnar.getResistencia()) * 10) / 10));
         } else if (starter instanceof Poppy poppy) {
             labCantidadValorVariable.setText(String.valueOf(((double) (poppy.getProteccionEscudo()) * 10) / 10));
+        } else if (starter instanceof Yuumi yuumi) {
+            labCantidadValorVariable.setText(String.valueOf(((double) (yuumi.getCura()) * 10) / 10));
         }
     }
 
-    private void refrescarDano() {
-        labCantidadDano.setText(String.valueOf(((double) (starter.getDano() * 10)) / 10));
-    }
-
-    private void refrescarOro() {
-        labCantidadOro.setText(String.valueOf(starter.getCantidadOro()));
-    }
-
     private void refrescarPrecioEspada() throws NumberFormatException {
-        labPrecioEspada.setText(String.valueOf((int) (Double.parseDouble(labCantidadDano.getText()) * 20 - 50)));
+        labPrecioEspada.setText(String.valueOf((int) (-20 + Double.parseDouble(labCantidadDano.getText())
+                * ((starter instanceof Teemo)
+                        ? 11
+                        : ((starter instanceof Gnar)
+                                ? 16
+                                : (starter instanceof Poppy ? 24
+                                        : (starter instanceof Yuumi ? 29.5
+                                                : 0)))))
+        ));
     }
 
     @Override

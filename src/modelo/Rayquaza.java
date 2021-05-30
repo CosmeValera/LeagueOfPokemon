@@ -2,6 +2,8 @@ package modelo;
 
 public class Rayquaza extends Enemigo {
 
+    private double resistenciaMagica = ResistenciaMagica.FUERTE;
+    
     public static void definirRayquazaEnemigo() {
         Global.enemigo = obtenerRayquazaEnemigo();
     }
@@ -52,6 +54,11 @@ public class Rayquaza extends Enemigo {
     @Override
     public String getNombreEnemigo() {
         return "Rayquaza";
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return resistenciaMagica;
     }
 
     @Override

@@ -5,16 +5,17 @@ public abstract class Starter {
     protected int dano;
     protected double vida;
     protected static int cantidadOro;
+    protected static int enemigosVencidos;
 
     private final int cantidadInicialOro = 300;
 
-    protected static int enemigosVencidos;
     private static final int VICTORIESFORFIRSTPRIZE = 15;
     private static final int VICTORIESFORSECONDPRIZE = 40;
     private static final int VICTORIESFORTHIRDPRIZE = 65;
     private static boolean teemoDisponible = false;
     private static boolean poppyDisponible = false;
     private static boolean gnarDisponible = false;
+    private static boolean yuumiDisponible = false;
 
     public Starter() {
         dano = 0;
@@ -100,6 +101,14 @@ public abstract class Starter {
 
     public static void setGnarDisponible(boolean gnarDisponible) {
         Starter.gnarDisponible = gnarDisponible;
+    }
+
+    public static boolean isYuumiDisponible() {
+        return yuumiDisponible;
+    }
+
+    public static void setYuumiDisponible(boolean yuumiDisponible) {
+        Starter.yuumiDisponible = yuumiDisponible;
     }
 
     public abstract int getVidaMaxima();

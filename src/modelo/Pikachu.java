@@ -2,10 +2,12 @@ package modelo;
 
 public class Pikachu extends Enemigo {
 
+    private double resistenciaMagica = ResistenciaMagica.DEBIL;
+
     public static void definirPikachuEnemigo() {
         Global.enemigo = obtenerPikachuEnemigo();
     }
-    
+
     private static Pikachu obtenerPikachuEnemigo() {
         Pikachu pikachu;
         int num = (int) (Math.random() * 5 + 1);
@@ -52,6 +54,11 @@ public class Pikachu extends Enemigo {
     @Override
     public String getNombreEnemigo() {
         return "Pikachu";
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return resistenciaMagica;
     }
 
     @Override

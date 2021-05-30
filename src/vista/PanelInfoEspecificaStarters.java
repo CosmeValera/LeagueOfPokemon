@@ -109,6 +109,29 @@ public class PanelInfoEspecificaStarters extends JPanel {
                         + "una enorme roca o un edificio\n"
                         + "cercano.");
                 break;
+            case "yuumi":
+                //YUUMI
+                labCabecera.setText("Yuumi");
+                labAtaquePrincipal.setText("Sanación");
+                txtAtaquePrincipal.setText("Se cura el 100% de su poder de sanación.\n"
+                        + "También inflinge 100% de daño de ataque de\n"
+                        + "Yuumi como daño MÁGICO (el daño final \n"
+                        + "varía en función de la resistencia mágica del\n"
+                        + "enemigo).");
+                labAtaqueSecundario.setText("Últimas páginas");
+                txtAtaqueSecundario.setText("Se cura un 25%. Puede cegar. Está\n"
+                        + "probabilidad escala con su poder de sanación.\n"
+                        + "También inflinge 125% de daño de ataque de\n"
+                        + "Yuumi como daño MÁGICO (el daño final\n"
+                        + "puede variar dependiendo del enemigo).");
+                butItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoGeneral/infoRelievePotion.png"))); // NOI18N
+                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/infoEspecifica/yuumiEspecifico.png"))); // NOI18N
+                txtDescripcion.setText("Yuumi, una gata mágica de Ciudad\n"
+                        + "de Bandle, fue la compañera\n"
+                        + "de una hechicera yordle, Norra.\n"
+                        + "Desde la misteriosa desaparición de\n"
+                        + "su dueña, Yuumi la está buscando.");
+                break;
             default:
                 break;
         }
@@ -275,6 +298,8 @@ public class PanelInfoEspecificaStarters extends JPanel {
             IPanelCaller.clickArmor();
         } else if (nombreStarter.equals("gnarMega")) {
             IPanelCaller.clickArmor();
+        } else if (nombreStarter.equals("yuumi")) {
+            IPanelCaller.clickRelievePotion();
         }
     }//GEN-LAST:event_butItemActionPerformed
 

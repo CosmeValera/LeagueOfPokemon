@@ -30,43 +30,34 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="labCabecera" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="labDescTeemo1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labDescTeemo2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labTeemo" min="-2" pref="243" max="-2" attributes="0"/>
-                          <Component id="butTeemo" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labPoppy" min="-2" pref="278" max="-2" attributes="0"/>
-                          <Component id="labDescPoppy" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
-                          <Component id="butPoppy" alignment="1" min="-2" pref="278" max="-2" attributes="0"/>
-                      </Group>
+                  <Component id="labCabecera" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="butTeemo" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                          <Component id="labTeemo" alignment="0" min="-2" pref="243" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="butPoppy" alignment="0" pref="284" max="32767" attributes="0"/>
+                          <Component id="labPoppy" max="32767" attributes="0"/>
+                          <Component id="butYuumi" max="32767" attributes="0"/>
+                          <Component id="labYuumi" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Component id="labGnar" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labDescGnar2" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
-                                  <Component id="labDescGnar1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="butGnar" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="butGnar" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,39 +66,36 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="labCabecera" min="-2" pref="60" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labTeemo" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="labGnar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="labPoppy" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Component id="labPoppy" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="butPoppy" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <Component id="labYuumi" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="butYuumi" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="butGnar" alignment="1" max="32767" attributes="0"/>
-                  <Component id="butPoppy" alignment="1" max="32767" attributes="0"/>
-                  <Component id="butTeemo" alignment="1" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="labDescGnar1" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labDescTeemo1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labDescPoppy" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                              <Component id="labGnar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butGnar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                              <Component id="labTeemo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="butTeemo" min="-2" pref="206" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labDescTeemo2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labDescGnar2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="164" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -141,24 +129,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butTeemoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labDescTeemo1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Peque&#xf1;ito pero mat&#xf3;n, gra-"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labDescTeemo2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="cias a su cervatana venenosa."/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="labGnar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -177,24 +147,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butGnarActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labDescGnar1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="No debes cabrear a este ser "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labDescGnar2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="aparentemente inofensivo"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labPoppy">
       <Properties>
@@ -215,14 +167,24 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butPoppyActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labDescPoppy">
+    <Component class="javax.swing.JLabel" name="labYuumi">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="24" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Los dioses temen su martillo."/>
+        <Property name="text" type="java.lang.String" value="Yuumi"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="butYuumi">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons/starters/yuumi.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butYuumiActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

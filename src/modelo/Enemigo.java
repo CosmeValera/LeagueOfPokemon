@@ -11,6 +11,14 @@ public abstract class Enemigo {
     protected boolean envenenado; //Dano cada turno
     protected int turnosEnvenenado;
 
+    protected class ResistenciaMagica {
+        public static final double DEBIL = 35;
+        public static final double LIGERAMENTE_DEBIL = 45;
+        public static final double MEDIO = 50;
+        public static final double LIGERAMENTE_FUERTE = 55;
+        public static final double FUERTE = 65;
+    }
+    
     public Enemigo() {
         dano = 0;
         vida = 0;
@@ -106,9 +114,9 @@ public abstract class Enemigo {
         this.turnosEnvenenado = turnosEnvenenado;
     }
 
-    public String getNombreEnemigo() {
-        return "Enemigo sin nombre";
-    }
+    public abstract String getNombreEnemigo();
+
+    public abstract double getResistenciaMagica();
 
     public abstract boolean isAtacaDosVeces();
 
