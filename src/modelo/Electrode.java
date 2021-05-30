@@ -2,7 +2,7 @@ package modelo;
 
 public class Electrode extends Enemigo {
 
-    private double resistenciaMagica = 65; //Fuerte contra magia
+    private double resistenciaMagica = ResistenciaMagica.FUERTE;
     
     public static void definirElectrodeEnemigo() {
         Global.enemigo = obtenerElectrodeEnemigo();

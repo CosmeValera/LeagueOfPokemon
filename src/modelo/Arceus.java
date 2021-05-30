@@ -2,7 +2,7 @@ package modelo;
 
 public class Arceus extends Enemigo {
 
-    private double resistenciaMagica = 40; //Debil contra magia
+    private double resistenciaMagica = ResistenciaMagica.DEBIL;
 
     public static void definirArceusEnemigo() {
         Global.enemigo = obtenerArceusEnemigo();

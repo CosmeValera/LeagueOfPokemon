@@ -2,7 +2,7 @@ package modelo;
 
 public class Pikachu extends Enemigo {
 
-    private double resistenciaMagica = 35; //Debil contra magia
+    private double resistenciaMagica = ResistenciaMagica.DEBIL;
 
     public static void definirPikachuEnemigo() {
         Global.enemigo = obtenerPikachuEnemigo();

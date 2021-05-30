@@ -2,7 +2,7 @@ package modelo;
 
 public class HitMonLee extends Enemigo {
 
-    private double resistenciaMagica = 45; //Ligeramtente debil contra magia
+    private double resistenciaMagica = ResistenciaMagica.LIGERAMENTE_DEBIL;
 
     public static void definirHitMonLeeEnemigo() {
         Global.enemigo = obtenerHitMonLeeEnemigo();

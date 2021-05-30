@@ -2,7 +2,7 @@ package modelo;
 
 public class Rayquaza extends Enemigo {
 
-    private double resistenciaMagica = 60; //Fuerte contra magia
+    private double resistenciaMagica = ResistenciaMagica.FUERTE;
     
     public static void definirRayquazaEnemigo() {
         Global.enemigo = obtenerRayquazaEnemigo();

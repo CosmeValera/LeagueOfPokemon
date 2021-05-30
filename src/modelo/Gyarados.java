@@ -2,7 +2,7 @@ package modelo;
 
 public class Gyarados extends Enemigo {
 
-    private double resistenciaMagica = 55; //Ligeramente fuerte contra magia
+    private double resistenciaMagica = ResistenciaMagica.LIGERAMENTE_FUERTE;
     
     public static void definirGyaradosEnemigo() {
         Global.enemigo = obtenerGyaradosEnemigo();
