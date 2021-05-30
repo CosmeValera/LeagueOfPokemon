@@ -1,5 +1,6 @@
 package vista;
 
+import javax.swing.JOptionPane;
 import modelo.Global;
 import modelo.Starter;
 
@@ -37,9 +38,9 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
             }
         } else {
             GUICallBack.obtenerBarraMenu().setVisible(false);
-            labCabecera.setText("ELIGE UN CAMPEÓN"
-                    + (!Starter.isTeemoDisponible() && !Starter.isPoppyDisponible()
-                    && !Starter.isGnarDisponible() ? " INICIAL" : ""));
+            labCabecera.setText("ELIGE UN CAMPEÓN" + (!Starter.isTeemoDisponible()
+                    && !Starter.isPoppyDisponible() && !Starter.isGnarDisponible()
+                    && !Starter.isYuumiDisponible() ? " INICIAL" : ""));
             if (Starter.isTeemoDisponible()) {
                 labTeemo.setVisible(false);
                 butTeemo.setVisible(false);

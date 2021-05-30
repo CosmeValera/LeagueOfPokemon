@@ -2,7 +2,7 @@ package modelo;
 
 public class Yuumi extends Starter {
 
-    private int cura;
+    private int cura; //PARA FICHEROS
 
     private final int VIDA_MAXIMA = 150;
     private final int DANO_MAXIMO = 36;

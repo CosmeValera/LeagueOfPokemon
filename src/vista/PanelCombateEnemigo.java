@@ -670,7 +670,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                 + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-        GUICallBack.getJMenuBar().getMenu(0).getItem(5).setVisible(true); //Visible Arceus
+        GUICallBack.getJMenuBar().getMenu(1).getItem(5).setVisible(true); //Visible Arceus
     }
 
     private void desbloquearTercerStarter() throws HeadlessException {

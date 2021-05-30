@@ -4,18 +4,21 @@ public abstract class Starter {
 
     protected int dano;
     protected double vida;
-    protected static int cantidadOro;
+    protected static int cantidadOro; //PARA FICHEROS
+    protected static int enemigosVencidos; //PARA FICHEROS
 
     private final int cantidadInicialOro = 300;
 
-    protected static int enemigosVencidos;
-    private static final int VICTORIESFORFIRSTPRIZE = 15;
-    private static final int VICTORIESFORSECONDPRIZE = 40;
-    private static final int VICTORIESFORTHIRDPRIZE = 65;
-    private static boolean teemoDisponible = false;
-    private static boolean poppyDisponible = false;
-    private static boolean gnarDisponible = false;
-    private static boolean yuumiDisponible = false;
+//    private static final int VICTORIESFORFIRSTPRIZE = 15;
+//    private static final int VICTORIESFORSECONDPRIZE = 40;
+//    private static final int VICTORIESFORTHIRDPRIZE = 65;
+    private static final int VICTORIESFORFIRSTPRIZE = 1;
+    private static final int VICTORIESFORSECONDPRIZE = 2;
+    private static final int VICTORIESFORTHIRDPRIZE = 3;
+    private static boolean teemoDisponible = false; //PARA FICHEROS
+    private static boolean poppyDisponible = false; //PARA FICHEROS
+    private static boolean gnarDisponible = false; //PARA FICHEROS
+    private static boolean yuumiDisponible = false; //PARA FICHEROS
 
     public Starter() {
         dano = 0;
