@@ -424,9 +424,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                     enemigo.getNombreEnemigo() + " golpeó dos veces",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            System.out.println(dano);
             dano = dano * 2;
-            System.out.println(dano);
         }
 
         dano = starter.ajustarDanoAResistencias(dano);
@@ -455,7 +453,6 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setVida(enemigo.getVida() - dano);
             labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
-            posibleTransformacionGnar();
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
             enemigo.setConfundidoSiPosible(false);
@@ -476,7 +473,6 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setCegadoSiPosible(false);
-            posibleTransformacionGnar();
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
             return true;
@@ -492,7 +488,6 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setVisionTorpeSiPosible(false);
-            posibleTransformacionGnar();
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
             return true;
@@ -533,7 +528,6 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             danoVenenoYReducirDuracion();
             enemigo.setCegadoSiPosible(false);
             estaEnemigoMuerto();
-            posibleTransformacionGnar();
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
             return true;
@@ -554,7 +548,6 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setVisionTorpeSiPosible(false);
             estaEnemigoMuerto();
-            posibleTransformacionGnar();
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
             return true;
@@ -577,7 +570,6 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     private void posibleTransformacionGnar() {
         if (starter instanceof Gnar gnar && !gnar.isMonstruo()) {
             double num = (Math.random() * 100 + gnar.getResistencia() / 10); //23+3%(26) al principio 23+7%(30%) con la resistencia al max
-            System.out.println(num);
             if (num >= 77) {
                 gnar.setEsMonstruo(true);
                 gnar.setContadorMonstruo(4);
@@ -661,16 +653,16 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
 
     }
 
-    private void desbloquearCuartoStarter() throws HeadlessException {
+    private void desbloquearSegundoStarter() throws HeadlessException {
+        GUICallBack.getJMenuBar().getMenu(1).getItem(2).setVisible(true); //Visible panelCambiar
         GUICallBack.clickCambiarEspecial();
         JOptionPane.showMessageDialog(GUICallBack,
                 "Has avanzado tanto que te mereces poder"
                 + "\ndisponer de otro campeón. Enhorabuena!!"
-                + "\nTambién puedes enfrentarte al dios Arceus."
                 + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-        GUICallBack.getJMenuBar().getMenu(1).getItem(5).setVisible(true); //Visible Arceus
+        GUICallBack.getJMenuBar().getMenu(0).getItem(3).setVisible(true); //Visible Gyarados
     }
 
     private void desbloquearTercerStarter() throws HeadlessException {
@@ -684,16 +676,16 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         GUICallBack.getJMenuBar().getMenu(0).getItem(4).setVisible(true); //Visible RayQuaza
     }
 
-    private void desbloquearSegundoStarter() throws HeadlessException {
-        GUICallBack.getJMenuBar().getMenu(1).getItem(2).setVisible(true); //Visible panelCambiar
+    private void desbloquearCuartoStarter() throws HeadlessException {
         GUICallBack.clickCambiarEspecial();
         JOptionPane.showMessageDialog(GUICallBack,
                 "Has avanzado tanto que te mereces poder"
                 + "\ndisponer de otro campeón. Enhorabuena!!"
+                + "\nTambién puedes enfrentarte al dios Arceus."
                 + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-        GUICallBack.getJMenuBar().getMenu(0).getItem(3).setVisible(true); //Visible Gyarados
+        GUICallBack.getJMenuBar().getMenu(0).getItem(5).setVisible(true); //Visible Arceus
     }
 
     private double obtenerDanoEnemigo() {

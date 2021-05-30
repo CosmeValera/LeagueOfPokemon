@@ -120,7 +120,7 @@ public class PanelInfoEspecificaStarters extends JPanel {
                         + "varía en función de la resistencia mágica del\n"
                         + "enemigo).");
                 labAtaqueSecundario.setText("Últimas páginas");
-                txtAtaqueSecundario.setText("Se cura un 25%. Puede cegar. Está\n"
+                txtAtaqueSecundario.setText("Se cura un 25%. Puede cegar, esta\n"
                         + "probabilidad escala con su poder de sanación.\n"
                         + "También inflinge 125% de daño de ataque de\n"
                         + "Yuumi como daño MÁGICO (el daño final\n"

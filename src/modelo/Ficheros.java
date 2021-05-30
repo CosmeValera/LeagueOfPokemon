@@ -28,11 +28,11 @@ public class Ficheros {
         try ( FileInputStream fis = new FileInputStream(fichero);  Scanner in = new Scanner(fis)) {
             while (in.hasNextLine()) {
                 String ficheroNombre = in.nextLine();
-                System.out.println(ficheroNombre);
                 listadoNombreFicheros.add(ficheroNombre);
+                System.out.println(ficheroNombre);
             }
         } catch (IOException e) {
-            System.out.println("FIN LEER listadoPartidas. Leido:\n");
+            //:D
         } catch (Exception e) {
             throw new Exception("Error en listadoPartidas", e);
         }
@@ -135,11 +135,8 @@ public class Ficheros {
         PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(temp), charset));
         try {
             for (String line; (line = reader.readLine()) != null;) {
-                System.out.println("Lo que es una lines es: " + line);
-                System.out.println("Direccino fichero: " + Paths.get(nombreFichero).toString());
                 if (line.equals(Paths.get(nombreFichero).toString())) {
                     File fileABorrar = new File(line);
-                    System.out.println(fileABorrar.toString());
                     Files.deleteIfExists(fileABorrar.toPath()); 
                 }
                 line = (line.contains(delete) ? null : line);

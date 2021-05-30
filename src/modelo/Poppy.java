@@ -109,10 +109,8 @@ public class Poppy extends Starter {
         dano = dano - dano * proteccionEscudo / 100 * 3 / 2;
         if (isLlevaEscudo()) {
             if (dano <= proteccionEscudo) {
-                System.out.println("El escudo bloquea todo");
                 return 0; //El escudo bolquea todo el dano
             } else {
-                System.out.println(dano + "-" + proteccionEscudo + "=" + (dano - proteccionEscudo));
                 return dano - proteccionEscudo;
             }
         }
