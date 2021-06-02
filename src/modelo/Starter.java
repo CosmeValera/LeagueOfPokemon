@@ -12,10 +12,10 @@ public abstract class Starter {
     private static final int VICTORIESFORFIRSTPRIZE = 15;
     private static final int VICTORIESFORSECONDPRIZE = 40;
     private static final int VICTORIESFORTHIRDPRIZE = 65;
-    private static boolean teemoDisponible = false;
-    private static boolean poppyDisponible = false;
-    private static boolean gnarDisponible = false;
-    private static boolean yuumiDisponible = false;
+    private boolean teemoDisponible = false;
+    private boolean poppyDisponible = false;
+    private boolean gnarDisponible = false;
+    private boolean yuumiDisponible = false;
 
     public Starter() {
         dano = 0;
@@ -79,36 +79,36 @@ public abstract class Starter {
         return VICTORIESFORTHIRDPRIZE;
     }
 
-    public static boolean isTeemoDisponible() {
+    public boolean isTeemoDisponible() {
         return teemoDisponible;
     }
 
-    public static void setTeemoDisponible(boolean teemoDisponible) {
-        Starter.teemoDisponible = teemoDisponible;
+    public void setTeemoDisponible(boolean teemoDisponible) {
+        this.teemoDisponible = teemoDisponible;
     }
-
-    public static boolean isPoppyDisponible() {
+    
+    public boolean isPoppyDisponible() {
         return poppyDisponible;
     }
 
-    public static void setPoppyDisponible(boolean poppyDisponible) {
-        Starter.poppyDisponible = poppyDisponible;
+    public void setPoppyDisponible(boolean poppyDisponible) {
+        this.poppyDisponible = poppyDisponible;
     }
 
-    public static boolean isGnarDisponible() {
+    public boolean isGnarDisponible() {
         return gnarDisponible;
     }
 
-    public static void setGnarDisponible(boolean gnarDisponible) {
-        Starter.gnarDisponible = gnarDisponible;
+    public void setGnarDisponible(boolean gnarDisponible) {
+        this.gnarDisponible = gnarDisponible;
     }
 
-    public static boolean isYuumiDisponible() {
+    public boolean isYuumiDisponible() {
         return yuumiDisponible;
     }
 
-    public static void setYuumiDisponible(boolean yuumiDisponible) {
-        Starter.yuumiDisponible = yuumiDisponible;
+    public void setYuumiDisponible(boolean yuumiDisponible) {
+        this.yuumiDisponible = yuumiDisponible;
     }
 
     public abstract int getVidaMaxima();
@@ -118,6 +118,10 @@ public abstract class Starter {
     public abstract int getDanoMinimo();
 
     public abstract String getNombre();
+
+    public abstract String getNombreAtaquePrincipal();
+
+    public abstract String getNombreAtaqueSecundario();
 
     public abstract void ataquePrincipal(Enemigo enemigo);
 

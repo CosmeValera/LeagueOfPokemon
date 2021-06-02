@@ -66,6 +66,16 @@ public class Poppy extends Starter {
     }
 
     @Override
+    public String getNombreAtaquePrincipal() {
+        return "Placaje con escudo";
+    }
+
+    @Override
+    public String getNombreAtaqueSecundario() {
+        return "Martillazo";
+    }
+
+    @Override
     public void ataquePrincipal(Enemigo enemigo) { //placaje
         enemigo.setVida(enemigo.getVida() - dano);
     }

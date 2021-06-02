@@ -58,6 +58,16 @@ public class Teemo extends Starter {
     }
 
     @Override
+    public String getNombreAtaquePrincipal() {
+        return "Arañazo";
+    }
+
+    @Override
+    public String getNombreAtaqueSecundario() {
+        return "Dardo Venenoso";
+    }
+
+    @Override
     public void ataquePrincipal(Enemigo enemigo) { //Aranazo
         enemigo.setVida(enemigo.getVida() - dano * 1.5);
 

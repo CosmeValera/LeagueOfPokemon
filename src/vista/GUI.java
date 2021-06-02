@@ -30,6 +30,8 @@ public class GUI extends javax.swing.JFrame {
         menuGestion_Tienda = new javax.swing.JMenuItem();
         menuGestion_Informacion = new javax.swing.JMenuItem();
         menuGestion_Seleccionar = new javax.swing.JMenuItem();
+        menuPVP = new javax.swing.JMenu();
+        menuPVP_PVP = new javax.swing.JMenuItem();
         menuCuenta = new javax.swing.JMenu();
         menuCuenta_Cuenta = new javax.swing.JMenuItem();
 
@@ -145,6 +147,20 @@ public class GUI extends javax.swing.JFrame {
 
         barraMenu.add(menuGestion);
 
+        menuPVP.setText("PVP");
+        menuPVP.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        menuPVP_PVP.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menuPVP_PVP.setText("PVP");
+        menuPVP_PVP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPVP_ActionPerformed(evt);
+            }
+        });
+        menuPVP.add(menuPVP_PVP);
+
+        barraMenu.add(menuPVP);
+
         menuCuenta.setText("Cuenta");
         menuCuenta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -218,8 +234,14 @@ public class GUI extends javax.swing.JFrame {
         Global.gnar = new Gnar();
         Global.poppy = new Poppy();
         Global.yuumi = new Yuumi();
+        
+        Global.teemo2 = new Teemo();
+        Global.gnar2 = new Gnar();
+        Global.poppy2 = new Poppy();
+        Global.yuumi2 = new Yuumi();
 
         Global.starter = Global.teemo; //Por defecto
+        Global.starter2 = Global.teemo2; //Por defecto
         Global.ficheroGlobal = "todosLosFicheros.txt";
     }
 
@@ -256,6 +278,16 @@ public class GUI extends javax.swing.JFrame {
         this.add(panelGCP);
         panelGCP.mostrar(this);
     }//GEN-LAST:event_menuCuenta_ActionPerformed
+
+    private void menuPVP_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPVP_ActionPerformed
+        this.getContentPane().removeAll();
+        
+        PanelCargaYSeleccionPVP panelCSP = new PanelCargaYSeleccionPVP();
+        panelCSP.setSize(800, 560);
+        panelCSP.setVisible(false);
+        this.add(panelCSP);
+        panelCSP.mostrar(this);
+    }//GEN-LAST:event_menuPVP_ActionPerformed
 
     public JMenuItem obtenerMenuGestionCambiar() {
         return menuGestion_Seleccionar;
@@ -321,5 +353,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuGestion_Informacion;
     private javax.swing.JMenuItem menuGestion_Seleccionar;
     private javax.swing.JMenuItem menuGestion_Tienda;
+    private javax.swing.JMenu menuPVP;
+    private javax.swing.JMenuItem menuPVP_PVP;
     // End of variables declaration//GEN-END:variables
 }

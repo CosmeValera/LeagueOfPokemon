@@ -24,61 +24,51 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         labCantidadDano.setText(String.valueOf((int) starter.getDano()));
         labCantidadOro.setText(String.valueOf(starter.getCantidadOro()));
 
+        butAtaquePrincipal.setText(starter.getNombreAtaquePrincipal());
+        butAtaqueSecundario.setText(starter.getNombreAtaqueSecundario());
         if (starter instanceof Teemo teemo) {
             labFijoValorVariable.setText("Daño Veneno:");
             labCantidadValorVariable.setText(String.valueOf((int) teemo.getDanoVeneno()));
             labFijoEfectoDebilitador.setText("Envenenado?");
             labEfectoDebilitador.setText("No");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png")));
-            butAtaquePrincipal.setText("Arañazo");
-            butAtaqueSecundario.setText("Dardo venenoso");
         } else if (starter instanceof Gnar gnar) {
             labFijoValorVariable.setText("Resistencia:");
             labCantidadValorVariable.setText(String.valueOf((int) gnar.getResistencia()));
             labFijoEfectoDebilitador.setText("");
             labEfectoDebilitador.setText("");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMini.png")));
-            butAtaquePrincipal.setText("Boomerang");
-            butAtaqueSecundario.setText("Salto");
+
         } else if (starter instanceof Poppy poppy) {
             labFijoValorVariable.setText("Escudo:");
             labCantidadValorVariable.setText((poppy.isLlevaEscudo()) ? "Sí" : "No");
             labFijoEfectoDebilitador.setText("Confundido:");
             labEfectoDebilitador.setText("No");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/Poppy.png")));
-            butAtaquePrincipal.setText("Placaje con escudo");
-            butAtaqueSecundario.setText("Martillazo");
+
         } else if (starter instanceof Yuumi yuumi) {
             labFijoValorVariable.setText("Sanación:");
             labCantidadValorVariable.setText(String.valueOf((int) yuumi.getCura()));
             labFijoEfectoDebilitador.setText("");
             labEfectoDebilitador.setText("");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/yuumi.png")));
-            butAtaquePrincipal.setText("Sanación");
-            butAtaqueSecundario.setText("Últimas páginas");
-        }
-
-        if (enemigo instanceof Pikachu pikachu) {
-            labCabecera.setText("COMBATE VS PIKACHU");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/pikachu.png")));
-        } else if (enemigo instanceof Electrode electrode) {
-            labCabecera.setText("COMBATE VS ELECTRODE");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/electrode.png")));
-        } else if (enemigo instanceof HitMonLee hitMonLee) {
-            labCabecera.setText("COMBATE VS HITMONLEE");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Hitmonlee.png")));
-        } else if (enemigo instanceof Gyarados gyarados) {
-            labCabecera.setText("COMBATE VS GYARADOS");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Gyarados.png")));
-        } else if (enemigo instanceof Rayquaza rayquaza) {
-            labCabecera.setText("COMBATE VS RAYQUAZA");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Rayquaza.png")));
-        } else if (enemigo instanceof Arceus arceus) {
-            labCabecera.setText("COMBATE VS ARCEUS");
-            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/arceus.png")));
         }
 
         labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
+        labCabecera.setText("COMBATE VS " + enemigo.getNombreEnemigo().toUpperCase());
+        if (enemigo instanceof Pikachu pikachu) {
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/pikachu.png")));
+        } else if (enemigo instanceof Electrode electrode) {
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/electrode.png")));
+        } else if (enemigo instanceof HitMonLee hitMonLee) {
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Hitmonlee.png")));
+        } else if (enemigo instanceof Gyarados gyarados) {
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Gyarados.png")));
+        } else if (enemigo instanceof Rayquaza rayquaza) {
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/Rayquaza.png")));
+        } else if (enemigo instanceof Arceus arceus) {
+            labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/arceus.png")));
+        }
 
         this.setVisible(true);
         butAtaquePrincipal.requestFocusInWindow();
@@ -288,7 +278,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         if (starter.isAtacaDosVeces()) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Boomerang golpeó dos veces",
+                    starter.getNombreAtaquePrincipal() + " golpeó dos veces",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             starter.ataquePrincipal(enemigo);
@@ -298,7 +288,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             labCantidadValorVariable.setText("Sí");
             JOptionPane.showMessageDialog(
                     this,
-                    "Poppy cogió un escudo tras golpear. +"
+                    starter.getNombre() + " cogió un escudo tras golpear. +"
                     + ((Poppy) starter).getProteccionEscudo() + " escudo",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
@@ -348,6 +338,8 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             gnar.setContadorMonstruo(0);
         } else if (starter instanceof Poppy poppy) {
             poppy.setLlevaEscudo(false);
+        } else if (starter instanceof Yuumi yuumi) {
+            //Vacio
         }
     }
 
@@ -580,8 +572,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
                 labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMega.png")));
-                butAtaquePrincipal.setText("Golpe");
-                butAtaqueSecundario.setText("Lanzar Roca");
+                refrescarBotonesAtaque();
             }
         }
     }
@@ -597,10 +588,14 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
                 labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMini.png")));
-                butAtaquePrincipal.setText("Boomerang");
-                butAtaqueSecundario.setText("Salto");
+                refrescarBotonesAtaque();
             }
         }
+    }
+
+    public void refrescarBotonesAtaque() {
+        butAtaquePrincipal.setText(starter.getNombreAtaquePrincipal());
+        butAtaqueSecundario.setText(starter.getNombreAtaqueSecundario());
     }
 
     private void eliminarEscudoPoppy() {

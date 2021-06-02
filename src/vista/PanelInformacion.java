@@ -1,5 +1,6 @@
 package vista;
 
+import modelo.Global;
 import modelo.ICallBack;
 import modelo.Starter;
 
@@ -13,20 +14,20 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
         this.setVisible(true);
         this.requestFocusInWindow();
 
-        if (!Starter.isTeemoDisponible()) {
+        if (!Global.starter.isTeemoDisponible()) {
             butTeemo.setVisible(false);
             butPoison.setVisible(false);
         }
-        if (!Starter.isPoppyDisponible()) {
+        if (!Global.starter.isPoppyDisponible()) {
             butPoppy.setVisible(false);
             butShield.setVisible(false);
         }
-        if (!Starter.isGnarDisponible()) {
+        if (!Global.starter.isGnarDisponible()) {
             butGnarMini.setVisible(false);
             butGnarMega.setVisible(false);
             butArmor.setVisible(false);
         }
-        if (!Starter.isYuumiDisponible()) {
+        if (!Global.starter.isYuumiDisponible()) {
             butYuumi.setVisible(false);
             butRelievePotion.setVisible(false);
         }

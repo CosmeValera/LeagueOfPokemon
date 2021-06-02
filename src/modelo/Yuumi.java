@@ -54,6 +54,16 @@ public class Yuumi extends Starter {
     }
 
     @Override
+    public String getNombreAtaquePrincipal() {
+        return "Sanación";
+    }
+
+    @Override
+    public String getNombreAtaqueSecundario() {
+        return "Últimas páginas";
+    }
+
+    @Override
     public void ataquePrincipal(Enemigo enemigo) { //sanación
         double danoBase = dano * 2;
         double danoAplicado = danoBase - danoBase * enemigo.getResistenciaMagica() / 100;

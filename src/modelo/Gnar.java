@@ -114,6 +114,23 @@ public class Gnar extends Starter {
     }
 
     @Override
+    public String getNombreAtaquePrincipal() {
+        if (!esMonstruo) {
+            return "Boomerang";
+        }
+        return "Golpe";
+    }
+
+    @Override
+    public String getNombreAtaqueSecundario() {
+        if (!esMonstruo) {
+            return "Salto";
+        }
+        return "Lanzar Roca";
+    }
+
+
+    @Override
     public boolean isAtacaDosVeces() {
         if (!esMonstruo) {
             int num = (int) (Math.random() * 2 + 1);

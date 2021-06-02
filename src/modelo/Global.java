@@ -9,6 +9,12 @@ public class Global{
     public static Gnar gnar;
     public static Poppy poppy;
     public static Yuumi yuumi;
+    
+    public static Starter starter2;
+    public static Teemo teemo2;
+    public static Gnar gnar2;
+    public static Poppy poppy2;
+    public static Yuumi yuumi2;
 
     public static Enemigo enemigo;
     
