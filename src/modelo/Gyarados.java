@@ -52,7 +52,7 @@ public class Gyarados extends Enemigo {
     }
 
     @Override
-    public String getNombreEnemigo() {
+    public String getNombre() {
         return "Gyarados";
     }
 

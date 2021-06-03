@@ -1,9 +1,7 @@
 package modelo;
 
-public abstract class Starter {
+public abstract class Starter extends Personaje {
 
-    protected int dano;
-    protected double vida;
     protected static int cantidadOro;
     protected static int enemigosVencidos;
 
@@ -29,22 +27,6 @@ public abstract class Starter {
         this.vida = vida;
         Starter.enemigosVencidos = 0;
         Starter.cantidadOro = cantidadOro;
-    }
-
-    public int getDano() {
-        return dano;
-    }
-
-    public void setDano(int dano) {
-        this.dano = dano;
-    }
-
-    public double getVida() {
-        return vida;
-    }
-
-    public void setVida(double vida) {
-        this.vida = vida;
     }
 
     public int getCantidadOro() {
@@ -117,8 +99,6 @@ public abstract class Starter {
 
     public abstract int getDanoMinimo();
 
-    public abstract String getNombre();
-
     public abstract String getNombreAtaquePrincipal();
 
     public abstract String getNombreAtaqueSecundario();
@@ -127,7 +107,9 @@ public abstract class Starter {
 
     public abstract void ataqueSecundario(Enemigo enemigo);
 
-    public abstract boolean isAtacaDosVeces();
+    public abstract double obtenerDanoAtaquePrincipal();
+
+    public abstract double obtenerDanoAtaqueSecundario();
 
     public abstract boolean isFallaElAtaque();
 

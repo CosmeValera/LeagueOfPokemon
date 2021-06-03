@@ -86,6 +86,15 @@ public class Yuumi extends Starter {
         curarse(cura / 4);
     }
 
+    @Override
+    public double obtenerDanoAtaquePrincipal() { //sanación
+        return 0;
+    }
+    @Override
+    public double obtenerDanoAtaqueSecundario() { //sanación
+        return 0;
+    }
+    
     private void curarse(double cantidadCura) {
         vida = vida + cantidadCura;
         if (vida > VIDA_MAXIMA) {
@@ -116,5 +125,29 @@ public class Yuumi extends Starter {
     @Override
     public double ajustarDanoAResistencias(double dano) {
         return dano - dano * this.cura / 150;
+    }
+    @Override
+    public boolean isInmuneACegado() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAVisionTorpe() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAVeneno() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAConfusion() {
+        return false;
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return ResistenciaMagica.MEDIO;
     }
 }

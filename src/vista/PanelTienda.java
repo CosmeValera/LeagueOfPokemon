@@ -566,7 +566,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }
 
     private void refrescarVida() {
-        labCantidadVida.setText(String.valueOf(((double) ((int) starter.getVida() * 10)) / 10));
+        labCantidadVida.setText(String.valueOf(((double) ((int)starter.getVida() * 10)) / 10));
     }
 
     private void refrescarVictorias() {

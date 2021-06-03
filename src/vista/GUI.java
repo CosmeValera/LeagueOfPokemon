@@ -34,6 +34,7 @@ public class GUI extends javax.swing.JFrame {
         menuPVP_PVP = new javax.swing.JMenuItem();
         menuCuenta = new javax.swing.JMenu();
         menuCuenta_Cuenta = new javax.swing.JMenuItem();
+        menuCuenta_Configuracion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -50,7 +51,6 @@ public class GUI extends javax.swing.JFrame {
         menuCombate.setText("Combate");
         menuCombate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        menuCombate_pikachu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuCombate_pikachu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCombate_pikachu.setText("Pikachu");
         menuCombate_pikachu.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +60,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuCombate.add(menuCombate_pikachu);
 
-        menuCombate_electrode.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuCombate_electrode.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCombate_electrode.setText("Electrode");
         menuCombate_electrode.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +69,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuCombate.add(menuCombate_electrode);
 
-        menuCombate_hitMonLee.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuCombate_hitMonLee.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCombate_hitMonLee.setText("HitMonLee");
         menuCombate_hitMonLee.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +78,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuCombate.add(menuCombate_hitMonLee);
 
-        menuCombate_gyarados.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuCombate_gyarados.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCombate_gyarados.setText("Gyarados");
         menuCombate_gyarados.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +87,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuCombate.add(menuCombate_gyarados);
 
-        menuCombate_rayquaza.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuCombate_rayquaza.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCombate_rayquaza.setText("Rayquaza");
         menuCombate_rayquaza.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +96,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuCombate.add(menuCombate_rayquaza);
 
-        menuCombate_arceus.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuCombate_arceus.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCombate_arceus.setText("Arceus");
         menuCombate_arceus.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +110,6 @@ public class GUI extends javax.swing.JFrame {
         menuGestion.setText("Gestión");
         menuGestion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        menuGestion_Tienda.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuGestion_Tienda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuGestion_Tienda.setText("Tienda");
         menuGestion_Tienda.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +119,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuGestion.add(menuGestion_Tienda);
 
-        menuGestion_Informacion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuGestion_Informacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuGestion_Informacion.setText("Información");
         menuGestion_Informacion.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +128,6 @@ public class GUI extends javax.swing.JFrame {
         });
         menuGestion.add(menuGestion_Informacion);
 
-        menuGestion_Seleccionar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuGestion_Seleccionar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuGestion_Seleccionar.setText("Seleccionar");
         menuGestion_Seleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +156,6 @@ public class GUI extends javax.swing.JFrame {
         menuCuenta.setText("Cuenta");
         menuCuenta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        menuCuenta_Cuenta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuCuenta_Cuenta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCuenta_Cuenta.setText("Cuenta");
         menuCuenta_Cuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +164,15 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         menuCuenta.add(menuCuenta_Cuenta);
+
+        menuCuenta_Configuracion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        menuCuenta_Configuracion.setText("Configuración");
+        menuCuenta_Configuracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCuenta_ActionPerformed(evt);
+            }
+        });
+        menuCuenta.add(menuCuenta_Configuracion);
 
         barraMenu.add(menuCuenta);
 
@@ -234,11 +234,16 @@ public class GUI extends javax.swing.JFrame {
         Global.gnar = new Gnar();
         Global.poppy = new Poppy();
         Global.yuumi = new Yuumi();
+        Global.letterMainAttackStarter = "A";
+        Global.letterSecondaryAttackStarter = "S";
+        Global.letterEscape = "H";
         
         Global.teemo2 = new Teemo();
         Global.gnar2 = new Gnar();
         Global.poppy2 = new Poppy();
         Global.yuumi2 = new Yuumi();
+        Global.letterMainAttackStarter2 = "O";
+        Global.letterSecondaryAttackStarter2 = "P";
 
         Global.starter = Global.teemo; //Por defecto
         Global.starter2 = Global.teemo2; //Por defecto
@@ -272,11 +277,19 @@ public class GUI extends javax.swing.JFrame {
     private void menuCuenta_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCuenta_ActionPerformed
         this.getContentPane().removeAll();
         
-        PanelGuardarYCargarPartidas panelGCP = new PanelGuardarYCargarPartidas();
-        panelGCP.setSize(800, 560);
-        panelGCP.setVisible(false);
-        this.add(panelGCP);
-        panelGCP.mostrar(this);
+        if (evt.getSource() == menuCuenta_Cuenta) {
+            PanelGuardarYCargarPartidas panelGCP = new PanelGuardarYCargarPartidas();
+            panelGCP.setSize(800, 560);
+            panelGCP.setVisible(false);
+            this.add(panelGCP);
+            panelGCP.mostrar(this);
+        } else if (evt.getSource() == menuCuenta_Configuracion) {
+            PanelConfiguracion panelC = new PanelConfiguracion();
+            panelC.setSize(800, 560);
+            panelC.setVisible(false);
+            this.add(panelC);
+            panelC.mostrar();
+        }
     }//GEN-LAST:event_menuCuenta_ActionPerformed
 
     private void menuPVP_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPVP_ActionPerformed
@@ -348,6 +361,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuCombate_pikachu;
     private javax.swing.JMenuItem menuCombate_rayquaza;
     private javax.swing.JMenu menuCuenta;
+    private javax.swing.JMenuItem menuCuenta_Configuracion;
     private javax.swing.JMenuItem menuCuenta_Cuenta;
     private javax.swing.JMenu menuGestion;
     private javax.swing.JMenuItem menuGestion_Informacion;

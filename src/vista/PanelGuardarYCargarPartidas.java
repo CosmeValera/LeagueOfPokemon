@@ -145,6 +145,11 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
             System.out.println("Fichero cargado correctamente");
         } catch (Exception e) {
             System.out.println("Error en cargarFicheros\n" + e.getMessage());
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Selecciona algún fichero para cargar",
+                    this.getName(),
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_butCargarActionPerformed
 
@@ -207,7 +212,7 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
 
-        GUICallBack.getJMenuBar().getMenu(2).getItem(0).doClick();
+        GUICallBack.getJMenuBar().getMenu(3).getItem(0).doClick();
     }//GEN-LAST:event_butGuardarActionPerformed
 
     private void butBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butBorrarActionPerformed
@@ -232,7 +237,7 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
             System.out.println("Error en butBorrarActionPerformed\n" + e.getMessage());
         }
 
-        GUICallBack.getJMenuBar().getMenu(2).getItem(0).doClick();
+        GUICallBack.getJMenuBar().getMenu(3).getItem(0).doClick();
     }//GEN-LAST:event_butBorrarActionPerformed
 
 

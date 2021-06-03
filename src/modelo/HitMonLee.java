@@ -52,7 +52,7 @@ public class HitMonLee extends Enemigo {
     }
 
     @Override
-    public String getNombreEnemigo() {
+    public String getNombre() {
         return "HitMonLee";
     }
 

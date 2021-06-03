@@ -31,17 +31,17 @@ public class Gnar extends Starter {
     @Override
     public void ataquePrincipal(Enemigo enemigo) {
         if (!isMonstruo()) {
-            boomerangMiniGnar(enemigo);
+            boomerang(enemigo);
         } else {
-            golpeMegaGnar(enemigo);
+            golpe(enemigo);
         }
     }
 
-    private void boomerangMiniGnar(Enemigo enemigo) {
+    private void boomerang(Enemigo enemigo) {
         enemigo.setVida(enemigo.getVida() - dano);
     }
 
-    private void golpeMegaGnar(Enemigo enemigo) {
+    private void golpe(Enemigo enemigo) {
         enemigo.setVida(enemigo.getVida() - dano * 2);
     }
 
@@ -60,6 +60,40 @@ public class Gnar extends Starter {
 
     private void lanzarRoca(Enemigo enemigo) {
         enemigo.setVida(enemigo.getVida() - dano * 2);
+    }
+
+    @Override
+    public double obtenerDanoAtaquePrincipal() {
+        if (!isMonstruo()) {
+            return boomerang();
+        } else {
+            return golpe();
+        }
+    }
+    
+    private double boomerang() {
+        return dano;
+    }
+
+    private double golpe() {
+        return dano*2;
+    }
+
+    @Override
+    public double obtenerDanoAtaqueSecundario() { //martillazo
+        if (!isMonstruo()) {
+            return salto();
+        } else {
+            return lanzarRoca();
+        }
+    }
+    
+    private double salto() {
+        return dano;
+    }
+
+    private double lanzarRoca() {
+        return dano*2;
     }
 
     public boolean isMonstruo() {
@@ -168,5 +202,29 @@ public class Gnar extends Starter {
             return dano - dano * resistencia / 100 / 2;
         }
         return dano - dano * resistencia / 100;
+    }
+    @Override
+    public boolean isInmuneACegado() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAVisionTorpe() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAVeneno() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAConfusion() {
+        return false;
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return ResistenciaMagica.MEDIO;
     }
 }

@@ -1,6 +1,8 @@
 package vista;
 
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import modelo.*;
 import javax.swing.JOptionPane;
 
@@ -55,7 +57,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         }
 
         labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
-        labCabecera.setText("COMBATE VS " + enemigo.getNombreEnemigo().toUpperCase());
+        labCabecera.setText("COMBATE VS " + enemigo.getNombre().toUpperCase());
         if (enemigo instanceof Pikachu pikachu) {
             labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/pikachu.png")));
         } else if (enemigo instanceof Electrode electrode) {
@@ -100,6 +102,11 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(800, 560));
         setMinimumSize(new java.awt.Dimension(800, 560));
         setPreferredSize(new java.awt.Dimension(800, 560));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         labCabecera.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         labCabecera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -153,6 +160,11 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                 butHuirActionPerformed(evt);
             }
         });
+        butHuir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                but_KeyPressed(evt);
+            }
+        });
 
         butAtaquePrincipal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         butAtaquePrincipal.setText("Arañazo");
@@ -161,12 +173,22 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                 butAtaquePrincipalActionPerformed(evt);
             }
         });
+        butAtaquePrincipal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                but_KeyPressed(evt);
+            }
+        });
 
         butAtaqueSecundario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         butAtaqueSecundario.setText("Dardo venenoso");
         butAtaqueSecundario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butAtaqueSecundarioActionPerformed(evt);
+            }
+        });
+        butAtaqueSecundario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                but_KeyPressed(evt);
             }
         });
 
@@ -186,23 +208,22 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                         .addComponent(butAtaqueSecundario))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labVidaStarter, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labVidaStarter, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labStarter)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(labFijoOro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(labFijoDano, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(79, 79, 79))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(labFijoValorVariable)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(labFijoDano, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labFijoValorVariable, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(labFijoOro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labCantidadValorVariable, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labCantidadDano, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(labCantidadOro))
-                                .addGap(217, 217, 217))
-                            .addComponent(labStarter))
+                                .addGap(217, 217, 217)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -216,7 +237,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                                 .addComponent(labFijoEfectoDebilitador)
                                 .addGap(26, 26, 26)
                                 .addComponent(labEfectoDebilitador)))
-                        .addGap(0, 93, Short.MAX_VALUE)))
+                        .addGap(93, 93, 93)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -310,7 +331,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             if (starter instanceof Gnar gnar && gnar.isMonstruo()) {
                 JOptionPane.showMessageDialog(
                         this,
-                        starter.getNombre() + " golpeó con la roca" + (enemigo.isInmuneACegado() ? " a " : " y aturdió a ") + enemigo.getNombreEnemigo(),
+                        starter.getNombre() + " golpeó con la roca" + (enemigo.isInmuneACegado() ? " a " : " y aturdió a ") + enemigo.getNombre(),
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
                 enemigo.setCegadoSiPosible(true);
@@ -320,7 +341,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         if (starter.isPuedeEsquivar() && !enemigo.isInmuneACegado()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getNombre() + " esquivó el ataque de " + enemigo.getNombreEnemigo() + " con su salto",
+                    starter.getNombre() + " esquivó el ataque de " + enemigo.getNombre() + " con su salto",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setCegadoSiPosible(true);
@@ -330,16 +351,33 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         turnoEnemigo();
     }//GEN-LAST:event_butAtaqueSecundarioActionPerformed
 
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        String keyCode = KeyEvent.getKeyText(evt.getKeyCode());
+
+        System.out.println("You selected " + keyCode);
+        if (keyCode.equals(Global.letterMainAttackStarter)) {
+            butAtaquePrincipalActionPerformed(new ActionEvent(starter, WIDTH, keyCode));
+        } else if (keyCode.equals(Global.letterSecondaryAttackStarter)) {
+            butAtaqueSecundarioActionPerformed(new ActionEvent(starter, WIDTH, keyCode));
+        } else if (keyCode.equals(Global.letterEscape)) {
+            butHuirActionPerformed(new ActionEvent(starter, WIDTH, keyCode));
+        }
+    }//GEN-LAST:event_formKeyPressed
+
+    private void but_KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_but_KeyPressed
+        formKeyPressed(evt); //teclado funciona aunque tengas foco en un boton
+    }//GEN-LAST:event_but_KeyPressed
+
     private void eliminarBufosTemporalesStarters() {
         if (starter instanceof Teemo teemo) {
-            //Vacio
+            //Vacío
         } else if (starter instanceof Gnar gnar) {
             gnar.setEsMonstruo(false);
             gnar.setContadorMonstruo(0);
         } else if (starter instanceof Poppy poppy) {
             poppy.setLlevaEscudo(false);
         } else if (starter instanceof Yuumi yuumi) {
-            //Vacio
+            //Vacío
         }
     }
 
@@ -397,7 +435,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             dano = starter.ajustarDanoAResistencias(dano) * 2.5;
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombreEnemigo() + " se autodestruyó. Y la explosión causo "
+                    enemigo.getNombre() + " se autodestruyó. Y la explosión causo "
                     + ((double) (int) (dano * 100)) / 100 + " daño a " + starter.getNombre(),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
@@ -413,7 +451,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         if (enemigo.isAtacaDosVeces()) {
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombreEnemigo() + " golpeó dos veces",
+                    enemigo.getNombre() + " golpeó dos veces",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             dano = dano * 2;
@@ -422,7 +460,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         dano = starter.ajustarDanoAResistencias(dano);
         JOptionPane.showMessageDialog(
                 this,
-                enemigo.getNombreEnemigo() + " inflingió: " + (int) (dano + 0.9) + " daño.",
+                enemigo.getNombre() + " inflingió: " + (int) (dano + 0.9) + " daño.",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
         starter.setVida(starter.getVida() - dano);
@@ -440,7 +478,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             double dano = obtenerDanoEnemigo();
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombreEnemigo() + " está confundido y se inflingió: " + ((int) dano + 1) + " daño.",
+                    enemigo.getNombre() + " está confundido y se inflingió: " + ((int) dano + 1) + " daño.",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setVida(enemigo.getVida() - dano);
@@ -459,7 +497,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         if (enemigo.isCegado()) {
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombreEnemigo()
+                    enemigo.getNombre()
                     + ((starter instanceof Teemo || starter instanceof Yuumi) ? " fue cegado y no atacó."
                             : ((starter instanceof Gnar) ? " no atacó." : "")),
                     this.getName(),
@@ -476,7 +514,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         if (enemigo.isVisionTorpe()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getNombre() + " se camufló y " + enemigo.getNombreEnemigo() + " no le encontró",
+                    starter.getNombre() + " se camufló y " + enemigo.getNombre() + " no le encontró",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setVisionTorpeSiPosible(false);
@@ -494,7 +532,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             if (enemigo.getTurnosEnvenenado() == 2) {
                 JOptionPane.showMessageDialog(
                         this,
-                        enemigo.getNombreEnemigo() + " fue envenenado",
+                        enemigo.getNombre() + " fue envenenado",
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
             }
@@ -512,7 +550,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             labEfectoDebilitador.setText("Sí");
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombreEnemigo() + " fue "
+                    enemigo.getNombre() + " fue "
                     + ((enemigo.getTurnosEnvenenado() == 3)
                     ? "envenenado y " : "") + "cegado",
                     this.getName(),
@@ -533,7 +571,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             danoVenenoYReducirDuracion();
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombreEnemigo()
+                    enemigo.getNombre()
                     + ((enemigo.getTurnosEnvenenado() == 2) ? " fue envenenado y" : "") + " no ve a "
                     + starter.getNombre() + " porque se camufló",
                     this.getName(),
@@ -610,7 +648,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
             starter.setCantidadOro(starter.getCantidadOro() + (int) enemigo.getRecompensa());
             eliminarBufosTemporalesStarters();
             JOptionPane.showMessageDialog(this,
-                    "Has vencido a " + enemigo.getNombreEnemigo() + " y obtuviste: " + enemigo.getRecompensa(),
+                    "Has vencido a " + enemigo.getNombre() + " y obtuviste: " + enemigo.getRecompensa(),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);

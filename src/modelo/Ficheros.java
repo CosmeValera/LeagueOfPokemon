@@ -171,22 +171,22 @@ public class Ficheros {
 
             if (Global.starter.isTeemoDisponible()) {
                 oos.writeDouble(Global.teemo.getVida());
-                oos.writeInt(Global.teemo.getDano());
+                oos.writeInt((int)Global.teemo.getDano());
                 oos.writeInt(Global.teemo.getDanoVeneno());
             }
             if (Global.starter.isPoppyDisponible()) {
                 oos.writeDouble(Global.poppy.getVida());
-                oos.writeInt(Global.poppy.getDano());
+                oos.writeInt((int)Global.poppy.getDano());
                 oos.writeInt(Global.poppy.getProteccionEscudo());
             }
             if (Global.starter.isGnarDisponible()) {
                 oos.writeDouble(Global.gnar.getVida());
-                oos.writeInt(Global.gnar.getDano());
+                oos.writeInt((int)Global.gnar.getDano());
                 oos.writeInt(Global.gnar.getResistencia());
             }
             if (Global.starter.isYuumiDisponible()) {
                 oos.writeDouble(Global.yuumi.getVida());
-                oos.writeInt(Global.yuumi.getDano());
+                oos.writeInt((int)Global.yuumi.getDano());
                 oos.writeInt(Global.yuumi.getCura());
             }
 

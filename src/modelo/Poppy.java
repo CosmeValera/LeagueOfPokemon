@@ -91,6 +91,15 @@ public class Poppy extends Starter {
     }
 
     @Override
+    public double obtenerDanoAtaquePrincipal() { //placaje
+        return dano;
+    }
+    @Override
+    public double obtenerDanoAtaqueSecundario() { //martillazo
+        return dano/2; //AÑADIR LO DE CONFUNDIR
+    }
+    
+    @Override
     public boolean isAtacaDosVeces() {
         return false;
     }
@@ -125,5 +134,29 @@ public class Poppy extends Starter {
             }
         }
         return dano;
+    }
+    @Override
+    public boolean isInmuneACegado() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAVisionTorpe() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAVeneno() {
+        return false;
+    }
+
+    @Override
+    public boolean isInmuneAConfusion() {
+        return false;
+    }
+
+    @Override
+    public double getResistenciaMagica() {
+        return ResistenciaMagica.MEDIO;
     }
 }

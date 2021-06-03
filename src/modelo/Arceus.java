@@ -24,7 +24,7 @@ public class Arceus extends Enemigo {
     }
 
     @Override
-    public String getNombreEnemigo() {
+    public String getNombre() {
         return "Arceus";
     }
 

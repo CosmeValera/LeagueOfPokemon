@@ -1,21 +1,75 @@
 package vista;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import modelo.Global;
+import modelo.Gnar;
+import modelo.Poppy;
+import modelo.Starter;
+import modelo.Teemo;
+import modelo.Yuumi;
 
 public class PanelPVPCombate extends javax.swing.JPanel {
+
+    private Starter starterUno;
+    private Starter starterDos;
+
+    private int contadorBotonesBloqueados;
 
     public PanelPVPCombate() {
         initComponents();
     }
 
     public void mostrar() {
-        
-        butStarter1AtaquePrincipal.setText(Global.starter.getNombreAtaquePrincipal());
-        butStarter1AtaqueSecundario.setText(Global.starter.getNombreAtaqueSecundario());
-        
-        butStarter2AtaquePrincipal.setText(Global.starter2.getNombreAtaquePrincipal());
-        butStarter2AtaqueSecundario.setText(Global.starter2.getNombreAtaqueSecundario());
-        
+        starterUno = Global.starter;
+        starterDos = Global.starter2;
+
+        butStarter1AtaquePrincipal.setText(starterUno.getNombreAtaquePrincipal());
+        butStarter1AtaqueSecundario.setText(starterUno.getNombreAtaqueSecundario());
+        labVidaStarter1.setText(String.valueOf((int) starterUno.getVida()));
+        labCantidadDano1.setText(String.valueOf((int) starterUno.getDano()));
+        if (starterUno instanceof Teemo teemo) {
+            labFijoValorVariable1.setText("Daño Veneno:");
+            labCantidadValorVariable1.setText(String.valueOf((int) teemo.getDanoVeneno()));
+            labStarter1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png")));
+        } else if (starterUno instanceof Gnar gnar) {
+            labFijoValorVariable1.setText("Resistencia:");
+            labCantidadValorVariable1.setText(String.valueOf((int) gnar.getResistencia()));
+            labStarter1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMini.png")));
+            labFijoCegado2.setText("Aturdido:"); //No ciega a enemigos, aturde
+        } else if (starterUno instanceof Poppy poppy) {
+            labFijoValorVariable1.setText("Escudo:");
+            labCantidadValorVariable1.setText((poppy.isLlevaEscudo()) ? "Sí" : "No");
+            labStarter1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/Poppy.png")));
+        } else if (starterUno instanceof Yuumi yuumi) {
+            labFijoValorVariable1.setText("Sanación:");
+            labCantidadValorVariable1.setText(String.valueOf((int) yuumi.getCura()));
+            labStarter1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/yuumi.png")));
+        }
+
+        butStarter2AtaquePrincipal.setText(starterDos.getNombreAtaquePrincipal());
+        butStarter2AtaqueSecundario.setText(starterDos.getNombreAtaqueSecundario());
+        labVidaStarter2.setText(String.valueOf((int) starterDos.getVida()));
+        labCantidadDano2.setText(String.valueOf((int) starterDos.getDano()));
+        if (starterDos instanceof Teemo teemo) {
+            labFijoValorVariable2.setText("Daño Veneno:");
+            labCantidadValorVariable2.setText(String.valueOf((int) teemo.getDanoVeneno()));
+            labStarter1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png")));
+        } else if (starterDos instanceof Gnar gnar) {
+            labFijoValorVariable2.setText("Resistencia:");
+            labCantidadValorVariable2.setText(String.valueOf((int) gnar.getResistencia()));
+            labStarter2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMini.png")));
+            labFijoCegado1.setText("Aturdido:"); //No ciega a enemigos, aturde
+        } else if (starterDos instanceof Poppy poppy) {
+            labFijoValorVariable2.setText("Escudo:");
+            labCantidadValorVariable2.setText((poppy.isLlevaEscudo()) ? "Sí" : "No");
+            labStarter2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/Poppy.png")));
+        } else if (starterDos instanceof Yuumi yuumi) {
+            labFijoValorVariable2.setText("Sanación:");
+            labCantidadValorVariable2.setText(String.valueOf((int) yuumi.getCura()));
+            labStarter2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/yuumi.png")));
+        }
+
         this.setVisible(true);
         this.requestFocusInWindow();
     }
@@ -25,6 +79,31 @@ public class PanelPVPCombate extends javax.swing.JPanel {
     private void initComponents() {
 
         labCabecera = new javax.swing.JLabel();
+        labFijoDano1 = new javax.swing.JLabel();
+        labCantidadDano1 = new javax.swing.JLabel();
+        labFijoValorVariable1 = new javax.swing.JLabel();
+        labCantidadValorVariable1 = new javax.swing.JLabel();
+        labFijoEnvenenado1 = new javax.swing.JLabel();
+        labEsEnvenenado1 = new javax.swing.JLabel();
+        labFijoConfundido1 = new javax.swing.JLabel();
+        labEsConfundido1 = new javax.swing.JLabel();
+        labFijoCegado1 = new javax.swing.JLabel();
+        labEsCegado1 = new javax.swing.JLabel();
+        labFijoDano2 = new javax.swing.JLabel();
+        labCantidadDano2 = new javax.swing.JLabel();
+        labFijoValorVariable2 = new javax.swing.JLabel();
+        labCantidadValorVariable2 = new javax.swing.JLabel();
+        labFijoEnvenenado2 = new javax.swing.JLabel();
+        labEsEnvenenado2 = new javax.swing.JLabel();
+        labFijoConfundido2 = new javax.swing.JLabel();
+        labEsConfundido = new javax.swing.JLabel();
+        labFijoCegado2 = new javax.swing.JLabel();
+        labEsCegado2 = new javax.swing.JLabel();
+        labStarter1 = new javax.swing.JLabel();
+        labVidaStarter1 = new javax.swing.JLabel();
+        labVersus = new javax.swing.JLabel();
+        labStarter2 = new javax.swing.JLabel();
+        labVidaStarter2 = new javax.swing.JLabel();
         butStarter1AtaquePrincipal = new javax.swing.JButton();
         butStarter1AtaqueSecundario = new javax.swing.JButton();
         butStarter2AtaquePrincipal = new javax.swing.JButton();
@@ -32,22 +111,130 @@ public class PanelPVPCombate extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(800, 560));
         setMinimumSize(new java.awt.Dimension(800, 560));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         labCabecera.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         labCabecera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labCabecera.setText("COMBATE PVP");
 
-        butStarter1AtaquePrincipal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labFijoDano1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labFijoDano1.setText("Daño:");
+
+        labCantidadDano1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labCantidadDano1.setText("10");
+
+        labFijoValorVariable1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labFijoValorVariable1.setText("Daño Veneno:");
+
+        labCantidadValorVariable1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labCantidadValorVariable1.setText("10");
+
+        labFijoEnvenenado1.setText("Envenenado:");
+
+        labEsEnvenenado1.setText("No");
+
+        labFijoConfundido1.setText("Confundido:");
+
+        labEsConfundido1.setText("No");
+
+        labFijoCegado1.setText("Cegado:");
+
+        labEsCegado1.setText("No");
+
+        labFijoDano2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labFijoDano2.setText("Daño:");
+
+        labCantidadDano2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labCantidadDano2.setText("10");
+
+        labFijoValorVariable2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labFijoValorVariable2.setText("Daño Veneno:");
+
+        labCantidadValorVariable2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labCantidadValorVariable2.setText("10");
+
+        labFijoEnvenenado2.setText("Envenenado:");
+
+        labEsEnvenenado2.setText("No");
+
+        labFijoConfundido2.setText("Confundido:");
+
+        labEsConfundido.setText("No");
+
+        labFijoCegado2.setText("Cegado:");
+
+        labEsCegado2.setText("No");
+
+        labStarter1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png"))); // NOI18N
+
+        labVidaStarter1.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        labVidaStarter1.setText("100");
+
+        labVersus.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        labVersus.setForeground(new java.awt.Color(0, 0, 255));
+        labVersus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labVersus.setText("VERSUS");
+
+        labStarter2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png"))); // NOI18N
+
+        labVidaStarter2.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
+        labVidaStarter2.setText("100");
+
+        butStarter1AtaquePrincipal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         butStarter1AtaquePrincipal.setText("Arañazo");
+        butStarter1AtaquePrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                but_ActionPerformed(evt);
+            }
+        });
+        butStarter1AtaquePrincipal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                but_KeyPressed(evt);
+            }
+        });
 
-        butStarter1AtaqueSecundario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butStarter1AtaqueSecundario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         butStarter1AtaqueSecundario.setText("Dardo Venenoso");
+        butStarter1AtaqueSecundario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                but_ActionPerformed(evt);
+            }
+        });
+        butStarter1AtaqueSecundario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                but_KeyPressed(evt);
+            }
+        });
 
-        butStarter2AtaquePrincipal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butStarter2AtaquePrincipal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         butStarter2AtaquePrincipal.setText("Placaje con escudo");
+        butStarter2AtaquePrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                but_ActionPerformed(evt);
+            }
+        });
+        butStarter2AtaquePrincipal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                but_KeyPressed(evt);
+            }
+        });
 
-        butStarter2AtaqueSecundario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butStarter2AtaqueSecundario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         butStarter2AtaqueSecundario.setText("Martillazo");
+        butStarter2AtaqueSecundario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                but_ActionPerformed(evt);
+            }
+        });
+        butStarter2AtaqueSecundario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                but_KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,21 +245,137 @@ public class PanelPVPCombate extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(butStarter1AtaquePrincipal)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(butStarter1AtaquePrincipal)
+                                .addGap(18, 18, 18)
+                                .addComponent(butStarter1AtaqueSecundario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                                .addComponent(butStarter2AtaquePrincipal)
+                                .addGap(18, 18, 18)
+                                .addComponent(butStarter2AtaqueSecundario))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labFijoDano1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labFijoValorVariable1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labCantidadValorVariable1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labCantidadDano1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labFijoDano2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labCantidadDano2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labFijoValorVariable2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labCantidadValorVariable2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(labFijoCegado2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(labFijoConfundido2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labEsConfundido)
+                                            .addComponent(labEsCegado2)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labFijoEnvenenado2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labEsEnvenenado2)))))
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(labFijoCegado1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labFijoConfundido1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labEsConfundido1)
+                                    .addComponent(labEsCegado1)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labFijoEnvenenado1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labEsEnvenenado1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(labStarter1)
                         .addGap(18, 18, 18)
-                        .addComponent(butStarter1AtaqueSecundario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                        .addComponent(butStarter2AtaquePrincipal)
+                        .addComponent(labVersus, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(butStarter2AtaqueSecundario)))
-                .addContainerGap())
+                        .addComponent(labStarter2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(198, 198, 198)
+                .addComponent(labVidaStarter1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labVidaStarter2)
+                .addGap(183, 183, 183))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 455, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labFijoDano1)
+                        .addComponent(labCantidadDano1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labCantidadDano2)
+                        .addComponent(labFijoDano2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labFijoValorVariable1)
+                        .addComponent(labCantidadValorVariable1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labCantidadValorVariable2)
+                        .addComponent(labFijoValorVariable2)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labFijoEnvenenado1)
+                            .addComponent(labEsEnvenenado1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labFijoConfundido1)
+                            .addComponent(labEsConfundido1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labFijoCegado1)
+                            .addComponent(labEsCegado1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labFijoEnvenenado2)
+                            .addComponent(labEsEnvenenado2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labFijoConfundido2)
+                            .addComponent(labEsConfundido))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labFijoCegado2)
+                            .addComponent(labEsCegado2))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(labStarter2)
+                        .addComponent(labStarter1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(labVersus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labVidaStarter1)
+                    .addComponent(labVidaStarter2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(butStarter1AtaquePrincipal)
                     .addComponent(butStarter1AtaqueSecundario)
@@ -82,7 +385,154 @@ public class PanelPVPCombate extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void but_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_but_ActionPerformed
+        if (evt.getSource() == butStarter1AtaquePrincipal) {
+            if (butStarter1AtaqueSecundario.isEnabled()) {
+                butStarter1AtaqueSecundario.setEnabled(false);
+                contadorBotonesBloqueados++;
+            }
+        } else if (evt.getSource() == butStarter1AtaqueSecundario) {
+            if (butStarter1AtaquePrincipal.isEnabled()) {
+                butStarter1AtaquePrincipal.setEnabled(false);
+                contadorBotonesBloqueados++;
+            }
+        } else if (evt.getSource() == butStarter2AtaquePrincipal) {
+            if (butStarter2AtaqueSecundario.isEnabled()) {
+                butStarter2AtaqueSecundario.setEnabled(false);
+                contadorBotonesBloqueados++;
+            }
+        } else if (evt.getSource() == butStarter2AtaqueSecundario) {
+            if (butStarter2AtaquePrincipal.isEnabled()) {
+                butStarter2AtaquePrincipal.setEnabled(false);
+                contadorBotonesBloqueados++;
+            }
+        }
+        System.out.println(contadorBotonesBloqueados);
 
+        if (contadorBotonesBloqueados == 2) {
+            System.out.println("Ahora se pegan");
+            turnoCombate();
+            resetearBotones();
+        }
+    }//GEN-LAST:event_but_ActionPerformed
+
+    private void but_KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_but_KeyPressed
+        formKeyPressed(evt); //teclado funciona aunque tengas foco en un boton
+    }//GEN-LAST:event_but_KeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        String keyCode = KeyEvent.getKeyText(evt.getKeyCode());
+
+        System.out.println("You selected " + keyCode);
+        if (keyCode.equals(Global.letterMainAttackStarter)) {
+            if (butStarter1AtaquePrincipal.isEnabled()
+                    && butStarter1AtaqueSecundario.isEnabled()) {
+                butStarter1AtaqueSecundario.setEnabled(false);
+                contadorBotonesBloqueados++;
+            }
+        } else if (keyCode.equals(Global.letterSecondaryAttackStarter)) {
+            if (butStarter1AtaquePrincipal.isEnabled()
+                    && butStarter1AtaqueSecundario.isEnabled()) {
+                butStarter1AtaquePrincipal.setEnabled(false);
+                contadorBotonesBloqueados++;
+            }
+        } else if (keyCode.equals(Global.letterMainAttackStarter2)) {
+            if (butStarter2AtaquePrincipal.isEnabled()
+                    && butStarter2AtaqueSecundario.isEnabled()) {
+                butStarter2AtaqueSecundario.setEnabled(false);
+                contadorBotonesBloqueados++;
+            }
+        } else if (keyCode.equals(Global.letterSecondaryAttackStarter2)) {
+            if (butStarter2AtaquePrincipal.isEnabled()
+                    && butStarter2AtaqueSecundario.isEnabled()) {
+                butStarter2AtaquePrincipal.setEnabled(false);
+                contadorBotonesBloqueados++;
+            }
+        }
+        System.out.println(contadorBotonesBloqueados);
+
+        if (contadorBotonesBloqueados == 2) {
+            System.out.println("Ahora se pegan");
+            turnoCombate();
+            resetearBotones();
+        }
+    }//GEN-LAST:event_formKeyPressed
+    public void turnoCombate() {
+
+        //COMPROBAR SI HAY ALGUNO ENVENENAADO ETC:....
+        double danoDeStarterUno = 0;
+        double danoDeStarterDos = 0;
+
+        if (butStarter1AtaquePrincipal.isEnabled()) {
+            danoDeStarterUno = starterUno.obtenerDanoAtaquePrincipal();
+            System.out.println("Ataque1 de starter 1 disponnible" + danoDeStarterUno);
+        } else if (butStarter1AtaqueSecundario.isEnabled()) {
+            danoDeStarterUno = starterUno.obtenerDanoAtaqueSecundario();
+            System.out.println("Ataque2 de starter 1 disponnible" + danoDeStarterUno);
+        }
+
+        if (butStarter2AtaquePrincipal.isEnabled()) {
+            danoDeStarterDos = starterDos.obtenerDanoAtaquePrincipal();
+            System.out.println("Ataque1 de starter 2 disponnible" + danoDeStarterDos);
+        } else if (butStarter2AtaqueSecundario.isEnabled()) {
+            danoDeStarterDos = starterDos.obtenerDanoAtaqueSecundario();
+            System.out.println("Ataque2 de starter 2 disponnible" + danoDeStarterDos);
+        }
+
+        //TENER EN CUENTA RESISTENCIAS AQUI, Y TAMBIEN RESISTENCIA MAGICA SI EL ENEMIGO ES YUUMI
+        starterUno.setVida(starterUno.getVida() - danoDeStarterDos);
+        starterDos.setVida(starterDos.getVida() - danoDeStarterUno);
+
+        refrescarVida();
+        if (starterUno.getVida() <= 0 || starterDos.getVida() <= 0) {
+            finPartida();
+            curarStarters();
+            this.setVisible(false);
+            this.getRootPane().getContentPane().remove(this);
+            //TO DO Llamar a la pantalla de carga de PVP mediante CallBack
+        }
+    }
+
+    public void finPartida() {
+        if (starterUno.getVida() <= 0 && starterDos.getVida() <= 0) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Ambos murieron a la vez. \n"
+                    + "Empate!",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else if (starterUno.getVida() <= 0) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Ganador: " + starterDos.getNombre() + " de jugador 2!!",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else if (starterDos.getVida() <= 0) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Ganador: " + starterUno.getNombre() + " de jugador 1!!",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    public void resetearBotones() {
+        contadorBotonesBloqueados = 0;
+        butStarter1AtaquePrincipal.setEnabled(true);
+        butStarter1AtaqueSecundario.setEnabled(true);
+        butStarter2AtaquePrincipal.setEnabled(true);
+        butStarter2AtaqueSecundario.setEnabled(true);
+    }
+
+    public void curarStarters() {
+        starterUno.setVida(starterUno.getVidaMaxima());
+        starterDos.setVida(starterUno.getVidaMaxima());
+    }
+
+    public void refrescarVida() {
+        labVidaStarter1.setText(String.valueOf((int) starterUno.getVida()));
+        labVidaStarter2.setText(String.valueOf((int) starterDos.getVida()));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butStarter1AtaquePrincipal;
@@ -90,5 +540,30 @@ public class PanelPVPCombate extends javax.swing.JPanel {
     private javax.swing.JButton butStarter2AtaquePrincipal;
     private javax.swing.JButton butStarter2AtaqueSecundario;
     private javax.swing.JLabel labCabecera;
+    private javax.swing.JLabel labCantidadDano1;
+    private javax.swing.JLabel labCantidadDano2;
+    private javax.swing.JLabel labCantidadValorVariable1;
+    private javax.swing.JLabel labCantidadValorVariable2;
+    private javax.swing.JLabel labEsCegado1;
+    private javax.swing.JLabel labEsCegado2;
+    private javax.swing.JLabel labEsConfundido;
+    private javax.swing.JLabel labEsConfundido1;
+    private javax.swing.JLabel labEsEnvenenado1;
+    private javax.swing.JLabel labEsEnvenenado2;
+    private javax.swing.JLabel labFijoCegado1;
+    private javax.swing.JLabel labFijoCegado2;
+    private javax.swing.JLabel labFijoConfundido1;
+    private javax.swing.JLabel labFijoConfundido2;
+    private javax.swing.JLabel labFijoDano1;
+    private javax.swing.JLabel labFijoDano2;
+    private javax.swing.JLabel labFijoEnvenenado1;
+    private javax.swing.JLabel labFijoEnvenenado2;
+    private javax.swing.JLabel labFijoValorVariable1;
+    private javax.swing.JLabel labFijoValorVariable2;
+    private javax.swing.JLabel labStarter1;
+    private javax.swing.JLabel labStarter2;
+    private javax.swing.JLabel labVersus;
+    private javax.swing.JLabel labVidaStarter1;
+    private javax.swing.JLabel labVidaStarter2;
     // End of variables declaration//GEN-END:variables
 }
