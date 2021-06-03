@@ -3,8 +3,6 @@ package vista;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Ficheros;
@@ -13,6 +11,8 @@ import modelo.Global;
 public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
 
     private GUI GUICallBack;
+    private String nombreJugador1;
+    private String nombreJugador2;
 
     public PanelCargaYSeleccionPVP() {
         initComponents();
@@ -291,7 +291,8 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
         int num1 = tableFicheros1.getSelectedRow();
         String nombreFichero = String.valueOf(tableFicheros1.getValueAt(num1, 0));
         System.out.println(nombreFichero);
-        labJugador1.setText(nombreFichero.substring(0, nombreFichero.length() - 4));
+        nombreJugador1 = nombreFichero.substring(0, nombreFichero.length() - 4);
+        labJugador1.setText(nombreJugador1);
 
         try {
             Ficheros.cargarDataDatos(nombreFichero, GUICallBack);
@@ -313,7 +314,8 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
         int num2 = tableFicheros2.getSelectedRow();
         String nombreFichero = String.valueOf(tableFicheros2.getValueAt(num2, 0));
         System.out.println(nombreFichero);
-        labJugador2.setText(nombreFichero.substring(0, nombreFichero.length() - 4));
+        nombreJugador2 = nombreFichero.substring(0, nombreFichero.length() - 4);
+        labJugador2.setText(nombreJugador2);
 
         try {
             Ficheros.cargarDataDatos2(nombreFichero, GUICallBack);
@@ -369,13 +371,12 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
 
     private void butAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAceptarActionPerformed
         this.setVisible(false);
-        this.getRootPane().getContentPane().remove(this);
-        
+
         PanelPVPCombate panelPVPC = new PanelPVPCombate();
-        panelPVPC.setSize(800,560);
+        panelPVPC.setSize(800, 560);
         panelPVPC.setVisible(false);
         GUICallBack.add(panelPVPC);
-        panelPVPC.mostrar();
+        panelPVPC.mostrar(this, nombreJugador1, nombreJugador2);
     }//GEN-LAST:event_butAceptarActionPerformed
 
     public void enableStarters1Buttons() {

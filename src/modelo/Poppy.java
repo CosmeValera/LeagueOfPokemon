@@ -91,11 +91,11 @@ public class Poppy extends Starter {
     }
 
     @Override
-    public double obtenerDanoAtaquePrincipal() { //placaje
+    public double getDanoAtaquePrincipal() { //placaje
         return dano;
     }
     @Override
-    public double obtenerDanoAtaqueSecundario() { //martillazo
+    public double getDanoAtaqueSecundario() { //martillazo
         return dano/2; //AÑADIR LO DE CONFUNDIR
     }
     

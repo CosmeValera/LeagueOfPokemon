@@ -87,12 +87,14 @@ public class Yuumi extends Starter {
     }
 
     @Override
-    public double obtenerDanoAtaquePrincipal() { //sanación
-        return 0;
+    public double getDanoAtaquePrincipal() { //sanación
+        curarse(cura);
+        return dano;
     }
     @Override
-    public double obtenerDanoAtaqueSecundario() { //sanación
-        return 0;
+    public double getDanoAtaqueSecundario() { //sanación
+        curarse(cura / 4);
+        return dano * 1.25;
     }
     
     private void curarse(double cantidadCura) {

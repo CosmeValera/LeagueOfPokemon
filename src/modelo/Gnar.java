@@ -63,7 +63,7 @@ public class Gnar extends Starter {
     }
 
     @Override
-    public double obtenerDanoAtaquePrincipal() {
+    public double getDanoAtaquePrincipal() {
         if (!isMonstruo()) {
             return boomerang();
         } else {
@@ -80,7 +80,7 @@ public class Gnar extends Starter {
     }
 
     @Override
-    public double obtenerDanoAtaqueSecundario() { //martillazo
+    public double getDanoAtaqueSecundario() { //martillazo
         if (!isMonstruo()) {
             return salto();
         } else {

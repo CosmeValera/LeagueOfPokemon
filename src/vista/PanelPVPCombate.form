@@ -71,7 +71,7 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labEsConfundido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labEsConfundido2" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="labEsCegado2" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -183,7 +183,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labFijoConfundido2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labEsConfundido" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labEsConfundido2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -338,7 +338,7 @@
         <Property name="text" type="java.lang.String" value="Confundido:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labEsConfundido">
+    <Component class="javax.swing.JLabel" name="labEsConfundido2">
       <Properties>
         <Property name="text" type="java.lang.String" value="No"/>
       </Properties>

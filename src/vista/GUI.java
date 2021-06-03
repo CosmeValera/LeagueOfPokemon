@@ -220,6 +220,7 @@ public class GUI extends javax.swing.JFrame {
         ocultarMenuItemsAvanzados();
         inicializarGlobales();
         clickCambiarEspecial();
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void ocultarMenuItemsAvanzados() {

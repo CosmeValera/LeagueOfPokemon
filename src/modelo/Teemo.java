@@ -97,14 +97,17 @@ public class Teemo extends Starter {
     }
 
     @Override
-    public double obtenerDanoAtaquePrincipal() { //Aranazo
-        return 0;
+    public double getDanoAtaquePrincipal() { //Aranazo
+        lifeSteal(danoVeneno * 1.5);
+        return dano * 1.5;
     }
+
     @Override
-    public double obtenerDanoAtaqueSecundario() { //Dardo venenoso
-        return 0;
+    public double getDanoAtaqueSecundario() { //Dardo venenoso
+        lifeSteal(danoVeneno);
+        return dano;
     }
-    
+
     private void lifeSteal(double danoVeneno) {
         vida = vida + danoVeneno / 5;
         if (vida > VIDA_MAXIMA) {
@@ -136,7 +139,7 @@ public class Teemo extends Starter {
     public double ajustarDanoAResistencias(double dano) {
         return dano - dano * this.danoVeneno / 100;
     }
-    
+
     @Override
     public boolean isInmuneACegado() {
         return false;

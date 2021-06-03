@@ -354,7 +354,6 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         String keyCode = KeyEvent.getKeyText(evt.getKeyCode());
 
-        System.out.println("You selected " + keyCode);
         if (keyCode.equals(Global.letterMainAttackStarter)) {
             butAtaquePrincipalActionPerformed(new ActionEvent(starter, WIDTH, keyCode));
         } else if (keyCode.equals(Global.letterSecondaryAttackStarter)) {
@@ -497,9 +496,11 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         if (enemigo.isCegado()) {
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombre()
-                    + ((starter instanceof Teemo || starter instanceof Yuumi) ? " fue cegado y no atacó."
-                            : ((starter instanceof Gnar) ? " no atacó." : "")),
+                    enemigo.getNombre() + ((starter instanceof Teemo || starter instanceof Yuumi)
+                    ? " fue cegado y no atacó."
+                    : ((starter instanceof Gnar)
+                            ? " no atacó."
+                            : "")),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             enemigo.setCegadoSiPosible(false);

@@ -14,6 +14,8 @@ public abstract class Starter extends Personaje {
     private boolean poppyDisponible = false;
     private boolean gnarDisponible = false;
     private boolean yuumiDisponible = false;
+    
+    protected boolean seraCegado = false;
 
     public Starter() {
         dano = 0;
@@ -93,6 +95,14 @@ public abstract class Starter extends Personaje {
         this.yuumiDisponible = yuumiDisponible;
     }
 
+    public boolean isSeraCegado() {
+        return seraCegado;
+    }
+
+    public void setSeraCegado(boolean seraCegado) {
+        this.seraCegado = seraCegado;
+    }
+
     public abstract int getVidaMaxima();
 
     public abstract int getDanoMaximo();
@@ -107,9 +117,9 @@ public abstract class Starter extends Personaje {
 
     public abstract void ataqueSecundario(Enemigo enemigo);
 
-    public abstract double obtenerDanoAtaquePrincipal();
+    public abstract double getDanoAtaquePrincipal();
 
-    public abstract double obtenerDanoAtaqueSecundario();
+    public abstract double getDanoAtaqueSecundario();
 
     public abstract boolean isFallaElAtaque();
 
