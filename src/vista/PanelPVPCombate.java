@@ -471,8 +471,8 @@ public class PanelPVPCombate extends javax.swing.JPanel {
         double danoDeStarterDos = obtenerDanoBrutoStarterDos();
 
         //Daño bruto - Resistencias = Daño neto
-        danoDeStarterUno = starterDos.ajustarDanoAResistencias(danoDeStarterUno);
-        danoDeStarterDos = starterUno.ajustarDanoAResistencias(danoDeStarterDos);
+        danoDeStarterUno = obtenerDanoAjustadoAResistencia(danoDeStarterUno, starterUno, starterDos);
+        danoDeStarterDos = obtenerDanoAjustadoAResistencia(danoDeStarterDos, starterDos, starterUno);
 
         turnoGolpear(danoDeStarterUno, starterUno, starterDos);
         turnoGolpear(danoDeStarterDos, starterDos, starterUno);
@@ -482,106 +482,110 @@ public class PanelPVPCombate extends javax.swing.JPanel {
         eliminarEfectosYAplicarVeneno(starterDos, starterUno);
         refrescarLabelVida();
 
-        ponerEfectos(starterUno, starterDos);
-        ponerEfectos(starterDos, starterUno);
+        ponerEfectosAStarterUno();
+        ponerEfectosAStarterDos();
 
-        if (starterUno.getVida() <= 0 || starterDos.getVida() <= 0) {
-            mensajefinPartida();
-            eliminarBufosTemporales();
-            curarStarters();
-            this.setVisible(false);
-            this.getRootPane().getContentPane().remove(this);
-            panelCallback.setVisible(true);
-        }
+        esAlgunStarterMuerto();
     }
 
-    private void ponerEfectos(Starter starter, Starter starterEnemigo) {
+    private double obtenerDanoBrutoStarterUno() {
         if (butStarter1AtaquePrincipal.isEnabled()) {
-            efectosAtaquePrincipal(starter, starterEnemigo);
+            return obtenerDanoAtaquePrincipal(starterUno);
         } else if (butStarter1AtaqueSecundario.isEnabled()) {
-            efectosAtaqueSecundario(starter, starterEnemigo);
+            return obtenerDanoAtaqueSecundario(starterUno, starterDos);
         }
+        return 0;
     }
 
-    private void efectosAtaquePrincipal(Starter starter, Starter starterEnemigo) {
-        if (starter instanceof Teemo) {
-            int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) starter).getDanoVeneno() / 2;
-            if (num > 70) { //Camuflarse
-                starterEnemigo.setVisionTorpeSiPosible(true);
-                cambiarLabelEsCegado(starterEnemigo, "Sí");
-            }
+    private double obtenerDanoBrutoStarterDos() {
+        if (butStarter2AtaquePrincipal.isEnabled()) {
+            return obtenerDanoAtaquePrincipal(starterDos);
+        } else if (butStarter2AtaqueSecundario.isEnabled()) {
+            return obtenerDanoAtaqueSecundario(starterDos, starterUno);
         }
+        return 0;
     }
 
-    private void efectosAtaqueSecundario(Starter starter, Starter starterEnemigo) {
-        if (starter instanceof Teemo) {
-            int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) starter).getDanoVeneno();
-            if (num > 45 && num < 73) { //Envenenado
-                starterEnemigo.setEnvenenadoSiPosible(true);
-                cambiarLabelEsEnvenenado(starterEnemigo, "Sí");
-            } else if (num >= 73 && num < 90) { //Cegado
-                starterEnemigo.setCegadoSiPosible(true);
-                cambiarLabelEsCegado(starterEnemigo, "Sí");
-            } else if (num >= 90) { //Envenenado y cegado
-                starterEnemigo.setEnvenenadoSiPosible(true);
-                cambiarLabelEsEnvenenado(starterEnemigo, "Sí");
-                starterEnemigo.setCegadoSiPosible(true);
-                cambiarLabelEsCegado(starterEnemigo, "Sí");
-            }
+    private double obtenerDanoAtaquePrincipal(Starter starter) {
+        double danoDeStarter = starter.getDanoAtaquePrincipal();
+        if (starter.isAtacaDosVeces() && !starter.isCegado()
+                && !starter.isVisionTorpe()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    starter.getNombre()
+                    + (starter.isConfundido() ? " se" : "") + " golpeó dos veces"
+                    + (starter.isConfundido() ? " a si mismo" : ""),
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+            danoDeStarter = danoDeStarter * 2;
         }
-        if (starter instanceof Poppy poppy) {
-            int num = (int) (Math.random() * 100 + 1 + poppy.getProteccionEscudo());
-            if (num > 62) {
-                starterEnemigo.setConfundidoSiPosible(true);
-                cambiarLabelEsConfundido(starterEnemigo, "Sí");
-            }
+        if (starter.isPonerseEscudo()) {
+            ((Poppy) starter).setLlevaEscudo(true);
+            JOptionPane.showMessageDialog(
+                    this,
+                    starter.getNombre() + " cogió un escudo"
+                    + ((!starter.isCegado() && !starter.isVisionTorpe()
+                    && !starter.isConfundido())
+                    ? " tras golpear. +" : ". +")
+                    + ((Poppy) starter).getProteccionEscudo() + " escudo",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+            cambiarLabelValorVariable(starter, "Sí");
         }
-        if (starter instanceof Yuumi yuumi) {
-            int num = (int) (Math.random() * 100 + 1 + yuumi.getCura() / 2);
-            if (num > 50) { //Ciega
-                starterEnemigo.setCegadoSiPosible(true);
-                cambiarLabelEsCegado(starterEnemigo, "Sí");
-            }
-        }
-        if (starterEnemigo.isSeraCegado()) {
-            starterEnemigo.setSeraCegado(false);
-            starterEnemigo.setCegadoSiPosible(true);
-            cambiarLabelEsCegado(starterEnemigo, "Sí");
-        }
+        return danoDeStarter;
     }
 
-    private void eliminarEfectosYAplicarVeneno(Starter starter, Starter starterEnemigo) {
-
-        posibleTransformacionGnar(starter, starterEnemigo);
-        gnarPierdeUnTurnoComoMega(starter);
-
-        cambiarLabelEsCegado(starter, "No");
-        starter.setCegadoSiPosible(false);
-        starter.setVisionTorpeSiPosible(false);
-
-        cambiarLabelEsConfundido(starter, "No");
-        starter.setConfundidoSiPosible(false);
-
-        if (starter instanceof Poppy poppy && poppy.isLlevaEscudo()) {
-            cambiarLabelValorVariable(starter, "No");
-            poppy.setLlevaEscudo(false);
-        }
-
-        if (!esEnvenenadoTrasAplicarVenenoUnaVez(starter, starterEnemigo)) {
-            cambiarLabelEsEnvenenado(starter, "No");
-            starter.setEnvenenadoSiPosible(false);
-        }
-    }
-
-    private boolean esEnvenenadoTrasAplicarVenenoUnaVez(Starter starter, Starter starterEnemigo) {
-        if (starter.isEnvenenado()) {
-            starter.setVida(starter.getVida() - ((Teemo) starterEnemigo).getDanoVeneno());
-            starter.setTurnosEnvenenado(starter.getTurnosEnvenenado() - 1);
-            if (starter.getTurnosEnvenenado() <= 0) {
-                return false;
+    private double obtenerDanoAtaqueSecundario(Starter starter, Starter starterEnemigo) {
+        double danoDeStarter = 0;
+        if (starter.isFallaElAtaque()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    starter.getNombre() + " falló la roca",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            danoDeStarter = starter.getDanoAtaqueSecundario();
+            if (starter instanceof Gnar gnar && gnar.isMonstruo()
+                    && !gnar.isCegado() && !gnar.isConfundido()
+                    && !gnar.isVisionTorpe()) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        starter.getNombre() + " golpeó con la roca" + (starterEnemigo.isInmuneACegado()
+                        ? " a "
+                        : " y aturdió a ") + starterEnemigo.getNombre(),
+                        this.getName(),
+                        JOptionPane.INFORMATION_MESSAGE);
+                starterEnemigo.setSeraCegado(true);
             }
         }
-        return true;
+
+        if (starter.isPuedeEsquivar() && !starterEnemigo.isInmuneACegado()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    starter.getNombre() + " esquivará el ataque de " + starterEnemigo.getNombre() + " con su salto",
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+            starterEnemigo.setSeraCegado(true);
+        }
+        if (starter.isPuedeConfundir(starterEnemigo) && !starter.isCegado()
+                && !starter.isVisionTorpe() && !starter.isConfundido()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    starterEnemigo.getNombre() + " será confundido por el martillazo de " + starter.getNombre(),
+                    this.getName(),
+                    JOptionPane.INFORMATION_MESSAGE);
+            starterEnemigo.setSeraConfundido(true);
+        }
+        return danoDeStarter;
+    }
+
+    private double obtenerDanoAjustadoAResistencia(double danoStarter, Starter starter, Starter starterEnemigo) {
+        if (!starter.isConfundido()) {
+            danoStarter = starterEnemigo.ajustarDanoAResistencias(danoStarter);
+        } else {
+            danoStarter = starter.ajustarDanoAResistencias(danoStarter);
+        }
+        return danoStarter;
     }
 
     private void turnoGolpear(double dano, Starter starter, Starter starterEnemigo) {
@@ -642,7 +646,7 @@ public class PanelPVPCombate extends javax.swing.JPanel {
     }
 
     private boolean turnoStarterCegado(double dano, Starter starter, Starter starterEnemigo) {
-        if (starter.isVisionTorpe()) {
+        if (starter.isCegado()) {
             cambiarLabelEsCegado(starterEnemigo, "Sí");
             JOptionPane.showMessageDialog(
                     this,
@@ -691,7 +695,7 @@ public class PanelPVPCombate extends javax.swing.JPanel {
             if (starter.getTurnosEnvenenado() == 3) {
                 JOptionPane.showMessageDialog(
                         this,
-                        starter.getNombre() + " está envenenado",
+                        starter.getNombre() + " ha sido envenenado",
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
             }
@@ -710,78 +714,113 @@ public class PanelPVPCombate extends javax.swing.JPanel {
         starterEnemigo.setVida(starterEnemigo.getVida() - dano);
     }
 
-    private double obtenerDanoBrutoStarterUno() {
-        if (butStarter1AtaquePrincipal.isEnabled()) {
-            return obtenerDanoAtaquePrincipal(starterUno);
-        } else if (butStarter1AtaqueSecundario.isEnabled()) {
-            return obtenerDanoAtaqueSecundario(starterUno, starterDos);
+    private void eliminarEfectosYAplicarVeneno(Starter starter, Starter starterEnemigo) {
+
+        posibleTransformacionGnar(starter, starterEnemigo);
+        gnarPierdeUnTurnoComoMega(starter);
+
+        cambiarLabelEsCegado(starter, "No");
+        starter.setCegadoSiPosible(false);
+        starter.setVisionTorpeSiPosible(false);
+
+        cambiarLabelEsConfundido(starter, "No");
+        starter.setConfundidoSiPosible(false);
+
+        if (starter instanceof Poppy poppy && poppy.isLlevaEscudo()) {
+            cambiarLabelValorVariable(starter, "No");
+            poppy.setLlevaEscudo(false);
         }
-        return 0;
+
+        if (!esEnvenenadoTrasAplicarVenenoUnaVez(starter, starterEnemigo)) {
+            cambiarLabelEsEnvenenado(starter, "No");
+            starter.setEnvenenadoSiPosible(false);
+        }
     }
 
-    private double obtenerDanoBrutoStarterDos() {
-        if (butStarter2AtaquePrincipal.isEnabled()) {
-            return obtenerDanoAtaquePrincipal(starterDos);
-        } else if (butStarter2AtaqueSecundario.isEnabled()) {
-            return obtenerDanoAtaqueSecundario(starterDos, starterUno);
-        }
-        return 0;
-    }
-
-    private double obtenerDanoAtaquePrincipal(Starter starter) {
-        double danoDeStarter = starter.getDanoAtaquePrincipal();
-        if (starter.isAtacaDosVeces()) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    starter.getNombreAtaquePrincipal() + " golpeó dos veces",
-                    this.getName(),
-                    JOptionPane.INFORMATION_MESSAGE);
-            danoDeStarter = danoDeStarter * 2;
-        }
-        if (starter.isPonerseEscudo()) {
-            ((Poppy) starter).setLlevaEscudo(true);
-            JOptionPane.showMessageDialog(
-                    this,
-                    starter.getNombre() + " cogió un escudo tras golpear. +"
-                    + ((Poppy) starter).getProteccionEscudo() + " escudo",
-                    this.getName(),
-                    JOptionPane.INFORMATION_MESSAGE);
-            cambiarLabelValorVariable(starter, "Sí");
-        }
-        return danoDeStarter;
-    }
-
-    private double obtenerDanoAtaqueSecundario(Starter starter, Starter starterEnemigo) {
-        double danoDeStarter = 0;
-        if (starter.isFallaElAtaque()) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    starter.getNombre() + " falló la roca",
-                    this.getName(),
-                    JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            danoDeStarter = starter.getDanoAtaqueSecundario();
-            if (starter instanceof Gnar gnar && gnar.isMonstruo()) {
-                JOptionPane.showMessageDialog(
-                        this,
-                        starter.getNombre() + " golpeó con la roca" + (starterEnemigo.isInmuneACegado()
-                        ? " a "
-                        : " y aturdió a ") + starterEnemigo.getNombre(),
-                        this.getName(),
-                        JOptionPane.INFORMATION_MESSAGE);
-                starterEnemigo.setSeraCegado(true);
+    private boolean esEnvenenadoTrasAplicarVenenoUnaVez(Starter starter, Starter starterEnemigo) {
+        if (starter.isEnvenenado()) {
+            starter.setVida(starter.getVida() - ((Teemo) starterEnemigo).getDanoVeneno());
+            starter.setTurnosEnvenenado(starter.getTurnosEnvenenado() - 1);
+            if (starter.getTurnosEnvenenado() <= 0) {
+                return false;
             }
         }
+        return true;
+    }
 
-        if (starter.isPuedeEsquivar() && !starterEnemigo.isInmuneACegado()) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    starter.getNombre() + " esquivará el ataque de " + starterEnemigo.getNombre() + " con su salto",
-                    this.getName(),
-                    JOptionPane.INFORMATION_MESSAGE);
-            starterEnemigo.setSeraCegado(true);
+    private void ponerEfectosAStarterUno() {
+        if (butStarter1AtaquePrincipal.isEnabled()) {
+            efectosAtaquePrincipal(starterUno, starterDos);
+        } else if (butStarter1AtaqueSecundario.isEnabled()) {
+            efectosAtaqueSecundario(starterUno, starterDos);
         }
-        return danoDeStarter;
+    }
+
+    private void ponerEfectosAStarterDos() {
+        if (butStarter2AtaquePrincipal.isEnabled()) {
+            efectosAtaquePrincipal(starterDos, starterUno);
+        } else if (butStarter2AtaqueSecundario.isEnabled()) {
+            efectosAtaqueSecundario(starterDos, starterUno);
+        }
+    }
+
+    private void efectosAtaquePrincipal(Starter starter, Starter starterEnemigo) {
+        if (starter instanceof Teemo && !starter.isCegado()
+                && !starter.isVisionTorpe() && !starter.isConfundido()) {
+            int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) starter).getDanoVeneno() / 2;
+            if (num > 70) { //Camuflarse
+                starterEnemigo.setVisionTorpeSiPosible(true);
+                cambiarLabelEsCegado(starterEnemigo, "Sí");
+            }
+        }
+    }
+
+    private void efectosAtaqueSecundario(Starter starter, Starter starterEnemigo) {
+        if (starter instanceof Teemo && !starter.isCegado()
+                && !starter.isVisionTorpe() && !starter.isConfundido()) {
+            int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) starter).getDanoVeneno();
+            if (num > 45 && num < 73) { //Envenenado
+                starterEnemigo.setEnvenenadoSiPosible(true);
+                cambiarLabelEsEnvenenado(starterEnemigo, "Sí");
+            } else if (num >= 73 && num < 90) { //Cegado
+                starterEnemigo.setCegadoSiPosible(true);
+                cambiarLabelEsCegado(starterEnemigo, "Sí");
+            } else if (num >= 90) { //Envenenado y cegado
+                starterEnemigo.setEnvenenadoSiPosible(true);
+                cambiarLabelEsEnvenenado(starterEnemigo, "Sí");
+                starterEnemigo.setCegadoSiPosible(true);
+                cambiarLabelEsCegado(starterEnemigo, "Sí");
+            }
+        }
+        if (starter instanceof Yuumi yuumi && !starter.isCegado()
+                && !starter.isVisionTorpe() && !starter.isConfundido()) {
+            int num = (int) (Math.random() * 100 + 1 + yuumi.getCura() / 2);
+            if (num > 50) { //Ciega
+                starterEnemigo.setCegadoSiPosible(true);
+                cambiarLabelEsCegado(starterEnemigo, "Sí");
+            }
+        }
+        if (starterEnemigo.isSeraCegado()) {
+            starterEnemigo.setSeraCegado(false);
+            starterEnemigo.setCegadoSiPosible(true);
+            cambiarLabelEsCegado(starterEnemigo, "Sí");
+        }
+        if (starterEnemigo.isSeraConfundido()) {
+            starterEnemigo.setSeraConfundido(false);
+            starterEnemigo.setConfundidoSiPosible(true);
+            cambiarLabelEsConfundido(starterEnemigo, "Sí");
+        }
+    }
+
+    private void esAlgunStarterMuerto() {
+        if (starterUno.getVida() <= 0 || starterDos.getVida() <= 0) {
+            mensajefinPartida();
+            eliminarBufosTemporales();
+            curarStarters();
+            this.setVisible(false);
+            this.getRootPane().getContentPane().remove(this);
+            panelCallback.setVisible(true);
+        }
     }
 
     private void mensajefinPartida() {
@@ -832,7 +871,7 @@ public class PanelPVPCombate extends javax.swing.JPanel {
         starterUno.setEnvenenadoSiPosible(false);
         starterUno.setTurnosEnvenenado(0);
         starterUno.setConfundidoSiPosible(false);
-        
+
         if (starterDos instanceof Gnar gnar) {
             gnar.setEsMonstruo(false);
             gnar.setContadorMonstruo(0);
@@ -881,7 +920,7 @@ public class PanelPVPCombate extends javax.swing.JPanel {
         }
     }
 
-    public void refrescarIconoYBotonesAtaque(Starter starter) {
+    private void refrescarIconoYBotonesAtaque(Starter starter) {
         if (starter.equals(starterUno)) {
             butStarter1AtaquePrincipal.setText(starter.getNombreAtaquePrincipal());
             butStarter1AtaqueSecundario.setText(starter.getNombreAtaqueSecundario());

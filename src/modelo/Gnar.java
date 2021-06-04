@@ -197,6 +197,11 @@ public class Gnar extends Starter {
     }
 
     @Override
+    public boolean isPuedeConfundir(Starter starterEnemigo){
+        return false;
+    }
+    
+    @Override
     public double ajustarDanoAResistencias(double dano) {
         if (!isMonstruo()) {
             return dano - dano * resistencia / 100 / 2;

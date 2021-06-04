@@ -1,2 +1,1 @@
-poppyGnar.txt
 poppyGnarTeemoYuumi.txt

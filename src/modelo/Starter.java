@@ -14,8 +14,9 @@ public abstract class Starter extends Personaje {
     private boolean poppyDisponible = false;
     private boolean gnarDisponible = false;
     private boolean yuumiDisponible = false;
-    
+
     protected boolean seraCegado = false;
+    protected boolean seraConfundido = false;
 
     public Starter() {
         dano = 0;
@@ -70,7 +71,7 @@ public abstract class Starter extends Personaje {
     public void setTeemoDisponible(boolean teemoDisponible) {
         this.teemoDisponible = teemoDisponible;
     }
-    
+
     public boolean isPoppyDisponible() {
         return poppyDisponible;
     }
@@ -103,6 +104,14 @@ public abstract class Starter extends Personaje {
         this.seraCegado = seraCegado;
     }
 
+    public boolean isSeraConfundido() {
+        return seraConfundido;
+    }
+
+    public void setSeraConfundido(boolean seraConfundido) {
+        this.seraConfundido = seraConfundido;
+    }
+
     public abstract int getVidaMaxima();
 
     public abstract int getDanoMaximo();
@@ -126,6 +135,8 @@ public abstract class Starter extends Personaje {
     public abstract boolean isPuedeEsquivar();
 
     public abstract boolean isPonerseEscudo();
+    
+    public abstract boolean isPuedeConfundir(Starter starterEnemigo);
 
     public abstract double ajustarDanoAResistencias(double dano);
 }

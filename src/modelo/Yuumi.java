@@ -125,6 +125,11 @@ public class Yuumi extends Starter {
     }
 
     @Override
+    public boolean isPuedeConfundir(Starter starterEnemigo){
+        return false;
+    }
+    
+    @Override
     public double ajustarDanoAResistencias(double dano) {
         return dano - dano * this.cura / 150;
     }

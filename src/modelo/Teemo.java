@@ -136,6 +136,11 @@ public class Teemo extends Starter {
     }
 
     @Override
+    public boolean isPuedeConfundir(Starter starterEnemigo){
+        return false;
+    }
+    
+    @Override
     public double ajustarDanoAResistencias(double dano) {
         return dano - dano * this.danoVeneno / 100;
     }

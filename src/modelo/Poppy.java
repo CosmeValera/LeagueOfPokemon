@@ -96,7 +96,7 @@ public class Poppy extends Starter {
     }
     @Override
     public double getDanoAtaqueSecundario() { //martillazo
-        return dano/2; //AÑADIR LO DE CONFUNDIR
+        return dano/2;
     }
     
     @Override
@@ -123,6 +123,15 @@ public class Poppy extends Starter {
         return false;
     }
 
+    @Override
+    public boolean isPuedeConfundir(Starter starterEnemigo){
+        int num = (int) (Math.random() * 100 + 1 + proteccionEscudo);
+        if (num > 62) {
+            return true;
+        }
+        return false;
+    }
+    
     @Override
     public double ajustarDanoAResistencias(double dano) {
         dano = dano - dano * proteccionEscudo / 100 * 3 / 2;
