@@ -2,23 +2,27 @@ package modelo;
 
 public class Teemo extends Starter {
 
-    private int danoVeneno;
-
     private final int VIDA_MAXIMA = 120;
     private final int DANO_MAXIMO = 60;
     private final int DANO_MINIMO = 10;
     private final int DANOVENENO_MAXIMO = 30;
     private final int DANOVENENO_MINIMO = 3;
 
-    public Teemo() {
-        dano = DANO_MINIMO;
-        vida = VIDA_MAXIMA;
-        danoVeneno = DANOVENENO_MINIMO;
+    private int danoVeneno;
+
+    private Randomizer randomizer;
+    
+    public Teemo(Randomizer randomizer) {
+        this.dano = DANO_MINIMO;
+        this.vida = VIDA_MAXIMA;
+        this.danoVeneno = DANOVENENO_MINIMO;
+        this.randomizer = randomizer;
     }
 
-    public Teemo(int dano, double vida, int cantidadOro, int danoVeneno) {
+    public Teemo(int dano, double vida, int cantidadOro, int danoVeneno, Randomizer randomizer) {
         super(dano, vida, cantidadOro);
         this.danoVeneno = danoVeneno;
+        this.randomizer = randomizer;
     }
 
     public int getDanoVeneno() {
@@ -73,7 +77,7 @@ public class Teemo extends Starter {
 
         lifeSteal(danoVeneno * 1.5);
 
-        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Global.starter).getDanoVeneno() / 2;
+        int num = ((int) (randomizer.getRandom() * 100 + 1)) + ((Teemo) Global.starter).getDanoVeneno() / 2;
         if (num > 70) { //Camuflarse
             enemigo.setVisionTorpeSiPosible(true);
         }

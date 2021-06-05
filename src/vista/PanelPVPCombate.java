@@ -409,7 +409,7 @@ public class PanelPVPCombate extends javax.swing.JPanel {
             if (butStarter2AtaqueSecundario.isEnabled()) {
                 butStarter2AtaqueSecundario.setEnabled(false);
                 contadorBotonesBloqueados++;
-            }
+            } 
         } else if (evt.getSource() == butStarter2AtaqueSecundario) {
             if (butStarter2AtaquePrincipal.isEnabled()) {
                 butStarter2AtaquePrincipal.setEnabled(false);
@@ -482,9 +482,11 @@ public class PanelPVPCombate extends javax.swing.JPanel {
         eliminarEfectosYAplicarVeneno(starterDos, starterUno);
         refrescarLabelVida();
 
-        ponerEfectosAStarterUno();
+        ponerEfectosAStarterUno(); //Change this: seraCEgado(), seraVisionTorpe etc
         ponerEfectosAStarterDos();
 
+        efectuarEfectos(); //TO DO
+        
         esAlgunStarterMuerto();
     }
 
@@ -812,6 +814,10 @@ public class PanelPVPCombate extends javax.swing.JPanel {
         }
     }
 
+    private void efectuarEfectos() {
+        
+    }
+    
     private void esAlgunStarterMuerto() {
         if (starterUno.getVida() <= 0 || starterDos.getVida() <= 0) {
             mensajefinPartida();

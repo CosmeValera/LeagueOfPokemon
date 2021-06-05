@@ -17,6 +17,7 @@ public abstract class Starter extends Personaje {
 
     protected boolean seraCegado = false;
     protected boolean seraConfundido = false;
+    protected boolean seraVisionTorpe = false;
 
     public Starter() {
         dano = 0;
@@ -110,6 +111,14 @@ public abstract class Starter extends Personaje {
 
     public void setSeraConfundido(boolean seraConfundido) {
         this.seraConfundido = seraConfundido;
+    }
+
+    public boolean isSeraVisionTorpe() {
+        return seraVisionTorpe;
+    }
+
+    public void setSeraVisionTorpe(boolean seraVisionTorpe) {
+        this.seraVisionTorpe = seraVisionTorpe;
     }
 
     public abstract int getVidaMaxima();

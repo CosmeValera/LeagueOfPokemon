@@ -231,7 +231,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void inicializarGlobales() {
-        Global.teemo = new Teemo();
+        Global.teemo = new Teemo(new MathRandomizer());
         Global.gnar = new Gnar();
         Global.poppy = new Poppy();
         Global.yuumi = new Yuumi();
@@ -239,7 +239,7 @@ public class GUI extends javax.swing.JFrame {
         Global.letterSecondaryAttackStarter = "S";
         Global.letterEscape = "H";
         
-        Global.teemo2 = new Teemo();
+        Global.teemo2 = new Teemo(new MathRandomizer());
         Global.gnar2 = new Gnar();
         Global.poppy2 = new Poppy();
         Global.yuumi2 = new Yuumi();
