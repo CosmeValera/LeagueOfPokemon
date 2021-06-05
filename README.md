@@ -7,9 +7,9 @@ It also has a PVP place so you can battle versus the starters of your friend in 
 
 ## Usage
 
-Fork or download this repository in your device open the source code and press 
+Fork or download this repository in your device open the source code and press run.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
+Please make sure to update tests as appropriate, once I've done them.
