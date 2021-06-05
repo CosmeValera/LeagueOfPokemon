@@ -122,7 +122,7 @@
     <Component class="javax.swing.JButton" name="butTeemo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/teemoPequeno.png"/>
+          <Image iconType="3" name="/icons/starters/teemo.png"/>
         </Property>
       </Properties>
       <Events>
@@ -141,7 +141,7 @@
     <Component class="javax.swing.JButton" name="butGnar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/gnarPeque.png"/>
+          <Image iconType="3" name="/icons/starters/gnarMini.png"/>
         </Property>
       </Properties>
       <Events>
@@ -160,7 +160,7 @@
     <Component class="javax.swing.JButton" name="butPoppy">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icons/poppy.png"/>
+          <Image iconType="3" name="/icons/starters/poppy.png"/>
         </Property>
       </Properties>
       <Events>

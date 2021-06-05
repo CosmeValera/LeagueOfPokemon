@@ -88,7 +88,7 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
         labTeemo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labTeemo.setText("Teemo");
 
-        butTeemo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/teemoPequeno.png"))); // NOI18N
+        butTeemo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png"))); // NOI18N
         butTeemo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butTeemoActionPerformed(evt);
@@ -99,7 +99,7 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
         labGnar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labGnar.setText("Gnar");
 
-        butGnar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gnarPeque.png"))); // NOI18N
+        butGnar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMini.png"))); // NOI18N
         butGnar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butGnarActionPerformed(evt);
@@ -110,7 +110,7 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
         labPoppy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labPoppy.setText("Poppy");
 
-        butPoppy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/poppy.png"))); // NOI18N
+        butPoppy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/poppy.png"))); // NOI18N
         butPoppy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butPoppyActionPerformed(evt);

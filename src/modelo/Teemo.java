@@ -90,9 +90,9 @@ public class Teemo extends Starter {
         lifeSteal(danoVeneno);
 
         int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Global.starter).getDanoVeneno();
-        if (num > 45 && num < 73) { //Envenenado
+        if (num > 50 && num < 75) { //Envenenado
             enemigo.setEnvenenadoSiPosible(true);
-        } else if (num >= 73 && num < 90) { //Cegado
+        } else if (num >= 75 && num < 90) { //Cegado
             enemigo.setCegadoSiPosible(true);
         } else if (num >= 90) { //Envenenado y cegado
             enemigo.setEnvenenadoSiPosible(true);

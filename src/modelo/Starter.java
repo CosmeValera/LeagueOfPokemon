@@ -18,6 +18,7 @@ public abstract class Starter extends Personaje {
     protected boolean seraCegado = false;
     protected boolean seraConfundido = false;
     protected boolean seraVisionTorpe = false;
+    protected boolean seraEnvenenado = false;
 
     public Starter() {
         dano = 0;
@@ -121,6 +122,14 @@ public abstract class Starter extends Personaje {
         this.seraVisionTorpe = seraVisionTorpe;
     }
 
+    public boolean isSeraEnvenenado() {
+        return seraEnvenenado;
+    }
+
+    public void setSeraEnvenenado(boolean seraEnvenenado) {
+        this.seraEnvenenado = seraEnvenenado;
+    }
+
     public abstract int getVidaMaxima();
 
     public abstract int getDanoMaximo();
@@ -144,7 +153,7 @@ public abstract class Starter extends Personaje {
     public abstract boolean isPuedeEsquivar();
 
     public abstract boolean isPonerseEscudo();
-    
+
     public abstract boolean isPuedeConfundir(Starter starterEnemigo);
 
     public abstract double ajustarDanoAResistencias(double dano);

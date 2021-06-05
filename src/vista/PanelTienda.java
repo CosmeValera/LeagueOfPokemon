@@ -29,7 +29,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labCabecera = new javax.swing.JLabel();
         labFijoOro = new javax.swing.JLabel();
         labCantidadOro = new javax.swing.JLabel();
-        labMonedaPocion1 = new javax.swing.JLabel();
+        labMonedaOro = new javax.swing.JLabel();
         labFijoDano = new javax.swing.JLabel();
         labCantidadDano = new javax.swing.JLabel();
         labFijoValorVariable = new javax.swing.JLabel();
@@ -69,8 +69,9 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labCantidadOro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labCantidadOro.setText(" ");
 
-        labMonedaPocion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/coin.png"))); // NOI18N
-        labMonedaPocion1.setText(" ");
+        labMonedaOro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labMonedaOro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/coin.png"))); // NOI18N
+        labMonedaOro.setText(" ");
 
         labFijoDano.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labFijoDano.setText("Daño: ");
@@ -107,7 +108,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labPrecioPotion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labPrecioPotion.setText("30");
 
-        labMonedaPocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/coin.png"))); // NOI18N
+        labMonedaPocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/coin.png"))); // NOI18N
         labMonedaPocion.setText(" ");
 
         labVidaPotion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -131,7 +132,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labPrecioItemVariable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labPrecioItemVariable.setText("120");
 
-        labMonedaItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/coin.png"))); // NOI18N
+        labMonedaItemVariable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/coin.png"))); // NOI18N
         labMonedaItemVariable.setText(" ");
 
         labAportacionItemVariable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -155,7 +156,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         labPrecioEspada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labPrecioEspada.setText("150");
 
-        labMonedaEspada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/coin.png"))); // NOI18N
+        labMonedaEspada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tienda/coin.png"))); // NOI18N
         labMonedaEspada.setText(" ");
 
         labDanoEspada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -189,7 +190,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labCantidadOro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labMonedaPocion1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labMonedaOro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labCantidadVictorias))
                 .addGap(81, 81, 81)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +275,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labFijoOro)
                             .addComponent(labCantidadOro)
-                            .addComponent(labMonedaPocion1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labMonedaOro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labCantidadDano)
@@ -623,8 +624,8 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     private javax.swing.JLabel labFijoVida;
     private javax.swing.JLabel labMonedaEspada;
     private javax.swing.JLabel labMonedaItemVariable;
+    private javax.swing.JLabel labMonedaOro;
     private javax.swing.JLabel labMonedaPocion;
-    private javax.swing.JLabel labMonedaPocion1;
     private javax.swing.JLabel labPrecioEspada;
     private javax.swing.JLabel labPrecioItemVariable;
     private javax.swing.JLabel labPrecioPotion;
