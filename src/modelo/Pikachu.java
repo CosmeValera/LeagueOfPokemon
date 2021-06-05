@@ -1,50 +1,50 @@
 package modelo;
 
-public class Pikachu extends Enemigo {
+public class Pikachu extends Enemy {
 
-    private double resistenciaMagica = ResistenciaMagica.DEBIL;
+    private double magicResistance = MagicResistance.WEAK;
 
-    public static void definirPikachuEnemigo() {
-        Global.enemigo = obtenerPikachuEnemigo();
+    public static void definePikachu() {
+        Globals.enemy = getDefinedPikachu();
     }
 
-    private static Pikachu obtenerPikachuEnemigo() {
+    private static Pikachu getDefinedPikachu() {
         Pikachu pikachu;
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
                 pikachu = new Pikachu();
-                pikachu.setDano(10);
-                pikachu.setVida(50);
-                pikachu.setRecompensa(100);
+                pikachu.setAttackDamage(10);
+                pikachu.setHealth(50);
+                pikachu.setPrize(100);
                 System.out.println("pikachu 1");
                 break;
             case 2:
                 pikachu = new Pikachu();
-                pikachu.setDano(10);
-                pikachu.setVida(60);
-                pikachu.setRecompensa(120);
+                pikachu.setAttackDamage(10);
+                pikachu.setHealth(60);
+                pikachu.setPrize(120);
                 System.out.println("pikachu 2");
                 break;
             case 3:
                 pikachu = new Pikachu();
-                pikachu.setDano(8);
-                pikachu.setVida(75);
-                pikachu.setRecompensa(110);
+                pikachu.setAttackDamage(8);
+                pikachu.setHealth(75);
+                pikachu.setPrize(110);
                 System.out.println("pikachu 3");
                 break;
             case 4:
                 pikachu = new Pikachu();
-                pikachu.setDano(12);
-                pikachu.setVida(40);
-                pikachu.setRecompensa(115);
+                pikachu.setAttackDamage(12);
+                pikachu.setHealth(40);
+                pikachu.setPrize(115);
                 System.out.println("pikachu 4");
                 break;
             default:
                 pikachu = new Pikachu();
-                pikachu.setDano(10);
-                pikachu.setVida(90);
-                pikachu.setRecompensa(160);
+                pikachu.setAttackDamage(10);
+                pikachu.setHealth(90);
+                pikachu.setPrize(160);
                 System.out.println("pikachu 5");
                 break;
         }
@@ -52,42 +52,42 @@ public class Pikachu extends Enemigo {
     }
 
     @Override
-    public String getNombre() {
+    public String getName() {
         return "Pikachu";
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return resistenciaMagica;
+    public double getMagicResistance() {
+        return magicResistance;
     }
 
     @Override
-    public boolean isAtacaDosVeces() {
+    public boolean isStrikeTwice() {
         return false;
     }
 
     @Override
-    public boolean isPuedeAutodestruirse() {
+    public boolean isAbleToDestroyItself() {
         return false;
     }
 
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return true;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return false;
     }
 }

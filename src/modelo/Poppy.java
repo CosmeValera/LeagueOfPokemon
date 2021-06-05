@@ -2,121 +2,121 @@ package modelo;
 
 public class Poppy extends Starter {
 
-    private boolean llevaEscudo;
-    private int proteccionEscudo;
+    private boolean carriesShield;
+    private int shieldProtection;
 
-    private final int VIDA_MAXIMA = 200;
-    private final int DANO_MAXIMO = 40;
-    private final int DANO_MINIMO = 6;
-    private final int PROTECCIONESCUDO_MAXIMA = 30;
-    private final int PROTECCIONESCUDO_MINIMA = 3;
-    private final boolean POPPY_VALORESCUDOPORDEFECTO = false;
+    private final int MAXIMUM_HEALTH = 200;
+    private final int MAXIMUM_ATTACK_DAMAGE = 40;
+    private final int MINIMUM_ATTACK_DAMAGE = 6;
+    private final int MAXIMUM_SHIELD_PROTECTION = 30;
+    private final int MINIMUM_SHIELD_PROTECTION = 3;
+    private final boolean DEFAULT_POPPY_SHIELD_VALUE = false;
 
     public Poppy() {
-        dano = DANO_MINIMO;
-        vida = VIDA_MAXIMA;
-        proteccionEscudo = PROTECCIONESCUDO_MINIMA;
-        llevaEscudo = POPPY_VALORESCUDOPORDEFECTO;
+        attackDamage = MINIMUM_ATTACK_DAMAGE;
+        health = MAXIMUM_HEALTH;
+        shieldProtection = MINIMUM_SHIELD_PROTECTION;
+        carriesShield = DEFAULT_POPPY_SHIELD_VALUE;
     }
 
-    public Poppy(int dano, double vida, int cantidadOro, boolean llevaEscudo, int proteccionEscudo) {
-        super(dano, vida, cantidadOro);
-        this.llevaEscudo = llevaEscudo;
-        this.proteccionEscudo = proteccionEscudo;
+    public Poppy(int attackDamage, double health, int goldAmount, boolean carriesShield, int shieldProtection) {
+        super(attackDamage, health, goldAmount);
+        this.carriesShield = carriesShield;
+        this.shieldProtection = shieldProtection;
     }
 
-    public boolean isLlevaEscudo() {
-        return llevaEscudo;
+    public boolean isCarriesShield() {
+        return carriesShield;
     }
 
-    public void setLlevaEscudo(boolean llevaEscudo) {
-        this.llevaEscudo = llevaEscudo;
+    public void setCarriesShield(boolean carriesShield) {
+        this.carriesShield = carriesShield;
     }
 
-    public int getProteccionEscudo() {
-        return proteccionEscudo;
+    public int getShieldProtection() {
+        return shieldProtection;
     }
 
-    public void setProteccionEscudo(int proteccionEscudo) {
-        this.proteccionEscudo = proteccionEscudo;
-    }
-
-    @Override
-    public int getVidaMaxima() {
-        return VIDA_MAXIMA;
+    public void setShieldProtection(int shieldProtection) {
+        this.shieldProtection = shieldProtection;
     }
 
     @Override
-    public int getDanoMaximo() {
-        return DANO_MAXIMO;
+    public int getMaximumHealth() {
+        return MAXIMUM_HEALTH;
     }
 
     @Override
-    public int getDanoMinimo() {
-        return DANO_MINIMO;
+    public int getMaximumAttackDamage() {
+        return MAXIMUM_ATTACK_DAMAGE;
+    }
+
+    @Override
+    public int getMinimumAttackDamage() {
+        return MINIMUM_ATTACK_DAMAGE;
     }
 
     public int getProteccionEscudoMaxima() {
-        return PROTECCIONESCUDO_MAXIMA;
+        return MAXIMUM_SHIELD_PROTECTION;
     }
 
     @Override
-    public String getNombre() {
+    public String getName() {
         return "Poppy";
     }
 
     @Override
-    public String getNombreAtaquePrincipal() {
-        return "Placaje con escudo";
+    public String getNameOfMainAttack() {
+        return "Tackle With Shield";
     }
 
     @Override
-    public String getNombreAtaqueSecundario() {
-        return "Martillazo";
+    public String getNameOfSecondaryAttack() {
+        return "Strike";
     }
 
     @Override
-    public void ataquePrincipal(Enemigo enemigo) { //placaje
-        enemigo.setVida(enemigo.getVida() - dano);
+    public void mainAttack(Enemy enemy) { //Tackle With Shield
+        enemy.setHealth(enemy.getHealth() - attackDamage);
     }
 
     @Override
-    public void ataqueSecundario(Enemigo enemigo) { //martillazo
-        enemigo.setVida(enemigo.getVida() - dano / 2);
+    public void secondaryAttack(Enemy enemy) { //Strike
+        enemy.setHealth(enemy.getHealth() - attackDamage / 2);
 
-        int num = (int) (Math.random() * 100 + 1 + proteccionEscudo);
+        int num = (int) (Math.random() * 100 + 1 + shieldProtection);
         if (num > 62) {
-            enemigo.setConfundidoSiPosible(true);
+            enemy.setConfusedIfPossible(true);
         }
     }
 
     @Override
-    public double getDanoAtaquePrincipal() { //placaje
-        return dano;
+    public double getAttackDamageOfMainAttack() { //Tackle With Shield
+        return attackDamage;
     }
     @Override
-    public double getDanoAtaqueSecundario() { //martillazo
-        return dano/2;
+    public double getAttackDamageOfSecondaryAttack() { //Strike
+        return attackDamage/2;
     }
     
     @Override
-    public boolean isAtacaDosVeces() {
+    public boolean isStrikeTwice() {
         return false;
     }
 
     @Override
-    public boolean isFallaElAtaque() {
+    public boolean isAbleToMissStrike() {
         return false;
     }
 
     @Override
-    public boolean isPuedeEsquivar() {
+    public boolean isAbleToDodge() {
         return false;
     }
 
     @Override
-    public boolean isPonerseEscudo() {
-        int num = (int) (Math.random() * 100 + 1 + proteccionEscudo);
+    public boolean isAbleToEquipAShield() {
+        int num = (int) (Math.random() * 100 + 1 + shieldProtection);
         if (num > 50) {
             return true;
         }
@@ -124,8 +124,8 @@ public class Poppy extends Starter {
     }
 
     @Override
-    public boolean isPuedeConfundir(Starter starterEnemigo){
-        int num = (int) (Math.random() * 100 + 1 + proteccionEscudo);
+    public boolean isAbleToConfuse(Starter enemyStarter){
+        int num = (int) (Math.random() * 100 + 1 + shieldProtection);
         if (num > 62) {
             return true;
         }
@@ -133,39 +133,39 @@ public class Poppy extends Starter {
     }
     
     @Override
-    public double ajustarDanoAResistencias(double dano) {
-        dano = dano - dano * proteccionEscudo / 100 * 3 / 2;
-        if (isLlevaEscudo()) {
-            if (dano <= proteccionEscudo) {
-                return 0; //El escudo bolquea todo el dano
+    public double adjustAttackDamageRegardingResistance(double attackDamage) {
+        attackDamage = attackDamage - attackDamage * shieldProtection / 100 * 3 / 2;
+        if (isCarriesShield()) {
+            if (attackDamage <= shieldProtection) {
+                return 0; //El escudo bolquea todo el attackDamage
             } else {
-                return dano - proteccionEscudo;
+                return attackDamage - shieldProtection;
             }
         }
-        return dano;
+        return attackDamage;
     }
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return false;
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return ResistenciaMagica.MEDIO;
+    public double getMagicResistance() {
+        return MagicResistance.NORMAL;
     }
 }

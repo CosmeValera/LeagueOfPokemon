@@ -14,7 +14,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }
 
     public void mostrar() {
-        starter = Global.starter;
+        starter = Globals.starter;
         refrescarInfoStarter();
         refrescarInfoTienda();
 
@@ -311,7 +311,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }
 
     private void butPotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPotionActionPerformed
-        if (starter.getCantidadOro() < Integer.parseInt(labPrecioPotion.getText())) {
+        if (starter.getGoldAmount() < Integer.parseInt(labPrecioPotion.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -319,7 +319,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (starter.getVida() >= starter.getVidaMaxima()) {
+        if (starter.getHealth() >= starter.getMaximumHealth()) {
             JOptionPane.showMessageDialog(
                     this,
                     "Tienes la vida al maximo",
@@ -327,10 +327,10 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        starter.setCantidadOro(starter.getCantidadOro() - Integer.parseInt(labPrecioPotion.getText()));
-        starter.setVida(starter.getVida() + 75);
-        if (starter.getVida() > starter.getVidaMaxima()) {
-            starter.setVida(starter.getVidaMaxima());
+        starter.setGoldAmount(starter.getGoldAmount() - Integer.parseInt(labPrecioPotion.getText()));
+        starter.setHealth(starter.getHealth() + 75);
+        if (starter.getHealth() > starter.getMaximumHealth()) {
+            starter.setHealth(starter.getMaximumHealth());
         }
         refrescarOro();
         refrescarVida();
@@ -354,7 +354,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }//GEN-LAST:event_butItemVariableActionPerformed
 
     private boolean butItemVariableTeemo(Teemo teemo) throws HeadlessException, NumberFormatException {
-        if (teemo.getCantidadOro() < Integer.parseInt(labPrecioItemVariable.getText())) {
+        if (teemo.getGoldAmount() < Integer.parseInt(labPrecioItemVariable.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -362,7 +362,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        if (teemo.getDanoVeneno() >= teemo.getDanoVenenoMaximo()) {
+        if (teemo.getPoisonDamage() >= teemo.getDanoVenenoMaximo()) {
             JOptionPane.showMessageDialog(
                     this,
                     teemo.getDanoVenenoMaximo() + " es el maximo de daño por veneno",
@@ -370,8 +370,8 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        teemo.setCantidadOro(teemo.getCantidadOro() - Integer.parseInt(labPrecioItemVariable.getText()));
-        teemo.setDanoVeneno(teemo.getDanoVeneno() + 1);
+        teemo.setGoldAmount(teemo.getGoldAmount() - Integer.parseInt(labPrecioItemVariable.getText()));
+        teemo.setPoisonDamage(teemo.getPoisonDamage() + 1);
         refrescarOro();
         refrescarValorVariable();
         JOptionPane.showMessageDialog(
@@ -408,7 +408,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }
 
     private boolean butItemVariableGnar(Gnar gnar) throws HeadlessException, NumberFormatException {
-        if (gnar.getCantidadOro() < Integer.parseInt(labPrecioItemVariable.getText())) {
+        if (gnar.getGoldAmount() < Integer.parseInt(labPrecioItemVariable.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -416,7 +416,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        if (gnar.getResistencia() >= gnar.getResistenciaMaxima()) {
+        if (gnar.getResistance() >= gnar.getResistenciaMaxima()) {
             JOptionPane.showMessageDialog(
                     this,
                     gnar.getResistenciaMaxima() + " es el maximo de resistencia",
@@ -424,8 +424,8 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        gnar.setCantidadOro(gnar.getCantidadOro() - Integer.parseInt(labPrecioItemVariable.getText()));
-        gnar.setResistencia(gnar.getResistencia() + 2);
+        gnar.setGoldAmount(gnar.getGoldAmount() - Integer.parseInt(labPrecioItemVariable.getText()));
+        gnar.setResistance(gnar.getResistance() + 2);
         refrescarOro();
         refrescarValorVariable();
         JOptionPane.showMessageDialog(
@@ -438,7 +438,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }
 
     private boolean butItemVariablePoppy(Poppy poppy) throws HeadlessException, NumberFormatException {
-        if (poppy.getCantidadOro() < Integer.parseInt(labPrecioItemVariable.getText())) {
+        if (poppy.getGoldAmount() < Integer.parseInt(labPrecioItemVariable.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -446,7 +446,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        if (poppy.getProteccionEscudo() >= poppy.getProteccionEscudoMaxima()) {
+        if (poppy.getShieldProtection() >= poppy.getProteccionEscudoMaxima()) {
             JOptionPane.showMessageDialog(
                     this,
                     poppy.getProteccionEscudoMaxima() + " es el maximo de dureza de escudo",
@@ -454,8 +454,8 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        poppy.setCantidadOro(poppy.getCantidadOro() - Integer.parseInt(labPrecioItemVariable.getText()));
-        poppy.setProteccionEscudo(poppy.getProteccionEscudo() + 1);
+        poppy.setGoldAmount(poppy.getGoldAmount() - Integer.parseInt(labPrecioItemVariable.getText()));
+        poppy.setShieldProtection(poppy.getShieldProtection() + 1);
         refrescarOro();
         refrescarValorVariable();
         JOptionPane.showMessageDialog(
@@ -468,7 +468,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }
 
     private boolean butItemVariableYuumi(Yuumi yuumi) throws HeadlessException, NumberFormatException {
-        if (yuumi.getCantidadOro() < Integer.parseInt(labPrecioItemVariable.getText())) {
+        if (yuumi.getGoldAmount() < Integer.parseInt(labPrecioItemVariable.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -476,16 +476,16 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        if (yuumi.getCura() >= yuumi.getCuraMaxima()) {
+        if (yuumi.getHealing() >= yuumi.getMaximumHealing()) {
             JOptionPane.showMessageDialog(
                     this,
-                    yuumi.getCura() + " es el maximo de dureza de escudo",
+                    yuumi.getHealing() + " es el maximo de dureza de escudo",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
             return true;
         }
-        yuumi.setCantidadOro(yuumi.getCantidadOro() - Integer.parseInt(labPrecioItemVariable.getText()));
-        yuumi.setCura(yuumi.getCura() + 1);
+        yuumi.setGoldAmount(yuumi.getGoldAmount() - Integer.parseInt(labPrecioItemVariable.getText()));
+        yuumi.setHealing(yuumi.getHealing() + 1);
         refrescarOro();
         refrescarValorVariable();
         JOptionPane.showMessageDialog(
@@ -498,7 +498,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
     }
 
     private void butEspadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butEspadaActionPerformed
-        if (starter.getCantidadOro() < Integer.parseInt(labPrecioEspada.getText())) {
+        if (starter.getGoldAmount() < Integer.parseInt(labPrecioEspada.getText())) {
             JOptionPane.showMessageDialog(
                     this,
                     "No tienes dinero para comprar este objeto!",
@@ -506,16 +506,16 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (starter.getDano() >= starter.getDanoMaximo()) {
+        if (starter.getAttackDamage() >= starter.getMaximumAttackDamage()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getDanoMaximo() + " es el maximo de daño por golpe",
+                    starter.getMaximumAttackDamage() + " es el maximo de daño por golpe",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
             return;
         }
-        starter.setCantidadOro(starter.getCantidadOro() - Integer.parseInt(labPrecioEspada.getText()));
-        starter.setDano(starter.getDano() + 2);
+        starter.setGoldAmount(starter.getGoldAmount() - Integer.parseInt(labPrecioEspada.getText()));
+        starter.setAttackDamage(starter.getAttackDamage() + 2);
         refrescarOro();
         refrescarDano();
         JOptionPane.showMessageDialog(
@@ -530,7 +530,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         PanelInformacion panelI = new PanelInformacion();
         this.add(panelI);
         panelI.clickHealthPotion();
-        Global.panelCaller = this;
+        Globals.panelCaller = this;
         this.setVisible(false);
     }//GEN-LAST:event_butInfoPocionActionPerformed
 
@@ -546,7 +546,7 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         } else if (starter instanceof Yuumi) {
             panelI.clickRelievePotion();
         }
-        Global.panelCaller = this;
+        Globals.panelCaller = this;
         this.setVisible(false);
     }//GEN-LAST:event_butInfoItemVariableActionPerformed
 
@@ -554,35 +554,35 @@ public class PanelTienda extends javax.swing.JPanel implements ICallBack {
         PanelInformacion panelI = new PanelInformacion();
         this.add(panelI);
         panelI.clickSword();
-        Global.panelCaller = this;
+        Globals.panelCaller = this;
         this.setVisible(false);
     }//GEN-LAST:event_butInfoEspadaActionPerformed
 
     private void refrescarOro() {
-        labCantidadOro.setText(String.valueOf(starter.getCantidadOro()));
+        labCantidadOro.setText(String.valueOf(starter.getGoldAmount()));
     }
 
     private void refrescarDano() {
-        labCantidadDano.setText(String.valueOf(((double) (starter.getDano() * 10)) / 10));
+        labCantidadDano.setText(String.valueOf(((double) (starter.getAttackDamage() * 10)) / 10));
     }
 
     private void refrescarVida() {
-        labCantidadVida.setText(String.valueOf(((double) ((int)starter.getVida() * 10)) / 10));
+        labCantidadVida.setText(String.valueOf(((double) ((int)starter.getHealth() * 10)) / 10));
     }
 
     private void refrescarVictorias() {
-        labCantidadVictorias.setText(String.valueOf(((double) ((int) Starter.getEnemigosVencidos() * 10)) / 10));
+        labCantidadVictorias.setText(String.valueOf(((double) ((int) Starter.getDefeatedEnemies() * 10)) / 10));
     }
 
     private void refrescarValorVariable() {
         if (starter instanceof Teemo teemo) {
-            labCantidadValorVariable.setText(String.valueOf(((double) (teemo.getDanoVeneno()) * 10) / 10));
+            labCantidadValorVariable.setText(String.valueOf(((double) (teemo.getPoisonDamage()) * 10) / 10));
         } else if (starter instanceof Gnar gnar) {
-            labCantidadValorVariable.setText(String.valueOf(((double) (gnar.getResistencia()) * 10) / 10));
+            labCantidadValorVariable.setText(String.valueOf(((double) (gnar.getResistance()) * 10) / 10));
         } else if (starter instanceof Poppy poppy) {
-            labCantidadValorVariable.setText(String.valueOf(((double) (poppy.getProteccionEscudo()) * 10) / 10));
+            labCantidadValorVariable.setText(String.valueOf(((double) (poppy.getShieldProtection()) * 10) / 10));
         } else if (starter instanceof Yuumi yuumi) {
-            labCantidadValorVariable.setText(String.valueOf(((double) (yuumi.getCura()) * 10) / 10));
+            labCantidadValorVariable.setText(String.valueOf(((double) (yuumi.getHealing()) * 10) / 10));
         }
     }
 

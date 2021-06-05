@@ -1,50 +1,50 @@
 package modelo;
 
-public class Rayquaza extends Enemigo {
+public class Rayquaza extends Enemy {
 
-    private double resistenciaMagica = ResistenciaMagica.FUERTE;
+    private double magicResistance = MagicResistance.STRONG;
     
-    public static void definirRayquazaEnemigo() {
-        Global.enemigo = obtenerRayquazaEnemigo();
+    public static void defineRayquaza() {
+        Globals.enemy = getDefinedRayquaza();
     }
 
-    private static Rayquaza obtenerRayquazaEnemigo() {
+    private static Rayquaza getDefinedRayquaza() {
         Rayquaza rayquaza;
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
                 rayquaza = new Rayquaza();
-                rayquaza.setDano(23);
-                rayquaza.setVida(450);
-                rayquaza.setRecompensa(860);
+                rayquaza.setAttackDamage(23);
+                rayquaza.setHealth(450);
+                rayquaza.setPrize(860);
                 System.out.println("rayquaza 1");
                 break;
             case 2:
                 rayquaza = new Rayquaza();
-                rayquaza.setDano(24);
-                rayquaza.setVida(480);
-                rayquaza.setRecompensa(900);
+                rayquaza.setAttackDamage(24);
+                rayquaza.setHealth(480);
+                rayquaza.setPrize(900);
                 System.out.println("rayquaza 2");
                 break;
             case 3:
                 rayquaza = new Rayquaza();
-                rayquaza.setDano(28);
-                rayquaza.setVida(540);
-                rayquaza.setRecompensa(1060);
+                rayquaza.setAttackDamage(28);
+                rayquaza.setHealth(540);
+                rayquaza.setPrize(1060);
                 System.out.println("rayquaza 3");
                 break;
             case 4:
                 rayquaza = new Rayquaza();
-                rayquaza.setDano(27);
-                rayquaza.setVida(590);
-                rayquaza.setRecompensa(1160);
+                rayquaza.setAttackDamage(27);
+                rayquaza.setHealth(590);
+                rayquaza.setPrize(1160);
                 System.out.println("rayquaza 4");
                 break;
             default:
                 rayquaza = new Rayquaza();
-                rayquaza.setDano(32);
-                rayquaza.setVida(620);
-                rayquaza.setRecompensa(1280);
+                rayquaza.setAttackDamage(32);
+                rayquaza.setHealth(620);
+                rayquaza.setPrize(1280);
                 System.out.println("rayquaza 5");
                 break;
         }
@@ -52,42 +52,42 @@ public class Rayquaza extends Enemigo {
     }
 
     @Override
-    public String getNombre() {
+    public String getName() {
         return "Rayquaza";
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return resistenciaMagica;
+    public double getMagicResistance() {
+        return magicResistance;
     }
 
     @Override
-    public boolean isAtacaDosVeces() {
+    public boolean isStrikeTwice() {
         return true;
     }
 
     @Override
-    public boolean isPuedeAutodestruirse() {
+    public boolean isAbleToDestroyItself() {
         return false;
     }
 
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return true;
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return true;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return true;
     }
 }

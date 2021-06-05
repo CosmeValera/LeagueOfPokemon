@@ -1,50 +1,50 @@
 package modelo;
 
-public class Electrode extends Enemigo {
+public class Electrode extends Enemy {
 
-    private double resistenciaMagica = ResistenciaMagica.FUERTE;
+    private double magicResistance = MagicResistance.STRONG;
     
-    public static void definirElectrodeEnemigo() {
-        Global.enemigo = obtenerElectrodeEnemigo();
+    public static void defineElectrode() {
+        Globals.enemy = getDefinedElectrode();
     }
 
-    private static Electrode obtenerElectrodeEnemigo() {
+    private static Electrode getDefinedElectrode() {
         Electrode electrode;
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
                 electrode = new Electrode();
-                electrode.setDano(20);
-                electrode.setVida(45);
-                electrode.setRecompensa(116);
+                electrode.setAttackDamage(20);
+                electrode.setHealth(45);
+                electrode.setPrize(116);
                 System.out.println("Electrode 1");
                 break;
             case 2:
                 electrode = new Electrode();
-                electrode.setDano(25);
-                electrode.setVida(50);
-                electrode.setRecompensa(144);
+                electrode.setAttackDamage(25);
+                electrode.setHealth(50);
+                electrode.setPrize(144);
                 System.out.println("Electrode 2");
                 break;
             case 3:
                 electrode = new Electrode();
-                electrode.setDano(35);
-                electrode.setVida(46);
-                electrode.setRecompensa(188);
+                electrode.setAttackDamage(35);
+                electrode.setHealth(46);
+                electrode.setPrize(188);
                 System.out.println("Electrode 3");
                 break;
             case 4:
                 electrode = new Electrode();
-                electrode.setDano(30);
-                electrode.setVida(65);
-                electrode.setRecompensa(216);
+                electrode.setAttackDamage(30);
+                electrode.setHealth(65);
+                electrode.setPrize(216);
                 System.out.println("Electrode 4");
                 break;
             default:
                 electrode = new Electrode();
-                electrode.setDano(33);
-                electrode.setVida(70);
-                electrode.setRecompensa(228);
+                electrode.setAttackDamage(33);
+                electrode.setHealth(70);
+                electrode.setPrize(228);
                 System.out.println("Electrode 5");
                 break;
         }
@@ -52,43 +52,43 @@ public class Electrode extends Enemigo {
     }
 
     @Override
-    public String getNombre() {
+    public String getName() {
         return "Electrode";
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return resistenciaMagica;
+    public double getMagicResistance() {
+        return magicResistance;
     }
 
     @Override
-    public boolean isAtacaDosVeces() {
+    public boolean isStrikeTwice() {
         return false;
     }
 
     @Override
-    public boolean isPuedeAutodestruirse() {
+    public boolean isAbleToDestroyItself() {
         int num = (int) (Math.random() * 7 + 1);
         return num == 1;
     }
 
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return false;
     }
 }

@@ -1,7 +1,7 @@
 package vista;
 
 import javax.swing.JOptionPane;
-import modelo.Global;
+import modelo.Globals;
 
 public class PanelConfiguracion extends javax.swing.JPanel {
 
@@ -10,11 +10,11 @@ public class PanelConfiguracion extends javax.swing.JPanel {
     }
 
     void mostrar() {
-        labAtaquePrincipal1.setText("Ataque Principal: " + Global.letterMainAttackStarter);
-        labAtaqueSecundario1.setText("Ataque Secundario: " + Global.letterSecondaryAttackStarter);
-        labHuir.setText("Huir: " + Global.letterEscape);
-        labAtaquePrincipal2.setText("Ataque Principal: " + Global.letterMainAttackStarter2);
-        labAtaqueSecundario2.setText("Ataque Secundario: " + Global.letterSecondaryAttackStarter2);
+        labAtaquePrincipal1.setText("Ataque Principal: " + Globals.letterMainAttackStarter);
+        labAtaqueSecundario1.setText("Ataque Secundario: " + Globals.letterSecondaryAttackStarter);
+        labHuir.setText("Huir: " + Globals.letterEscape);
+        labAtaquePrincipal2.setText("Ataque Principal: " + Globals.letterMainAttackStarter2);
+        labAtaqueSecundario2.setText("Ataque Secundario: " + Globals.letterSecondaryAttackStarter2);
 
         this.setVisible(true);
         this.requestFocusInWindow();
@@ -179,13 +179,13 @@ public class PanelConfiguracion extends javax.swing.JPanel {
     private void butJugador1_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butJugador1_ActionPerformed
         String letra = pedirLetra();
         if (evt.getSource() == butAtaquePrincipal1) {
-            Global.letterMainAttackStarter = letra;
+            Globals.letterMainAttackStarter = letra;
             labAtaquePrincipal1.setText(labAtaquePrincipal1.getText().substring(0, labAtaquePrincipal1.getText().length() - 1) + letra);
         } else if (evt.getSource() == butAtaqueSecundario1) {
-            Global.letterSecondaryAttackStarter = letra;
+            Globals.letterSecondaryAttackStarter = letra;
             labAtaqueSecundario1.setText(labAtaqueSecundario1.getText().substring(0, labAtaqueSecundario1.getText().length() - 1) + letra);
         } else if (evt.getSource() == butHuir) {
-            Global.letterEscape = letra;
+            Globals.letterEscape = letra;
             labHuir.setText(labHuir.getText().substring(0, labHuir.getText().length() - 1) + letra);
         }
     }//GEN-LAST:event_butJugador1_ActionPerformed
@@ -193,10 +193,10 @@ public class PanelConfiguracion extends javax.swing.JPanel {
     private void butJugador2_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butJugador2_ActionPerformed
         String letra = pedirLetra();
         if (evt.getSource() == butAtaquePrincipal2) {
-            Global.letterMainAttackStarter2 = letra;
+            Globals.letterMainAttackStarter2 = letra;
             labAtaquePrincipal2.setText(labAtaquePrincipal2.getText().substring(0, labAtaquePrincipal2.getText().length() - 1) + letra);
         } else if (evt.getSource() == butAtaqueSecundario2) {
-            Global.letterSecondaryAttackStarter2 = letra;
+            Globals.letterSecondaryAttackStarter2 = letra;
             labAtaqueSecundario2.setText(labAtaqueSecundario2.getText().substring(0, labAtaqueSecundario2.getText().length() - 1) + letra);
         }
     }//GEN-LAST:event_butJugador2_ActionPerformed

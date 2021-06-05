@@ -2,171 +2,171 @@ package modelo;
 
 public class Gnar extends Starter {
 
-    private int resistencia;
-    private boolean esMonstruo;
-    private int contadorMonstruo;
+    private int resistance;
+    private boolean isMonster;
+    private int monsterCounter;
 
-    private final int VIDA_MAXIMA = 170;
-    private final int DANO_MAXIMO = 50;
-    private final int DANO_MINIMO = 6;
-    private final int RESISTENCIA_MAXIMA = 70;
-    private final int RESISTENCIA_MINIMA = 20;
-    private final boolean GNAR_ESMONSTRUOPORDEFECTO = false;
-    private final int GNAR_CONTADORMONSTRUOPORDEFECTO = 0;
+    private final int MAXIMUM_HEALTH = 170;
+    private final int MAXIMUM_ATTACK_DAMAGE = 50;
+    private final int MINIMUM_ATTACK_DAMAGE = 6;
+    private final int MAXIMUM_RESISTANCE = 70;
+    private final int MINIMUM_RESISTANCE = 20;
+    private final boolean DEFAULT_IS_GNAR_MONSTER = false;
+    private final int DEFAULT_GNAR_MONSTER_COUNTER = 0;
 
     public Gnar() {
-        dano = DANO_MINIMO;
-        vida = VIDA_MAXIMA;
-        esMonstruo = GNAR_ESMONSTRUOPORDEFECTO;
-        resistencia = RESISTENCIA_MINIMA;
-        contadorMonstruo = GNAR_CONTADORMONSTRUOPORDEFECTO;
+        attackDamage = MINIMUM_ATTACK_DAMAGE;
+        health = MAXIMUM_HEALTH;
+        isMonster = DEFAULT_IS_GNAR_MONSTER;
+        resistance = MINIMUM_RESISTANCE;
+        monsterCounter = DEFAULT_GNAR_MONSTER_COUNTER;
     }
 
-    public Gnar(int dano, double vida, int cantidadOro, boolean esMonstruo, int resistencia) {
-        super(dano, vida, cantidadOro);
-        this.esMonstruo = esMonstruo;
-        this.resistencia = resistencia;
+    public Gnar(int attackDamage, double health, int goldAmount, boolean isMonster, int resistance) {
+        super(attackDamage, health, goldAmount);
+        this.isMonster = isMonster;
+        this.resistance = resistance;
     }
 
     @Override
-    public void ataquePrincipal(Enemigo enemigo) {
+    public void mainAttack(Enemy enemy) {
         if (!isMonstruo()) {
-            boomerang(enemigo);
+            boomerang(enemy);
         } else {
-            golpe(enemigo);
+            bodySlam(enemy);
         }
     }
 
-    private void boomerang(Enemigo enemigo) {
-        enemigo.setVida(enemigo.getVida() - dano);
+    private void boomerang(Enemy enemy) {
+        enemy.setHealth(enemy.getHealth() - attackDamage);
     }
 
-    private void golpe(Enemigo enemigo) {
-        enemigo.setVida(enemigo.getVida() - dano * 2);
+    private void bodySlam(Enemy enemy) {
+        enemy.setHealth(enemy.getHealth() - attackDamage * 2);
     }
 
     @Override
-    public void ataqueSecundario(Enemigo enemigo) {
+    public void secondaryAttack(Enemy enemy) {
         if (!isMonstruo()) {
-            salto(enemigo);
+            jump(enemy);
         } else {
-            lanzarRoca(enemigo);
+            throwRock(enemy);
         }
     }
 
-    private void salto(Enemigo enemigo) {
-        enemigo.setVida(enemigo.getVida() - dano);
+    private void jump(Enemy enemy) {
+        enemy.setHealth(enemy.getHealth() - attackDamage);
     }
 
-    private void lanzarRoca(Enemigo enemigo) {
-        enemigo.setVida(enemigo.getVida() - dano * 2);
+    private void throwRock(Enemy enemy) {
+        enemy.setHealth(enemy.getHealth() - attackDamage * 2);
     }
 
     @Override
-    public double getDanoAtaquePrincipal() {
+    public double getAttackDamageOfMainAttack() {
         if (!isMonstruo()) {
             return boomerang();
         } else {
-            return golpe();
+            return bodySlam();
         }
     }
     
     private double boomerang() {
-        return dano;
+        return attackDamage;
     }
 
-    private double golpe() {
-        return dano*2;
+    private double bodySlam() {
+        return attackDamage*2;
     }
 
     @Override
-    public double getDanoAtaqueSecundario() { //martillazo
+    public double getAttackDamageOfSecondaryAttack() {
         if (!isMonstruo()) {
-            return salto();
+            return jump();
         } else {
-            return lanzarRoca();
+            return throwRock();
         }
     }
     
-    private double salto() {
-        return dano;
+    private double jump() {
+        return attackDamage;
     }
 
-    private double lanzarRoca() {
-        return dano*2;
+    private double throwRock() {
+        return attackDamage*2;
     }
 
     public boolean isMonstruo() {
-        return esMonstruo;
+        return isMonster;
     }
 
-    public void setEsMonstruo(boolean esMonstruo) {
-        this.esMonstruo = esMonstruo;
+    public void setIsMonster(boolean isMonster) {
+        this.isMonster = isMonster;
     }
 
-    public int getResistencia() {
-        return resistencia;
+    public int getResistance() {
+        return resistance;
     }
 
-    public void setResistencia(int resistencia) {
-        this.resistencia = resistencia;
+    public void setResistance(int resistance) {
+        this.resistance = resistance;
     }
 
-    public int getContadorMonstruo() {
-        return contadorMonstruo;
+    public int getMonsterCounter() {
+        return monsterCounter;
     }
 
-    public void setContadorMonstruo(int contadorMonstruo) {
-        this.contadorMonstruo = contadorMonstruo;
-    }
-
-    @Override
-    public int getVidaMaxima() {
-        return VIDA_MAXIMA;
+    public void setMonsterCounter(int monsterCounter) {
+        this.monsterCounter = monsterCounter;
     }
 
     @Override
-    public int getDanoMaximo() {
-        return DANO_MAXIMO;
+    public int getMaximumHealth() {
+        return MAXIMUM_HEALTH;
     }
 
     @Override
-    public int getDanoMinimo() {
-        return DANO_MINIMO;
+    public int getMaximumAttackDamage() {
+        return MAXIMUM_ATTACK_DAMAGE;
+    }
+
+    @Override
+    public int getMinimumAttackDamage() {
+        return MINIMUM_ATTACK_DAMAGE;
     }
 
     public int getResistenciaMaxima() {
-        return RESISTENCIA_MAXIMA;
+        return MAXIMUM_RESISTANCE;
     }
 
     @Override
-    public String getNombre() {
-        if (!esMonstruo) {
+    public String getName() {
+        if (!isMonster) {
             return "Gnar";
         }
         return "MegaGnar";
     }
 
     @Override
-    public String getNombreAtaquePrincipal() {
-        if (!esMonstruo) {
+    public String getNameOfMainAttack() {
+        if (!isMonster) {
             return "Boomerang";
         }
-        return "Golpe";
+        return "Body Slam";
     }
 
     @Override
-    public String getNombreAtaqueSecundario() {
-        if (!esMonstruo) {
-            return "Salto";
+    public String getNameOfSecondaryAttack() {
+        if (!isMonster) {
+            return "Jump";
         }
-        return "Lanzar Roca";
+        return "Throw Rock";
     }
 
 
     @Override
-    public boolean isAtacaDosVeces() {
-        if (!esMonstruo) {
+    public boolean isStrikeTwice() {
+        if (!isMonster) {
             int num = (int) (Math.random() * 2 + 1);
             return num == 1;
         }
@@ -174,8 +174,8 @@ public class Gnar extends Starter {
     }
 
     @Override
-    public boolean isFallaElAtaque() {
-        if (esMonstruo) {
+    public boolean isAbleToMissStrike() {
+        if (isMonster) {
             int num = (int) (Math.random() * 4 + 1);
             return num == 1;
         }
@@ -183,53 +183,53 @@ public class Gnar extends Starter {
     }
 
     @Override
-    public boolean isPuedeEsquivar() {
-        if (!esMonstruo) {
-            double num = (Math.random() * 100 + 1 + resistencia / 5);
-            return num > 63; // resistencia 20-> 41% || resistencia 65-> 50%
+    public boolean isAbleToDodge() {
+        if (!isMonster) {
+            double num = (Math.random() * 100 + 1 + resistance / 5);
+            return num > 63; // resistance 20-> 41% || resistance 65-> 50%
         }
         return false;
     }
 
     @Override
-    public boolean isPonerseEscudo() {
+    public boolean isAbleToEquipAShield() {
         return false;
     }
 
     @Override
-    public boolean isPuedeConfundir(Starter starterEnemigo){
+    public boolean isAbleToConfuse(Starter enemyStarter){
         return false;
     }
     
     @Override
-    public double ajustarDanoAResistencias(double dano) {
+    public double adjustAttackDamageRegardingResistance(double attackDamage) {
         if (!isMonstruo()) {
-            return dano - dano * resistencia / 100 / 2;
+            return attackDamage - attackDamage * resistance / 100 / 2;
         }
-        return dano - dano * resistencia / 100;
+        return attackDamage - attackDamage * resistance / 100;
     }
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return false;
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return ResistenciaMagica.MEDIO;
+    public double getMagicResistance() {
+        return MagicResistance.NORMAL;
     }
 }

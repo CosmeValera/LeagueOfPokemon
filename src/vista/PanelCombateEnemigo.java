@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class PanelCombateEnemigo extends javax.swing.JPanel {
 
     public Starter starter;
-    public Enemigo enemigo;
+    public Enemy enemigo;
 
     public GUI GUICallBack;
 
@@ -18,46 +18,46 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     public void mostrar(GUI gui) {
-        this.starter = Global.starter;
-        this.enemigo = Global.enemigo;
+        this.starter = Globals.starter;
+        this.enemigo = Globals.enemy;
         this.GUICallBack = gui;
 
-        labVidaStarter.setText(String.valueOf((int) starter.getVida()));
-        labCantidadDano.setText(String.valueOf((int) starter.getDano()));
-        labCantidadOro.setText(String.valueOf(starter.getCantidadOro()));
+        labVidaStarter.setText(String.valueOf((int) starter.getHealth()));
+        labCantidadDano.setText(String.valueOf((int) starter.getAttackDamage()));
+        labCantidadOro.setText(String.valueOf(starter.getGoldAmount()));
 
-        butAtaquePrincipal.setText(starter.getNombreAtaquePrincipal());
-        butAtaqueSecundario.setText(starter.getNombreAtaqueSecundario());
+        butAtaquePrincipal.setText(starter.getNameOfMainAttack());
+        butAtaqueSecundario.setText(starter.getNameOfSecondaryAttack());
         if (starter instanceof Teemo teemo) {
             labFijoValorVariable.setText("Daño Veneno:");
-            labCantidadValorVariable.setText(String.valueOf((int) teemo.getDanoVeneno()));
+            labCantidadValorVariable.setText(String.valueOf((int) teemo.getPoisonDamage()));
             labFijoEfectoDebilitador.setText("Envenenado?");
             labEfectoDebilitador.setText("No");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/teemo.png")));
         } else if (starter instanceof Gnar gnar) {
             labFijoValorVariable.setText("Resistencia:");
-            labCantidadValorVariable.setText(String.valueOf((int) gnar.getResistencia()));
+            labCantidadValorVariable.setText(String.valueOf((int) gnar.getResistance()));
             labFijoEfectoDebilitador.setText("");
             labEfectoDebilitador.setText("");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/gnarMini.png")));
 
         } else if (starter instanceof Poppy poppy) {
             labFijoValorVariable.setText("Escudo:");
-            labCantidadValorVariable.setText((poppy.isLlevaEscudo()) ? "Sí" : "No");
+            labCantidadValorVariable.setText((poppy.isCarriesShield()) ? "Sí" : "No");
             labFijoEfectoDebilitador.setText("Confundido:");
             labEfectoDebilitador.setText("No");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/Poppy.png")));
 
         } else if (starter instanceof Yuumi yuumi) {
             labFijoValorVariable.setText("Sanación:");
-            labCantidadValorVariable.setText(String.valueOf((int) yuumi.getCura()));
+            labCantidadValorVariable.setText(String.valueOf((int) yuumi.getHealing()));
             labFijoEfectoDebilitador.setText("");
             labEfectoDebilitador.setText("");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/yuumi.png")));
         }
 
-        labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
-        labCabecera.setText("COMBATE VS " + enemigo.getNombre().toUpperCase());
+        labVidaEnemigo.setText(String.valueOf((int) enemigo.getHealth()));
+        labCabecera.setText("COMBATE VS " + enemigo.getName().toUpperCase());
         if (enemigo instanceof Pikachu pikachu) {
             labEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/pikachu.png")));
         } else if (enemigo instanceof Electrode electrode) {
@@ -295,70 +295,70 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }//GEN-LAST:event_butHuirActionPerformed
 
     private void butAtaquePrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAtaquePrincipalActionPerformed
-        starter.ataquePrincipal(enemigo);
-        if (starter.isAtacaDosVeces()) {
+        starter.mainAttack(enemigo);
+        if (starter.isStrikeTwice()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getNombreAtaquePrincipal() + " golpeó dos veces",
+                    starter.getNameOfMainAttack() + " golpeó dos veces",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            starter.ataquePrincipal(enemigo);
+            starter.mainAttack(enemigo);
         }
-        if (starter.isPonerseEscudo()) {
-            ((Poppy) starter).setLlevaEscudo(true);
+        if (starter.isAbleToEquipAShield()) {
+            ((Poppy) starter).setCarriesShield(true);
             labCantidadValorVariable.setText("Sí");
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getNombre() + " cogió un escudo tras golpear. +"
-                    + ((Poppy) starter).getProteccionEscudo() + " escudo",
+                    starter.getName() + " cogió un escudo tras golpear. +"
+                    + ((Poppy) starter).getShieldProtection() + " escudo",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
         }
 
-        labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
+        labVidaEnemigo.setText(String.valueOf((int) enemigo.getHealth()));
         turnoEnemigo();
     }//GEN-LAST:event_butAtaquePrincipalActionPerformed
 
     private void butAtaqueSecundarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butAtaqueSecundarioActionPerformed
-        if (starter.isFallaElAtaque()) {
+        if (starter.isAbleToMissStrike()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getNombre() + " falló la roca",
+                    starter.getName() + " falló la roca",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
-            starter.ataqueSecundario(enemigo);
+            starter.secondaryAttack(enemigo);
             if (starter instanceof Gnar gnar && gnar.isMonstruo()) {
                 JOptionPane.showMessageDialog(
                         this,
-                        starter.getNombre() + " golpeó con la roca" + (enemigo.isInmuneACegado() ? " a " : " y aturdió a ") + enemigo.getNombre(),
+                        starter.getName() + " golpeó con la roca" + (enemigo.isBlindedResistant() ? " a " : " y aturdió a ") + enemigo.getName(),
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
-                enemigo.setCegadoSiPosible(true);
+                enemigo.setBlindedIfPossible(true);
             }
         }
 
-        if (starter.isPuedeEsquivar() && !enemigo.isInmuneACegado()) {
+        if (starter.isAbleToDodge() && !enemigo.isBlindedResistant()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getNombre() + " esquivó el ataque de " + enemigo.getNombre() + " con su salto",
+                    starter.getName() + " esquivó el ataque de " + enemigo.getName() + " con su salto",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setCegadoSiPosible(true);
+            enemigo.setBlindedIfPossible(true);
         }
 
-        labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
+        labVidaEnemigo.setText(String.valueOf((int) enemigo.getHealth()));
         turnoEnemigo();
     }//GEN-LAST:event_butAtaqueSecundarioActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         String keyCode = KeyEvent.getKeyText(evt.getKeyCode());
 
-        if (keyCode.equals(Global.letterMainAttackStarter)) {
+        if (keyCode.equals(Globals.letterMainAttackStarter)) {
             butAtaquePrincipalActionPerformed(new ActionEvent(starter, WIDTH, keyCode));
-        } else if (keyCode.equals(Global.letterSecondaryAttackStarter)) {
+        } else if (keyCode.equals(Globals.letterSecondaryAttackStarter)) {
             butAtaqueSecundarioActionPerformed(new ActionEvent(starter, WIDTH, keyCode));
-        } else if (keyCode.equals(Global.letterEscape)) {
+        } else if (keyCode.equals(Globals.letterEscape)) {
             butHuirActionPerformed(new ActionEvent(starter, WIDTH, keyCode));
         }
     }//GEN-LAST:event_formKeyPressed
@@ -371,17 +371,17 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         if (starter instanceof Teemo teemo) {
             //Vacío
         } else if (starter instanceof Gnar gnar) {
-            gnar.setEsMonstruo(false);
-            gnar.setContadorMonstruo(0);
+            gnar.setIsMonster(false);
+            gnar.setMonsterCounter(0);
         } else if (starter instanceof Poppy poppy) {
-            poppy.setLlevaEscudo(false);
+            poppy.setCarriesShield(false);
         } else if (starter instanceof Yuumi yuumi) {
             //Vacío
         }
     }
 
     private void turnoEnemigo() {
-        labVidaStarter.setText(String.valueOf((int) starter.getVida()));
+        labVidaStarter.setText(String.valueOf((int) starter.getHealth()));
 
         if (estaEnemigoMuerto()) {
             return;
@@ -410,16 +410,16 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private void isStarterMuerto() {
-        if (starter.getVida() <= 0) { //Al morir se pierde todo el oro
-            starter.setCantidadOro(starter.getCantidadOro() / 2);
-            starter.setVida(starter.getVidaMaxima() / 2);
+        if (starter.getHealth() <= 0) { //Al morir se pierde todo el oro
+            starter.setGoldAmount(starter.getGoldAmount() / 2);
+            starter.setHealth(starter.getMaximumHealth() / 2);
             if (starter instanceof Gnar gnar) {
-                gnar.setEsMonstruo(false);
-                gnar.setContadorMonstruo(0);
+                gnar.setIsMonster(false);
+                gnar.setMonsterCounter(0);
             }
             JOptionPane.showMessageDialog(
                     GUICallBack,
-                    starter.getNombre() + " ha muerto. Perdió la mitad de oro",
+                    starter.getName() + " ha muerto. Perdió la mitad de oro",
                     this.getName(),
                     JOptionPane.WARNING_MESSAGE);
             this.setVisible(false);
@@ -430,40 +430,40 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     private void turnoEnemigoSinEfectos() {
         double dano = obtenerDanoEnemigo();
 
-        if (enemigo.isPuedeAutodestruirse()) {
-            dano = starter.ajustarDanoAResistencias(dano) * 2.5;
+        if (enemigo.isAbleToDestroyItself()) {
+            dano = starter.adjustAttackDamageRegardingResistance(dano) * 2.5;
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombre() + " se autodestruyó. Y la explosión causo "
-                    + ((double) (int) (dano * 100)) / 100 + " daño a " + starter.getNombre(),
+                    enemigo.getName() + " se autodestruyó. Y la explosión causo "
+                    + ((double) (int) (dano * 100)) / 100 + " daño a " + starter.getName(),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setVida(0);
-            labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
-            starter.setVida(starter.getVida() - dano);
-            labVidaStarter.setText(String.valueOf((int) starter.getVida()));
+            enemigo.setHealth(0);
+            labVidaEnemigo.setText(String.valueOf((int) enemigo.getHealth()));
+            starter.setHealth(starter.getHealth() - dano);
+            labVidaStarter.setText(String.valueOf((int) starter.getHealth()));
             estaEnemigoMuerto();
             isStarterMuerto();
             return;
         }
 
-        if (enemigo.isAtacaDosVeces()) {
+        if (enemigo.isStrikeTwice()) {
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombre() + " golpeó dos veces",
+                    enemigo.getName() + " golpeó dos veces",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             dano = dano * 2;
         }
 
-        dano = starter.ajustarDanoAResistencias(dano);
+        dano = starter.adjustAttackDamageRegardingResistance(dano);
         JOptionPane.showMessageDialog(
                 this,
-                enemigo.getNombre() + " inflingió: " + (int) (dano + 0.9) + " daño.",
+                enemigo.getName() + " inflingió: " + (int) (dano + 0.9) + " daño.",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
-        starter.setVida(starter.getVida() - dano);
-        labVidaStarter.setText(String.valueOf((int) starter.getVida()));
+        starter.setHealth(starter.getHealth() - dano);
+        labVidaStarter.setText(String.valueOf((int) starter.getHealth()));
 
         posibleTransformacionGnar();
         gnarPierdeUnTurnoComoMega();
@@ -472,19 +472,19 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private boolean turnoEnemigoConfundido() {
-        if (enemigo.isConfundido()) {
+        if (enemigo.isConfused()) {
             labEfectoDebilitador.setText("Sí");
             double dano = obtenerDanoEnemigo();
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombre() + " está confundido y se inflingió: " + ((int) dano + 1) + " daño.",
+                    enemigo.getName() + " está confundido y se inflingió: " + ((int) dano + 1) + " daño.",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setVida(enemigo.getVida() - dano);
-            labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
+            enemigo.setHealth(enemigo.getHealth() - dano);
+            labVidaEnemigo.setText(String.valueOf((int) enemigo.getHealth()));
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
-            enemigo.setConfundidoSiPosible(false);
+            enemigo.setConfusedIfPossible(false);
             labEfectoDebilitador.setText("No");
             estaEnemigoMuerto();
             return true;
@@ -493,17 +493,17 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private boolean turnoEnemigoCegado() {
-        if (enemigo.isCegado()) {
+        if (enemigo.isBlinded()) {
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombre() + ((starter instanceof Teemo || starter instanceof Yuumi)
+                    enemigo.getName() + ((starter instanceof Teemo || starter instanceof Yuumi)
                     ? " fue cegado y no atacó."
                     : ((starter instanceof Gnar)
                             ? " no atacó."
                             : "")),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setCegadoSiPosible(false);
+            enemigo.setBlindedIfPossible(false);
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
             return true;
@@ -512,13 +512,13 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private boolean turnoEnemigoVisionTorpe() {
-        if (enemigo.isVisionTorpe()) {
+        if (enemigo.isPoorSight()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getNombre() + " se camufló y " + enemigo.getNombre() + " no le encontró",
+                    starter.getName() + " se camufló y " + enemigo.getName() + " no le encontró",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setVisionTorpeSiPosible(false);
+            enemigo.setPoorSightIfPossible(false);
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
             return true;
@@ -527,13 +527,13 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private boolean turnoEnemigoEnvenenado() {
-        if (enemigo.isEnvenenado()) {
+        if (enemigo.isPoisoned()) {
             labEfectoDebilitador.setText("Sí");
             danoVenenoYReducirDuracion();
-            if (enemigo.getTurnosEnvenenado() == 2) {
+            if (enemigo.getPoisonedTurns() == 2) {
                 JOptionPane.showMessageDialog(
                         this,
-                        enemigo.getNombre() + " fue envenenado",
+                        enemigo.getName() + " fue envenenado",
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
             }
@@ -547,17 +547,17 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private boolean turnoEnemigoCegadoYEnvenenado() {
-        if (enemigo.isEnvenenado() && enemigo.isCegado()) {
+        if (enemigo.isPoisoned() && enemigo.isBlinded()) {
             labEfectoDebilitador.setText("Sí");
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombre() + " fue "
-                    + ((enemigo.getTurnosEnvenenado() == 3)
+                    enemigo.getName() + " fue "
+                    + ((enemigo.getPoisonedTurns() == 3)
                     ? "envenenado y " : "") + "cegado",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             danoVenenoYReducirDuracion();
-            enemigo.setCegadoSiPosible(false);
+            enemigo.setBlindedIfPossible(false);
             estaEnemigoMuerto();
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
@@ -567,17 +567,17 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private boolean turnoEnemigoVisionTorpeYEnvenenado() {
-        if (enemigo.isEnvenenado() && enemigo.isVisionTorpe()) {
+        if (enemigo.isPoisoned() && enemigo.isPoorSight()) {
             labEfectoDebilitador.setText("Sí");
             danoVenenoYReducirDuracion();
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getNombre()
-                    + ((enemigo.getTurnosEnvenenado() == 2) ? " fue envenenado y" : "") + " no ve a "
-                    + starter.getNombre() + " porque se camufló",
+                    enemigo.getName()
+                    + ((enemigo.getPoisonedTurns() == 2) ? " fue envenenado y" : "") + " no ve a "
+                    + starter.getName() + " porque se camufló",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setVisionTorpeSiPosible(false);
+            enemigo.setPoorSightIfPossible(false);
             estaEnemigoMuerto();
             gnarPierdeUnTurnoComoMega();
             eliminarEscudoPoppy();
@@ -587,12 +587,12 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private void danoVenenoYReducirDuracion() {
-        if (enemigo.isEnvenenado()) {
-            enemigo.setVida(enemigo.getVida() - ((Teemo) starter).getDanoVeneno());
-            labVidaEnemigo.setText(String.valueOf((int) enemigo.getVida()));
-            enemigo.setTurnosEnvenenado(enemigo.getTurnosEnvenenado() - 1);
-            if (enemigo.getTurnosEnvenenado() <= 0) {
-                enemigo.setEnvenenadoSiPosible(false);
+        if (enemigo.isPoisoned()) {
+            enemigo.setHealth(enemigo.getHealth() - ((Teemo) starter).getPoisonDamage());
+            labVidaEnemigo.setText(String.valueOf((int) enemigo.getHealth()));
+            enemigo.setPoisonedTurns(enemigo.getPoisonedTurns() - 1);
+            if (enemigo.getPoisonedTurns() <= 0) {
+                enemigo.setPoisonedIfPossible(false);
                 labEfectoDebilitador.setText("No");
             }
         }
@@ -600,10 +600,10 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
 
     private void posibleTransformacionGnar() {
         if (starter instanceof Gnar gnar && !gnar.isMonstruo()) {
-            double num = (Math.random() * 100 + gnar.getResistencia() / 10); //23+3%(26) al principio 23+7%(30%) con la resistencia al max
+            double num = (Math.random() * 100 + gnar.getResistance() / 10); //23+3%(26) al principio 23+7%(30%) con la resistencia al max
             if (num >= 77) {
-                gnar.setEsMonstruo(true);
-                gnar.setContadorMonstruo(4);
+                gnar.setIsMonster(true);
+                gnar.setMonsterCounter(4);
 
                 JOptionPane.showMessageDialog(
                         this,
@@ -618,9 +618,9 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
 
     private void gnarPierdeUnTurnoComoMega() {
         if (starter instanceof Gnar gnar && gnar.isMonstruo()) {
-            gnar.setContadorMonstruo(gnar.getContadorMonstruo() - 1);
-            if (gnar.getContadorMonstruo() <= 0) {
-                gnar.setEsMonstruo(false);
+            gnar.setMonsterCounter(gnar.getMonsterCounter() - 1);
+            if (gnar.getMonsterCounter() <= 0) {
+                gnar.setIsMonster(false);
                 JOptionPane.showMessageDialog(
                         this,
                         "MegaGnar volvió a su forma de gnar",
@@ -633,23 +633,23 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     public void refrescarBotonesAtaque() {
-        butAtaquePrincipal.setText(starter.getNombreAtaquePrincipal());
-        butAtaqueSecundario.setText(starter.getNombreAtaqueSecundario());
+        butAtaquePrincipal.setText(starter.getNameOfMainAttack());
+        butAtaqueSecundario.setText(starter.getNameOfSecondaryAttack());
     }
 
     private void eliminarEscudoPoppy() {
-        if (starter instanceof Poppy poppy && poppy.isLlevaEscudo()) {
-            poppy.setLlevaEscudo(false);
+        if (starter instanceof Poppy poppy && poppy.isCarriesShield()) {
+            poppy.setCarriesShield(false);
             labCantidadValorVariable.setText("No");
         }
     }
 
     private boolean estaEnemigoMuerto() {
-        if (enemigo.getVida() <= 0) {
-            starter.setCantidadOro(starter.getCantidadOro() + (int) enemigo.getRecompensa());
+        if (enemigo.getHealth() <= 0) {
+            starter.setGoldAmount(starter.getGoldAmount() + (int) enemigo.getPrize());
             eliminarBufosTemporalesStarters();
             JOptionPane.showMessageDialog(this,
-                    "Has vencido a " + enemigo.getNombre() + " y obtuviste: " + enemigo.getRecompensa(),
+                    "Has vencido a " + enemigo.getName() + " y obtuviste: " + enemigo.getPrize(),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
@@ -675,13 +675,13 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
     }
 
     private void desbloquearRecompensas() {
-        starter.setEnemigosVencidos(Starter.getEnemigosVencidos() + 1);
+        starter.setDefeatedEnemies(Starter.getDefeatedEnemies() + 1);
 
-        if (Starter.getEnemigosVencidos() == Starter.getVictoriesForFirstPrize()) {
+        if (Starter.getDefeatedEnemies() == Starter.getVictoriesForFirstPrize()) {
             desbloquearSegundoStarter();
-        } else if (Starter.getEnemigosVencidos() == Starter.getVictoriesForSecondPrize()) {
+        } else if (Starter.getDefeatedEnemies() == Starter.getVictoriesForSecondPrize()) {
             desbloquearTercerStarter();
-        } else if (Starter.getEnemigosVencidos() == Starter.getVictoriesForThirdPrize()) {
+        } else if (Starter.getDefeatedEnemies() == Starter.getVictoriesForThirdPrize()) {
             desbloquearCuartoStarter();
         }
 
@@ -693,7 +693,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(GUICallBack,
                 "Has avanzado tanto que te mereces poder"
                 + "\ndisponer de otro campeón. Enhorabuena!!"
-                + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
+                + "\nEnemigos vencidos: " + Starter.getDefeatedEnemies(),
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
         GUICallBack.getJMenuBar().getMenu(0).getItem(3).setVisible(true); //Visible Gyarados
@@ -704,7 +704,7 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(GUICallBack,
                 "Has avanzado tanto que te mereces poder"
                 + "\ndisponer de otro campeón. Enhorabuena!!"
-                + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
+                + "\nEnemigos vencidos: " + Starter.getDefeatedEnemies(),
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
         GUICallBack.getJMenuBar().getMenu(0).getItem(4).setVisible(true); //Visible RayQuaza
@@ -716,30 +716,30 @@ public class PanelCombateEnemigo extends javax.swing.JPanel {
                 "Has avanzado tanto que te mereces poder"
                 + "\ndisponer de otro campeón. Enhorabuena!!"
                 + "\nTambién puedes enfrentarte al dios Arceus."
-                + "\nEnemigos vencidos: " + Starter.getEnemigosVencidos(),
+                + "\nEnemigos vencidos: " + Starter.getDefeatedEnemies(),
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
         GUICallBack.getJMenuBar().getMenu(0).getItem(5).setVisible(true); //Visible Arceus
     }
 
     private double obtenerDanoEnemigo() {
-        double dano = enemigo.getDano();
+        double dano = enemigo.getAttackDamage();
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
-                dano = enemigo.getDano() * .7;
+                dano = enemigo.getAttackDamage() * .7;
                 break;
             case 2:
-                dano = enemigo.getDano() * .85;
+                dano = enemigo.getAttackDamage() * .85;
                 break;
             case 3:
-                dano = enemigo.getDano();
+                dano = enemigo.getAttackDamage();
                 break;
             case 4:
-                dano = enemigo.getDano() * 1.15;
+                dano = enemigo.getAttackDamage() * 1.15;
                 break;
             case 5:
-                dano = enemigo.getDano() * 1.3;
+                dano = enemigo.getAttackDamage() * 1.3;
                 break;
         }
         return dano;

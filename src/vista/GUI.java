@@ -196,17 +196,17 @@ public class GUI extends javax.swing.JFrame {
         this.getContentPane().removeAll();
 
         if (evt.getSource() == menuCombate_pikachu) {
-            Pikachu.definirPikachuEnemigo();
+            Pikachu.definePikachu();
         } else if (evt.getSource() == menuCombate_electrode) {
-            Electrode.definirElectrodeEnemigo();
+            Electrode.defineElectrode();
         } else if (evt.getSource() == menuCombate_hitMonLee) {
-            HitMonLee.definirHitMonLeeEnemigo();
+            HitMonLee.defineHitMonLee();
         } else if (evt.getSource() == menuCombate_gyarados) {
-            Gyarados.definirGyaradosEnemigo();
+            Gyarados.defineGyarados();
         } else if (evt.getSource() == menuCombate_rayquaza) {
-            Rayquaza.definirRayquazaEnemigo();
+            Rayquaza.defineRayquaza();
         } else if (evt.getSource() == menuCombate_arceus) {
-            Arceus.definirArceusEnemigo();
+            Arceus.defineArceus();
         }
 
         PanelCombateEnemigo panelCE = new PanelCombateEnemigo();
@@ -231,24 +231,24 @@ public class GUI extends javax.swing.JFrame {
     }
 
     private void inicializarGlobales() {
-        Global.teemo = new Teemo(new MathRandomizer());
-        Global.gnar = new Gnar();
-        Global.poppy = new Poppy();
-        Global.yuumi = new Yuumi();
-        Global.letterMainAttackStarter = "A";
-        Global.letterSecondaryAttackStarter = "S";
-        Global.letterEscape = "H";
+        Globals.teemo = new Teemo(new MathRandomizer());
+        Globals.gnar = new Gnar();
+        Globals.poppy = new Poppy();
+        Globals.yuumi = new Yuumi();
+        Globals.letterMainAttackStarter = "A";
+        Globals.letterSecondaryAttackStarter = "S";
+        Globals.letterEscape = "H";
         
-        Global.teemo2 = new Teemo(new MathRandomizer());
-        Global.gnar2 = new Gnar();
-        Global.poppy2 = new Poppy();
-        Global.yuumi2 = new Yuumi();
-        Global.letterMainAttackStarter2 = "O";
-        Global.letterSecondaryAttackStarter2 = "P";
+        Globals.teemo2 = new Teemo(new MathRandomizer());
+        Globals.gnar2 = new Gnar();
+        Globals.poppy2 = new Poppy();
+        Globals.yuumi2 = new Yuumi();
+        Globals.letterMainAttackStarter2 = "O";
+        Globals.letterSecondaryAttackStarter2 = "P";
 
-        Global.starter = Global.teemo; //Por defecto
-        Global.starter2 = Global.teemo2; //Por defecto
-        Global.ficheroGlobal = "todosLosFicheros.txt";
+        Globals.starter = Globals.teemo; //Por defecto
+        Globals.starter2 = Globals.teemo2; //Por defecto
+        Globals.globalFile = "todosLosFicheros.txt";
     }
 
     private void menuTienda_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTienda_ActionPerformed

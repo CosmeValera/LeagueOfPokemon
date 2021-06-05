@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.Ficheros;
-import modelo.Global;
+import modelo.Files4Saving;
+import modelo.Globals;
 
 public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
 
@@ -34,7 +34,7 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
 
         List<String> ficherosNombres = new ArrayList<>();
         try {
-            Ficheros.listadoPartidas(ficherosNombres);
+            Files4Saving.getFiles(ficherosNombres);
             for (String p : ficherosNombres) {
                 String[] fila = {
                     p.toString()
@@ -295,7 +295,7 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
         labJugador1.setText(nombreJugador1);
 
         try {
-            Ficheros.cargarDataDatos(nombreFichero, GUICallBack);
+            Files4Saving.chargeData(nombreFichero, GUICallBack);
             enableStarters1Buttons();
             System.out.println("Se han cargado los ficheros 1");
         } catch (Exception e) {
@@ -318,7 +318,7 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
         labJugador2.setText(nombreJugador2);
 
         try {
-            Ficheros.cargarDataDatos2(nombreFichero, GUICallBack);
+            Files4Saving.chargeData2(nombreFichero, GUICallBack);
             enableStarters2Buttons();
             System.out.println("Se han cargado los ficheros 2");
         } catch (Exception e) {
@@ -333,16 +333,16 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
     private void butStarter1_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarter1_ActionPerformed
         tableFicheros1.setEnabled(false);
         if (evt.getSource() == butTeemo1) {
-            Global.starter = Global.teemo;
+            Globals.starter = Globals.teemo;
             System.out.println("Global.starter = Global.teemo;");
         } else if (evt.getSource() == butPoppy1) {
-            Global.starter = Global.poppy;
+            Globals.starter = Globals.poppy;
             System.out.println("Global.starter = Global.poppy;");
         } else if (evt.getSource() == butYuumi1) {
-            Global.starter = Global.yuumi;
+            Globals.starter = Globals.yuumi;
             System.out.println("Global.starter = Global.yuumi;");
         } else if (evt.getSource() == butGnar1) {
-            Global.starter = Global.gnar;
+            Globals.starter = Globals.gnar;
             System.out.println("Global.starter = Global.gnar;");
         }
     }//GEN-LAST:event_butStarter1_ActionPerformed
@@ -350,16 +350,16 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
     private void butStarter2_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarter2_ActionPerformed
         tableFicheros2.setEnabled(false);
         if (evt.getSource() == butTeemo2) {
-            Global.starter2 = Global.teemo2;
+            Globals.starter2 = Globals.teemo2;
             System.out.println("Global.starter2 = Global.teemo2;");
         } else if (evt.getSource() == butPoppy2) {
-            Global.starter2 = Global.poppy2;
+            Globals.starter2 = Globals.poppy2;
             System.out.println("Global.starter2 = Global.poppy2;");
         } else if (evt.getSource() == butYuumi2) {
-            Global.starter2 = Global.yuumi2;
+            Globals.starter2 = Globals.yuumi2;
             System.out.println("Global.starter2 = Global.yuumi2;");
         } else if (evt.getSource() == butGnar2) {
-            Global.starter2 = Global.gnar2;
+            Globals.starter2 = Globals.gnar2;
             System.out.println("Global.starter2 = Global.gnar2;");
         }
     }//GEN-LAST:event_butStarter2_ActionPerformed
@@ -380,22 +380,22 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
     }//GEN-LAST:event_butAceptarActionPerformed
 
     public void enableStarters1Buttons() {
-        if (Global.starter.isTeemoDisponible()) {
+        if (Globals.starter.isTeemoAvailable()) {
             butTeemo1.setEnabled(true);
         } else {
             butTeemo1.setEnabled(false);
         }
-        if (Global.starter.isPoppyDisponible()) {
+        if (Globals.starter.isPoppyAvailable()) {
             butPoppy1.setEnabled(true);
         } else {
             butPoppy1.setEnabled(false);
         }
-        if (Global.starter.isGnarDisponible()) {
+        if (Globals.starter.isGnarAvailable()) {
             butGnar1.setEnabled(true);
         } else {
             butGnar1.setEnabled(false);
         }
-        if (Global.starter.isYuumiDisponible()) {
+        if (Globals.starter.isYuumiAvailable()) {
             butYuumi1.setEnabled(true);
         } else {
             butYuumi1.setEnabled(false);
@@ -403,22 +403,22 @@ public class PanelCargaYSeleccionPVP extends javax.swing.JPanel {
     }
 
     public void enableStarters2Buttons() {
-        if (Global.starter2.isTeemoDisponible()) {
+        if (Globals.starter2.isTeemoAvailable()) {
             butTeemo2.setEnabled(true);
         } else {
             butTeemo2.setEnabled(false);
         }
-        if (Global.starter2.isPoppyDisponible()) {
+        if (Globals.starter2.isPoppyAvailable()) {
             butPoppy2.setEnabled(true);
         } else {
             butPoppy2.setEnabled(false);
         }
-        if (Global.starter2.isGnarDisponible()) {
+        if (Globals.starter2.isGnarAvailable()) {
             butGnar2.setEnabled(true);
         } else {
             butGnar2.setEnabled(false);
         }
-        if (Global.starter2.isYuumiDisponible()) {
+        if (Globals.starter2.isYuumiAvailable()) {
             butYuumi2.setEnabled(true);
         } else {
             butYuumi2.setEnabled(false);

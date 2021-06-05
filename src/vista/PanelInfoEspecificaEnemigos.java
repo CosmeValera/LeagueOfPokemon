@@ -1,7 +1,7 @@
 package vista;
 
 import javax.swing.JPanel;
-import modelo.Global;
+import modelo.Globals;
 
 public class PanelInfoEspecificaEnemigos extends JPanel {
 

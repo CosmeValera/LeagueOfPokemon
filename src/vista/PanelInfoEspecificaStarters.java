@@ -2,7 +2,7 @@ package vista;
 
 import modelo.ICallBack;
 import javax.swing.JPanel;
-import modelo.Global;
+import modelo.Globals;
 
 public class PanelInfoEspecificaStarters extends JPanel {
 
@@ -17,7 +17,7 @@ public class PanelInfoEspecificaStarters extends JPanel {
     void mostrar(ICallBack panelInformacion, String nombreStarter) {
         IPanelCaller = panelInformacion;
         this.nombreStarter = nombreStarter;
-        panelCaller = Global.panelCaller;
+        panelCaller = Globals.panelCaller;
 
         infoEspecificaStarters(nombreStarter);
 
@@ -279,7 +279,7 @@ public class PanelInfoEspecificaStarters extends JPanel {
     private void butVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butVolverActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        panelCaller = Global.panelCaller;
+        panelCaller = Globals.panelCaller;
         if (IPanelCaller != null) {         //Para volver al panelInfo
             IPanelCaller.hacerVisible(true);
         }

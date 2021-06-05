@@ -1,6 +1,6 @@
 package vista;
 
-import modelo.Global;
+import modelo.Globals;
 import modelo.Starter;
 
 public class PanelSeleccionStarter extends javax.swing.JPanel {
@@ -17,44 +17,44 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
         this.requestFocusInWindow();
 
         this.GUICallBack = gui;
-        this.starter = Global.starter;
+        this.starter = Globals.starter;
 
         if (seleccionStarter == GUI.SeleccionStarter.NORMAL) {
             labCabecera.setText("TUS CAMPEONES");
-            if (!Global.starter.isTeemoDisponible()) {
+            if (!Globals.starter.isTeemoAvailable()) {
                 labTeemo.setVisible(false);
                 butTeemo.setVisible(false);
             }
-            if (!starter.isPoppyDisponible()) {
+            if (!starter.isPoppyAvailable()) {
                 labPoppy.setVisible(false);
                 butPoppy.setVisible(false);
             }
-            if (!starter.isGnarDisponible()) {
+            if (!starter.isGnarAvailable()) {
                 labGnar.setVisible(false);
                 butGnar.setVisible(false);
             }
-            if (!starter.isYuumiDisponible()) {
+            if (!starter.isYuumiAvailable()) {
                 labYuumi.setVisible(false);
                 butYuumi.setVisible(false);
             }
         } else {
             GUICallBack.obtenerBarraMenu().setVisible(false);
-            labCabecera.setText("ELIGE UN CAMPEÓN" + (!starter.isTeemoDisponible()
-                    && !starter.isPoppyDisponible() && !starter.isGnarDisponible()
-                    && !starter.isYuumiDisponible() ? " INICIAL" : ""));
-            if (starter.isTeemoDisponible()) {
+            labCabecera.setText("ELIGE UN CAMPEÓN" + (!starter.isTeemoAvailable()
+                    && !starter.isPoppyAvailable() && !starter.isGnarAvailable()
+                    && !starter.isYuumiAvailable() ? " INICIAL" : ""));
+            if (starter.isTeemoAvailable()) {
                 labTeemo.setVisible(false);
                 butTeemo.setVisible(false);
             }
-            if (starter.isPoppyDisponible()) {
+            if (starter.isPoppyAvailable()) {
                 labPoppy.setVisible(false);
                 butPoppy.setVisible(false);
             }
-            if (starter.isGnarDisponible()) {
+            if (starter.isGnarAvailable()) {
                 labGnar.setVisible(false);
                 butGnar.setVisible(false);
             }
-            if (starter.isYuumiDisponible()) {
+            if (starter.isYuumiAvailable()) {
                 labYuumi.setVisible(false);
                 butYuumi.setVisible(false);
             }
@@ -190,65 +190,65 @@ public class PanelSeleccionStarter extends javax.swing.JPanel {
     private void butTeemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butTeemoActionPerformed
         GUICallBack.obtenerBarraMenu().setVisible(true);
         setTeemoDisponible();
-        Global.starter = Global.teemo;
+        Globals.starter = Globals.teemo;
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
     }//GEN-LAST:event_butTeemoActionPerformed
 
     public void setTeemoDisponible() {
-        starter.setTeemoDisponible(true);
-        Global.teemo.setTeemoDisponible(true);
-        Global.poppy.setTeemoDisponible(true);
-        Global.gnar.setTeemoDisponible(true);
-        Global.yuumi.setTeemoDisponible(true);
+        starter.setTeemoAvailable(true);
+        Globals.teemo.setTeemoAvailable(true);
+        Globals.poppy.setTeemoAvailable(true);
+        Globals.gnar.setTeemoAvailable(true);
+        Globals.yuumi.setTeemoAvailable(true);
     }
 
     private void butGnarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGnarActionPerformed
         GUICallBack.obtenerBarraMenu().setVisible(true);
         setGnarDisponible();
-        Global.starter = Global.gnar;
+        Globals.starter = Globals.gnar;
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
     }//GEN-LAST:event_butGnarActionPerformed
 
     public void setGnarDisponible() {
-        starter.setGnarDisponible(true);
-        Global.teemo.setGnarDisponible(true);
-        Global.poppy.setGnarDisponible(true);
-        Global.gnar.setGnarDisponible(true);
-        Global.yuumi.setGnarDisponible(true);
+        starter.setGnarAvailable(true);
+        Globals.teemo.setGnarAvailable(true);
+        Globals.poppy.setGnarAvailable(true);
+        Globals.gnar.setGnarAvailable(true);
+        Globals.yuumi.setGnarAvailable(true);
     }
 
     private void butPoppyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPoppyActionPerformed
         GUICallBack.obtenerBarraMenu().setVisible(true);
         setPoppyDisponible();
-        Global.starter = Global.poppy;
+        Globals.starter = Globals.poppy;
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
     }//GEN-LAST:event_butPoppyActionPerformed
 
     public void setPoppyDisponible() {
-        starter.setPoppyDisponible(true);
-        Global.teemo.setPoppyDisponible(true);
-        Global.poppy.setPoppyDisponible(true);
-        Global.gnar.setPoppyDisponible(true);
-        Global.yuumi.setPoppyDisponible(true);
+        starter.setPoppyAvailable(true);
+        Globals.teemo.setPoppyAvailable(true);
+        Globals.poppy.setPoppyAvailable(true);
+        Globals.gnar.setPoppyAvailable(true);
+        Globals.yuumi.setPoppyAvailable(true);
     }
 
     private void butYuumiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butYuumiActionPerformed
         GUICallBack.obtenerBarraMenu().setVisible(true);
         setYuumiDisponible();
-        Global.starter = Global.yuumi;
+        Globals.starter = Globals.yuumi;
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
     }//GEN-LAST:event_butYuumiActionPerformed
 
     public void setYuumiDisponible() {
-        starter.setYuumiDisponible(true);
-        Global.teemo.setYuumiDisponible(true);
-        Global.poppy.setYuumiDisponible(true);
-        Global.gnar.setYuumiDisponible(true);
-        Global.yuumi.setYuumiDisponible(true);
+        starter.setYuumiAvailable(true);
+        Globals.teemo.setYuumiAvailable(true);
+        Globals.poppy.setYuumiAvailable(true);
+        Globals.gnar.setYuumiAvailable(true);
+        Globals.yuumi.setYuumiAvailable(true);
     }
 
 

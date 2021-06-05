@@ -2,8 +2,7 @@ package modelo;
 
 import javax.swing.JPanel;
 
-public class Global{
-
+public class Globals{
     public static Starter starter;
     public static Teemo teemo;
     public static Gnar gnar;
@@ -21,9 +20,9 @@ public class Global{
     public static String letterMainAttackStarter2;
     public static String letterSecondaryAttackStarter2;
 
-    public static Enemigo enemigo;
+    public static Enemy enemy;
     
     public static JPanel panelCaller;
     
-    public static String ficheroGlobal;
+    public static String globalFile;
 }

@@ -1,57 +1,57 @@
 package modelo;
 
-public abstract class Starter extends Personaje {
+public abstract class Starter extends Character {
 
-    protected static int cantidadOro;
-    protected static int enemigosVencidos;
+    protected static int goldAmount;
+    protected static int defeatedEnemies;
 
-    private final int cantidadInicialOro = 300;
+    private final int initialGoldAmount = 300;
 
     private static final int VICTORIESFORFIRSTPRIZE = 15;
     private static final int VICTORIESFORSECONDPRIZE = 40;
     private static final int VICTORIESFORTHIRDPRIZE = 65;
-    private boolean teemoDisponible = false;
-    private boolean poppyDisponible = false;
-    private boolean gnarDisponible = false;
-    private boolean yuumiDisponible = false;
+    private boolean teemoAvailable = false;
+    private boolean poppyAvailable = false;
+    private boolean gnarAvailable = false;
+    private boolean yuumiAvailable = false;
 
-    protected boolean seraCegado = false;
-    protected boolean seraConfundido = false;
-    protected boolean seraVisionTorpe = false;
-    protected boolean seraEnvenenado = false;
+    protected boolean willBeBlinded = false;
+    protected boolean willBeConfused = false;
+    protected boolean willBePoorSight = false;
+    protected boolean willBePoisoned = false;
 
     public Starter() {
-        dano = 0;
-        vida = 0;
-        cantidadOro = cantidadInicialOro;
-        enemigosVencidos = 0;
+        attackDamage = 0;
+        health = 0;
+        goldAmount = initialGoldAmount;
+        defeatedEnemies = 0;
     }
 
-    public Starter(int dano, double vida, int cantidadOro) {
-        this.dano = dano;
-        this.vida = vida;
-        Starter.enemigosVencidos = 0;
-        Starter.cantidadOro = cantidadOro;
+    public Starter(int attackDamage, double health, int goldAmount) {
+        this.attackDamage = attackDamage;
+        this.health = health;
+        Starter.defeatedEnemies = 0;
+        Starter.goldAmount = goldAmount;
     }
 
-    public int getCantidadOro() {
-        return cantidadOro;
+    public int getGoldAmount() {
+        return goldAmount;
     }
 
-    public void setCantidadOro(int cantidadOro) {
-        this.cantidadOro = cantidadOro;
+    public void setGoldAmount(int goldAmount) {
+        this.goldAmount = goldAmount;
     }
 
-    public int getCantidadInicialOro() {
-        return cantidadInicialOro;
+    public int getInitialGoldAmount() {
+        return initialGoldAmount;
     }
 
-    public static int getEnemigosVencidos() {
-        return enemigosVencidos;
+    public static int getDefeatedEnemies() {
+        return defeatedEnemies;
     }
 
-    public void setEnemigosVencidos(int enemigosVencidos) {
-        this.enemigosVencidos = enemigosVencidos;
+    public void setDefeatedEnemies(int defeatedEnemies) {
+        this.defeatedEnemies = defeatedEnemies;
     }
 
     public static int getVictoriesForFirstPrize() {
@@ -66,95 +66,95 @@ public abstract class Starter extends Personaje {
         return VICTORIESFORTHIRDPRIZE;
     }
 
-    public boolean isTeemoDisponible() {
-        return teemoDisponible;
+    public boolean isTeemoAvailable() {
+        return teemoAvailable;
     }
 
-    public void setTeemoDisponible(boolean teemoDisponible) {
-        this.teemoDisponible = teemoDisponible;
+    public void setTeemoAvailable(boolean teemoAvailable) {
+        this.teemoAvailable = teemoAvailable;
     }
 
-    public boolean isPoppyDisponible() {
-        return poppyDisponible;
+    public boolean isPoppyAvailable() {
+        return poppyAvailable;
     }
 
-    public void setPoppyDisponible(boolean poppyDisponible) {
-        this.poppyDisponible = poppyDisponible;
+    public void setPoppyAvailable(boolean poppyAvailable) {
+        this.poppyAvailable = poppyAvailable;
     }
 
-    public boolean isGnarDisponible() {
-        return gnarDisponible;
+    public boolean isGnarAvailable() {
+        return gnarAvailable;
     }
 
-    public void setGnarDisponible(boolean gnarDisponible) {
-        this.gnarDisponible = gnarDisponible;
+    public void setGnarAvailable(boolean gnarAvailable) {
+        this.gnarAvailable = gnarAvailable;
     }
 
-    public boolean isYuumiDisponible() {
-        return yuumiDisponible;
+    public boolean isYuumiAvailable() {
+        return yuumiAvailable;
     }
 
-    public void setYuumiDisponible(boolean yuumiDisponible) {
-        this.yuumiDisponible = yuumiDisponible;
+    public void setYuumiAvailable(boolean yuumiAvailable) {
+        this.yuumiAvailable = yuumiAvailable;
     }
 
-    public boolean isSeraCegado() {
-        return seraCegado;
+    public boolean isWillBeBlinded() {
+        return willBeBlinded;
     }
 
-    public void setSeraCegado(boolean seraCegado) {
-        this.seraCegado = seraCegado;
+    public void setWillBeBlinded(boolean willBeBlinded) {
+        this.willBeBlinded = willBeBlinded;
     }
 
-    public boolean isSeraConfundido() {
-        return seraConfundido;
+    public boolean isWillBeConfused() {
+        return willBeConfused;
     }
 
-    public void setSeraConfundido(boolean seraConfundido) {
-        this.seraConfundido = seraConfundido;
+    public void setWillBeConfused(boolean willBeConfused) {
+        this.willBeConfused = willBeConfused;
     }
 
-    public boolean isSeraVisionTorpe() {
-        return seraVisionTorpe;
+    public boolean isWillBePoorSight() {
+        return willBePoorSight;
     }
 
-    public void setSeraVisionTorpe(boolean seraVisionTorpe) {
-        this.seraVisionTorpe = seraVisionTorpe;
+    public void setWillBePoorSight(boolean willBePoorSight) {
+        this.willBePoorSight = willBePoorSight;
     }
 
-    public boolean isSeraEnvenenado() {
-        return seraEnvenenado;
+    public boolean isWillBePoisoned() {
+        return willBePoisoned;
     }
 
-    public void setSeraEnvenenado(boolean seraEnvenenado) {
-        this.seraEnvenenado = seraEnvenenado;
+    public void setWillBePoisoned(boolean willBePoisoned) {
+        this.willBePoisoned = willBePoisoned;
     }
 
-    public abstract int getVidaMaxima();
+    public abstract int getMaximumHealth();
 
-    public abstract int getDanoMaximo();
+    public abstract int getMaximumAttackDamage();
 
-    public abstract int getDanoMinimo();
+    public abstract int getMinimumAttackDamage();
 
-    public abstract String getNombreAtaquePrincipal();
+    public abstract String getNameOfMainAttack();
 
-    public abstract String getNombreAtaqueSecundario();
+    public abstract String getNameOfSecondaryAttack();
 
-    public abstract void ataquePrincipal(Enemigo enemigo);
+    public abstract void mainAttack(Enemy enemy);
 
-    public abstract void ataqueSecundario(Enemigo enemigo);
+    public abstract void secondaryAttack(Enemy enemy);
 
-    public abstract double getDanoAtaquePrincipal();
+    public abstract double getAttackDamageOfMainAttack();
 
-    public abstract double getDanoAtaqueSecundario();
+    public abstract double getAttackDamageOfSecondaryAttack();
 
-    public abstract boolean isFallaElAtaque();
+    public abstract boolean isAbleToMissStrike();
 
-    public abstract boolean isPuedeEsquivar();
+    public abstract boolean isAbleToDodge();
 
-    public abstract boolean isPonerseEscudo();
+    public abstract boolean isAbleToEquipAShield();
 
-    public abstract boolean isPuedeConfundir(Starter starterEnemigo);
+    public abstract boolean isAbleToConfuse(Starter starterEnemigo);
 
-    public abstract double ajustarDanoAResistencias(double dano);
+    public abstract double adjustAttackDamageRegardingResistance(double attackDamage);
 }

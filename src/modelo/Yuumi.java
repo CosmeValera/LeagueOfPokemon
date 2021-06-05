@@ -2,159 +2,159 @@ package modelo;
 
 public class Yuumi extends Starter {
 
-    private int cura;
+    private final int MAXIMUM_HEALTH = 150;
+    private final int MAXIMUM_ATTACK_DAMAGE = 36;
+    private final int MINIMUM_ATTACK_DAMAGE = 4;
+    private final int MAXIMUM_HEALING = 34;
+    private final int MINIMUM_HEALING = 3;
 
-    private final int VIDA_MAXIMA = 150;
-    private final int DANO_MAXIMO = 36;
-    private final int DANO_MINIMO = 4;
-    private final int CURA_MAXIMA = 34;
-    private final int CURA_MINIMA = 3;
+    private int healing;
 
     public Yuumi() {
-        dano = DANO_MINIMO;
-        vida = VIDA_MAXIMA;
-        cura = CURA_MINIMA;
+        attackDamage = MINIMUM_ATTACK_DAMAGE;
+        health = MAXIMUM_HEALTH;
+        healing = MINIMUM_HEALING;
     }
 
-    public Yuumi(int dano, double vida, int cantidadOro, int cura) {
-        super(dano, vida, cantidadOro);
-        this.cura = cura;
+    public Yuumi(int attackDamage, double health, int goldAmount, int healing) {
+        super(attackDamage, health, goldAmount);
+        this.healing = healing;
     }
 
-    public int getCura() {
-        return cura;
+    public int getHealing() {
+        return healing;
     }
 
-    public void setCura(int cura) {
-        this.cura = cura;
-    }
-
-    @Override
-    public int getVidaMaxima() {
-        return VIDA_MAXIMA;
+    public void setHealing(int healing) {
+        this.healing = healing;
     }
 
     @Override
-    public int getDanoMaximo() {
-        return DANO_MAXIMO;
+    public int getMaximumHealth() {
+        return MAXIMUM_HEALTH;
     }
 
     @Override
-    public int getDanoMinimo() {
-        return DANO_MINIMO;
-    }
-
-    public int getCuraMaxima() {
-        return CURA_MAXIMA;
+    public int getMaximumAttackDamage() {
+        return MAXIMUM_ATTACK_DAMAGE;
     }
 
     @Override
-    public String getNombre() {
+    public int getMinimumAttackDamage() {
+        return MINIMUM_ATTACK_DAMAGE;
+    }
+
+    public int getMaximumHealing() {
+        return MAXIMUM_HEALING;
+    }
+
+    @Override
+    public String getName() {
         return "Yuumi";
     }
 
     @Override
-    public String getNombreAtaquePrincipal() {
-        return "Sanación";
+    public String getNameOfMainAttack() {
+        return "Healing";
     }
 
     @Override
-    public String getNombreAtaqueSecundario() {
-        return "Últimas páginas";
+    public String getNameOfSecondaryAttack() {
+        return "Final Chapter";
     }
 
     @Override
-    public void ataquePrincipal(Enemigo enemigo) { //sanación
-        double danoBase = dano * 2;
-        double danoAplicado = danoBase - danoBase * enemigo.getResistenciaMagica() / 100;
-        enemigo.setVida(enemigo.getVida() - danoAplicado);
+    public void mainAttack(Enemy enemy) { //sanación
+        double baseAttackDamage = attackDamage * 2;
+        double appliedAttackDamage = baseAttackDamage - baseAttackDamage * enemy.getMagicResistance() / 100;
+        enemy.setHealth(enemy.getHealth() - appliedAttackDamage);
 
-        curarse(cura);
+        heal(healing);
     }
 
     @Override
-    public void ataqueSecundario(Enemigo enemigo) { //últimas páginas
-        double danoBase = dano * 2.5;
-        double danoAplicado = danoBase - danoBase * enemigo.getResistenciaMagica() / 100;
-        enemigo.setVida(enemigo.getVida() - danoAplicado);
+    public void secondaryAttack(Enemy enemy) { //últimas páginas
+        double baseAttackDamage = attackDamage * 2.5;
+        double appliedAttackDamage = baseAttackDamage - baseAttackDamage * enemy.getMagicResistance() / 100;
+        enemy.setHealth(enemy.getHealth() - appliedAttackDamage);
 
-        int num = (int) (Math.random() * 100 + 1 + cura / 2);
+        int num = (int) (Math.random() * 100 + 1 + healing / 2);
         if (num > 50) { //Ciega
-            enemigo.setCegadoSiPosible(true);
+            enemy.setBlindedIfPossible(true);
         }
 
-        curarse(cura / 4);
+        heal(healing / 4);
     }
 
     @Override
-    public double getDanoAtaquePrincipal() { //sanación
-        curarse(cura);
-        return dano;
+    public double getAttackDamageOfMainAttack() { //sanación
+        heal(healing);
+        return attackDamage;
     }
     @Override
-    public double getDanoAtaqueSecundario() { //sanación
-        curarse(cura / 4);
-        return dano * 1.25;
+    public double getAttackDamageOfSecondaryAttack() { //sanación
+        heal(healing / 4);
+        return attackDamage * 1.25;
     }
     
-    private void curarse(double cantidadCura) {
-        vida = vida + cantidadCura;
-        if (vida > VIDA_MAXIMA) {
-            vida = VIDA_MAXIMA;
+    private void heal(double healingAmount) {
+        health = health + healingAmount;
+        if (health > MAXIMUM_HEALTH) {
+            health = MAXIMUM_HEALTH;
         }
     }
 
     @Override
-    public boolean isAtacaDosVeces() {
+    public boolean isStrikeTwice() {
         return false;
     }
 
     @Override
-    public boolean isFallaElAtaque() {
+    public boolean isAbleToMissStrike() {
         return false;
     }
 
     @Override
-    public boolean isPuedeEsquivar() {
+    public boolean isAbleToDodge() {
         return false;
     }
 
     @Override
-    public boolean isPonerseEscudo() {
+    public boolean isAbleToEquipAShield() {
         return false;
     }
 
     @Override
-    public boolean isPuedeConfundir(Starter starterEnemigo){
+    public boolean isAbleToConfuse(Starter enemyStarter){
         return false;
     }
     
     @Override
-    public double ajustarDanoAResistencias(double dano) {
-        return dano - dano * this.cura / 150;
+    public double adjustAttackDamageRegardingResistance(double attackDamage) {
+        return attackDamage - attackDamage * this.healing / 150;
     }
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return false;
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return ResistenciaMagica.MEDIO;
+    public double getMagicResistance() {
+        return MagicResistance.NORMAL;
     }
 }

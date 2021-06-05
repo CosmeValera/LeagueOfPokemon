@@ -2,175 +2,175 @@ package modelo;
 
 public class Teemo extends Starter {
 
-    private final int VIDA_MAXIMA = 120;
-    private final int DANO_MAXIMO = 60;
-    private final int DANO_MINIMO = 10;
-    private final int DANOVENENO_MAXIMO = 30;
-    private final int DANOVENENO_MINIMO = 3;
+    private final int MAXIMUM_HEALTH = 120;
+    private final int MAXIMUM_ATTACK_DAMAGE = 60;
+    private final int MINIMUM_ATTACK_DAMAGE = 10;
+    private final int MAXIMUM_POISON_DAMAGE = 30;
+    private final int MINIMUM_POISON_DAMAGE = 3;
 
-    private int danoVeneno;
+    private int poisonDamage;
 
     private Randomizer randomizer;
     
     public Teemo(Randomizer randomizer) {
-        this.dano = DANO_MINIMO;
-        this.vida = VIDA_MAXIMA;
-        this.danoVeneno = DANOVENENO_MINIMO;
+        this.attackDamage = MINIMUM_ATTACK_DAMAGE;
+        this.health = MAXIMUM_HEALTH;
+        this.poisonDamage = MINIMUM_POISON_DAMAGE;
         this.randomizer = randomizer;
     }
 
-    public Teemo(int dano, double vida, int cantidadOro, int danoVeneno, Randomizer randomizer) {
-        super(dano, vida, cantidadOro);
-        this.danoVeneno = danoVeneno;
+    public Teemo(int attackDamage, double health, int goldAmount, int poisonDamage, Randomizer randomizer) {
+        super(attackDamage, health, goldAmount);
+        this.poisonDamage = poisonDamage;
         this.randomizer = randomizer;
     }
 
-    public int getDanoVeneno() {
-        return danoVeneno;
+    public int getPoisonDamage() {
+        return poisonDamage;
     }
 
-    public void setDanoVeneno(int danoVeneno) {
-        this.danoVeneno = danoVeneno;
-    }
-
-    @Override
-    public int getVidaMaxima() {
-        return VIDA_MAXIMA;
+    public void setPoisonDamage(int poisonDamage) {
+        this.poisonDamage = poisonDamage;
     }
 
     @Override
-    public int getDanoMaximo() {
-        return DANO_MAXIMO;
+    public int getMaximumHealth() {
+        return MAXIMUM_HEALTH;
     }
 
     @Override
-    public int getDanoMinimo() {
-        return DANO_MINIMO;
+    public int getMaximumAttackDamage() {
+        return MAXIMUM_ATTACK_DAMAGE;
+    }
+
+    @Override
+    public int getMinimumAttackDamage() {
+        return MINIMUM_ATTACK_DAMAGE;
     }
 
     public int getDanoVenenoMaximo() {
-        return DANOVENENO_MAXIMO;
+        return MAXIMUM_POISON_DAMAGE;
     }
 
     public int getDanoVenenoMinimo() {
-        return DANOVENENO_MINIMO;
+        return MINIMUM_POISON_DAMAGE;
     }
 
     @Override
-    public String getNombre() {
+    public String getName() {
         return "Teemo";
     }
 
     @Override
-    public String getNombreAtaquePrincipal() {
-        return "Arañazo";
+    public String getNameOfMainAttack() {
+        return "Scratch";
     }
 
     @Override
-    public String getNombreAtaqueSecundario() {
-        return "Dardo Venenoso";
+    public String getNameOfSecondaryAttack() {
+        return "Poisonous dart";
     }
 
     @Override
-    public void ataquePrincipal(Enemigo enemigo) { //Aranazo
-        enemigo.setVida(enemigo.getVida() - dano * 1.5);
+    public void mainAttack(Enemy enemy) { //Aranazo
+        enemy.setHealth(enemy.getHealth() - attackDamage * 1.5);
 
-        lifeSteal(danoVeneno * 1.5);
+        lifeSteal(poisonDamage * 1.5);
 
-        int num = ((int) (randomizer.getRandom() * 100 + 1)) + ((Teemo) Global.starter).getDanoVeneno() / 2;
+        int num = ((int) (randomizer.getRandom() * 100 + 1)) + ((Teemo) Globals.starter).getPoisonDamage() / 2;
         if (num > 70) { //Camuflarse
-            enemigo.setVisionTorpeSiPosible(true);
+            enemy.setPoorSightIfPossible(true);
         }
     }
 
     @Override
-    public void ataqueSecundario(Enemigo enemigo) { //Dardo venenoso
-        enemigo.setVida(enemigo.getVida() - dano);
+    public void secondaryAttack(Enemy enemigo) { //Dardo venenoso
+        enemigo.setHealth(enemigo.getHealth() - attackDamage);
 
-        lifeSteal(danoVeneno);
+        lifeSteal(poisonDamage);
 
-        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Global.starter).getDanoVeneno();
+        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Globals.starter).getPoisonDamage();
         if (num > 50 && num < 75) { //Envenenado
-            enemigo.setEnvenenadoSiPosible(true);
+            enemigo.setPoisonedIfPossible(true);
         } else if (num >= 75 && num < 90) { //Cegado
-            enemigo.setCegadoSiPosible(true);
-        } else if (num >= 90) { //Envenenado y cegado
-            enemigo.setEnvenenadoSiPosible(true);
-            enemigo.setCegadoSiPosible(true);
+            enemigo.setBlindedIfPossible(true);
+        } else if (num >= 90) { //Envenenado y blinded
+            enemigo.setPoisonedIfPossible(true);
+            enemigo.setBlindedIfPossible(true);
         }
     }
 
     @Override
-    public double getDanoAtaquePrincipal() { //Aranazo
-        lifeSteal(danoVeneno * 1.5);
-        return dano * 1.5;
+    public double getAttackDamageOfMainAttack() { //Aranazo
+        lifeSteal(poisonDamage * 1.5);
+        return attackDamage * 1.5;
     }
 
     @Override
-    public double getDanoAtaqueSecundario() { //Dardo venenoso
-        lifeSteal(danoVeneno);
-        return dano;
+    public double getAttackDamageOfSecondaryAttack() { //Dardo venenoso
+        lifeSteal(poisonDamage);
+        return attackDamage;
     }
 
-    private void lifeSteal(double danoVeneno) {
-        vida = vida + danoVeneno / 5;
-        if (vida > VIDA_MAXIMA) {
-            vida = VIDA_MAXIMA;
+    private void lifeSteal(double poisonDamage) {
+        health = health + poisonDamage / 5;
+        if (health > MAXIMUM_HEALTH) {
+            health = MAXIMUM_HEALTH;
         }
     }
 
     @Override
-    public boolean isAtacaDosVeces() {
+    public boolean isStrikeTwice() {
         return false;
     }
 
     @Override
-    public boolean isFallaElAtaque() {
+    public boolean isAbleToMissStrike() {
         return false;
     }
 
     @Override
-    public boolean isPuedeEsquivar() {
+    public boolean isAbleToDodge() {
         return false;
     }
 
     @Override
-    public boolean isPonerseEscudo() {
+    public boolean isAbleToEquipAShield() {
         return false;
     }
 
     @Override
-    public boolean isPuedeConfundir(Starter starterEnemigo){
+    public boolean isAbleToConfuse(Starter enemyStarter){
         return false;
     }
     
     @Override
-    public double ajustarDanoAResistencias(double dano) {
-        return dano - dano * this.danoVeneno / 100;
+    public double adjustAttackDamageRegardingResistance(double attackDamage) {
+        return attackDamage - attackDamage * this.poisonDamage / 100;
     }
 
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return false;
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return ResistenciaMagica.MEDIO;
+    public double getMagicResistance() {
+        return MagicResistance.NORMAL;
     }
 }

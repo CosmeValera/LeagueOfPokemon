@@ -1,22 +1,22 @@
 package modelo;
 
-public class Arceus extends Enemigo {
+public class Arceus extends Enemy {
 
-    private double resistenciaMagica = ResistenciaMagica.DEBIL;
+    private double magicResistance = MagicResistance.WEAK;
 
-    public static void definirArceusEnemigo() {
-        Global.enemigo = obtenerArceusEnemigo();
+    public static void defineArceus() {
+        Globals.enemy = getDefinedArceus();
     }
 
-    private static Arceus obtenerArceusEnemigo() {
+    private static Arceus getDefinedArceus() {
         Arceus arceus;
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             default:
                 arceus = new Arceus();
-                arceus.setDano(50);
-                arceus.setVida(1200);
-                arceus.setRecompensa(5000);
+                arceus.setAttackDamage(50);
+                arceus.setHealth(1200);
+                arceus.setPrize(5000);
                 System.out.println("arceus 1");
                 break;
         }
@@ -24,42 +24,42 @@ public class Arceus extends Enemigo {
     }
 
     @Override
-    public String getNombre() {
+    public String getName() {
         return "Arceus";
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return resistenciaMagica;
+    public double getMagicResistance() {
+        return magicResistance;
     }
 
     @Override
-    public boolean isAtacaDosVeces() {
+    public boolean isStrikeTwice() {
         return false;
     }
 
     @Override
-    public boolean isPuedeAutodestruirse() {
+    public boolean isAbleToDestroyItself() {
         return false;
     }
 
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return false;
     }
 }

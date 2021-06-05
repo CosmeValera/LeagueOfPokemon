@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.Ficheros;
-import modelo.Global;
+import modelo.Files4Saving;
+import modelo.Globals;
 import modelo.Starter;
 
 public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
@@ -31,7 +31,7 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
 
         List<String> ficherosNombres = new ArrayList<>();
         try {
-            Ficheros.listadoPartidas(ficherosNombres);
+            Files4Saving.getFiles(ficherosNombres);
             for (String p : ficherosNombres) {
                 String[] fila = {
                     p.toString()
@@ -139,7 +139,7 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
         String nombreFichero;
         try {
             nombreFichero = (String) tablePartidas.getValueAt(tablePartidas.getSelectedRow(), tablePartidas.getSelectedColumn());
-            Ficheros.cargarDataDatos(nombreFichero, GUICallBack);
+            Files4Saving.chargeData(nombreFichero, GUICallBack);
 
             decidirMenuItemsMostrar();
             System.out.println("Fichero cargado correctamente");
@@ -161,12 +161,12 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
         GUICallBack.getJMenuBar().getMenu(0).getItem(5).setVisible(false);
 
         //En funcion de los enemigosVencidos, mostrar unas cosas u otras
-        if (Global.starter.getEnemigosVencidos() >= Starter.getVictoriesForFirstPrize()) {
+        if (Globals.starter.getDefeatedEnemies() >= Starter.getVictoriesForFirstPrize()) {
             GUICallBack.getJMenuBar().getMenu(1).getItem(2).setVisible(true); //Visible panelCambiar
             GUICallBack.getJMenuBar().getMenu(0).getItem(3).setVisible(true); //Visible Gyarados
-            if (Global.starter.getEnemigosVencidos() >= Starter.getVictoriesForSecondPrize()) {
+            if (Globals.starter.getDefeatedEnemies() >= Starter.getVictoriesForSecondPrize()) {
                 GUICallBack.getJMenuBar().getMenu(0).getItem(4).setVisible(true); //Visible RayQuaza
-                if (Global.starter.getEnemigosVencidos() >= Starter.getVictoriesForThirdPrize()) {
+                if (Globals.starter.getDefeatedEnemies() >= Starter.getVictoriesForThirdPrize()) {
                     GUICallBack.getJMenuBar().getMenu(0).getItem(5).setVisible(true); //Visible Arceus
                 }
             }
@@ -202,7 +202,7 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
 
         try {
             if (ok) {
-                Ficheros.guardarDataDatos(nombreFichero);
+                Files4Saving.saveData(nombreFichero);
                 System.out.println("Fichero guardado correctamente");
             }
         } catch (Exception e) {
@@ -225,7 +225,7 @@ public class PanelGuardarYCargarPartidas extends javax.swing.JPanel {
                     this.getName(),
                     JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.YES_OPTION) {
-                Ficheros.borrarNombreFichero(nombreFichero);
+                Files4Saving.removeFilename(nombreFichero);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(

@@ -1,6 +1,6 @@
 package vista;
 
-import modelo.Global;
+import modelo.Globals;
 import modelo.ICallBack;
 import modelo.Starter;
 
@@ -14,31 +14,31 @@ public class PanelInformacion extends javax.swing.JPanel implements ICallBack {
         this.setVisible(true);
         this.requestFocusInWindow();
 
-        if (!Global.starter.isTeemoDisponible()) {
+        if (!Globals.starter.isTeemoAvailable()) {
             butTeemo.setVisible(false);
             butPoison.setVisible(false);
         }
-        if (!Global.starter.isPoppyDisponible()) {
+        if (!Globals.starter.isPoppyAvailable()) {
             butPoppy.setVisible(false);
             butShield.setVisible(false);
         }
-        if (!Global.starter.isGnarDisponible()) {
+        if (!Globals.starter.isGnarAvailable()) {
             butGnarMini.setVisible(false);
             butGnarMega.setVisible(false);
             butArmor.setVisible(false);
         }
-        if (!Global.starter.isYuumiDisponible()) {
+        if (!Globals.starter.isYuumiAvailable()) {
             butYuumi.setVisible(false);
             butRelievePotion.setVisible(false);
         }
 
-        if (Starter.getEnemigosVencidos() < Starter.getVictoriesForFirstPrize()) {
+        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForFirstPrize()) {
             butGyarados.setVisible(false);
         }
-        if (Starter.getEnemigosVencidos() < Starter.getVictoriesForSecondPrize()) {
+        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForSecondPrize()) {
             butRayquaza.setVisible(false);
         }
-        if (Starter.getEnemigosVencidos() < Starter.getVictoriesForThirdPrize()) {
+        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForThirdPrize()) {
             butArceus.setVisible(false);
         }
     }

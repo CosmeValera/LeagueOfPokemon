@@ -1,50 +1,50 @@
 package modelo;
 
-public class HitMonLee extends Enemigo {
+public class HitMonLee extends Enemy {
 
-    private double resistenciaMagica = ResistenciaMagica.LIGERAMENTE_DEBIL;
+    private double magicResistance = MagicResistance.SLIGHTLY_WEAK;
 
-    public static void definirHitMonLeeEnemigo() {
-        Global.enemigo = obtenerHitMonLeeEnemigo();
+    public static void defineHitMonLee() {
+        Globals.enemy = getDefinedHitMonLee();
     }
 
-    private static HitMonLee obtenerHitMonLeeEnemigo() {
+    private static HitMonLee getDefinedHitMonLee() {
         HitMonLee hitMonLee;
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
                 hitMonLee = new HitMonLee();
-                hitMonLee.setDano(11);
-                hitMonLee.setVida(122);
-                hitMonLee.setRecompensa(195);
+                hitMonLee.setAttackDamage(11);
+                hitMonLee.setHealth(122);
+                hitMonLee.setPrize(195);
                 System.out.println("hitMonLee 1");
                 break;
             case 2:
                 hitMonLee = new HitMonLee();
-                hitMonLee.setDano(14);
-                hitMonLee.setVida(105);
-                hitMonLee.setRecompensa(245);
+                hitMonLee.setAttackDamage(14);
+                hitMonLee.setHealth(105);
+                hitMonLee.setPrize(245);
                 System.out.println("hitMonLee 2");
                 break;
             case 3:
                 hitMonLee = new HitMonLee();
-                hitMonLee.setDano(12);
-                hitMonLee.setVida(170);
-                hitMonLee.setRecompensa(270);
+                hitMonLee.setAttackDamage(12);
+                hitMonLee.setHealth(170);
+                hitMonLee.setPrize(270);
                 System.out.println("hitMonLee 3");
                 break;
             case 4:
                 hitMonLee = new HitMonLee();
-                hitMonLee.setDano(14);
-                hitMonLee.setVida(190);
-                hitMonLee.setRecompensa(305);
+                hitMonLee.setAttackDamage(14);
+                hitMonLee.setHealth(190);
+                hitMonLee.setPrize(305);
                 System.out.println("hitMonLee 4");
                 break;
             default:
                 hitMonLee = new HitMonLee();
-                hitMonLee.setDano(13);
-                hitMonLee.setVida(215);
-                hitMonLee.setRecompensa(325);
+                hitMonLee.setAttackDamage(13);
+                hitMonLee.setHealth(215);
+                hitMonLee.setPrize(325);
                 System.out.println("hitMonLee 5");
                 break;
         }
@@ -52,44 +52,44 @@ public class HitMonLee extends Enemigo {
     }
 
     @Override
-    public String getNombre() {
+    public String getName() {
         return "HitMonLee";
     }
 
     @Override
-    public double getResistenciaMagica() {
-        return resistenciaMagica;
+    public double getMagicResistance() {
+        return magicResistance;
     }
 
     @Override
-    public boolean isAtacaDosVeces() {
+    public boolean isStrikeTwice() {
         int num = (int) (Math.random() * 3 + 1);
         return num == 1;
     }
 
     @Override
-    public boolean isPuedeAutodestruirse() {
+    public boolean isAbleToDestroyItself() {
         return false;
     }
 
     @Override
-    public boolean isInmuneACegado() {
+    public boolean isBlindedResistant() {
         return true;
     }
 
     @Override
-    public boolean isInmuneAVisionTorpe() {
+    public boolean isPoorSightResistant() {
         return false;
     }
 
 
     @Override
-    public boolean isInmuneAVeneno() {
+    public boolean isPoisonResistant() {
         return false;
     }
 
     @Override
-    public boolean isInmuneAConfusion() {
+    public boolean isConfusionResistant() {
         return false;
     }
 }
