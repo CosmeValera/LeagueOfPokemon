@@ -1,5 +1,6 @@
-/build/
-/dist/
-/out/
+build/
+dist/
+out/
+target/
 nbproject
-LeagueOfPokimon.iml
+LeagueOfPokemon.iml
