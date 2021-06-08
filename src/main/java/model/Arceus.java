@@ -16,7 +16,7 @@ public class Arceus extends Enemy {
                 arceus = new Arceus();
                 arceus.setAttackDamage(50);
                 arceus.setHealth(1200);
-                arceus.setPrize(5000);
+                arceus.setReward(5000);
                 System.out.println("arceus 1");
                 break;
         }

@@ -9,12 +9,12 @@ public class PanelSettings extends javax.swing.JPanel {
         initComponents();
     }
 
-    void showPanel() {
-        labAtaquePrincipal1.setText("Ataque Principal: " + Globals.letterMainAttackStarter);
-        labAtaqueSecundario1.setText("Ataque Secundario: " + Globals.letterSecondaryAttackStarter);
-        labHuir.setText("Huir: " + Globals.letterEscape);
-        labAtaquePrincipal2.setText("Ataque Principal: " + Globals.letterMainAttackStarter2);
-        labAtaqueSecundario2.setText("Ataque Secundario: " + Globals.letterSecondaryAttackStarter2);
+    public void showPanel() {
+        labMainAttack1.setText("Main Attack: " + Globals.letterMainAttackStarter);
+        labSecondaryAttack1.setText("Secondary Attack: " + Globals.letterSecondaryAttackStarter);
+        labEscape.setText("Escape: " + Globals.letterEscape);
+        labMainAttack2.setText("Main Attack: " + Globals.letterMainAttackStarter2);
+        labSecondaryAttack2.setText("Secondary Attack: " + Globals.letterSecondaryAttackStarter2);
 
         this.setVisible(true);
         this.requestFocusInWindow();
@@ -24,90 +24,90 @@ public class PanelSettings extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labCabecera = new javax.swing.JLabel();
-        labJugador1 = new javax.swing.JLabel();
-        labAtaquePrincipal1 = new javax.swing.JLabel();
-        butAtaquePrincipal1 = new javax.swing.JButton();
-        labAtaqueSecundario1 = new javax.swing.JLabel();
-        butAtaqueSecundario1 = new javax.swing.JButton();
-        labHuir = new javax.swing.JLabel();
-        butHuir = new javax.swing.JButton();
-        labJugador2 = new javax.swing.JLabel();
-        labAtaquePrincipal2 = new javax.swing.JLabel();
-        butAtaquePrincipal2 = new javax.swing.JButton();
-        labAtaqueSecundario2 = new javax.swing.JLabel();
-        butAtaqueSecundario2 = new javax.swing.JButton();
+        labTitle = new javax.swing.JLabel();
+        labPlayer1 = new javax.swing.JLabel();
+        labMainAttack1 = new javax.swing.JLabel();
+        butMainAttack1 = new javax.swing.JButton();
+        labSecondaryAttack1 = new javax.swing.JLabel();
+        butSecondaryAttack1 = new javax.swing.JButton();
+        labEscape = new javax.swing.JLabel();
+        butEscape = new javax.swing.JButton();
+        labPlayer2 = new javax.swing.JLabel();
+        labMainAttack2 = new javax.swing.JLabel();
+        butMainAttack2 = new javax.swing.JButton();
+        labSecondaryAttack2 = new javax.swing.JLabel();
+        butSecondaryAttack2 = new javax.swing.JButton();
 
         setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         setMaximumSize(new java.awt.Dimension(800, 560));
         setMinimumSize(new java.awt.Dimension(800, 560));
 
-        labCabecera.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        labCabecera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labCabecera.setText("CONFIGURACIÓN");
+        labTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labTitle.setText("CONFIGURACIÓN");
 
-        labJugador1.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
-        labJugador1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labJugador1.setText("Jugador 1");
+        labPlayer1.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        labPlayer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labPlayer1.setText("Jugador 1");
 
-        labAtaquePrincipal1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labAtaquePrincipal1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labAtaquePrincipal1.setText("Ataque Principal: A");
+        labMainAttack1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labMainAttack1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labMainAttack1.setText("Main Attack: A");
 
-        butAtaquePrincipal1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butAtaquePrincipal1.setText("Cambiar");
-        butAtaquePrincipal1.addActionListener(new java.awt.event.ActionListener() {
+        butMainAttack1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butMainAttack1.setText("Cambiar");
+        butMainAttack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador1_ActionPerformed(evt);
             }
         });
 
-        labAtaqueSecundario1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labAtaqueSecundario1.setText("Ataque Secundario: S");
+        labSecondaryAttack1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labSecondaryAttack1.setText("Secondary Attack: S");
 
-        butAtaqueSecundario1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butAtaqueSecundario1.setText("Cambiar");
-        butAtaqueSecundario1.addActionListener(new java.awt.event.ActionListener() {
+        butSecondaryAttack1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butSecondaryAttack1.setText("Cambiar");
+        butSecondaryAttack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador1_ActionPerformed(evt);
             }
         });
 
-        labHuir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labHuir.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labHuir.setText("Huir: H");
+        labEscape.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labEscape.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labEscape.setText("Escape: H");
 
-        butHuir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butHuir.setText("Cambiar");
-        butHuir.addActionListener(new java.awt.event.ActionListener() {
+        butEscape.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butEscape.setText("Cambiar");
+        butEscape.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador1_ActionPerformed(evt);
             }
         });
 
-        labJugador2.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
-        labJugador2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labJugador2.setText("Jugador 2");
+        labPlayer2.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        labPlayer2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labPlayer2.setText("Jugador 2");
 
-        labAtaquePrincipal2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labAtaquePrincipal2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labAtaquePrincipal2.setText("Ataque Principal: O");
+        labMainAttack2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labMainAttack2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labMainAttack2.setText("Main Attack: O");
 
-        butAtaquePrincipal2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butAtaquePrincipal2.setText("Cambiar");
-        butAtaquePrincipal2.addActionListener(new java.awt.event.ActionListener() {
+        butMainAttack2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butMainAttack2.setText("Cambiar");
+        butMainAttack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador2_ActionPerformed(evt);
             }
         });
 
-        labAtaqueSecundario2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labAtaqueSecundario2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labAtaqueSecundario2.setText("Ataque Secundario: P");
+        labSecondaryAttack2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labSecondaryAttack2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labSecondaryAttack2.setText("Secondary Attack: P");
 
-        butAtaqueSecundario2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butAtaqueSecundario2.setText("Cambiar");
-        butAtaqueSecundario2.addActionListener(new java.awt.event.ActionListener() {
+        butSecondaryAttack2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        butSecondaryAttack2.setText("Cambiar");
+        butSecondaryAttack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador2_ActionPerformed(evt);
             }
@@ -120,107 +120,107 @@ public class PanelSettings extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(labHuir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labAtaquePrincipal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labAtaqueSecundario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(labEscape, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labMainAttack1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labSecondaryAttack1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(butAtaquePrincipal1)
-                                    .addComponent(butAtaqueSecundario1)
-                                    .addComponent(butHuir))))
+                                    .addComponent(butMainAttack1)
+                                    .addComponent(butSecondaryAttack1)
+                                    .addComponent(butEscape))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labPlayer2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(labAtaquePrincipal2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labAtaqueSecundario2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(labMainAttack2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labSecondaryAttack2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(butAtaquePrincipal2)
-                                    .addComponent(butAtaqueSecundario2))))))
+                                    .addComponent(butMainAttack2)
+                                    .addComponent(butSecondaryAttack2))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labJugador1)
-                    .addComponent(labJugador2))
+                    .addComponent(labPlayer1)
+                    .addComponent(labPlayer2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labAtaquePrincipal1)
-                    .addComponent(labAtaquePrincipal2)
-                    .addComponent(butAtaquePrincipal1)
-                    .addComponent(butAtaquePrincipal2))
+                    .addComponent(labMainAttack1)
+                    .addComponent(labMainAttack2)
+                    .addComponent(butMainAttack1)
+                    .addComponent(butMainAttack2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labAtaqueSecundario1)
-                    .addComponent(labAtaqueSecundario2)
-                    .addComponent(butAtaqueSecundario1)
-                    .addComponent(butAtaqueSecundario2))
+                    .addComponent(labSecondaryAttack1)
+                    .addComponent(labSecondaryAttack2)
+                    .addComponent(butSecondaryAttack1)
+                    .addComponent(butSecondaryAttack2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labHuir)
-                    .addComponent(butHuir))
+                    .addComponent(labEscape)
+                    .addComponent(butEscape))
                 .addContainerGap(294, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void butJugador1_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butJugador1_ActionPerformed
-        String letra = pedirLetra();
-        if (evt.getSource() == butAtaquePrincipal1) {
-            Globals.letterMainAttackStarter = letra;
-            labAtaquePrincipal1.setText(labAtaquePrincipal1.getText().substring(0, labAtaquePrincipal1.getText().length() - 1) + letra);
-        } else if (evt.getSource() == butAtaqueSecundario1) {
-            Globals.letterSecondaryAttackStarter = letra;
-            labAtaqueSecundario1.setText(labAtaqueSecundario1.getText().substring(0, labAtaqueSecundario1.getText().length() - 1) + letra);
-        } else if (evt.getSource() == butHuir) {
-            Globals.letterEscape = letra;
-            labHuir.setText(labHuir.getText().substring(0, labHuir.getText().length() - 1) + letra);
+        String letter = askLetter();
+        if (evt.getSource() == butMainAttack1) {
+            Globals.letterMainAttackStarter = letter;
+            labMainAttack1.setText(labMainAttack1.getText().substring(0, labMainAttack1.getText().length() - 1) + letter);
+        } else if (evt.getSource() == butSecondaryAttack1) {
+            Globals.letterSecondaryAttackStarter = letter;
+            labSecondaryAttack1.setText(labSecondaryAttack1.getText().substring(0, labSecondaryAttack1.getText().length() - 1) + letter);
+        } else if (evt.getSource() == butEscape) {
+            Globals.letterEscape = letter;
+            labEscape.setText(labEscape.getText().substring(0, labEscape.getText().length() - 1) + letter);
         }
     }//GEN-LAST:event_butJugador1_ActionPerformed
 
     private void butJugador2_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butJugador2_ActionPerformed
-        String letra = pedirLetra();
-        if (evt.getSource() == butAtaquePrincipal2) {
-            Globals.letterMainAttackStarter2 = letra;
-            labAtaquePrincipal2.setText(labAtaquePrincipal2.getText().substring(0, labAtaquePrincipal2.getText().length() - 1) + letra);
-        } else if (evt.getSource() == butAtaqueSecundario2) {
-            Globals.letterSecondaryAttackStarter2 = letra;
-            labAtaqueSecundario2.setText(labAtaqueSecundario2.getText().substring(0, labAtaqueSecundario2.getText().length() - 1) + letra);
+        String letter = askLetter();
+        if (evt.getSource() == butMainAttack2) {
+            Globals.letterMainAttackStarter2 = letter;
+            labMainAttack2.setText(labMainAttack2.getText().substring(0, labMainAttack2.getText().length() - 1) + letter);
+        } else if (evt.getSource() == butSecondaryAttack2) {
+            Globals.letterSecondaryAttackStarter2 = letter;
+            labSecondaryAttack2.setText(labSecondaryAttack2.getText().substring(0, labSecondaryAttack2.getText().length() - 1) + letter);
         }
     }//GEN-LAST:event_butJugador2_ActionPerformed
 
-    public String pedirLetra() {
-        String letra = String.valueOf((JOptionPane.showInputDialog(
+    private String askLetter() {
+        String letter = String.valueOf((JOptionPane.showInputDialog(
                 this,
-                "Introduce la letra:")).toUpperCase().charAt(0));
-        return letra;
+                "Insert a letter:")).toUpperCase().charAt(0));
+        return letter;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton butAtaquePrincipal1;
-    private javax.swing.JButton butAtaquePrincipal2;
-    private javax.swing.JButton butAtaqueSecundario1;
-    private javax.swing.JButton butAtaqueSecundario2;
-    private javax.swing.JButton butHuir;
-    private javax.swing.JLabel labAtaquePrincipal1;
-    private javax.swing.JLabel labAtaquePrincipal2;
-    private javax.swing.JLabel labAtaqueSecundario1;
-    private javax.swing.JLabel labAtaqueSecundario2;
-    private javax.swing.JLabel labCabecera;
-    private javax.swing.JLabel labHuir;
-    private javax.swing.JLabel labJugador1;
-    private javax.swing.JLabel labJugador2;
+    private javax.swing.JButton butEscape;
+    private javax.swing.JButton butMainAttack1;
+    private javax.swing.JButton butMainAttack2;
+    private javax.swing.JButton butSecondaryAttack1;
+    private javax.swing.JButton butSecondaryAttack2;
+    private javax.swing.JLabel labEscape;
+    private javax.swing.JLabel labMainAttack1;
+    private javax.swing.JLabel labMainAttack2;
+    private javax.swing.JLabel labPlayer1;
+    private javax.swing.JLabel labPlayer2;
+    private javax.swing.JLabel labSecondaryAttack1;
+    private javax.swing.JLabel labSecondaryAttack2;
+    private javax.swing.JLabel labTitle;
     // End of variables declaration//GEN-END:variables
 }

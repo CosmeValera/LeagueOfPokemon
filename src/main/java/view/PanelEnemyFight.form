@@ -35,60 +35,65 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labTitle" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="butHuir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="butAtaquePrincipal" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="butAtaqueSecundario" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="labVidaStarter" min="-2" pref="235" max="-2" attributes="0"/>
-                                  <Component id="labStarter" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="labFixedAD" max="32767" attributes="0"/>
-                                  <Component id="labFixedVariableValue" max="32767" attributes="0"/>
-                                  <Component id="labFixedGold" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labVariableValueAmount" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Component id="labADAmount" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Component id="labGoldAmount" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labVersus" min="-2" pref="84" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="labVidaEnemigo" max="32767" attributes="0"/>
-                                  <Component id="labEnemigo" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="labTitle" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="labFijoEfectoDebilitador" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="labEfectoDebilitador" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="labStarterHealth" min="-2" pref="235" max="-2" attributes="0"/>
+                                          <Component id="labStarter" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="labFixedAD" max="32767" attributes="0"/>
+                                          <Component id="labFixedVariableValue" max="32767" attributes="0"/>
+                                          <Component id="labFixedGold" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labVariableValueAmount" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="labADAmount" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="labGoldAmount" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="labVersus" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="labEnemyHealth" max="32767" attributes="0"/>
+                                          <Component id="labEnemy" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="labFixedEnemyEffect" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Component id="labEnemyEffect" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="butEscape" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="butMainAttack" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="butSecondaryAttack" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -111,8 +116,8 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labFijoEfectoDebilitador" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labEfectoDebilitador" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labFixedEnemyEffect" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labEnemyEffect" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="labFixedAD" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -129,20 +134,20 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="labStarter" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="labEnemigo" min="-2" pref="205" max="-2" attributes="0"/>
+                          <Component id="labEnemy" min="-2" pref="205" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labVidaStarter" min="-2" pref="54" max="-2" attributes="0"/>
-                  <Component id="labVidaEnemigo" min="-2" pref="54" max="-2" attributes="0"/>
+                  <Component id="labStarterHealth" min="-2" pref="54" max="-2" attributes="0"/>
+                  <Component id="labEnemyHealth" min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="67" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="butAtaqueSecundario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butAtaquePrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butHuir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butSecondaryAttack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butMainAttack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butEscape" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -207,7 +212,7 @@
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoEfectoDebilitador">
+    <Component class="javax.swing.JLabel" name="labFixedEnemyEffect">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -215,7 +220,7 @@
         <Property name="text" type="java.lang.String" value="Poisoned?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labEfectoDebilitador">
+    <Component class="javax.swing.JLabel" name="labEnemyEffect">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -230,7 +235,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labEnemigo">
+    <Component class="javax.swing.JLabel" name="labEnemy">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/enemies/pikachu.png"/>
@@ -249,7 +254,7 @@
         <Property name="text" type="java.lang.String" value="VERSUS"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labVidaStarter">
+    <Component class="javax.swing.JLabel" name="labStarterHealth">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="40" style="0"/>
@@ -258,7 +263,7 @@
         <Property name="text" type="java.lang.String" value="100"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labVidaEnemigo">
+    <Component class="javax.swing.JLabel" name="labEnemyHealth">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="40" style="0"/>
@@ -267,39 +272,39 @@
         <Property name="text" type="java.lang.String" value="100"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butHuir">
+    <Component class="javax.swing.JButton" name="butEscape">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Huir"/>
+        <Property name="text" type="java.lang.String" value="Escape"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butHuirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEscapeActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="but_KeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butAtaquePrincipal">
+    <Component class="javax.swing.JButton" name="butMainAttack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ara&#xf1;azo"/>
+        <Property name="text" type="java.lang.String" value="Scratch"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAtaquePrincipalActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butMainAttackActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="but_KeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butAtaqueSecundario">
+    <Component class="javax.swing.JButton" name="butSecondaryAttack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Dardo venenoso"/>
+        <Property name="text" type="java.lang.String" value="Poisonous Dart"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAtaqueSecundarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butSecondaryAttackActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="but_KeyPressed"/>
       </Events>
     </Component>

@@ -2,7 +2,7 @@
 
 ![](images/leagueOfPokemon.jpg)
 
-LeagueOfPokemon is a turn-based game that executes with Java in which you can choose 1 out of 4 possible starters, and you will be unlocking better equipments and other starters as you battle and receive enemies' prizes.
+LeagueOfPokemon is a turn-based game executed by Java in which you can choose 1 out of 4 possible starters, and you will be unlocking better equipments and other starters as you battle and receive enemies' prizes.
 It also has a PVP place so you can battle versus the starters of your friend in the same computer both.
 
 ## Usage

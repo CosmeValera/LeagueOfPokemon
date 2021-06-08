@@ -14,7 +14,7 @@ public class PanelSpecificInfoStarters extends JPanel {
         initComponents();
     }
 
-    void mostrar(ICallBack panelInformacion, String nombreStarter) {
+    void showPanel(ICallBack panelInformacion, String nombreStarter) {
         IPanelCaller = panelInformacion;
         this.nombreStarter = nombreStarter;
         panelCaller = Globals.panelCaller;
@@ -281,7 +281,7 @@ public class PanelSpecificInfoStarters extends JPanel {
         this.getRootPane().getContentPane().remove(this);
         panelCaller = Globals.panelCaller;
         if (IPanelCaller != null) {         //Para volver al panelInfo
-            IPanelCaller.hacerVisible(true);
+            IPanelCaller.makeVisible(true);
         }
         if (panelCaller != null) {         //Para volver al panelTienda
             panelCaller.setVisible(true);

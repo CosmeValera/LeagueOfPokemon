@@ -16,35 +16,35 @@ public class Electrode extends Enemy {
                 electrode = new Electrode();
                 electrode.setAttackDamage(20);
                 electrode.setHealth(45);
-                electrode.setPrize(116);
+                electrode.setReward(116);
                 System.out.println("Electrode 1");
                 break;
             case 2:
                 electrode = new Electrode();
                 electrode.setAttackDamage(25);
                 electrode.setHealth(50);
-                electrode.setPrize(144);
+                electrode.setReward(144);
                 System.out.println("Electrode 2");
                 break;
             case 3:
                 electrode = new Electrode();
                 electrode.setAttackDamage(35);
                 electrode.setHealth(46);
-                electrode.setPrize(188);
+                electrode.setReward(188);
                 System.out.println("Electrode 3");
                 break;
             case 4:
                 electrode = new Electrode();
                 electrode.setAttackDamage(30);
                 electrode.setHealth(65);
-                electrode.setPrize(216);
+                electrode.setReward(216);
                 System.out.println("Electrode 4");
                 break;
             default:
                 electrode = new Electrode();
                 electrode.setAttackDamage(33);
                 electrode.setHealth(70);
-                electrode.setPrize(228);
+                electrode.setReward(228);
                 System.out.println("Electrode 5");
                 break;
         }

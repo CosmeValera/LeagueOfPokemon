@@ -1,7 +1,6 @@
 package view;
 
 import javax.swing.JPanel;
-import model.Globals;
 
 public class PanelSpecificInfoEnemies extends JPanel {
 
@@ -11,7 +10,7 @@ public class PanelSpecificInfoEnemies extends JPanel {
         initComponents();
     }
 
-    void mostrar(JPanel panelInformacion, String nombreStarter) {
+    void showPanel(JPanel panelInformacion, String nombreStarter) {
         panelCaller = panelInformacion;
 
         infoEspecificaEnemigos(nombreStarter);
@@ -22,147 +21,165 @@ public class PanelSpecificInfoEnemies extends JPanel {
 
     private void infoEspecificaEnemigos(String nombreStarter) {
         switch (nombreStarter) {
-            case "pikachu": //PIKACHU
-                labCabecera.setText("Pikachu");
-                txtDescripcion.setText("Pikachu es uno de los Pokémon que tiene la\n"
-                        + "apariencia de un pequeño ratón, su pelaje es\n"
-                        + "de un color amarillo, tiene dos marcas de\n"
-                        + "color marrón que cubren su espalda y en una\n"
-                        + "pequeña parte de su cola.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/pikachuSpecific.png"))); // NOI18N
-                txtHabilidad.setText("Pikachu destaca en su capacidad de controlar\n"
-                        + "su mente para enfocarse en la pelea y dar\n"
-                        + "todo de si para intentar ganar el combate,\n"
-                        + "gracias a esto es inmune a todo tipo de\n"
-                        + "venenos. Debil contra magia.");
+            case "pikachu":
+                pikachuInfo();
                 break;
-            case "electrode": //electroede
-                labCabecera.setText("Electrode");
-                txtDescripcion.setText("Electrode es un Pokémon de tipo eléctrico.\n"
-                        + "Es considerado un Pokémon muy peligroso,\n"
-                        + "además de ser rápido, es capaz de debilitar\n"
-                        + "a un Pokémon con \"Autodestrucción\".");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/electrodeSpecific.png"))); // NOI18N
-                txtHabilidad.setText("Tiene la habilidad de \"Autodestrucción\" con\n"
-                        + "la cual puede debilitar fuertemente a su\n"
-                        + "contrincante de un solo golpe, aunque este\n"
-                        + "ataque le requiere tanto esfuerzo que le\n"
-                        + "cuesta la vida. Fuerte contra magia.");
+            case "electrode":
+                electrodeInfo();
                 break;
-            case "hitMonLee": //hitMonLee
-                labCabecera.setText("HitMonLee");
-                txtDescripcion.setText("Hitmonlee es un Pokémon de tipo lucha.\n"
-                        + "Es un experto en usar sus pies como armas,\n"
-                        + "dando un numeroso tipo de patadas. Su\n"
-                        + "nombre occidental es una especie de\n"
-                        + "homenaje a Bruce Lee.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/hitMonLeeSpecific.png"))); // NOI18N
-                txtHabilidad.setText("Gracias a sus dotes en Muay Thai es capaz de\n"
-                        + "conectar dos golpes seguidos en el mismo\n"
-                        + "turno. Esta experencia en combate también le\n"
-                        + "ha dotado de resistencia contra cegados y\n"
-                        + "aturdimientos. Ligeramente debil contra\n"
-                        + "magia.");
+            case "hitMonLee":
+                hitMonLeeInfo();
                 break;
-            case "gyarados": //gyarados
-                labCabecera.setText("Gyarados");
-                txtDescripcion.setText("Gyarados es un Pokémon de tipo agua y\n"
-                        + "volador, uno de los más temibles y pode-\n"
-                        + "rosos, ya que es capaz de crear cascadas\n"
-                        + "de la nada así como retumbar la tierra con\n"
-                        + "terremotos.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/gyaradosSpecific.png"))); // NOI18N
-                txtHabilidad.setText("Gyarados además de controlar el mar y la\n"
-                        + "tierra, fue dotado por el dios Arceus con\n"
-                        + "una excelente visión que le permite ver a\n"
-                        + "cualquiera por mucho que se camufle, además\n"
-                        + "no puede ser confundido. Ligeramente fuerte\n"
-                        + "contra magia.");
+            case "gyarados":
+                gyaradosInfo();
                 break;
-            case "rayquaza": //Rayquaza
-                labCabecera.setText("Rayquaza");
-                txtDescripcion.setText("Rayquaza es un Pokémon legendario de la\n"
-                        + "región de Hoenn que representa los cielos\n"
-                        + "y equilibra los poderes del mar y de la tierra.\n"
-                        + "Este dragón celestial de color verde es inmune\n"
-                        + "a casi todos los hechizos.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/rayquazaSpecific.png"))); // NOI18N
-                txtHabilidad.setText("Rayquaza controla los cielos y se mueve tan\n"
-                        + "rápido que puede golpear dos veces en el\n"
-                        + "mismo turno, tiene una visión prodigiosa que\n"
-                        + "le permite ver a cualquier enemigo, es inmu-\n"
-                        + "ne al veneno, y  no puede ser confundido.\n"
-                        + "Fuerte contra magia.");
+            case "rayquaza":
+                rayquazaInfo();
                 break;
-            case "arceus": //arceus
-                labCabecera.setText("Arceus");
-                txtDescripcion.setText("Arceus es un Pokémon singular. De acuerdo\n"
-                        + "con las mitologías de las regiones del mundo\n"
-                        + "Pokémon y lo conocido hasta el momento se\n"
-                        + "cree que es el primer Pokémon existente,\n"
-                        + "creador del mundo Pokémon y por lo tanto,\n"
-                        + "el dios Pokémon.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/arceusSpecific.png"))); // NOI18N
-                txtHabilidad.setText("Arceus posee las habilidades de todos los\n"
-                        + "Pokémon ya que el fue quien los creo, por ello\n"
-                        + "es el rival más duro a batir. Debil contra\n"
-                        + "magia.");
+            case "arceus":
+                arceusInfo();
                 break;
         }
+    }
+
+    private void pikachuInfo() {
+        labTitle.setText("Pikachu");
+        txtDescription.setText("Pikachu is a Pokémon that has the appea-\n"
+                + "rance of a small mouse, its fur is of a yellow\n"
+                + "color, it has two brown markings covering\n"
+                + "its back and on a small part of its tail.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/pikachuSpecific.png"))); // NOI18N
+        txtHability.setText("Pikachu stands out in its ability to control its\n"
+                + "mind to focus on the fight and gives its all to\n"
+                + "win the fight, thanks to this it is immune to\n"
+                + "all kinds of poisons. Weak against magic.");
+    }
+
+    private void electrodeInfo() {
+        labTitle.setText("Electrode");
+        txtDescription.setText("Electrode is an electric-type Pokémon. It is\n"
+                + "considered a very dangerous Pokémon,\n"
+                + "besides being fast, it is capable of weakening\n"
+                + "a Pokémon with \"Self Destruction\".");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/electrodeSpecific.png"))); // NOI18N
+        txtHability.setText("It has the ability of \"Self-destruction\" with\n"
+                + "which it can weaken its opponent with a\n"
+                + "single blow, although this attack requires\n"
+                + "so much effort that it costs it its life. Strong\n"
+                + "against magic.");
+    }
+
+    private void hitMonLeeInfo() {
+        labTitle.setText("HitMonLee");
+        txtDescription.setText("Hitmonlee is a fighting Pokémon. It is an\n"
+                + "expert at using its feet as weapons, delivering\n"
+                + "a numerous type of kicks. Its western name is\n"
+                + "a sort of tribute to Bruce Lee.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/hitMonLeeSpecific.png"))); // NOI18N
+        txtHability.setText("Because of its Muay Thai skills it is able to\n"
+                + "connect two consecutive punches in the same\n"
+                + "turn. This combat experience has also\n"
+                + "endowed him with resistance against blinds\n"
+                + "and stuns. Slightly weak against magic.");
+
+    }
+
+    private void gyaradosInfo() {
+        labTitle.setText("Gyarados");
+        txtDescription.setText("Gyarados is a water-type and flying Pokémon,\n"
+                + "one of the most fearsome and powerful, as it\n"
+                + "is capable of creating waterfalls out of\n"
+                + "nothing as well as rumbling the earth with\n"
+                + "earthquakes.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/gyaradosSpecific.png"))); // NOI18N
+        txtHability.setText("Gyarados in addition to controlling the sea\n"
+                + "and land, was endowed by the god Arceus\n"
+                + "with excellent vision that allows him to see\n"
+                + "anyone no matter how much he camouflages\n"
+                + "himself, and it cannot be confused.\n"
+                + "Slightly strong against magic.");
+    }
+
+    private void rayquazaInfo() {
+        labTitle.setText("Rayquaza");
+        txtDescription.setText("Rayquaza is a legendary Pokémon from the\n"
+                + "Hoenn region that represents the heavens\n"
+                + "and balances the powers of the sea and land.\n"
+                + "This green-colored celestial dragon is im-\n"
+                + "mune to almost all spells.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/rayquazaSpecific.png"))); // NOI18N
+        txtHability.setText("Rayquaza controls the skies and moves so fast\n"
+                + "that it can strike twice in the same turn, it has\n"
+                + "such a prodigious vision that it is able to see\n"
+                + "any enemy, it is immune to poison, and can\n"
+                + "not be confused. Strong against magic.");
+    }
+
+    private void arceusInfo() {
+        labTitle.setText("Arceus");
+        txtDescription.setText("Arceus is a unique Pokémon. According to\n"
+                + "the mythologies of the regions of the\n"
+                + "Pokémon world and what is known so far,\n"
+                + "it is believed to be the first Pokémon in\n"
+                + "existence, creator of the Pokémon world and\n"
+                + "therefore, the Pokémon god.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/arceusSpecific.png"))); // NOI18N
+        txtHability.setText("Arceus possesses the abilities of all the\n"
+                + "Pokémon since it was the one who created\n"
+                + "them, that's why it is the hardest rival to beat.\n"
+                + "Weak against magic.");
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labCabecera = new javax.swing.JLabel();
-        labDescripcion = new javax.swing.JLabel();
-        scrollDescripcion = new javax.swing.JScrollPane();
-        txtDescripcion = new javax.swing.JTextArea();
-        labHabilidad = new javax.swing.JLabel();
-        scrollHabilidad = new javax.swing.JScrollPane();
-        txtHabilidad = new javax.swing.JTextArea();
-        labImagen = new javax.swing.JLabel();
-        butVolver = new javax.swing.JButton();
+        labTitle = new javax.swing.JLabel();
+        labDescription = new javax.swing.JLabel();
+        scrollDescription = new javax.swing.JScrollPane();
+        txtDescription = new javax.swing.JTextArea();
+        labAbility = new javax.swing.JLabel();
+        scrollHability = new javax.swing.JScrollPane();
+        txtHability = new javax.swing.JTextArea();
+        labImage = new javax.swing.JLabel();
+        butReturn = new javax.swing.JButton();
 
         setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         setMaximumSize(new java.awt.Dimension(800, 560));
         setMinimumSize(new java.awt.Dimension(800, 560));
         setPreferredSize(new java.awt.Dimension(800, 560));
 
-        labCabecera.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        labCabecera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labCabecera.setText("ELECTRODE");
+        labTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labTitle.setText("ELECTRODE");
 
-        labDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labDescripcion.setText("Descripción");
+        labDescription.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labDescription.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labDescription.setText("Description");
 
-        txtDescripcion.setEditable(false);
-        txtDescripcion.setColumns(20);
-        txtDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtDescripcion.setRows(5);
-        txtDescripcion.setText("Un pokemon electrico etc lo que sea :)\n");
-        scrollDescripcion.setViewportView(txtDescripcion);
+        txtDescription.setColumns(20);
+        txtDescription.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtDescription.setRows(5);
+        txtDescription.setText("Un pokemon electrico etc lo que sea :)\n");
+        scrollDescription.setViewportView(txtDescription);
 
-        labHabilidad.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labHabilidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labHabilidad.setText("Habilidad");
+        labAbility.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labAbility.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labAbility.setText("Ability");
 
-        txtHabilidad.setEditable(false);
-        txtHabilidad.setColumns(20);
-        txtHabilidad.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtHabilidad.setRows(5);
-        txtHabilidad.setText("Este pokemon puede autodestruirse en\ncualquier momento originando un daño\ndemoledor a su contendiente.");
-        scrollHabilidad.setViewportView(txtHabilidad);
+        txtHability.setColumns(20);
+        txtHability.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtHability.setRows(5);
+        txtHability.setText("Este pokemon puede autodestruirse en\ncualquier momento originando un daño\ndemoledor a su contendiente.");
+        scrollHability.setViewportView(txtHability);
 
-        labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/teemoSpecific.png"))); // NOI18N
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/teemoSpecific.png"))); // NOI18N
 
-        butVolver.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        butVolver.setText("Volver");
-        butVolver.addActionListener(new java.awt.event.ActionListener() {
+        butReturn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        butReturn.setText("Return");
+        butReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butVolverActionPerformed(evt);
+                butReturnActionPerformed(evt);
             }
         });
 
@@ -173,18 +190,18 @@ public class PanelSpecificInfoEnemies extends JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(scrollDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                                .addComponent(labDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(butVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(scrollDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                                .addComponent(labDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(butReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(scrollHabilidad)
-                                .addComponent(labHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(scrollHability)
+                                .addComponent(labAbility, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(labImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labImage, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 25, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -192,42 +209,42 @@ public class PanelSpecificInfoEnemies extends JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labDescripcion)
+                        .addComponent(labDescription)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scrollDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scrollDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                        .addComponent(labHabilidad)
+                        .addComponent(labAbility)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scrollHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(scrollHability, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labImage, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(butVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(butReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void butVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butVolverActionPerformed
+    private void butReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butReturnActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
         panelCaller.setVisible(true);
         panelCaller.requestFocusInWindow();
-    }//GEN-LAST:event_butVolverActionPerformed
+    }//GEN-LAST:event_butReturnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton butVolver;
-    private javax.swing.JLabel labCabecera;
-    private javax.swing.JLabel labDescripcion;
-    private javax.swing.JLabel labHabilidad;
-    private javax.swing.JLabel labImagen;
-    private javax.swing.JScrollPane scrollDescripcion;
-    private javax.swing.JScrollPane scrollHabilidad;
-    private javax.swing.JTextArea txtDescripcion;
-    private javax.swing.JTextArea txtHabilidad;
+    private javax.swing.JButton butReturn;
+    private javax.swing.JLabel labAbility;
+    private javax.swing.JLabel labDescription;
+    private javax.swing.JLabel labImage;
+    private javax.swing.JLabel labTitle;
+    private javax.swing.JScrollPane scrollDescription;
+    private javax.swing.JScrollPane scrollHability;
+    private javax.swing.JTextArea txtDescription;
+    private javax.swing.JTextArea txtHability;
     // End of variables declaration//GEN-END:variables
 
 }

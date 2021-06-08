@@ -30,36 +30,36 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labCabecera" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labTitle" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labJugador1" alignment="0" min="-2" pref="380" max="-2" attributes="0"/>
+                          <Component id="labPlayer1" alignment="0" min="-2" pref="380" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="labHuir" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labAtaquePrincipal1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labAtaqueSecundario1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labEscape" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labMainAttack1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labSecondaryAttack1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="butAtaquePrincipal1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="butAtaqueSecundario1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="butHuir" min="-2" max="-2" attributes="0"/>
+                                  <Component id="butMainAttack1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="butSecondaryAttack1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="butEscape" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace pref="28" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labJugador2" min="-2" pref="380" max="-2" attributes="0"/>
+                          <Component id="labPlayer2" min="-2" pref="380" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="labAtaquePrincipal2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labAtaqueSecundario2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labMainAttack2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labSecondaryAttack2" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="butAtaquePrincipal2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="butAtaqueSecundario2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="butMainAttack2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="butSecondaryAttack2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -73,30 +73,30 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labCabecera" min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="labTitle" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labJugador1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labJugador2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labPlayer1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labPlayer2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labAtaquePrincipal1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labAtaquePrincipal2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butAtaquePrincipal1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butAtaquePrincipal2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labMainAttack1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labMainAttack2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butMainAttack1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butMainAttack2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labAtaqueSecundario1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labAtaqueSecundario2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butAtaqueSecundario1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butAtaqueSecundario2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labSecondaryAttack1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labSecondaryAttack2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butSecondaryAttack1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butSecondaryAttack2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labHuir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butHuir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labEscape" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butEscape" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="294" max="32767" attributes="0"/>
           </Group>
@@ -104,7 +104,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labCabecera">
+    <Component class="javax.swing.JLabel" name="labTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
@@ -113,7 +113,7 @@
         <Property name="text" type="java.lang.String" value="CONFIGURACI&#xd3;N"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labJugador1">
+    <Component class="javax.swing.JLabel" name="labPlayer1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="21" style="0"/>
@@ -122,16 +122,16 @@
         <Property name="text" type="java.lang.String" value="Jugador 1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labAtaquePrincipal1">
+    <Component class="javax.swing.JLabel" name="labMainAttack1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Ataque Principal: A"/>
+        <Property name="text" type="java.lang.String" value="Main Attack: A"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butAtaquePrincipal1">
+    <Component class="javax.swing.JButton" name="butMainAttack1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -142,15 +142,15 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butJugador1_ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labAtaqueSecundario1">
+    <Component class="javax.swing.JLabel" name="labSecondaryAttack1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ataque Secundario: S"/>
+        <Property name="text" type="java.lang.String" value="Secondary Attack: S"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butAtaqueSecundario1">
+    <Component class="javax.swing.JButton" name="butSecondaryAttack1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -161,16 +161,16 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butJugador1_ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labHuir">
+    <Component class="javax.swing.JLabel" name="labEscape">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Huir: H"/>
+        <Property name="text" type="java.lang.String" value="Escape: H"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butHuir">
+    <Component class="javax.swing.JButton" name="butEscape">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -181,7 +181,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butJugador1_ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labJugador2">
+    <Component class="javax.swing.JLabel" name="labPlayer2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="21" style="0"/>
@@ -190,16 +190,16 @@
         <Property name="text" type="java.lang.String" value="Jugador 2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labAtaquePrincipal2">
+    <Component class="javax.swing.JLabel" name="labMainAttack2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Ataque Principal: O"/>
+        <Property name="text" type="java.lang.String" value="Main Attack: O"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butAtaquePrincipal2">
+    <Component class="javax.swing.JButton" name="butMainAttack2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -210,16 +210,16 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butJugador2_ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labAtaqueSecundario2">
+    <Component class="javax.swing.JLabel" name="labSecondaryAttack2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Ataque Secundario: P"/>
+        <Property name="text" type="java.lang.String" value="Secondary Attack: P"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butAtaqueSecundario2">
+    <Component class="javax.swing.JButton" name="butSecondaryAttack2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>

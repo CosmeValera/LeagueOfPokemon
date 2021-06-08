@@ -30,12 +30,12 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labCabecera" max="32767" attributes="0"/>
+                  <Component id="labTitle" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="butCancelar" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="butCancel" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="butAceptar" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="butAccept" min="-2" pref="120" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -51,15 +51,15 @@
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="scrollFicheros1" alignment="0" pref="380" max="32767" attributes="0"/>
-                              <Component id="labJugador1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="scrollFiles1" alignment="0" pref="380" max="32767" attributes="0"/>
+                              <Component id="labPlayer1" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="28" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="labJugador2" max="32767" attributes="0"/>
-                              <Component id="scrollFicheros2" pref="380" max="32767" attributes="0"/>
+                              <Component id="labPlayer2" max="32767" attributes="0"/>
+                              <Component id="scrollFiles2" pref="380" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="butTeemo2" min="-2" pref="108" max="-2" attributes="0"/>
@@ -86,22 +86,22 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="butAceptar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="butCancelar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="butAccept" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="butCancel" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labCabecera" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="labTitle" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labJugador1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labJugador2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labPlayer1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labPlayer2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="scrollFicheros2" pref="160" max="32767" attributes="0"/>
-                          <Component id="scrollFicheros1" pref="0" max="32767" attributes="0"/>
+                          <Component id="scrollFiles2" pref="160" max="32767" attributes="0"/>
+                          <Component id="scrollFiles1" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -149,32 +149,32 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labCabecera">
+    <Component class="javax.swing.JLabel" name="labTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="SELECCI&#xd3;N PVP"/>
+        <Property name="text" type="java.lang.String" value="PVP SELECTION"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labJugador1">
+    <Component class="javax.swing.JLabel" name="labPlayer1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Jugador 1"/>
+        <Property name="text" type="java.lang.String" value="Player 1"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="scrollFicheros1">
+    <Container class="javax.swing.JScrollPane" name="scrollFiles1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tableFicheros1">
+        <Component class="javax.swing.JTable" name="tableFiles1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -182,7 +182,7 @@
             <Property name="rowHeight" type="int" value="30"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableFicheros1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableFiles1MouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
@@ -231,23 +231,23 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butStarter1_ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labJugador2">
+    <Component class="javax.swing.JLabel" name="labPlayer2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Jugador 2"/>
+        <Property name="text" type="java.lang.String" value="Player 2"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="scrollFicheros2">
+    <Container class="javax.swing.JScrollPane" name="scrollFiles2">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tableFicheros2">
+        <Component class="javax.swing.JTable" name="tableFiles2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -255,7 +255,7 @@
             <Property name="rowHeight" type="int" value="30"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableFicheros2MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableFiles2MouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
@@ -304,26 +304,26 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butStarter2_ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butCancelar">
+    <Component class="javax.swing.JButton" name="butCancel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butCancelarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butCancelActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butAceptar">
+    <Component class="javax.swing.JButton" name="butAccept">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Aceptar"/>
+        <Property name="text" type="java.lang.String" value="Accept"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAceptarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butAcceptActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

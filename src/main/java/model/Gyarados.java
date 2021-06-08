@@ -16,35 +16,35 @@ public class Gyarados extends Enemy {
                 gyarados = new Gyarados();
                 gyarados.setAttackDamage(21);
                 gyarados.setHealth(290);
-                gyarados.setPrize(540);
+                gyarados.setReward(540);
                 System.out.println("gyarados 1");
                 break;
             case 2:
                 gyarados = new Gyarados();
                 gyarados.setAttackDamage(22);
                 gyarados.setHealth(285);
-                gyarados.setPrize(550);
+                gyarados.setReward(550);
                 System.out.println("gyarados 2");
                 break;
             case 3:
                 gyarados = new Gyarados();
                 gyarados.setAttackDamage(19);
                 gyarados.setHealth(305);
-                gyarados.setPrize(555);
+                gyarados.setReward(555);
                 System.out.println("gyarados 3");
                 break;
             case 4:
                 gyarados = new Gyarados();
                 gyarados.setAttackDamage(20);
                 gyarados.setHealth(320);
-                gyarados.setPrize(580);
+                gyarados.setReward(580);
                 System.out.println("gyarados 4");
                 break;
             default:
                 gyarados = new Gyarados();
                 gyarados.setAttackDamage(22);
                 gyarados.setHealth(345);
-                gyarados.setPrize(640);
+                gyarados.setReward(640);
                 System.out.println("gyarados 5");
                 break;
         }

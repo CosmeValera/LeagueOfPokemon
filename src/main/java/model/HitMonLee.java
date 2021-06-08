@@ -16,35 +16,35 @@ public class HitMonLee extends Enemy {
                 hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(11);
                 hitMonLee.setHealth(122);
-                hitMonLee.setPrize(195);
+                hitMonLee.setReward(195);
                 System.out.println("hitMonLee 1");
                 break;
             case 2:
                 hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(14);
                 hitMonLee.setHealth(105);
-                hitMonLee.setPrize(245);
+                hitMonLee.setReward(245);
                 System.out.println("hitMonLee 2");
                 break;
             case 3:
                 hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(12);
                 hitMonLee.setHealth(170);
-                hitMonLee.setPrize(270);
+                hitMonLee.setReward(270);
                 System.out.println("hitMonLee 3");
                 break;
             case 4:
                 hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(14);
                 hitMonLee.setHealth(190);
-                hitMonLee.setPrize(305);
+                hitMonLee.setReward(305);
                 System.out.println("hitMonLee 4");
                 break;
             default:
                 hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(13);
                 hitMonLee.setHealth(215);
-                hitMonLee.setPrize(325);
+                hitMonLee.setReward(325);
                 System.out.println("hitMonLee 5");
                 break;
         }

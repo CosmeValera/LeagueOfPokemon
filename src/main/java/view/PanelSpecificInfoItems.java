@@ -8,144 +8,168 @@ public class PanelSpecificInfoItems extends JPanel {
 
     JPanel panelCaller;
     ICallBack IPanelCaller;
-    String nombreItem;
+    String itemName;
 
     public PanelSpecificInfoItems() {
         initComponents();
     }
 
-    void mostrar(ICallBack panelInformacion, String nombreItem) {
-        this.nombreItem = nombreItem;
-        IPanelCaller = panelInformacion;
+    public void showPanel(ICallBack informationPanel, String itemName) {
+        this.itemName = itemName;
+        IPanelCaller = informationPanel;
         panelCaller = Globals.panelCaller;
 
-        infoEspecificaItems(nombreItem);
+        specificItemsInfo(itemName);
 
         this.setVisible(true);
         this.requestFocusInWindow();
     }
 
-    private void infoEspecificaItems(String nombreItem) {
-        switch (nombreItem) {
-            case "healthPotion": //Potion
-                labCabecera.setText("Poción");
-                txtDescripcion.setText("Precio: 30.\n"
-                        + "Restaura 75 de salud.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/potionSpecific.png"))); // NOI18N
-                labStarters.setVisible(false);
-                butStarterUno.setVisible(false);
-                butStarterDos.setVisible(false);
-                butStarterTres.setVisible(false);
+    private void specificItemsInfo(String itemName) {
+        switch (itemName) {
+            case "healthPotion":
+                healthPotionInfo();
                 break;
-            case "sword": //sword
-                labCabecera.setText("Espada");
-                txtDescripcion.setText("Otorga 2 de daño extra.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/swordSpecific.png"))); // NOI18N
-                labStarters.setVisible(false);
-                butStarterUno.setVisible(false);
-                butStarterDos.setVisible(false);
-                butStarterTres.setVisible(false);
+            case "sword":
+                swordInfo();
                 break;
-            case "poison": //poison
-                labCabecera.setText("Veneno");
-                txtDescripcion.setText("Aumenta en 1 el daño por veneno\n"
-                        + "inflingido al oponente cada turno.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/poisonSpecific.png"))); // NOI18N
-                butStarterUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoTeemo.png"))); // NOI18N
-                butStarterDos.setVisible(false);
-                butStarterTres.setVisible(false);
+            case "poison":
+                poisonInfo();
                 break;
-            case "shield": //shield
-                labCabecera.setText("Escudo");
-                txtDescripcion.setText("Otorga 1 de armadura extra para resistir\n"
-                        + "el golpe del oponente cada turno que\n"
-                        + "lleves el escudo encima.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/shieldSpecific.png"))); // NOI18N
-                butStarterUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoPoppy.png"))); // NOI18N
-                butStarterDos.setVisible(false);
-                butStarterTres.setVisible(false);
+            case "shield":
+                shieldInfo();
                 break;
-            case "armor": //armor
-                labCabecera.setText("Armadura");
-                txtDescripcion.setText("Otorga 2 de resistencia pasiva a los\n"
-                        + "golpes. La resistencia es el doble de\n"
-                        + "efectiva en MegaGnar que en Gnar");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/armorSpecific.png"))); // NOI18N
-                butStarterUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoGnarMini.png"))); // NOI18N
-                butStarterDos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoGnarMega.png"))); // NOI18N
-                butStarterTres.setVisible(false);
+            case "armor":
+                armorInfo();
                 break;
-            case "relievePotion": //relievePotion
-                labCabecera.setText("Poción Sanadora");
-                txtDescripcion.setText("Otorga 1 de curación extra en combate\n"
-                        + "por ataque que tenga regeneración.");
-                labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/relievePotionSpecific.png"))); // NOI18N
-                butStarterUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoYuumi.png"))); // NOI18N
-                butStarterDos.setVisible(false);
-                butStarterTres.setVisible(false);
+            case "relievePotion":
+                relievePotionInfo();
                 break;
         }
+    }
+
+    private void healthPotionInfo() {
+        labTitle.setText("Poción");
+        txtDescription.setText("Precio: 30.\n"
+                + "Restaura 75 de salud.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/potionSpecific.png"))); // NOI18N
+        labStarters.setVisible(false);
+        butStarterOne.setVisible(false);
+        butStarterTwo.setVisible(false);
+        butStarterThree.setVisible(false);
+    }
+
+    private void swordInfo() {
+        labTitle.setText("Espada");
+        txtDescription.setText("Otorga 2 de daño extra.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/swordSpecific.png"))); // NOI18N
+        labStarters.setVisible(false);
+        butStarterOne.setVisible(false);
+        butStarterTwo.setVisible(false);
+        butStarterThree.setVisible(false);
+    }
+
+    private void poisonInfo() {
+        labTitle.setText("Veneno");
+        txtDescription.setText("Aumenta en 1 el daño por veneno\n"
+                + "inflingido al oponente cada turno.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/poisonSpecific.png"))); // NOI18N
+        butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoTeemo.png"))); // NOI18N
+        butStarterTwo.setVisible(false);
+        butStarterThree.setVisible(false);
+    }
+
+    private void shieldInfo() {
+        labTitle.setText("Escudo");
+        txtDescription.setText("Otorga 1 de armadura extra para resistir\n"
+                + "el golpe del oponente cada turno que\n"
+                + "lleves el escudo encima.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/shieldSpecific.png"))); // NOI18N
+        butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoPoppy.png"))); // NOI18N
+        butStarterTwo.setVisible(false);
+        butStarterThree.setVisible(false);
+    }
+
+    private void armorInfo() {
+        labTitle.setText("Armadura");
+        txtDescription.setText("Otorga 2 de resistencia pasiva a los\n"
+                + "golpes. La resistencia es el doble de\n"
+                + "efectiva en MegaGnar que en Gnar");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/armorSpecific.png"))); // NOI18N
+        butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoGnarMini.png"))); // NOI18N
+        butStarterTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoGnarMega.png"))); // NOI18N
+        butStarterThree.setVisible(false);
+    }
+
+    private void relievePotionInfo() {
+        labTitle.setText("Poción Sanadora");
+        txtDescription.setText("Otorga 1 de curación extra en combate\n"
+                + "por ataque que tenga regeneración.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/relievePotionSpecific.png"))); // NOI18N
+        butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoYuumi.png"))); // NOI18N
+        butStarterTwo.setVisible(false);
+        butStarterThree.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labCabecera = new javax.swing.JLabel();
-        labDescripcion = new javax.swing.JLabel();
-        scrollDescripcion = new javax.swing.JScrollPane();
-        txtDescripcion = new javax.swing.JTextArea();
+        labTitle = new javax.swing.JLabel();
+        labDescription = new javax.swing.JLabel();
+        scrollDescription = new javax.swing.JScrollPane();
+        txtDescription = new javax.swing.JTextArea();
         labStarters = new javax.swing.JLabel();
-        butStarterUno = new javax.swing.JButton();
-        butStarterDos = new javax.swing.JButton();
-        butStarterTres = new javax.swing.JButton();
-        labImagen = new javax.swing.JLabel();
-        butVolver = new javax.swing.JButton();
+        butStarterOne = new javax.swing.JButton();
+        butStarterTwo = new javax.swing.JButton();
+        butStarterThree = new javax.swing.JButton();
+        labImage = new javax.swing.JLabel();
+        butReturn = new javax.swing.JButton();
 
         setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         setMaximumSize(new java.awt.Dimension(800, 560));
         setMinimumSize(new java.awt.Dimension(800, 560));
         setPreferredSize(new java.awt.Dimension(800, 560));
 
-        labCabecera.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        labCabecera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labCabecera.setText("POCIÓN");
+        labTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labTitle.setText("POTION");
 
-        labDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labDescripcion.setText("Descripción");
+        labDescription.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labDescription.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labDescription.setText("Description");
 
-        txtDescripcion.setEditable(false);
-        txtDescripcion.setColumns(20);
-        txtDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        txtDescripcion.setRows(5);
-        txtDescripcion.setText("Precio: 30.\nRestaura 75 de salud.");
-        scrollDescripcion.setViewportView(txtDescripcion);
+        txtDescription.setEditable(false);
+        txtDescription.setColumns(20);
+        txtDescription.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        txtDescription.setRows(5);
+        txtDescription.setText("Price: 30.\nRestores 75 HP.");
+        scrollDescription.setViewportView(txtDescription);
 
         labStarters.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labStarters.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labStarters.setText("Campeones que compran este item:");
+        labStarters.setText("Champions that buy this item:");
 
-        butStarterUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoTeemo.png"))); // NOI18N
-        butStarterUno.addActionListener(new java.awt.event.ActionListener() {
+        butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoTeemo.png"))); // NOI18N
+        butStarterOne.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butStarterUnoActionPerformed(evt);
+                butStarterOneActionPerformed(evt);
             }
         });
 
-        butStarterDos.addActionListener(new java.awt.event.ActionListener() {
+        butStarterTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butStarterDosActionPerformed(evt);
+                butStarterTwoActionPerformed(evt);
             }
         });
 
-        labImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/teemoSpecific.png"))); // NOI18N
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/teemoSpecific.png"))); // NOI18N
 
-        butVolver.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        butVolver.setText("Volver");
-        butVolver.addActionListener(new java.awt.event.ActionListener() {
+        butReturn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        butReturn.setText("Return");
+        butReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butVolverActionPerformed(evt);
+                butReturnActionPerformed(evt);
             }
         });
 
@@ -156,24 +180,24 @@ public class PanelSpecificInfoItems extends JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labCabecera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(scrollDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                                        .addComponent(labDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(scrollDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                                        .addComponent(labDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(labStarters, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(butStarterUno, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(butStarterOne, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(butStarterDos, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(butStarterTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(butStarterTres, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(butStarterThree, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(labImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(butVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(labImage, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(butReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 25, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -181,74 +205,74 @@ public class PanelSpecificInfoItems extends JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labCabecera, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(labDescripcion)
+                        .addComponent(labDescription)
                         .addGap(18, 18, 18)
-                        .addComponent(scrollDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scrollDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(labStarters)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(butStarterDos, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butStarterUno, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butStarterTres, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(butStarterTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butStarterOne, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(butStarterThree, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6))
-                    .addComponent(labImagen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(butVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(butReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void butVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butVolverActionPerformed
+    private void butReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butReturnActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
         panelCaller = Globals.panelCaller;
-        if (IPanelCaller != null) {         //Para volver al panelInfo
-            IPanelCaller.hacerVisible(true);
+        if (IPanelCaller != null) {         //To return to panelInfo
+            IPanelCaller.makeVisible(true);
         }
-        if (panelCaller != null) {         //Para volver al panelTienda
+        if (panelCaller != null) {         //To return to panelShop
             panelCaller.setVisible(true);
         }
-    }//GEN-LAST:event_butVolverActionPerformed
+    }//GEN-LAST:event_butReturnActionPerformed
 
-    private void butStarterUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarterUnoActionPerformed
+    private void butStarterOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarterOneActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        if (nombreItem.equals("poison")) {
+        if (itemName.equals("poison")) {
             IPanelCaller.clickTeemo();
-        } else if (nombreItem.equals("shield")) {
+        } else if (itemName.equals("shield")) {
             IPanelCaller.clickPoppy();
-        } else if (nombreItem.equals("armor")) {
+        } else if (itemName.equals("armor")) {
             IPanelCaller.clickGnarMini();
-        } else if (nombreItem.equals("relievePotion")) {
+        } else if (itemName.equals("relievePotion")) {
             IPanelCaller.clickYuumi();
         }
-    }//GEN-LAST:event_butStarterUnoActionPerformed
+    }//GEN-LAST:event_butStarterOneActionPerformed
 
-    private void butStarterDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarterDosActionPerformed
+    private void butStarterTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butStarterTwoActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        if (nombreItem.equals("armor")) {
+        if (itemName.equals("armor")) {
             IPanelCaller.clickGnarMega();
         }
-    }//GEN-LAST:event_butStarterDosActionPerformed
+    }//GEN-LAST:event_butStarterTwoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton butStarterDos;
-    private javax.swing.JButton butStarterTres;
-    private javax.swing.JButton butStarterUno;
-    private javax.swing.JButton butVolver;
-    private javax.swing.JLabel labCabecera;
-    private javax.swing.JLabel labDescripcion;
-    private javax.swing.JLabel labImagen;
+    private javax.swing.JButton butReturn;
+    private javax.swing.JButton butStarterOne;
+    private javax.swing.JButton butStarterThree;
+    private javax.swing.JButton butStarterTwo;
+    private javax.swing.JLabel labDescription;
+    private javax.swing.JLabel labImage;
     private javax.swing.JLabel labStarters;
-    private javax.swing.JScrollPane scrollDescripcion;
-    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JLabel labTitle;
+    private javax.swing.JScrollPane scrollDescription;
+    private javax.swing.JTextArea txtDescription;
     // End of variables declaration//GEN-END:variables
 
 }

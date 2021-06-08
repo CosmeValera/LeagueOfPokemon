@@ -16,35 +16,35 @@ public class Rayquaza extends Enemy {
                 rayquaza = new Rayquaza();
                 rayquaza.setAttackDamage(23);
                 rayquaza.setHealth(450);
-                rayquaza.setPrize(860);
+                rayquaza.setReward(860);
                 System.out.println("rayquaza 1");
                 break;
             case 2:
                 rayquaza = new Rayquaza();
                 rayquaza.setAttackDamage(24);
                 rayquaza.setHealth(480);
-                rayquaza.setPrize(900);
+                rayquaza.setReward(900);
                 System.out.println("rayquaza 2");
                 break;
             case 3:
                 rayquaza = new Rayquaza();
                 rayquaza.setAttackDamage(28);
                 rayquaza.setHealth(540);
-                rayquaza.setPrize(1060);
+                rayquaza.setReward(1060);
                 System.out.println("rayquaza 3");
                 break;
             case 4:
                 rayquaza = new Rayquaza();
                 rayquaza.setAttackDamage(27);
                 rayquaza.setHealth(590);
-                rayquaza.setPrize(1160);
+                rayquaza.setReward(1160);
                 System.out.println("rayquaza 4");
                 break;
             default:
                 rayquaza = new Rayquaza();
                 rayquaza.setAttackDamage(32);
                 rayquaza.setHealth(620);
-                rayquaza.setPrize(1280);
+                rayquaza.setReward(1280);
                 System.out.println("rayquaza 5");
                 break;
         }

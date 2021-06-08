@@ -2,7 +2,7 @@ package model;
 
 public interface ICallBack {
 
-    public default void hacerVisible(boolean bool) {
+    public default void makeVisible(boolean bool) {
     }
 
     public default void clickHealthPotion() {

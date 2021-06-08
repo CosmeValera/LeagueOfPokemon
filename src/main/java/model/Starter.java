@@ -7,9 +7,9 @@ public abstract class Starter extends Character {
 
     private final int initialGoldAmount = 300;
 
-    private static final int VICTORIESFORFIRSTPRIZE = 15;
-    private static final int VICTORIESFORSECONDPRIZE = 40;
-    private static final int VICTORIESFORTHIRDPRIZE = 65;
+    private static final int VICTORIESFORFIRSTREWARD = 15;
+    private static final int VICTORIESFORSECONDREWARD = 40;
+    private static final int VICTORIESFORTHIRDREWARD = 65;
     private boolean teemoAvailable = false;
     private boolean poppyAvailable = false;
     private boolean gnarAvailable = false;
@@ -54,16 +54,16 @@ public abstract class Starter extends Character {
         this.defeatedEnemies = defeatedEnemies;
     }
 
-    public static int getVictoriesForFirstPrize() {
-        return VICTORIESFORFIRSTPRIZE;
+    public static int getVictoriesForFirstReward() {
+        return VICTORIESFORFIRSTREWARD;
     }
 
-    public static int getVictoriesForSecondPrize() {
-        return VICTORIESFORSECONDPRIZE;
+    public static int getVictoriesForSecondReward() {
+        return VICTORIESFORSECONDREWARD;
     }
 
-    public static int getVictoriesForThirdPrize() {
-        return VICTORIESFORTHIRDPRIZE;
+    public static int getVictoriesForThirdReward() {
+        return VICTORIESFORTHIRDREWARD;
     }
 
     public boolean isTeemoAvailable() {

@@ -33,40 +33,40 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="labFijoValorVariable" alignment="0" max="32767" attributes="0"/>
-                  <Component id="labFijoVida" alignment="0" max="32767" attributes="0"/>
-                  <Component id="labFijoDano" alignment="0" max="32767" attributes="0"/>
-                  <Component id="labFijoOro" alignment="0" max="32767" attributes="0"/>
-                  <Component id="labVictorias" max="32767" attributes="0"/>
+                  <Component id="labFixedVariableValue" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labFixedHealth" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labFixedAD" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labFixedGold" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labVictories" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labCantidadDano" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="labCantidadValorVariable" min="-2" max="-2" attributes="0"/>
-                  <Component id="labCantidadVida" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labAmountAD" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="labVariableValueAmount" min="-2" max="-2" attributes="0"/>
+                  <Component id="labHealthAmount" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labCantidadOro" min="-2" max="-2" attributes="0"/>
+                      <Component id="labGoldAmount" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="labMonedaOro" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="labGoldCoin" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="labCantidadVictorias" min="-2" max="-2" attributes="0"/>
+                  <Component id="labVictoriesAmount" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labPrecioPotion" min="-2" max="-2" attributes="0"/>
+                      <Component id="labPotionPrice" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labMonedaPocion" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="labPotionCoin" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="labVidaPotion" min="-2" max="-2" attributes="0"/>
+                      <Component id="labPotionHealth" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="butPotion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="butInfoPocion" min="-2" max="-2" attributes="0"/>
+                      <Component id="butInfoPotion" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="274" max="32767" attributes="0"/>
+              <EmptySpace pref="260" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -74,33 +74,33 @@
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="labPrecioItemVariable" min="-2" max="-2" attributes="0"/>
+                              <Component id="labVariableItemPrice" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labMonedaItemVariable" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="labVariableItemCoin" min="-2" pref="27" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="labAportacionItemVariable" min="-2" max="-2" attributes="0"/>
+                              <Component id="labVariableItemStatsOffered" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="butItemVariable" min="-2" pref="224" max="-2" attributes="0"/>
+                          <Component id="butVariableItem" min="-2" pref="224" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="butInfoItemVariable" min="-2" max="-2" attributes="0"/>
+                      <Component id="butVariableItemInfo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labPrecioEspada" min="-2" max="-2" attributes="0"/>
+                              <Component id="labSwordPrice" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labMonedaEspada" min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="labSwordCoin" min="-2" pref="27" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="labDanoEspada" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="butEspada" min="-2" pref="220" max="-2" attributes="0"/>
+                          <Component id="butSword" min="-2" pref="220" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="butInfoEspada" min="-2" max="-2" attributes="0"/>
+                      <Component id="butSwordInfo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labCabecera" max="32767" attributes="0"/>
+                      <Component id="labTitle" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -111,73 +111,73 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labCabecera" min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="labTitle" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="butPotion" min="-2" max="-2" attributes="0"/>
-                          <Component id="butInfoPocion" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="butInfoPotion" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labPrecioPotion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labVidaPotion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labMonedaPocion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labPotionPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labPotionHealth" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labPotionCoin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="17" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="butItemVariable" min="-2" pref="227" max="-2" attributes="0"/>
-                                  <Component id="butInfoItemVariable" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="butVariableItem" min="-2" pref="227" max="-2" attributes="0"/>
+                                  <Component id="butVariableItemInfo" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labPrecioItemVariable" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labAportacionItemVariable" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labMonedaItemVariable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labVariableItemPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labVariableItemStatsOffered" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labVariableItemCoin" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="butEspada" min="-2" max="-2" attributes="0"/>
-                                  <Component id="butInfoEspada" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="butSword" min="-2" max="-2" attributes="0"/>
+                                  <Component id="butSwordInfo" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labPrecioEspada" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labSwordPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labDanoEspada" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labMonedaEspada" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labSwordCoin" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labFijoOro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labCantidadOro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labMonedaOro" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="labFixedGold" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labGoldAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labGoldCoin" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labCantidadDano" min="-2" max="-2" attributes="0"/>
-                          <Component id="labFijoDano" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labAmountAD" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedAD" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labCantidadValorVariable" min="-2" max="-2" attributes="0"/>
-                          <Component id="labFijoValorVariable" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labVariableValueAmount" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedVariableValue" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labCantidadVida" min="-2" max="-2" attributes="0"/>
-                          <Component id="labFijoVida" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labHealthAmount" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedHealth" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labVictorias" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labCantidadVictorias" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labVictories" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labVictoriesAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -188,24 +188,24 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labCabecera">
+    <Component class="javax.swing.JLabel" name="labTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="TIENDA"/>
+        <Property name="text" type="java.lang.String" value="SHOP"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoOro">
+    <Component class="javax.swing.JLabel" name="labFixedGold">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Oro:"/>
+        <Property name="text" type="java.lang.String" value="Gold:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadOro">
+    <Component class="javax.swing.JLabel" name="labGoldAmount">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -213,7 +213,7 @@
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labMonedaOro">
+    <Component class="javax.swing.JLabel" name="labGoldCoin">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -224,31 +224,15 @@
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoDano">
+    <Component class="javax.swing.JLabel" name="labFixedAD">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Da&#xf1;o: "/>
+        <Property name="text" type="java.lang.String" value="Attack Damage:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadDano">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value=" "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labFijoValorVariable">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Da&#xf1;o Veneno: "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadValorVariable">
+    <Component class="javax.swing.JLabel" name="labAmountAD">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -256,15 +240,15 @@
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoVida">
+    <Component class="javax.swing.JLabel" name="labFixedVariableValue">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Vida: "/>
+        <Property name="text" type="java.lang.String" value="Poison Damage:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadVida">
+    <Component class="javax.swing.JLabel" name="labVariableValueAmount">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -272,15 +256,31 @@
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labVictorias">
+    <Component class="javax.swing.JLabel" name="labFixedHealth">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Victorias:"/>
+        <Property name="text" type="java.lang.String" value="Health:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadVictorias">
+    <Component class="javax.swing.JLabel" name="labHealthAmount">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value=" "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labVictories">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Victories:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labVictoriesAmount">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -299,7 +299,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butPotionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labPrecioPotion">
+    <Component class="javax.swing.JLabel" name="labPotionPrice">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -307,7 +307,7 @@
         <Property name="text" type="java.lang.String" value="30"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labMonedaPocion">
+    <Component class="javax.swing.JLabel" name="labPotionCoin">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/shop/coin.png"/>
@@ -315,15 +315,15 @@
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labVidaPotion">
+    <Component class="javax.swing.JLabel" name="labPotionHealth">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="+75 Vida"/>
+        <Property name="text" type="java.lang.String" value="+75 Health"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butInfoPocion">
+    <Component class="javax.swing.JButton" name="butInfoPotion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -331,20 +331,20 @@
         <Property name="text" type="java.lang.String" value="Info"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butInfoPocionActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butInfoPotionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butItemVariable">
+    <Component class="javax.swing.JButton" name="butVariableItem">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/shop/poison.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butItemVariableActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butVariableItemActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labPrecioItemVariable">
+    <Component class="javax.swing.JLabel" name="labVariableItemPrice">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -352,7 +352,7 @@
         <Property name="text" type="java.lang.String" value="120"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labMonedaItemVariable">
+    <Component class="javax.swing.JLabel" name="labVariableItemCoin">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/shop/coin.png"/>
@@ -360,15 +360,15 @@
         <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labAportacionItemVariable">
+    <Component class="javax.swing.JLabel" name="labVariableItemStatsOffered">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="+1 da&#xf1;o veneno"/>
+        <Property name="text" type="java.lang.String" value="+1 poison damage"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butInfoItemVariable">
+    <Component class="javax.swing.JButton" name="butVariableItemInfo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -376,20 +376,20 @@
         <Property name="text" type="java.lang.String" value="Info"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butInfoItemVariableActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butVariableItemInfoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butEspada">
+    <Component class="javax.swing.JButton" name="butSword">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/shop/sword.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butEspadaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butSwordActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labPrecioEspada">
+    <Component class="javax.swing.JLabel" name="labSwordPrice">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -397,7 +397,7 @@
         <Property name="text" type="java.lang.String" value="150"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labMonedaEspada">
+    <Component class="javax.swing.JLabel" name="labSwordCoin">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/shop/coin.png"/>
@@ -410,10 +410,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="+2 da&#xf1;o"/>
+        <Property name="text" type="java.lang.String" value="+2 attack damage"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butInfoEspada">
+    <Component class="javax.swing.JButton" name="butSwordInfo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -421,7 +421,7 @@
         <Property name="text" type="java.lang.String" value="Info"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butInfoEspadaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butSwordInfoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -32,13 +32,13 @@ public class PanelGeneralInformation extends javax.swing.JPanel implements ICall
             butRelievePotion.setVisible(false);
         }
 
-        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForFirstPrize()) {
+        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForFirstReward()) {
             butGyarados.setVisible(false);
         }
-        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForSecondPrize()) {
+        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForSecondReward()) {
             butRayquaza.setVisible(false);
         }
-        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForThirdPrize()) {
+        if (Starter.getDefeatedEnemies() < Starter.getVictoriesForThirdReward()) {
             butArceus.setVisible(false);
         }
     }
@@ -307,15 +307,15 @@ public class PanelGeneralInformation extends javax.swing.JPanel implements ICall
         this.getRootPane().getContentPane().add(panelIES);
 
         if (evt.getSource() == butTeemo) {
-            panelIES.mostrar(this, "teemo");
+            panelIES.showPanel(this, "teemo");
         } else if (evt.getSource() == butPoppy) {
-            panelIES.mostrar(this, "poppy");
+            panelIES.showPanel(this, "poppy");
         } else if (evt.getSource() == butGnarMini) {
-            panelIES.mostrar(this, "gnarMini");
+            panelIES.showPanel(this, "gnarMini");
         } else if (evt.getSource() == butGnarMega) {
-            panelIES.mostrar(this, "gnarMega");
+            panelIES.showPanel(this, "gnarMega");
         } else if (evt.getSource() == butYuumi) {
-            panelIES.mostrar(this, "yuumi");
+            panelIES.showPanel(this, "yuumi");
         }
 
     }//GEN-LAST:event_butStarter_ActionPerformed
@@ -328,17 +328,17 @@ public class PanelGeneralInformation extends javax.swing.JPanel implements ICall
         this.getRootPane().getContentPane().add(panelIEE);
 
         if (evt.getSource() == butPikachu) {
-            panelIEE.mostrar(this, "pikachu");
+            panelIEE.showPanel(this, "pikachu");
         } else if (evt.getSource() == butElectrode) {
-            panelIEE.mostrar(this, "electrode");
+            panelIEE.showPanel(this, "electrode");
         } else if (evt.getSource() == butHitMonLee) {
-            panelIEE.mostrar(this, "hitMonLee");
+            panelIEE.showPanel(this, "hitMonLee");
         } else if (evt.getSource() == butGyarados) {
-            panelIEE.mostrar(this, "gyarados");
+            panelIEE.showPanel(this, "gyarados");
         } else if (evt.getSource() == butRayquaza) {
-            panelIEE.mostrar(this, "rayquaza");
+            panelIEE.showPanel(this, "rayquaza");
         } else if (evt.getSource() == butArceus) {
-            panelIEE.mostrar(this, "arceus");
+            panelIEE.showPanel(this, "arceus");
         }
     }//GEN-LAST:event_butEnemigo_ActionPerformed
 
@@ -350,17 +350,17 @@ public class PanelGeneralInformation extends javax.swing.JPanel implements ICall
         this.getRootPane().getContentPane().add(panelIEI);
 
         if (evt.getSource() == butHealthPotion) {
-            panelIEI.mostrar(this, "healthPotion");
+            panelIEI.showPanel(this, "healthPotion");
         } else if (evt.getSource() == butSword) {
-            panelIEI.mostrar(this, "sword");
+            panelIEI.showPanel(this, "sword");
         } else if (evt.getSource() == butPoison) {
-            panelIEI.mostrar(this, "poison");
+            panelIEI.showPanel(this, "poison");
         } else if (evt.getSource() == butShield) {
-            panelIEI.mostrar(this, "shield");
+            panelIEI.showPanel(this, "shield");
         } else if (evt.getSource() == butArmor) {
-            panelIEI.mostrar(this, "armor");
+            panelIEI.showPanel(this, "armor");
         } else if (evt.getSource() == butRelievePotion) {
-            panelIEI.mostrar(this, "relievePotion");
+            panelIEI.showPanel(this, "relievePotion");
         }
     }//GEN-LAST:event_butItem_ActionPerformed
     @Override
@@ -394,7 +394,7 @@ public class PanelGeneralInformation extends javax.swing.JPanel implements ICall
     }
 
     @Override
-    public void hacerVisible(boolean bool) {
+    public void makeVisible(boolean bool) {
         this.setVisible(bool);
     }
 
@@ -410,7 +410,6 @@ public class PanelGeneralInformation extends javax.swing.JPanel implements ICall
 
     @Override
     public void clickGnarMini() {
-
         butGnarMini.doClick();
     }
 

@@ -33,21 +33,21 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labCabecera" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labTitle" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="scrollDescripcion" alignment="0" pref="385" max="32767" attributes="0"/>
-                              <Component id="labDescripcion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="butVolver" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="scrollDescription" alignment="0" pref="385" max="32767" attributes="0"/>
+                              <Component id="labDescription" alignment="0" max="32767" attributes="0"/>
+                              <Component id="butReturn" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="scrollHabilidad" alignment="0" max="32767" attributes="0"/>
-                              <Component id="labHabilidad" alignment="0" min="-2" pref="385" max="-2" attributes="0"/>
+                              <Component id="scrollHability" alignment="0" max="32767" attributes="0"/>
+                              <Component id="labAbility" alignment="0" min="-2" pref="385" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="labImagen" min="-2" pref="360" max="-2" attributes="0"/>
+                      <Component id="labImage" min="-2" pref="360" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -59,29 +59,29 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labCabecera" min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="labTitle" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="labDescripcion" min="-2" max="-2" attributes="0"/>
+                      <Component id="labDescription" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollDescripcion" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="scrollDescription" min="-2" pref="168" max="-2" attributes="0"/>
                       <EmptySpace pref="12" max="32767" attributes="0"/>
-                      <Component id="labHabilidad" min="-2" max="-2" attributes="0"/>
+                      <Component id="labAbility" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollHabilidad" min="-2" pref="168" max="-2" attributes="0"/>
+                      <Component id="scrollHability" min="-2" pref="168" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="labImagen" alignment="0" min="-2" pref="416" max="-2" attributes="0"/>
+                  <Component id="labImage" alignment="0" min="-2" pref="416" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="butVolver" min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="butReturn" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labCabecera">
+    <Component class="javax.swing.JLabel" name="labTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
@@ -90,25 +90,24 @@
         <Property name="text" type="java.lang.String" value="ELECTRODE"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labDescripcion">
+    <Component class="javax.swing.JLabel" name="labDescription">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="Description"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="scrollDescripcion">
+    <Container class="javax.swing.JScrollPane" name="scrollDescription">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtDescripcion">
+        <Component class="javax.swing.JTextArea" name="txtDescription">
           <Properties>
-            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -119,25 +118,24 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="labHabilidad">
+    <Component class="javax.swing.JLabel" name="labAbility">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Habilidad"/>
+        <Property name="text" type="java.lang.String" value="Ability"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="scrollHabilidad">
+    <Container class="javax.swing.JScrollPane" name="scrollHability">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtHabilidad">
+        <Component class="javax.swing.JTextArea" name="txtHability">
           <Properties>
-            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -148,22 +146,22 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="labImagen">
+    <Component class="javax.swing.JLabel" name="labImage">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/specificInfo/teemoSpecific.png"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butVolver">
+    <Component class="javax.swing.JButton" name="butReturn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Volver"/>
+        <Property name="text" type="java.lang.String" value="Return"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butVolverActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butReturnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
