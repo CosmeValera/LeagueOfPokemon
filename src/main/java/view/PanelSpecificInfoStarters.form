@@ -33,25 +33,26 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labCabecera" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labTitle" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="scrollAtaquePrincipal" alignment="0" pref="385" max="32767" attributes="0"/>
-                          <Component id="labAtaquePrincipal" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labAtaqueSecundario" max="32767" attributes="0"/>
-                          <Component id="scrollAtaqueSecundario" max="32767" attributes="0"/>
+                          <Component id="scrollMainAttack" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labMainAttack" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labSecondaryAttack" max="32767" attributes="0"/>
+                          <Component id="scrollSecondaryAttack" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="butVolver" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="labItem" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="butReturn" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="labItem" min="-2" pref="261" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="32767" attributes="0"/>
                               <Component id="butItem" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="scrollDescripcion" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="labImagen" alignment="1" min="-2" pref="337" max="-2" attributes="0"/>
+                          <Component id="scrollDescription" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="labImage" alignment="1" min="-2" pref="337" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
                   </Group>
@@ -64,36 +65,34 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labCabecera" min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="labTitle" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labAtaquePrincipal" min="-2" max="-2" attributes="0"/>
+                      <Component id="labMainAttack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollAtaquePrincipal" min="-2" max="-2" attributes="0"/>
+                      <Component id="scrollMainAttack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="labAtaqueSecundario" min="-2" max="-2" attributes="0"/>
+                      <Component id="labSecondaryAttack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollAtaqueSecundario" min="-2" pref="146" max="-2" attributes="0"/>
+                      <Component id="scrollSecondaryAttack" min="-2" pref="146" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="butVolver" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="labItem" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="butReturn" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labItem" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="butItem" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="butItem" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labImagen" min="-2" pref="330" max="-2" attributes="0"/>
+                      <Component id="labImage" min="-2" pref="330" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrollDescripcion" min="-2" max="-2" attributes="0"/>
+                      <Component id="scrollDescription" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -103,7 +102,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labCabecera">
+    <Component class="javax.swing.JLabel" name="labTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
@@ -112,23 +111,23 @@
         <Property name="text" type="java.lang.String" value="TEEMO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labAtaquePrincipal">
+    <Component class="javax.swing.JLabel" name="labMainAttack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Ara&#xf1;azo"/>
+        <Property name="text" type="java.lang.String" value="Scratch"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="scrollAtaquePrincipal">
+    <Container class="javax.swing.JScrollPane" name="scrollMainAttack">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtAtaquePrincipal">
+        <Component class="javax.swing.JTextArea" name="txtMainAttack">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
@@ -136,12 +135,12 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Inflinge 150% da&#xf1;o de ataque de Teemo.&#xa;Tiene una ligera probabilidad de que Teemo&#xa;se camufle, esta probabilidad escala por&#xa;da&#xf1;o veneno."/>
+            <Property name="text" type="java.lang.String" value="It inflicts 150% of Teemo&apos;s attack damage.&#xa;Teemo has a slight chance of being camou-&#xa;flaged, this chance is scaled by poison&#xa;damage."/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="labAtaqueSecundario">
+    <Component class="javax.swing.JLabel" name="labSecondaryAttack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
@@ -150,7 +149,7 @@
         <Property name="text" type="java.lang.String" value="Dardo Venenoso"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="scrollAtaqueSecundario">
+    <Container class="javax.swing.JScrollPane" name="scrollSecondaryAttack">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -165,7 +164,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Inflinge 100% da&#xf1;o de ataque de Teemo.&#xa;Tiene probabilidad de cegar, envenenar o&#xa;de provocar ambas, la probabilidad de hacer&#xa;ambas escala por da&#xf1;o veneno."/>
+            <Property name="text" type="java.lang.String" value="It inflicts 100% Teemo&apos;s attack damage. The&#xa;dart&apos;s hit has a chance to blind, poison or&#xa;both, the chance to do both is scaled by&#xa;poison damage. Poison damage also&#xa;increases Teemo&apos;s passive life steal."/>
           </Properties>
         </Component>
       </SubComponents>
@@ -175,7 +174,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="Item -&gt;"/>
       </Properties>
     </Component>
@@ -189,21 +188,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butItemActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labImagen">
+    <Component class="javax.swing.JLabel" name="labImage">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icons/specificInfo/teemoSpecific.png"/>
         </Property>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="scrollDescripcion">
+    <Container class="javax.swing.JScrollPane" name="scrollDescription">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtDescripcion">
+        <Component class="javax.swing.JTextArea" name="txtDescription">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
@@ -211,20 +210,20 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Encantado con el peligro, con su forma&#xa;de MegaGnar arroja todo lo que&#xa;puede a sus enemigos, ya sea una&#xa;enorme roca o un edificio cercano."/>
+            <Property name="text" type="java.lang.String" value="Undeterred by even the most&#xa;threatening obstacles, Teemo&#xa;explores the world with his blowpipe."/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="butVolver">
+    <Component class="javax.swing.JButton" name="butReturn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Volver"/>
+        <Property name="text" type="java.lang.String" value="Return"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butVolverActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butReturnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

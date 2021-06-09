@@ -151,26 +151,28 @@ public class PanelSpecificInfoEnemies extends JPanel {
 
         labTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         labTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labTitle.setText("ELECTRODE");
+        labTitle.setText("PIKACHU");
 
         labDescription.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labDescription.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labDescription.setText("Description");
 
+        txtDescription.setEditable(false);
         txtDescription.setColumns(20);
         txtDescription.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtDescription.setRows(5);
-        txtDescription.setText("Un pokemon electrico etc lo que sea :)\n");
+        txtDescription.setText("Pikachu is a Pokémon that has the appea-\nrance of a small mouse, its fur is of a yellow\ncolor, it has two brown markings covering\nits back and on a small part of its tail.");
         scrollDescription.setViewportView(txtDescription);
 
         labAbility.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labAbility.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labAbility.setText("Ability");
 
+        txtHability.setEditable(false);
         txtHability.setColumns(20);
         txtHability.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtHability.setRows(5);
-        txtHability.setText("Este pokemon puede autodestruirse en\ncualquier momento originando un daño\ndemoledor a su contendiente.");
+        txtHability.setText("Pikachu stands out in its ability to control its\nmind to focus on the fight and gives its all to\nwin the fight, thanks to this it is immune to\nall kinds of poisons. Weak against magic.");
         scrollHability.setViewportView(txtHability);
 
         labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/teemoSpecific.png"))); // NOI18N

@@ -39,19 +39,19 @@ public class PanelSpecificInfoItems extends JPanel {
             case "shield":
                 shieldInfo();
                 break;
-            case "armor":
-                armorInfo();
-                break;
             case "relievePotion":
                 relievePotionInfo();
+                break;
+            case "armor":
+                armorInfo();
                 break;
         }
     }
 
     private void healthPotionInfo() {
-        labTitle.setText("Poción");
-        txtDescription.setText("Precio: 30.\n"
-                + "Restaura 75 de salud.");
+        labTitle.setText("Potion");
+        txtDescription.setText("Price: 30.\n"
+                + "Restores 75 HP.");
         labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/potionSpecific.png"))); // NOI18N
         labStarters.setVisible(false);
         butStarterOne.setVisible(false);
@@ -60,8 +60,8 @@ public class PanelSpecificInfoItems extends JPanel {
     }
 
     private void swordInfo() {
-        labTitle.setText("Espada");
-        txtDescription.setText("Otorga 2 de daño extra.");
+        labTitle.setText("Sword");
+        txtDescription.setText("It grants 2 extra attack damage.");
         labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/swordSpecific.png"))); // NOI18N
         labStarters.setVisible(false);
         butStarterOne.setVisible(false);
@@ -70,9 +70,9 @@ public class PanelSpecificInfoItems extends JPanel {
     }
 
     private void poisonInfo() {
-        labTitle.setText("Veneno");
-        txtDescription.setText("Aumenta en 1 el daño por veneno\n"
-                + "inflingido al oponente cada turno.");
+        labTitle.setText("Poison");
+        txtDescription.setText("It grants 1 extra Poison Damage inflicted\n"
+                + "passively to the opponent each turn.");
         labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/poisonSpecific.png"))); // NOI18N
         butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoTeemo.png"))); // NOI18N
         butStarterTwo.setVisible(false);
@@ -80,34 +80,35 @@ public class PanelSpecificInfoItems extends JPanel {
     }
 
     private void shieldInfo() {
-        labTitle.setText("Escudo");
-        txtDescription.setText("Otorga 1 de armadura extra para resistir\n"
-                + "el golpe del oponente cada turno que\n"
-                + "lleves el escudo encima.");
+        labTitle.setText("Shield");
+        txtDescription.setText("It grants 1 extra shield resistance to resist\n"
+                + "the next opponent's hit.");
         labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/shieldSpecific.png"))); // NOI18N
         butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoPoppy.png"))); // NOI18N
         butStarterTwo.setVisible(false);
         butStarterThree.setVisible(false);
     }
 
-    private void armorInfo() {
-        labTitle.setText("Armadura");
-        txtDescription.setText("Otorga 2 de resistencia pasiva a los\n"
-                + "golpes. La resistencia es el doble de\n"
-                + "efectiva en MegaGnar que en Gnar");
-        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/armorSpecific.png"))); // NOI18N
-        butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoGnarMini.png"))); // NOI18N
-        butStarterTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoGnarMega.png"))); // NOI18N
-        butStarterThree.setVisible(false);
-    }
-
     private void relievePotionInfo() {
-        labTitle.setText("Poción Sanadora");
-        txtDescription.setText("Otorga 1 de curación extra en combate\n"
-                + "por ataque que tenga regeneración.");
+        labTitle.setText("Relieve potion");
+        txtDescription.setText("It grants 1 extra healing power each time\n"
+                + "you trigger healing on a character.");
         labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/relievePotionSpecific.png"))); // NOI18N
         butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoYuumi.png"))); // NOI18N
         butStarterTwo.setVisible(false);
+        butStarterThree.setVisible(false);
+    }
+
+    private void armorInfo() {
+        labTitle.setText("Armor");
+        txtDescription.setText("It grants 2 extra passive resistance \n"
+                + "against enemies' attacks. Resistance\n"
+                + "affects twice as much to MegaGnar\n"
+                + "as MiniGnar.");
+        labImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/specificInfo/armorSpecific.png"))); // NOI18N
+        labStarters.setText("Champions that buy this item:");
+        butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoGnarMini.png"))); // NOI18N
+        butStarterTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoGnarMega.png"))); // NOI18N
         butStarterThree.setVisible(false);
     }
 
@@ -148,7 +149,7 @@ public class PanelSpecificInfoItems extends JPanel {
 
         labStarters.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labStarters.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labStarters.setText("Champions that buy this item:");
+        labStarters.setText("Champion that buys this item:");
 
         butStarterOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/generalInfo/infoTeemo.png"))); // NOI18N
         butStarterOne.addActionListener(new java.awt.event.ActionListener() {

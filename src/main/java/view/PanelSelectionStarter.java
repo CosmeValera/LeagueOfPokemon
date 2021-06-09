@@ -41,7 +41,7 @@ public class PanelSelectionStarter extends javax.swing.JPanel {
             GUICallBack.obtainMenuBar().setVisible(false);
             labTitle.setText("CHOOSE " + (!starter.isTeemoAvailable()
                     && !starter.isPoppyAvailable() && !starter.isGnarAvailable()
-                    && !starter.isYuumiAvailable() ? "AN INITIAL" : "A") + "CHAMPION");
+                    && !starter.isYuumiAvailable() ? "AN INITIAL" : "A") + " CHAMPION");
             if (starter.isTeemoAvailable()) {
                 labTeemo.setVisible(false);
                 butTeemo.setVisible(false);

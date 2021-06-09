@@ -74,7 +74,7 @@ public class Yuumi extends Starter {
 
     @Override
     public void secondaryAttack(Enemy enemy) { //Final Chapter
-        double baseAttackDamage = attackDamage * 2.5;
+        double baseAttackDamage = attackDamage * 3;
         double appliedAttackDamage = baseAttackDamage - baseAttackDamage * enemy.getMagicResistance() / 100;
         enemy.setHealth(enemy.getHealth() - appliedAttackDamage);
 
@@ -95,7 +95,7 @@ public class Yuumi extends Starter {
     @Override
     public double getAttackDamageOfSecondaryAttack() { //Final Chapter
         heal(healing / 4);
-        return attackDamage * 1.25;
+        return attackDamage * 1.5;
     }
 
     private void heal(double healingAmount) {
