@@ -32,6 +32,7 @@ public class Gnar extends Starter {
     public void mainAttack(Enemy enemy) {
         if (!isMonstruo()) {
             boomerang(enemy);
+            return;
         }
         bodySlam(enemy);
 
@@ -42,13 +43,14 @@ public class Gnar extends Starter {
     }
 
     private void bodySlam(Enemy enemy) {
-        enemy.setHealth(enemy.getHealth() - attackDamage * 2);
+        enemy.setHealth(enemy.getHealth() - attackDamage * 2.2);
     }
 
     @Override
     public void secondaryAttack(Enemy enemy) {
         if (!isMonstruo()) {
             jump(enemy);
+            return;
         }
         throwRock(enemy);
 

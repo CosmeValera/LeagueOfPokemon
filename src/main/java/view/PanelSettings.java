@@ -44,11 +44,11 @@ public class PanelSettings extends javax.swing.JPanel {
 
         labTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         labTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labTitle.setText("CONFIGURACIÓN");
+        labTitle.setText("CONFIGURATION");
 
         labPlayer1.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         labPlayer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labPlayer1.setText("Jugador 1");
+        labPlayer1.setText("Player 1");
 
         labMainAttack1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labMainAttack1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -87,7 +87,7 @@ public class PanelSettings extends javax.swing.JPanel {
 
         labPlayer2.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
         labPlayer2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labPlayer2.setText("Jugador 2");
+        labPlayer2.setText("Player 2");
 
         labMainAttack2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labMainAttack2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
