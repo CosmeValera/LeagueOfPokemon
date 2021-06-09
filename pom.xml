@@ -14,12 +14,11 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
                 <configuration>
-                    <compilerArgs>
-                        <arg>--enable-preview</arg>
-                    </compilerArgs>
+                <testFailureIgnore>true</testFailureIgnore>
+                <shutdown>kill</shutdown> <!-- Use it if required-->
                 </configuration>
             </plugin>
         </plugins>
