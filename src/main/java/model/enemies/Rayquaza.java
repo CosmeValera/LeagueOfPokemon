@@ -1,4 +1,6 @@
-package model;
+package model.enemies;
+
+import model.Globals;
 
 public class Rayquaza extends Enemy {
 

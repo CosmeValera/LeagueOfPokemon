@@ -1,7 +1,9 @@
-package model;
+package model.starters;
+
+import model.enemies.Enemy;
+import model.Randomizer;
 
 public class Teemo extends Starter {
-
     private final int MAXIMUM_HEALTH = 120;
     private final int MAXIMUM_ATTACK_DAMAGE = 60;
     private final int MINIMUM_ATTACK_DAMAGE = 10;
@@ -77,26 +79,26 @@ public class Teemo extends Starter {
 
         lifeSteal(poisonDamage * 1.5);
 
-        int num = ((int) (randomizer.getRandom() * 100 + 1)) + ((Teemo) Globals.starter).getPoisonDamage() / 2;
+        int num = ((int) (randomizer.getRandom() * 100 + 1)) + poisonDamage;
         if (num > 70) { //Hide
             enemy.setPoorSightIfPossible(true);
         }
     }
 
     @Override
-    public void secondaryAttack(Enemy enemigo) { //Poisonous dart
-        enemigo.setHealth(enemigo.getHealth() - attackDamage);
+    public void secondaryAttack(Enemy enemy) { //Poisonous dart
+        enemy.setHealth(enemy.getHealth() - attackDamage);
 
         lifeSteal(poisonDamage);
 
-        int num = ((int) (Math.random() * 100 + 1)) + ((Teemo) Globals.starter).getPoisonDamage();
+        int num = ((int) (randomizer.getRandom() * 100 + 1)) + poisonDamage;
         if (num > 50 && num < 75) { //Poison
-            enemigo.setPoisonedIfPossible(true);
+            enemy.setPoisonedIfPossible(true);
         } else if (num >= 75 && num < 90) { //Blind
-            enemigo.setBlindedIfPossible(true);
+            enemy.setBlindedIfPossible(true);
         } else if (num >= 90) { //Poison & blind
-            enemigo.setPoisonedIfPossible(true);
-            enemigo.setBlindedIfPossible(true);
+            enemy.setPoisonedIfPossible(true);
+            enemy.setBlindedIfPossible(true);
         }
     }
 
@@ -180,7 +182,7 @@ public class Teemo extends Starter {
 
     @Override
     public boolean isAbleToUseBlowPipe(Starter starterEnemigo) {
-        int num = ((int) (Math.random() * 100 + 1)) + poisonDamage;
+        int num = ((int) (randomizer.getRandom() * 100 + 1)) + poisonDamage;
         if (num > 50 && num < 75) { //Poisoned
             starterEnemigo.setWillBePoisoned(true);
         } else if (num >= 75 && num < 90) { //Blinded
@@ -194,7 +196,7 @@ public class Teemo extends Starter {
 
     @Override
     public boolean isAbleToHide(Starter starterEnemigo) {
-        int num = ((int) (Math.random() * 100 + 1)) + poisonDamage / 2;
+        int num = ((int) (randomizer.getRandom() * 100 + 1)) + poisonDamage / 2;
         if (num > 70) { //Hide
             starterEnemigo.setWillBePoorSight(true);
         }

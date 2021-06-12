@@ -1,10 +1,9 @@
-package model;
+package model.starters;
+
+import model.enemies.Enemy;
+import model.Randomizer;
 
 public class Poppy extends Starter {
-
-    private boolean carriesShield;
-    private int shieldProtection;
-
     private final int MAXIMUM_HEALTH = 200;
     private final int MAXIMUM_ATTACK_DAMAGE = 40;
     private final int MINIMUM_ATTACK_DAMAGE = 6;
@@ -12,17 +11,24 @@ public class Poppy extends Starter {
     private final int MINIMUM_SHIELD_PROTECTION = 3;
     private final boolean DEFAULT_POPPY_SHIELD_VALUE = false;
 
-    public Poppy() {
+    private boolean carriesShield;
+    private int shieldProtection;
+
+    private Randomizer randomizer;
+    
+    public Poppy(Randomizer randomizer) {
         attackDamage = MINIMUM_ATTACK_DAMAGE;
         health = MAXIMUM_HEALTH;
         shieldProtection = MINIMUM_SHIELD_PROTECTION;
         carriesShield = DEFAULT_POPPY_SHIELD_VALUE;
+        this.randomizer = randomizer;
     }
 
-    public Poppy(int attackDamage, double health, int goldAmount, boolean carriesShield, int shieldProtection) {
+    public Poppy(int attackDamage, double health, int goldAmount, boolean carriesShield, int shieldProtection, Randomizer randomizer) {
         super(attackDamage, health, goldAmount);
         this.carriesShield = carriesShield;
         this.shieldProtection = shieldProtection;
+        this.randomizer = randomizer;
     }
 
     public boolean isCarriesShield() {
@@ -84,7 +90,7 @@ public class Poppy extends Starter {
     public void secondaryAttack(Enemy enemy) { //Strike
         enemy.setHealth(enemy.getHealth() - attackDamage / 2);
 
-        int num = (int) (Math.random() * 100 + 1 + shieldProtection);
+        int num = (int) (randomizer.getRandom() * 100 + 1 + shieldProtection);
         if (num > 62) {
             enemy.setConfusedIfPossible(true);
         }
@@ -116,7 +122,7 @@ public class Poppy extends Starter {
 
     @Override
     public boolean isAbleToEquipAShield() {
-        int num = (int) (Math.random() * 100 + 1 + shieldProtection);
+        int num = (int) (randomizer.getRandom() * 100 + 1 + shieldProtection);
         if (num > 50) {
             return true;
         }
@@ -125,7 +131,7 @@ public class Poppy extends Starter {
 
     @Override
     public boolean isAbleToConfuse(Starter enemyStarter){
-        int num = (int) (Math.random() * 100 + 1 + shieldProtection);
+        int num = (int) (randomizer.getRandom() * 100 + 1 + shieldProtection);
         if (num > 62) {
             return true;
         }

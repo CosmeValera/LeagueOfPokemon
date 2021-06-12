@@ -1,7 +1,9 @@
-package model;
+package model.starters;
+
+import model.enemies.Enemy;
+import model.Randomizer;
 
 public class Yuumi extends Starter {
-
     private final int MAXIMUM_HEALTH = 150;
     private final int MAXIMUM_ATTACK_DAMAGE = 36;
     private final int MINIMUM_ATTACK_DAMAGE = 4;
@@ -10,15 +12,19 @@ public class Yuumi extends Starter {
 
     private int healing;
 
-    public Yuumi() {
+    private Randomizer randomizer;
+
+    public Yuumi(Randomizer randomizer) {
         attackDamage = MINIMUM_ATTACK_DAMAGE;
         health = MAXIMUM_HEALTH;
         healing = MINIMUM_HEALING;
+        this.randomizer = randomizer;
     }
 
-    public Yuumi(int attackDamage, double health, int goldAmount, int healing) {
+    public Yuumi(int attackDamage, double health, int goldAmount, int healing, Randomizer randomizer) {
         super(attackDamage, health, goldAmount);
         this.healing = healing;
+        this.randomizer = randomizer;
     }
 
     public int getHealing() {
@@ -78,7 +84,7 @@ public class Yuumi extends Starter {
         double appliedAttackDamage = baseAttackDamage - baseAttackDamage * enemy.getMagicResistance() / 100;
         enemy.setHealth(enemy.getHealth() - appliedAttackDamage);
 
-        int num = (int) (Math.random() * 100 + 1 + healing / 2);
+        int num = (int) (randomizer.getRandom() * 100 + 1 + healing / 2);
         if (num > 50) { //Blind
             enemy.setBlindedIfPossible(true);
         }
@@ -172,7 +178,7 @@ public class Yuumi extends Starter {
 
     @Override
     public boolean isAbleToReadTheFinalChapter(Starter starterEnemigo) {
-        int num = (int) (Math.random() * 100 + 1 + healing / 2);
+        int num = (int) (randomizer.getRandom() * 100 + 1 + healing / 2);
         if (num > 50) { //Blinded
             starterEnemigo.setWillBeBlinded(true);
         }

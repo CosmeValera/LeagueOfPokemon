@@ -1,15 +1,15 @@
 package view;
 
-import model.Teemo;
-import model.Poppy;
-import model.Gnar;
-import model.Yuumi;
-import model.Pikachu;
-import model.Electrode;
-import model.HitMonLee;
-import model.Gyarados;
-import model.Rayquaza;
-import model.Arceus;
+import model.starters.Teemo;
+import model.starters.Poppy;
+import model.starters.Gnar;
+import model.starters.Yuumi;
+import model.enemies.Pikachu;
+import model.enemies.Electrode;
+import model.enemies.HitMonLee;
+import model.enemies.Gyarados;
+import model.enemies.Rayquaza;
+import model.enemies.Arceus;
 import model.Globals;
 import model.MathRandomizer;
 import javax.swing.JMenuBar;
@@ -241,17 +241,17 @@ public class GUI extends javax.swing.JFrame {
 
     private void initializeGlobals() {
         Globals.teemo = new Teemo(new MathRandomizer());
-        Globals.gnar = new Gnar();
-        Globals.poppy = new Poppy();
-        Globals.yuumi = new Yuumi();
+        Globals.gnar = new Gnar(new MathRandomizer());
+        Globals.poppy = new Poppy(new MathRandomizer());
+        Globals.yuumi = new Yuumi(new MathRandomizer());
         Globals.letterMainAttackStarter = "A";
         Globals.letterSecondaryAttackStarter = "S";
         Globals.letterEscape = "H";
         
         Globals.teemo2 = new Teemo(new MathRandomizer());
-        Globals.gnar2 = new Gnar();
-        Globals.poppy2 = new Poppy();
-        Globals.yuumi2 = new Yuumi();
+        Globals.gnar2 = new Gnar(new MathRandomizer());
+        Globals.poppy2 = new Poppy(new MathRandomizer());
+        Globals.yuumi2 = new Yuumi(new MathRandomizer());
         Globals.letterMainAttackStarter2 = "O";
         Globals.letterSecondaryAttackStarter2 = "P";
 

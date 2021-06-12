@@ -2,7 +2,7 @@ package view;
 
 import model.Globals;
 import model.ICallBack;
-import model.Starter;
+import model.starters.Starter;
 
 public class PanelGeneralInformation extends javax.swing.JPanel implements ICallBack {
 

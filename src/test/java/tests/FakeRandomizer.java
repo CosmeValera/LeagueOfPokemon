@@ -1,11 +1,11 @@
-//package tests;
-//
-//import modelo.Randomizer;
-//
-//public class FakeRandomizer implements Randomizer {
-//
-//    public double getRandom() {
-//        return 0.5;
-//    }
-//    
-//}
+package tests;
+
+import model.Randomizer;
+
+public class FakeRandomizer implements Randomizer {
+
+    public double getRandom() {
+        return 0.8;
+    }
+    
+}

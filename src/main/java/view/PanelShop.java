@@ -1,11 +1,11 @@
 package view;
 
 import model.Globals;
-import model.Starter;
-import model.Poppy;
-import model.Teemo;
-import model.Yuumi;
-import model.Gnar;
+import model.starters.Starter;
+import model.starters.Poppy;
+import model.starters.Teemo;
+import model.starters.Yuumi;
+import model.starters.Gnar;
 import model.ICallBack;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;

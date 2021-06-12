@@ -1,7 +1,7 @@
 package view;
 
 import model.Globals;
-import model.Starter;
+import model.starters.Starter;
 
 public class PanelSelectionStarter extends javax.swing.JPanel {
 

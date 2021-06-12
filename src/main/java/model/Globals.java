@@ -1,5 +1,11 @@
 package model;
 
+import model.enemies.Enemy;
+import model.starters.Starter;
+import model.starters.Gnar;
+import model.starters.Poppy;
+import model.starters.Teemo;
+import model.starters.Yuumi;
 import javax.swing.JPanel;
 
 public class Globals{

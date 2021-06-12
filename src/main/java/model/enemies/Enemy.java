@@ -1,4 +1,6 @@
-package model;
+package model.enemies;
+
+import model.Character;
 
 public abstract class Enemy extends Character {
 

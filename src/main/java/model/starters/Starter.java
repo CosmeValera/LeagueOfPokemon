@@ -1,4 +1,7 @@
-package model;
+package model.starters;
+
+import model.Character;
+import model.enemies.Enemy;
 
 public abstract class Starter extends Character {
 

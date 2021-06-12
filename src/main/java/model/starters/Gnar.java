@@ -1,11 +1,9 @@
-package model;
+package model.starters;
+
+import model.enemies.Enemy;
+import model.Randomizer;
 
 public class Gnar extends Starter {
-
-    private int resistance;
-    private boolean isMonster;
-    private int monsterCounter;
-
     private final int MAXIMUM_HEALTH = 170;
     private final int MAXIMUM_ATTACK_DAMAGE = 50;
     private final int MINIMUM_ATTACK_DAMAGE = 6;
@@ -14,18 +12,26 @@ public class Gnar extends Starter {
     private final boolean DEFAULT_IS_GNAR_MONSTER = false;
     private final int DEFAULT_GNAR_MONSTER_COUNTER = 0;
 
-    public Gnar() {
+    private int resistance;
+    private boolean isMonster;
+    private int monsterCounter;
+
+    private Randomizer randomizer;
+
+    public Gnar(Randomizer randomizer) {
         attackDamage = MINIMUM_ATTACK_DAMAGE;
         health = MAXIMUM_HEALTH;
         isMonster = DEFAULT_IS_GNAR_MONSTER;
         resistance = MINIMUM_RESISTANCE;
         monsterCounter = DEFAULT_GNAR_MONSTER_COUNTER;
+        this.randomizer = randomizer;
     }
 
-    public Gnar(int attackDamage, double health, int goldAmount, boolean isMonster, int resistance) {
+    public Gnar(int attackDamage, double health, int goldAmount, boolean isMonster, int resistance, Randomizer randomizer) {
         super(attackDamage, health, goldAmount);
         this.isMonster = isMonster;
         this.resistance = resistance;
+        this.randomizer = randomizer;
     }
 
     @Override
@@ -168,7 +174,7 @@ public class Gnar extends Starter {
     @Override
     public boolean isAbleToStrikeTwice() {
         if (!isMonster) {
-            int num = (int) (Math.random() * 2 + 1);
+            int num = (int) (randomizer.getRandom() * 2 + 1);
             return num == 1;
         }
         return false;
@@ -177,7 +183,7 @@ public class Gnar extends Starter {
     @Override
     public boolean isAbleToMissStrike() {
         if (isMonster) {
-            int num = (int) (Math.random() * 4 + 1);
+            int num = (int) (randomizer.getRandom() * 4 + 1);
             return num == 1;
         }
         return false;
@@ -186,7 +192,7 @@ public class Gnar extends Starter {
     @Override
     public boolean isAbleToDodge() {
         if (!isMonster) {
-            double num = (Math.random() * 100 + 1 + resistance / 5);
+            double num = (randomizer.getRandom() * 100 + 1 + resistance / 5);
             return num > 63; // resistance 20-> 41% || resistance 70-> 51%
         }
         return false;
@@ -244,9 +250,9 @@ public class Gnar extends Starter {
     public boolean isAbleToHide(Starter starterEnemigo) {
         return false;
     }
-    
+
     @Override
-    public boolean isAbleToReadTheFinalChapter(Starter starterEnemigo){
+    public boolean isAbleToReadTheFinalChapter(Starter starterEnemigo) {
         return false;
     }
 }

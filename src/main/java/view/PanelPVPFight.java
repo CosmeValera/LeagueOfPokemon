@@ -5,11 +5,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Globals;
-import model.Gnar;
-import model.Poppy;
-import model.Starter;
-import model.Teemo;
-import model.Yuumi;
+import model.starters.Gnar;
+import model.starters.Poppy;
+import model.starters.Starter;
+import model.starters.Teemo;
+import model.starters.Yuumi;
 
 public class PanelPVPFight extends javax.swing.JPanel {
 

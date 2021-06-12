@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Files4Saving;
 import model.Globals;
-import model.Starter;
+import model.starters.Starter;
 
 public class PanelSaveChargeFiles extends javax.swing.JPanel {
 
