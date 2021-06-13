@@ -20,6 +20,7 @@ public class PanelShop extends javax.swing.JPanel implements ICallBack {
 
     public void showPanel() {
         starter = Globals.starter;
+        Globals.panelCaller = this;
         refreshStarterInfo();
         refreshShopInfo();
 
@@ -515,7 +516,6 @@ public class PanelShop extends javax.swing.JPanel implements ICallBack {
         PanelGeneralInformation panelI = new PanelGeneralInformation();
         this.add(panelI);
         panelI.clickHealthPotion();
-        Globals.panelCaller = this;
         this.setVisible(false);
     }//GEN-LAST:event_butInfoPotionActionPerformed
 
@@ -531,7 +531,6 @@ public class PanelShop extends javax.swing.JPanel implements ICallBack {
         } else if (starter instanceof Yuumi) {
             panelI.clickRelievePotion();
         }
-        Globals.panelCaller = this;
         this.setVisible(false);
     }//GEN-LAST:event_butVariableItemInfoActionPerformed
 
@@ -539,7 +538,6 @@ public class PanelShop extends javax.swing.JPanel implements ICallBack {
         PanelGeneralInformation panelI = new PanelGeneralInformation();
         this.add(panelI);
         panelI.clickSword();
-        Globals.panelCaller = this;
         this.setVisible(false);
     }//GEN-LAST:event_butSwordInfoActionPerformed
 

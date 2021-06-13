@@ -1,7 +1,6 @@
 package tests;
 
 import model.enemies.Enemy;
-import model.starters.Starter;
 import model.starters.Teemo;
 import org.junit.jupiter.api.Test;
 
@@ -9,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TeemoTest {
-    Teemo teemo;
-    Enemy enemy;
+    private Teemo teemo;
+    private Enemy enemy;
 
     @BeforeEach
     public void setUp() {

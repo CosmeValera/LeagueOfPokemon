@@ -23,16 +23,18 @@ public abstract class Character {
         return attackDamage;
     }
 
-    public void setAttackDamage(double attackDamage) {
+    public Character setAttackDamage(double attackDamage) {
         this.attackDamage = attackDamage;
+        return this;
     }
 
     public double getHealth() {
         return health;
     }
 
-    public void setHealth(double health) {
+    public Character setHealth(double health) {
         this.health = health;
+        return this;
     }
     
     public boolean isBlinded() {

@@ -31,7 +31,7 @@ public class Poppy extends Starter {
         this.randomizer = randomizer;
     }
 
-    public boolean isCarriesShield() {
+    public boolean isCarryingShield() {
         return carriesShield;
     }
 
@@ -141,7 +141,7 @@ public class Poppy extends Starter {
     @Override
     public double adjustAttackDamageRegardingResistance(double attackDamage) {
         attackDamage = attackDamage - attackDamage * shieldProtection / 100 * 3 / 2;
-        if (isCarriesShield()) {
+        if (isCarryingShield()) {
             if (attackDamage <= shieldProtection) {
                 return 0; //Shield blocks all enemy's damage
             } else {

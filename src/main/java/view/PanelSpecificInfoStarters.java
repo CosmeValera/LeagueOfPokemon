@@ -291,7 +291,6 @@ public class PanelSpecificInfoStarters extends JPanel {
     private void butReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butReturnActionPerformed
         this.setVisible(false);
         this.getRootPane().getContentPane().remove(this);
-        panelCaller = Globals.panelCaller;
         if (IPanelCaller != null) {         //Return to panelInfo
             IPanelCaller.makeVisible(true);
         }

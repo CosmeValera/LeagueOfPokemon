@@ -1,53 +1,38 @@
 package model.enemies;
 
-import model.Globals;
-
 public class HitMonLee extends Enemy {
 
     private double magicResistance = MagicResistance.SLIGHTLY_WEAK;
 
-    public static void defineHitMonLee() {
-        Globals.enemy = getDefinedHitMonLee();
-    }
-
-    private static HitMonLee getDefinedHitMonLee() {
-        HitMonLee hitMonLee;
+    public static HitMonLee createRandomHitMonLee() {
+        HitMonLee hitMonLee = new HitMonLee();
         int num = (int) (Math.random() * 5 + 1);
+        System.out.println("hitMonLee " + num);
         switch (num) {
             case 1:
-                hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(11);
                 hitMonLee.setHealth(122);
                 hitMonLee.setReward(195);
-                System.out.println("hitMonLee 1");
                 break;
             case 2:
-                hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(14);
                 hitMonLee.setHealth(105);
                 hitMonLee.setReward(245);
-                System.out.println("hitMonLee 2");
                 break;
             case 3:
-                hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(12);
                 hitMonLee.setHealth(170);
                 hitMonLee.setReward(270);
-                System.out.println("hitMonLee 3");
                 break;
             case 4:
-                hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(14);
                 hitMonLee.setHealth(190);
                 hitMonLee.setReward(305);
-                System.out.println("hitMonLee 4");
                 break;
             default:
-                hitMonLee = new HitMonLee();
                 hitMonLee.setAttackDamage(13);
                 hitMonLee.setHealth(215);
                 hitMonLee.setReward(325);
-                System.out.println("hitMonLee 5");
                 break;
         }
         return hitMonLee;
@@ -83,7 +68,6 @@ public class HitMonLee extends Enemy {
     public boolean isPoorSightResistant() {
         return false;
     }
-
 
     @Override
     public boolean isPoisonResistant() {

@@ -1,27 +1,15 @@
 package model.enemies;
 
-import model.Globals;
-
 public class Arceus extends Enemy {
 
     private double magicResistance = MagicResistance.WEAK;
 
-    public static void defineArceus() {
-        Globals.enemy = getDefinedArceus();
-    }
-
-    private static Arceus getDefinedArceus() {
-        Arceus arceus;
-        int num = (int) (Math.random() * 5 + 1);
-        switch (num) {
-            default:
-                arceus = new Arceus();
-                arceus.setAttackDamage(50);
-                arceus.setHealth(1200);
-                arceus.setReward(5000);
-                System.out.println("arceus 1");
-                break;
-        }
+    public static Arceus createArceus() {
+        Arceus arceus = new Arceus();
+        arceus.setAttackDamage(50);
+        arceus.setHealth(1200);
+        arceus.setReward(5000);
+        System.out.println("arceus 1");
         return arceus;
     }
 

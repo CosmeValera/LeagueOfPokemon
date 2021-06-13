@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 
 public class YuumiTest {
-    Yuumi yuumi;
-    Enemy enemy;
+    private Yuumi yuumi;
+    private Enemy enemy;
 
     @BeforeEach
     public void setUp() {

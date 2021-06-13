@@ -1,6 +1,5 @@
 package model;
 
-import model.enemies.Enemy;
 import model.starters.Starter;
 import model.starters.Gnar;
 import model.starters.Poppy;
@@ -26,8 +25,6 @@ public class Globals{
     public static String letterMainAttackStarter2;
     public static String letterSecondaryAttackStarter2;
 
-    public static Enemy enemy;
-    
     public static JPanel panelCaller;
     
     public static String globalFile;

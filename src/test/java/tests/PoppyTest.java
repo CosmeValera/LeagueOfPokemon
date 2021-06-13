@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 
 public class PoppyTest {
-    Poppy poppy;
-    Enemy enemy;
+    private Poppy poppy;
+    private Enemy enemy;
 
     @BeforeEach
     public void setUp() {

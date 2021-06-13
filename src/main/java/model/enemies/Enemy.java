@@ -30,8 +30,9 @@ public abstract class Enemy extends Character {
         return reward;
     }
 
-    public void setReward(double reward) {
+    public Enemy setReward(double reward) {
         this.reward = reward;
+        return this;
     }
 
     public abstract boolean isAbleToDestroyItself();

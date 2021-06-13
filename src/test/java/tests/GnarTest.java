@@ -2,18 +2,13 @@ package tests;
 
 import model.enemies.Enemy;
 import model.starters.Gnar;
-import model.starters.Starter;
-import model.starters.Teemo;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GnarTest {
-    Gnar gnar;
-    Enemy enemy;
+    private Gnar gnar;
+    private Enemy enemy;
 
     @BeforeEach
     public void setUp() {

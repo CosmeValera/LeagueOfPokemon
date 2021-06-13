@@ -1,5 +1,8 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.starters.Teemo;
 import model.starters.Poppy;
 import model.starters.Gnar;
@@ -13,6 +16,8 @@ import model.enemies.Arceus;
 import model.Globals;
 import model.MathRandomizer;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
+import model.enemies.Enemy;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -203,28 +208,43 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuCombate_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCombate_ActionPerformed
-        this.getContentPane().removeAll();
-
-        if (evt.getSource() == menuFight_pikachu) {
-            Pikachu.definePikachu();
-        } else if (evt.getSource() == menuFight_electrode) {
-            Electrode.defineElectrode();
-        } else if (evt.getSource() == menuFight_hitMonLee) {
-            HitMonLee.defineHitMonLee();
-        } else if (evt.getSource() == menuFight_gyarados) {
-            Gyarados.defineGyarados();
-        } else if (evt.getSource() == menuFight_rayquaza) {
-            Rayquaza.defineRayquaza();
-        } else if (evt.getSource() == menuFight_arceus) {
-            Arceus.defineArceus();
+        try {
+            this.getContentPane().removeAll();
+            PanelEnemyFight panelCE = new PanelEnemyFight();
+            panelCE.setSize(800, 560);
+            panelCE.setVisible(false);
+            this.add(panelCE);
+            panelCE.showPanel(this, createEnemy(evt));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "The chosen enemy doesn't exist\n" + e.getMessage(),
+                    this.getName(),
+                    JOptionPane.ERROR_MESSAGE);
         }
-
-        PanelEnemyFight panelCE = new PanelEnemyFight();
-        panelCE.setSize(800, 560);
-        panelCE.setVisible(false);
-        this.add(panelCE);
-        panelCE.showPanel(this);
     }//GEN-LAST:event_menuCombate_ActionPerformed
+
+    private Enemy createEnemy(ActionEvent evt) throws Exception {
+        if (evt.getSource() == menuFight_pikachu) {
+            return Pikachu.createRandomPikachu();
+        }
+        if (evt.getSource() == menuFight_electrode) {
+            return Electrode.createRandomElectrode();
+        }
+        if (evt.getSource() == menuFight_hitMonLee) {
+            return HitMonLee.createRandomHitMonLee();
+        }
+        if (evt.getSource() == menuFight_gyarados) {
+            return Gyarados.createRandomGyarados();
+        }
+        if (evt.getSource() == menuFight_rayquaza) {
+            return Rayquaza.createRandomRayquaza();
+        }
+        if (evt.getSource() == menuFight_arceus) {
+            return Arceus.createArceus();
+        }
+        throw new Exception("No enemy prepared for this situation!!");
+    }
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         hideAdvancedMenuItems();
@@ -247,7 +267,7 @@ public class GUI extends javax.swing.JFrame {
         Globals.letterMainAttackStarter = "A";
         Globals.letterSecondaryAttackStarter = "S";
         Globals.letterEscape = "H";
-        
+
         Globals.teemo2 = new Teemo(new MathRandomizer());
         Globals.gnar2 = new Gnar(new MathRandomizer());
         Globals.poppy2 = new Poppy(new MathRandomizer());
@@ -286,7 +306,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void menuCuenta_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCuenta_ActionPerformed
         this.getContentPane().removeAll();
-        
+
         if (evt.getSource() == menuProfile_profile) {
             PanelSaveChargeFiles panelGCP = new PanelSaveChargeFiles();
             panelGCP.setSize(800, 560);
@@ -304,7 +324,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void menuPVP_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPVP_ActionPerformed
         this.getContentPane().removeAll();
-        
+
         PanelPVPSelection panelCSP = new PanelPVPSelection();
         panelCSP.setSize(800, 560);
         panelCSP.setVisible(false);

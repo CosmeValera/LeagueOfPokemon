@@ -30,55 +30,55 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labCabecera" alignment="0" max="32767" attributes="0"/>
+                  <Component id="labTitle" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="butStarter1AtaquePrincipal" min="-2" max="-2" attributes="0"/>
+                              <Component id="butStarter1MainAttack" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="butStarter1AtaqueSecundario" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="29" max="32767" attributes="0"/>
-                              <Component id="butStarter2AtaquePrincipal" min="-2" max="-2" attributes="0"/>
+                              <Component id="butStarter1SecondaryAttack" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="108" max="32767" attributes="0"/>
+                              <Component id="butStarter2MainAttack" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="butStarter2AtaqueSecundario" min="-2" max="-2" attributes="0"/>
+                              <Component id="butStarter2SecondaryAttack" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="labFijoDano1" max="32767" attributes="0"/>
-                                  <Component id="labFijoValorVariable1" pref="150" max="32767" attributes="0"/>
+                                  <Component id="labFixedAD1" max="32767" attributes="0"/>
+                                  <Component id="labFixedVariableValue1" pref="150" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labCantidadValorVariable1" min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Component id="labCantidadDano1" min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="labVariableValueAmount1" min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="labADAmount1" min="-2" pref="29" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="labFijoDano2" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labFixedAD2" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="labCantidadDano2" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="labADAmount2" min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="labFijoValorVariable2" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labFixedVariableValue2" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="labCantidadValorVariable2" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="labVariableValueAmount2" min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="labFijoCegado2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="labFijoConfundido2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="labFixedBlinded2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="labFixedConfused2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labEsConfundido2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labEsCegado2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labIsConfused2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labIsBlinded2" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="labFijoEnvenenado2" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labFixedPoisoned2" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="labEsEnvenenado2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labIsPoisoned2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -94,19 +94,19 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="labFijoCegado1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labFijoConfundido1" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="labFixedBlinded1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labFixedConfused1" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labEsConfundido1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labEsCegado1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labIsConfused1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labIsBlinded1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labFijoEnvenenado1" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="labFixedPoisoned1" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="labEsEnvenenado1" min="-2" max="-2" attributes="0"/>
+                              <Component id="labIsPoisoned1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -123,9 +123,9 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
-              <Component id="labVidaStarter1" min="-2" max="-2" attributes="0"/>
+              <Component id="labHealthStarter1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="labVidaStarter2" min="-2" max="-2" attributes="0"/>
+              <Component id="labHealthStarter2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -134,61 +134,61 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="labCabecera" min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="labTitle" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="labFijoDano1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labCantidadDano1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labFixedAD1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labADAmount1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labCantidadDano2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labFijoDano2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labADAmount2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labFixedAD2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="labFijoValorVariable1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labCantidadValorVariable1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labFixedVariableValue1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labVariableValueAmount1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="labCantidadValorVariable2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labFijoValorVariable2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labVariableValueAmount2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labFixedVariableValue2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labFijoEnvenenado1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labEsEnvenenado1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedPoisoned1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labIsPoisoned1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labFijoConfundido1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labEsConfundido1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedConfused1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labIsConfused1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labFijoCegado1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labEsCegado1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedBlinded1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labIsBlinded1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labFijoEnvenenado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labEsEnvenenado2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedPoisoned2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labIsPoisoned2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labFijoConfundido2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labEsConfundido2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedConfused2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labIsConfused2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labFijoCegado2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labEsCegado2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labFixedBlinded2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labIsBlinded2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -204,15 +204,15 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labVidaStarter1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labVidaStarter2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labHealthStarter1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labHealthStarter2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="butStarter1AtaquePrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butStarter1AtaqueSecundario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butStarter2AtaqueSecundario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="butStarter2AtaquePrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butStarter1MainAttack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butStarter1SecondaryAttack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butStarter2SecondaryAttack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="butStarter2MainAttack" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -220,7 +220,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labCabecera">
+    <Component class="javax.swing.JLabel" name="labTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
@@ -229,31 +229,15 @@
         <Property name="text" type="java.lang.String" value="COMBATE PVP"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoDano1">
+    <Component class="javax.swing.JLabel" name="labFixedAD1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Da&#xf1;o:"/>
+        <Property name="text" type="java.lang.String" value="Attack Damage:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadDano1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="10"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labFijoValorVariable1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Da&#xf1;o Veneno:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadValorVariable1">
+    <Component class="javax.swing.JLabel" name="labADAmount1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -261,45 +245,15 @@
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoEnvenenado1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Envenenado:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labEsEnvenenado1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="No"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labFijoConfundido1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Confundido:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labEsConfundido1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="No"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labFijoCegado1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cegado:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labEsCegado1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="No"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labFijoDano2">
+    <Component class="javax.swing.JLabel" name="labFixedVariableValue1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Da&#xf1;o:"/>
+        <Property name="text" type="java.lang.String" value="Poison Damage:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadDano2">
+    <Component class="javax.swing.JLabel" name="labVariableValueAmount1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -307,15 +261,45 @@
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoValorVariable2">
+    <Component class="javax.swing.JLabel" name="labFixedPoisoned1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Poisoned:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labIsPoisoned1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="No"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labFixedConfused1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Confused:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labIsConfused1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="No"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labFixedBlinded1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Blinded:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labIsBlinded1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="No"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labFixedAD2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Da&#xf1;o Veneno:"/>
+        <Property name="text" type="java.lang.String" value="Attack Damage:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labCantidadValorVariable2">
+    <Component class="javax.swing.JLabel" name="labADAmount2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -323,32 +307,48 @@
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoEnvenenado2">
+    <Component class="javax.swing.JLabel" name="labFixedVariableValue2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Envenenado:"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Poison Damage:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labEsEnvenenado2">
+    <Component class="javax.swing.JLabel" name="labVariableValueAmount2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labFixedPoisoned2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Poisoned:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labIsPoisoned2">
       <Properties>
         <Property name="text" type="java.lang.String" value="No"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoConfundido2">
+    <Component class="javax.swing.JLabel" name="labFixedConfused2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Confundido:"/>
+        <Property name="text" type="java.lang.String" value="Confused:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labEsConfundido2">
+    <Component class="javax.swing.JLabel" name="labIsConfused2">
       <Properties>
         <Property name="text" type="java.lang.String" value="No"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labFijoCegado2">
+    <Component class="javax.swing.JLabel" name="labFixedBlinded2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cegado:"/>
+        <Property name="text" type="java.lang.String" value="Blinded:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labEsCegado2">
+    <Component class="javax.swing.JLabel" name="labIsBlinded2">
       <Properties>
         <Property name="text" type="java.lang.String" value="No"/>
       </Properties>
@@ -360,7 +360,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labVidaStarter1">
+    <Component class="javax.swing.JLabel" name="labHealthStarter1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="40" style="0"/>
@@ -387,7 +387,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labVidaStarter2">
+    <Component class="javax.swing.JLabel" name="labHealthStarter2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="40" style="0"/>
@@ -395,48 +395,48 @@
         <Property name="text" type="java.lang.String" value="100"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="butStarter1AtaquePrincipal">
+    <Component class="javax.swing.JButton" name="butStarter1MainAttack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ara&#xf1;azo"/>
+        <Property name="text" type="java.lang.String" value="Scratch"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="but_ActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="but_KeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butStarter1AtaqueSecundario">
+    <Component class="javax.swing.JButton" name="butStarter1SecondaryAttack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Dardo Venenoso"/>
+        <Property name="text" type="java.lang.String" value="Poisonous Dart"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="but_ActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="but_KeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butStarter2AtaquePrincipal">
+    <Component class="javax.swing.JButton" name="butStarter2MainAttack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Placaje con escudo"/>
+        <Property name="text" type="java.lang.String" value="Tackle With Shield"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="but_ActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="but_KeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="butStarter2AtaqueSecundario">
+    <Component class="javax.swing.JButton" name="butStarter2SecondaryAttack">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Martillazo"/>
+        <Property name="text" type="java.lang.String" value="Strike"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="but_ActionPerformed"/>

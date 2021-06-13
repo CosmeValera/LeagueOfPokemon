@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 public class PanelEnemyFight extends javax.swing.JPanel {
 
     private Starter starter;
-    private Enemy enemigo;
+    private Enemy enemy;
 
     private GUI GUICallBack;
 
@@ -29,9 +29,9 @@ public class PanelEnemyFight extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void showPanel(GUI gui) {
+    public void showPanel(GUI gui, Enemy enemy) {
         this.starter = Globals.starter;
-        this.enemigo = Globals.enemy;
+        this.enemy = enemy;
         this.GUICallBack = gui;
 
         labStarterHealth.setText(String.valueOf((int) starter.getHealth()));
@@ -55,7 +55,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
 
         } else if (starter instanceof Poppy poppy) {
             labFixedVariableValue.setText("Shield:");
-            labVariableValueAmount.setText((poppy.isCarriesShield()) ? "Yes" : "No");
+            labVariableValueAmount.setText((poppy.isCarryingShield()) ? "Yes" : "No");
             labFixedEnemyEffect.setText("Confused:");
             labEnemyEffect.setText("No");
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/Poppy.png")));
@@ -68,19 +68,19 @@ public class PanelEnemyFight extends javax.swing.JPanel {
             labStarter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/starters/yuumi.png")));
         }
 
-        labEnemyHealth.setText(String.valueOf((int) enemigo.getHealth()));
-        labTitle.setText("FIGHT VS " + enemigo.getName().toUpperCase());
-        if (enemigo instanceof Pikachu pikachu) {
+        labEnemyHealth.setText(String.valueOf((int) enemy.getHealth()));
+        labTitle.setText("FIGHT VS " + enemy.getName().toUpperCase());
+        if (enemy instanceof Pikachu pikachu) {
             labEnemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemies/pikachu.png")));
-        } else if (enemigo instanceof Electrode electrode) {
+        } else if (enemy instanceof Electrode electrode) {
             labEnemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemies/electrode.png")));
-        } else if (enemigo instanceof HitMonLee hitMonLee) {
+        } else if (enemy instanceof HitMonLee hitMonLee) {
             labEnemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemies/Hitmonlee.png")));
-        } else if (enemigo instanceof Gyarados gyarados) {
+        } else if (enemy instanceof Gyarados gyarados) {
             labEnemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemies/Gyarados.png")));
-        } else if (enemigo instanceof Rayquaza rayquaza) {
+        } else if (enemy instanceof Rayquaza rayquaza) {
             labEnemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemies/Rayquaza.png")));
-        } else if (enemigo instanceof Arceus arceus) {
+        } else if (enemy instanceof Arceus arceus) {
             labEnemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/enemies/arceus.png")));
         }
 
@@ -310,14 +310,14 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }//GEN-LAST:event_butEscapeActionPerformed
 
     private void butMainAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butMainAttackActionPerformed
-        starter.mainAttack(enemigo);
+        starter.mainAttack(enemy);
         if (starter.isAbleToStrikeTwice()) {
             JOptionPane.showMessageDialog(
                     this,
                     starter.getNameOfMainAttack() + " striked twice",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            starter.mainAttack(enemigo);
+            starter.mainAttack(enemy);
         }
         if (starter.isAbleToEquipAShield()) {
             ((Poppy) starter).setCarriesShield(true);
@@ -330,8 +330,8 @@ public class PanelEnemyFight extends javax.swing.JPanel {
                     JOptionPane.INFORMATION_MESSAGE);
         }
 
-        labEnemyHealth.setText(String.valueOf((int) enemigo.getHealth()));
-        enemysTurn();
+        labEnemyHealth.setText(String.valueOf((int) enemy.getHealth()));
+        turnOfEnemy();
     }//GEN-LAST:event_butMainAttackActionPerformed
 
     private void butSecondaryAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butSecondaryAttackActionPerformed
@@ -342,29 +342,29 @@ public class PanelEnemyFight extends javax.swing.JPanel {
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
-            starter.secondaryAttack(enemigo);
+            starter.secondaryAttack(enemy);
             if (starter instanceof Gnar gnar && gnar.isMonstruo()) {
                 JOptionPane.showMessageDialog(
                         this,
-                        starter.getName() + " striked with the rock" + enemigo.getName() + ".\n"
-                        + (enemigo.isBlindedResistant() ? "" : enemigo.getName() + " was stunned."),
+                        starter.getName() + " striked with the rock" + enemy.getName() + ".\n"
+                        + (enemy.isBlindedResistant() ? "" : enemy.getName() + " was stunned."),
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
-                enemigo.setBlindedIfPossible(true);
+                enemy.setBlindedIfPossible(true);
             }
         }
 
-        if (starter.isAbleToDodge() && !enemigo.isBlindedResistant()) {
+        if (starter.isAbleToDodge() && !enemy.isBlindedResistant()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getName() + " dodged " + enemigo.getName() + "'s attack with a jump",
+                    starter.getName() + " dodged " + enemy.getName() + "'s attack with a jump",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setBlindedIfPossible(true);
+            enemy.setBlindedIfPossible(true);
         }
 
-        labEnemyHealth.setText(String.valueOf((int) enemigo.getHealth()));
-        enemysTurn();
+        labEnemyHealth.setText(String.valueOf((int) enemy.getHealth()));
+        turnOfEnemy();
     }//GEN-LAST:event_butSecondaryAttackActionPerformed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -383,7 +383,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
         formKeyPressed(evt); //teclado funciona aunque tengas foco en un boton
     }//GEN-LAST:event_but_KeyPressed
 
-    private void enemysTurn() {
+    private void turnOfEnemy() {
         labStarterHealth.setText(String.valueOf((int) starter.getHealth()));
 
         if (isEnemyDead()) {
@@ -413,11 +413,11 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private boolean isEnemyDead() {
-        if (enemigo.getHealth() <= 0) {
-            starter.setGoldAmount(starter.getGoldAmount() + (int) enemigo.getReward());
+        if (enemy.getHealth() <= 0) {
+            starter.setGoldAmount(starter.getGoldAmount() + (int) enemy.getReward());
             removeStartersTemporalBuffs();
             JOptionPane.showMessageDialog(this,
-                    "Has vencido a " + enemigo.getName() + " y obtuviste: " + enemigo.getReward(),
+                    "Has vencido a " + enemy.getName() + " y obtuviste: " + enemy.getReward(),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
@@ -481,7 +481,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private void showMessageGameFinished() {
-        if (enemigo instanceof Arceus) {
+        if (enemy instanceof Arceus) {
             JOptionPane.showMessageDialog(GUICallBack,
                     "Congratulations! I hope you enjoyed playing this game.\n"
                     + "\n"
@@ -489,22 +489,22 @@ public class PanelEnemyFight extends javax.swing.JPanel {
                     + "GitHub: https://github.com/CosmeValera",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE,
-                    new javax.swing.ImageIcon(getClass().getResource("/icons/enemigosCombate/huggingFace.png")));
+                    new javax.swing.ImageIcon(getClass().getResource("/icons/enemies/huggingFace.png")));
         }
     }
 
     private boolean enemysTurnBlindedAndPoisoned() {
-        if (enemigo.isPoisoned() && enemigo.isBlinded()) {
+        if (enemy.isPoisoned() && enemy.isBlinded()) {
             labEnemyEffect.setText("Yes");
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getName() + " was "
-                    + ((enemigo.getPoisonedTurns() == 3)
+                    enemy.getName() + " was "
+                    + ((enemy.getPoisonedTurns() == 3)
                     ? "poisoned and " : "") + "blinded",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             passivePoisonDamage();
-            enemigo.setBlindedIfPossible(false);
+            enemy.setBlindedIfPossible(false);
             isEnemyDead();
             megaGnarDurationReduced();
             removePoppyShield();
@@ -514,17 +514,17 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private boolean enemysTurnPoorSightAndPoisoned() {
-        if (enemigo.isPoisoned() && enemigo.isPoorSight()) {
+        if (enemy.isPoisoned() && enemy.isPoorSight()) {
             labEnemyEffect.setText("Yes");
             passivePoisonDamage();
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getName()
-                    + ((enemigo.getPoisonedTurns() == 2) ? " was poisoned and " : "") + " cant' see "
+                    enemy.getName()
+                    + ((enemy.getPoisonedTurns() == 2) ? " was poisoned and " : "") + " cant' see "
                     + starter.getName() + ", since " + starter.getName() + " camouflaged",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setPoorSightIfPossible(false);
+            enemy.setPoorSightIfPossible(false);
             isEnemyDead();
             megaGnarDurationReduced();
             removePoppyShield();
@@ -534,17 +534,17 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private boolean enemysTurnBlinded() {
-        if (enemigo.isBlinded()) {
+        if (enemy.isBlinded()) {
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getName() + ((starter instanceof Teemo || starter instanceof Yuumi)
+                    enemy.getName() + ((starter instanceof Teemo || starter instanceof Yuumi)
                     ? " was blinded and didn't attack."
                     : ((starter instanceof Gnar)
                             ? " was stunned and didn't attack."
                             : "")),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setBlindedIfPossible(false);
+            enemy.setBlindedIfPossible(false);
             megaGnarDurationReduced();
             removePoppyShield();
             return true;
@@ -553,13 +553,13 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private boolean enemysTurnPoorSight() {
-        if (enemigo.isPoorSight()) {
+        if (enemy.isPoorSight()) {
             JOptionPane.showMessageDialog(
                     this,
-                    starter.getName() + " was camouflaged, and thus " + enemigo.getName() + " couldn't find " + starter.getName(),
+                    starter.getName() + " was camouflaged, and thus " + enemy.getName() + " couldn't find " + starter.getName(),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setPoorSightIfPossible(false);
+            enemy.setPoorSightIfPossible(false);
             megaGnarDurationReduced();
             removePoppyShield();
             return true;
@@ -568,19 +568,19 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private boolean enemysTurnConfused() {
-        if (enemigo.isConfused()) {
+        if (enemy.isConfused()) {
             labEnemyEffect.setText("Yes");
             double damage = changeSlightlyEnemysDamage();
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getName() + " is confused and inflicted himself: " + ((int) damage + 1) + " damage.",
+                    enemy.getName() + " is confused and inflicted himself: " + ((int) damage + 1) + " damage.",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setHealth(enemigo.getHealth() - damage);
-            labEnemyHealth.setText(String.valueOf((int) enemigo.getHealth()));
+            enemy.setHealth(enemy.getHealth() - damage);
+            labEnemyHealth.setText(String.valueOf((int) enemy.getHealth()));
             megaGnarDurationReduced();
             removePoppyShield();
-            enemigo.setConfusedIfPossible(false);
+            enemy.setConfusedIfPossible(false);
             labEnemyEffect.setText("No");
             isEnemyDead();
             return true;
@@ -589,13 +589,13 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private boolean enemysTurnPoisoned() {
-        if (enemigo.isPoisoned()) {
+        if (enemy.isPoisoned()) {
             labEnemyEffect.setText("Yes");
             passivePoisonDamage();
-            if (enemigo.getPoisonedTurns() == 2) {
+            if (enemy.getPoisonedTurns() == 2) {
                 JOptionPane.showMessageDialog(
                         this,
-                        enemigo.getName() + " was poisoned",
+                        enemy.getName() + " was poisoned",
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
             }
@@ -609,12 +609,12 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private void passivePoisonDamage() {
-        if (enemigo.isPoisoned()) {
-            enemigo.setHealth(enemigo.getHealth() - ((Teemo) starter).getPoisonDamage());
-            labEnemyHealth.setText(String.valueOf((int) enemigo.getHealth()));
-            enemigo.setPoisonedTurns(enemigo.getPoisonedTurns() - 1);
-            if (enemigo.getPoisonedTurns() <= 0) {
-                enemigo.setPoisonedIfPossible(false);
+        if (enemy.isPoisoned()) {
+            enemy.setHealth(enemy.getHealth() - ((Teemo) starter).getPoisonDamage());
+            labEnemyHealth.setText(String.valueOf((int) enemy.getHealth()));
+            enemy.setPoisonedTurns(enemy.getPoisonedTurns() - 1);
+            if (enemy.getPoisonedTurns() <= 0) {
+                enemy.setPoisonedIfPossible(false);
                 labEnemyEffect.setText("No");
             }
         }
@@ -638,29 +638,29 @@ public class PanelEnemyFight extends javax.swing.JPanel {
         int num = (int) (Math.random() * 5 + 1);
         switch (num) {
             case 1:
-                return enemigo.getAttackDamage() * .7;
+                return enemy.getAttackDamage() * .7;
             case 2:
-                return enemigo.getAttackDamage() * .85;
+                return enemy.getAttackDamage() * .85;
             case 3:
-                return enemigo.getAttackDamage() * 1.15;
+                return enemy.getAttackDamage() * 1.15;
             case 4:
-                return enemigo.getAttackDamage() * 1.3;
+                return enemy.getAttackDamage() * 1.3;
             default:
-                return enemigo.getAttackDamage();
+                return enemy.getAttackDamage();
         }
     }
 
     private boolean enemyDestroysItself(double damage) throws HeadlessException {
-        if (enemigo.isAbleToDestroyItself()) {
+        if (enemy.isAbleToDestroyItself()) {
             damage = starter.adjustAttackDamageRegardingResistance(damage) * 2.5;
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getName() + " destroyed itself. And the explosion inflicted "
+                    enemy.getName() + " destroyed itself. And the explosion inflicted "
                     + ((double) (int) (damage * 100)) / 100 + " of damage to " + starter.getName(),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
-            enemigo.setHealth(0);
-            labEnemyHealth.setText(String.valueOf((int) enemigo.getHealth()));
+            enemy.setHealth(0);
+            labEnemyHealth.setText(String.valueOf((int) enemy.getHealth()));
             starter.setHealth(starter.getHealth() - damage);
             labStarterHealth.setText(String.valueOf((int) starter.getHealth()));
             isEnemyDead();
@@ -671,10 +671,10 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private double enemyStrikesTwice(double damage) throws HeadlessException {
-        if (enemigo.isAbleToStrikeTwice()) {
+        if (enemy.isAbleToStrikeTwice()) {
             JOptionPane.showMessageDialog(
                     this,
-                    enemigo.getName() + " striked twice",
+                    enemy.getName() + " striked twice",
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             damage = damage * 2;
@@ -686,7 +686,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
         damage = starter.adjustAttackDamageRegardingResistance(damage);
         JOptionPane.showMessageDialog(
                 this,
-                enemigo.getName() + " inflicted: " + (int) (damage + 0.9) + " damage.",
+                enemy.getName() + " inflicted: " + (int) (damage + 0.9) + " damage.",
                 this.getName(),
                 JOptionPane.INFORMATION_MESSAGE);
         starter.setHealth(starter.getHealth() - damage);
@@ -746,7 +746,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }
 
     private void removePoppyShield() {
-        if (starter instanceof Poppy poppy && poppy.isCarriesShield()) {
+        if (starter instanceof Poppy poppy && poppy.isCarryingShield()) {
             poppy.setCarriesShield(false);
             labVariableValueAmount.setText("No");
         }
