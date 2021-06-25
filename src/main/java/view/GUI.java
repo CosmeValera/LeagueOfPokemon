@@ -308,7 +308,7 @@ public class GUI extends javax.swing.JFrame {
         this.getContentPane().removeAll();
 
         if (evt.getSource() == menuProfile_profile) {
-            PanelSaveChargeFiles panelGCP = new PanelSaveChargeFiles();
+            PanelSaveAndChargeFiles panelGCP = new PanelSaveAndChargeFiles();
             panelGCP.setSize(800, 560);
             panelGCP.setVisible(false);
             this.add(panelGCP);

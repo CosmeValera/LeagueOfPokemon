@@ -380,7 +380,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     }//GEN-LAST:event_formKeyPressed
 
     private void but_KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_but_KeyPressed
-        formKeyPressed(evt); //teclado funciona aunque tengas foco en un boton
+        formKeyPressed(evt); //keyboard works even if focus in a button
     }//GEN-LAST:event_but_KeyPressed
 
     private void turnOfEnemy() {
@@ -417,7 +417,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
             starter.setGoldAmount(starter.getGoldAmount() + (int) enemy.getReward());
             removeStartersTemporalBuffs();
             JOptionPane.showMessageDialog(this,
-                    "Has vencido a " + enemy.getName() + " y obtuviste: " + enemy.getReward(),
+                    "Your " + Globals.starter.getName() +  " defeated " + enemy.getName() + " and you obtained: " + enemy.getReward(),
                     this.getName(),
                     JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
@@ -472,7 +472,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
     private void showRewardMessage() {
         GUICallBack.clickEspecialSelectionPanel();
         JOptionPane.showMessageDialog(GUICallBack,
-                "You unlocked a new starter. Congratulations!!"
+                "You unlocked a new starter of your choice. Congratulations!!"
                 + (Starter.getDefeatedEnemies() == Starter.getVictoriesForThirdReward()
                 ? "\nIn addition, now you may fight vs Arceus." : "")
                 + "\nDefeated enemies: " + Starter.getDefeatedEnemies(),

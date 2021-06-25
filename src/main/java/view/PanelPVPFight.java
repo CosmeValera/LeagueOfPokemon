@@ -615,13 +615,13 @@ public class PanelPVPFight extends javax.swing.JPanel {
         }
     }
 
-    private void teemoUseBlowPipe(Starter starterEnemy, Starter starter) throws HeadlessException {
-        if (!starterEnemy.isConfusionResistant() && !starter.isBlinded() && !starter.isPoorSight()
+    private void teemoUseBlowPipe(Starter starter, Starter starterEnemy) throws HeadlessException {
+        if (!starter.isBlinded() && !starter.isPoorSight()
                 && !starter.isConfused() && starter.isAbleToUseBlowPipe(starterEnemy)) {
             if (starterEnemy.isWillBeBlinded() && starterEnemy.isWillBePoisoned()) {
                 JOptionPane.showMessageDialog(
                         this,
-                        starterEnemy.getName() + " will be confused and blinded",
+                        starterEnemy.getName() + " will be poisoned and blinded",
                         this.getName(),
                         JOptionPane.INFORMATION_MESSAGE);
             } else if (starterEnemy.isWillBeBlinded()) {

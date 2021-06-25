@@ -9,11 +9,11 @@ import model.Files4Saving;
 import model.Globals;
 import model.starters.Starter;
 
-public class PanelSaveChargeFiles extends javax.swing.JPanel {
+public class PanelSaveAndChargeFiles extends javax.swing.JPanel {
 
     public static GUI GUICallBack;
 
-    public PanelSaveChargeFiles() {
+    public PanelSaveAndChargeFiles() {
         initComponents();
     }
 
@@ -144,7 +144,7 @@ public class PanelSaveChargeFiles extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(
                     this,
-                    "Choose a file to charger!!",
+                    "Choose a file to charge!!",
                     this.getName(),
                     JOptionPane.ERROR_MESSAGE);
         }
@@ -179,7 +179,7 @@ public class PanelSaveChargeFiles extends javax.swing.JPanel {
             filename = (String) tableFiles.getValueAt(tableFiles.getSelectedRow(), tableFiles.getSelectedColumn());
             int answer = JOptionPane.showConfirmDialog(
                     this,
-                    "Vas a sobreescribir el fichero " + filename,
+                    "You are going to overwrite the information in " + filename + ". Are you sure?",
                     this.getName(),
                     JOptionPane.YES_NO_OPTION);
             if (answer == JOptionPane.YES_OPTION) {
