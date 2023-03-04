@@ -7,6 +7,7 @@ League of Pokemon is a fun and challenging turn-based game inspired by classic R
 ## Prerequisites
 
 - java 14 (or higher)
+- Apache Maven (3.6.3 or higher)
 
 ## Usage
 
@@ -31,3 +32,9 @@ java --enable-preview -cp src/main/java view.GUI
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+### Tests
+To compile and execute the tests of League of Pokemon you will have to execute the next command:
+```
+mvn test
+```
