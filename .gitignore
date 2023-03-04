@@ -4,3 +4,4 @@ out/
 target/
 nbproject
 LeagueOfPokemon.iml
+*.class
