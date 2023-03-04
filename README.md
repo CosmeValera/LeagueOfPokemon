@@ -34,7 +34,8 @@ java --enable-preview -cp src/main/java view.GUI
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ### Tests
-To compile and execute the tests of League of Pokemon you will have to execute the next command:
+To run the automated tests for League of Pokemon, use the following command:
 ```
 mvn test
 ```
+This command compiles and runs all the unit tests in the project using Apache Maven.
