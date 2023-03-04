@@ -55,7 +55,7 @@ public class PanelSettings extends javax.swing.JPanel {
         labMainAttack1.setText("Main Attack: A");
 
         butMainAttack1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butMainAttack1.setText("Cambiar");
+        butMainAttack1.setText("Change");
         butMainAttack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador1_ActionPerformed(evt);
@@ -66,7 +66,7 @@ public class PanelSettings extends javax.swing.JPanel {
         labSecondaryAttack1.setText("Secondary Attack: S");
 
         butSecondaryAttack1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butSecondaryAttack1.setText("Cambiar");
+        butSecondaryAttack1.setText("Change");
         butSecondaryAttack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador1_ActionPerformed(evt);
@@ -78,7 +78,7 @@ public class PanelSettings extends javax.swing.JPanel {
         labEscape.setText("Escape: H");
 
         butEscape.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butEscape.setText("Cambiar");
+        butEscape.setText("Change");
         butEscape.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador1_ActionPerformed(evt);
@@ -94,7 +94,7 @@ public class PanelSettings extends javax.swing.JPanel {
         labMainAttack2.setText("Main Attack: O");
 
         butMainAttack2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butMainAttack2.setText("Cambiar");
+        butMainAttack2.setText("Change");
         butMainAttack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador2_ActionPerformed(evt);
@@ -106,7 +106,7 @@ public class PanelSettings extends javax.swing.JPanel {
         labSecondaryAttack2.setText("Secondary Attack: P");
 
         butSecondaryAttack2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        butSecondaryAttack2.setText("Cambiar");
+        butSecondaryAttack2.setText("Change");
         butSecondaryAttack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butJugador2_ActionPerformed(evt);
