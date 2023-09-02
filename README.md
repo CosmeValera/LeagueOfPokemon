@@ -23,7 +23,7 @@ To get started with League of Pokemon, you'll need to first compile the source c
 ```
 javac --enable-preview -source <java version> -cp src/main/java src/main/java/view/GUI.java
 ```
-###### *Make sure to replace \<java version\> with the Java version installed on your machine. For instance, if you have Java version 17.0.7, you would substitute \<java version\> with 17.
+*Make sure to replace \<java version\> with the Java version installed on your machine. For instance, if you have Java version 17.0.7, you would substitute \<java version\> with 17.
 
 4. Once the code has been compiled successfully, you can execute it by entering the following command:
 ```
