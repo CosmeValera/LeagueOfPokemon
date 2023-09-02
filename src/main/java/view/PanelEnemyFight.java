@@ -122,7 +122,7 @@ public class PanelEnemyFight extends javax.swing.JPanel {
 
         labTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         labTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labTitle.setText("COMBATE VS PIKACHU");
+        labTitle.setText("FIGHT VS PIKACHU");
 
         labFixedGold.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labFixedGold.setText("Gold:");
