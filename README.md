@@ -1,5 +1,6 @@
 # League of Pokemon
 🐾 League of Pokemon is a fun and challenging turn-based game inspired by classic RPGs. Players choose from four possible starters and battle their way through various enemies, unlocking better equipment and other starters along the way. With a built-in PVP feature, you can even battle your friends' starters on the same computer.
+[![GitHub release](https://img.shields.io/github/v/release/CosmeValera/LeagueOfPokemon.svg)](https://github.com/CosmeValera/LeagueOfPokemon/releases)
 
 ![](images/AI4Crop.png)
 
