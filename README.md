@@ -19,15 +19,15 @@ To get started with League of Pokemon, you'll need to first compile the source c
 
 2. Open your terminal and navigate to the root directory of the project.
 
-3. Compile the source code by entering the following command*:
+3. Compile the source code by entering the following command:
 
-```
+```sh
+# Replace <java version> with your Java version (e.g., use 17 for Java 17.0.7)
 javac --enable-preview -source <java version> -cp src/main/java src/main/java/view/GUI.java
 ```
-*Make sure to replace \<java version\> with the Java version installed on your machine. For instance, if you have Java version 17.0.7, you would substitute \<java version\> with 17.
 
 4. Once the code has been compiled successfully, you can execute it by entering the following command:
-```
+```sh
 java --enable-preview -cp src/main/java view.GUI
 ```
 Now you are all set :), if everything went right you should be seeing this:
@@ -36,7 +36,7 @@ Now you are all set :), if everything went right you should be seeing this:
 
 ### 🧪 Tests
 To run the automated tests for League of Pokemon, use the following command:
-```
+```sh
 mvn test
 ```
 This command compiles and runs all the unit tests in the project using Apache Maven.
