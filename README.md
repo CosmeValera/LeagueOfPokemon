@@ -1,3 +1,5 @@
+
+
 # League of Pokemon
 🐾 League of Pokemon is a fun and challenging turn-based game inspired by classic RPGs. Players choose from four possible starters and battle their way through various enemies, unlocking better equipment and other starters along the way. With a built-in PVP feature, you can even battle your friends' starters on the same computer.
 [![GitHub release](https://img.shields.io/github/v/release/CosmeValera/LeagueOfPokemon.svg)](https://github.com/CosmeValera/LeagueOfPokemon/releases)
@@ -22,7 +24,7 @@ To get started with League of Pokemon, you'll need to first compile the source c
 3. Compile the source code by entering the following command:
 
 ```sh
-# Replace <java version> with your Java version (e.g., use 17 for Java 17.0.7)
+# Replace <java version> with the major version of your JDK (e.g., use 17 for Java 17.0.7)
 javac --enable-preview -source <java version> -cp src/main/java src/main/java/view/GUI.java
 ```
 
